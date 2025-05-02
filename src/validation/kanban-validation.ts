@@ -4,6 +4,7 @@ export class KanbanValidation {
 
     static readonly CREATE: ZodType = z.object({
         js_code: z.string().min(1).max(100),
+        lead_time: z.number().min(1).positive(),
         quantity: z.number().min(1).positive(),
         spare_part_id: z.number().min(1).positive(),
         supplier_id: z.number().min(1).positive(),
@@ -14,6 +15,7 @@ export class KanbanValidation {
 
     static readonly UPDATE: ZodType = z.object({
         js_code: z.string().min(1).max(100),
+        lead_time: z.number().min(1).positive(),
         quantity: z.number().min(1).positive(),
         spare_part_id: z.number().min(1).positive(),
         supplier_id: z.number().min(1).positive(),

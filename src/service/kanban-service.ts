@@ -151,7 +151,10 @@ export class KanbanService {
             },
             data: updateRequest,
             include: {
-                spare_part: true
+                spare_part: true,
+                supplier: true,
+                maker: true,
+                rack: true
             }
         });
 
@@ -195,7 +198,10 @@ export class KanbanService {
                 take: searchRequest.limit,
                 skip: skip,
                 include: {
-                    spare_part: true
+                    spare_part: true,
+                    supplier: true,
+                    maker: true,
+                    rack: true
                 }
             }),
             prismaClient.kanban.count({
@@ -227,7 +233,10 @@ export class KanbanService {
                 id: id
             },
             include: {
-                spare_part: true
+                spare_part: true,
+                supplier: true,
+                maker: true,
+                rack: true
             }
         });
 

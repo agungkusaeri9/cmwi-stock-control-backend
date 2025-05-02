@@ -27,7 +27,12 @@ export const errorMiddleware = async (error: Error, req: Request, res: Response,
         sendError(res, error.status, error.message, error.errorDetails);
     } else {
         logger.error(error);
-        sendError(res, 500, NODE_ENV === "production" ? "Internal server error" : error.message);
+        const formatted: Record<string, string[]> = {};
+        if (NODE_ENV === "development") {
+            formatted["error"] = [error.message];
+        }
+
+        sendError(res, 500, "Internal server error", formatted);
 
     }
 

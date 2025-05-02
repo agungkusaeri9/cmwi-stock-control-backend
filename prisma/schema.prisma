@@ -124,12 +124,12 @@ model Kanban {
 
   spare_part    SparePart? @relation(fields: [spare_part_id], references: [id], onDelete: SetNull)
   spare_part_id Int?
-  supplier      Supplier?  @relation(fields: [supplierId], references: [id], onDelete: SetNull)
-  supplierId    Int?
-  maker         Maker?     @relation(fields: [makerId], references: [id], onDelete: SetNull)
-  makerId       Int?
-  rack          Rack?      @relation(fields: [rackId], references: [id], onDelete: SetNull)
-  rackId        Int?
+  supplier      Supplier?  @relation(fields: [supplier_id], references: [id], onDelete: SetNull)
+  supplier_id   Int?
+  maker         Maker?     @relation(fields: [maker_id], references: [id], onDelete: SetNull)
+  maker_id      Int?
+  rack          Rack?      @relation(fields: [rack_id], references: [id], onDelete: SetNull)
+  rack_id       Int?
 
   created_at DateTime @default(now()) // otomatis terisi saat create
   updated_at DateTime @updatedAt
