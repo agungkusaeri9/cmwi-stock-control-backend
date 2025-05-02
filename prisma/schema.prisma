@@ -28,6 +28,7 @@ model SparePart {
   part_number      String       @unique @db.VarChar(100)
   minimum_quantity Int
   balance          Int
+  specification    String       @db.VarChar(100)
   Department       Department?  @relation(fields: [department_id], references: [id], onDelete: SetNull)
   department_id    Int?
   MachineArea      MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
@@ -83,6 +84,7 @@ model Rack {
   code        String      @unique @db.VarChar(100)
   name        String      @db.VarChar(100)
   spare_parts SparePart[]
+  kanbans     Kanban[]
 
   created_at DateTime @default(now()) // otomatis terisi saat create
   updated_at DateTime @updatedAt
@@ -115,19 +117,22 @@ model Maker {
 }
 
 model Kanban {
-  id            Int       @id @default(autoincrement())
-  code          String    @unique @db.VarChar(100)
-  name          String    @db.VarChar(100)
-  quantity      Int
-  spare_part    SparePart @relation(fields: [spare_part_id], references: [id])
-  spare_part_id Int
+  id        Int    @id @default(autoincrement())
+  js_code   String @unique @db.VarChar(100)
+  quantity  Int
+  lead_time Int
 
-  created_at DateTime  @default(now()) // otomatis terisi saat create
-  updated_at DateTime  @updatedAt
-  Supplier   Supplier? @relation(fields: [supplierId], references: [id])
-  supplierId Int?
-  Maker      Maker?    @relation(fields: [makerId], references: [id])
-  makerId    Int?
+  spare_part    SparePart? @relation(fields: [spare_part_id], references: [id], onDelete: SetNull)
+  spare_part_id Int?
+  supplier      Supplier?  @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+  supplierId    Int?
+  maker         Maker?     @relation(fields: [makerId], references: [id], onDelete: SetNull)
+  makerId       Int?
+  rack          Rack?      @relation(fields: [rackId], references: [id], onDelete: SetNull)
+  rackId        Int?
+
+  created_at DateTime @default(now()) // otomatis terisi saat create
+  updated_at DateTime @updatedAt
 
   @@map("kanbans")
 }

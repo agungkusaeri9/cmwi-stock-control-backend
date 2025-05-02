@@ -1,4 +1,4 @@
-import { Department, MachineArea, Rack, SparePart } from "@prisma/client";
+import { Department, MachineArea, Rack } from "@prisma/client";
 
 export type SparePartResponse = {
     id: number;
@@ -6,6 +6,7 @@ export type SparePartResponse = {
     part_number: string;
     minimum_quantity: number;
     balance: number;
+    specification: string;
     department: Department | null;
     machine_area: MachineArea | null;
     rack: Rack | null;
@@ -24,6 +25,7 @@ export type CreateSparePartRequest = {
     part_number: string;
     minimum_quantity: number;
     balance: number;
+    specification: string;
     department_id: number;
     machine_area_id: number;
     rack_id: number;
@@ -33,6 +35,7 @@ export type UpdateSparePartRequest = {
     name: string;
     part_number: string;
     minimum_quantity: number;
+    specification: string;
     department_id: number;
     machine_area_id: number;
     rack_id: number;
@@ -51,6 +54,7 @@ export function toSparePartResponse(sparePart: any): SparePartResponse {
         part_number: sparePart.part_number,
         minimum_quantity: sparePart.minimum_quantity,
         balance: sparePart.balance,
+        specification: sparePart.specification,
         department: sparePart.Department ?? null,
         machine_area: sparePart.MachineArea ?? null,
         rack: sparePart.Rack ?? null,
