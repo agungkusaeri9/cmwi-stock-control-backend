@@ -183,6 +183,11 @@ export class SparePartService {
             prismaClient.sparePart.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    Department: true,
+                    MachineArea: true,
+                    Rack: true,
+                },
             }),
             prismaClient.sparePart.count({
                 where: whereClause,

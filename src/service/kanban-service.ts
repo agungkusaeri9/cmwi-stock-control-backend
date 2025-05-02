@@ -196,6 +196,12 @@ export class KanbanService {
             prismaClient.kanban.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    spare_part: true,
+                    supplier: true,
+                    maker: true,
+                    rack: true
+                }
             }),
             prismaClient.kanban.count({
                 where: whereClause,
