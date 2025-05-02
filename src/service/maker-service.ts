@@ -108,7 +108,7 @@ export class MakerService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
-        const [departmens, total] = await Promise.all([
+        const [makers, total] = await Promise.all([
             prismaClient.maker.findMany({
                 where: whereClause,
                 take: searchRequest.limit,
@@ -122,7 +122,7 @@ export class MakerService {
 
 
         return {
-            data: departmens.map(toMakerResponse),
+            data: makers.map(toMakerResponse),
             pagination: {
                 curr_page: searchRequest.page,
                 total_page: Math.ceil(total / searchRequest.limit),

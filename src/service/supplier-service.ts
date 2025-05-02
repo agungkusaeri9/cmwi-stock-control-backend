@@ -108,7 +108,7 @@ export class SupplierService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
-        const [departmens, total] = await Promise.all([
+        const [suppliers, total] = await Promise.all([
             prismaClient.supplier.findMany({
                 where: whereClause,
                 take: searchRequest.limit,
@@ -122,7 +122,7 @@ export class SupplierService {
 
 
         return {
-            data: departmens.map(toSupplierResponse),
+            data: suppliers.map(toSupplierResponse),
             pagination: {
                 curr_page: searchRequest.page,
                 total_page: Math.ceil(total / searchRequest.limit),

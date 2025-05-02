@@ -1,29 +1,37 @@
-import { Kanban, SparePart } from "@prisma/client";
-import { SparePartResponseSimple } from "./spare-part-model";
+import { Kanban, SparePart, Supplier, Maker, Rack } from "@prisma/client";
+
 
 
 
 export type KanbanResponse = {
     id: number;
-    code: string;
-    name: string;
+    js_code: string;
     quantity: number;
-    spare_part: SparePartResponseSimple;
-
+    lead_time: number;
+    spare_part: SparePart | null;
+    supplier: Supplier | null;
+    maker: Maker | null;
+    rack: Rack | null;
 }
 
 export type CreateKanbanRequest = {
-    code: string;
-    name: string;
+    js_code: string;
     quantity: number;
+    lead_time: number;
     spare_part_id: number;
+    supplier_id: number;
+    maker_id: number;
+    rack_id: number;
 }
 
 export type UpdateKanbanRequest = {
-    name?: string;
-    code?: string;
-    quantity?: number;
+    js_code: string;
+    quantity: number;
+    lead_time: number;
     spare_part_id: number;
+    supplier_id: number;
+    maker_id: number;
+    rack_id: number;
 }
 
 export type SearchKanbanRequest = {
@@ -32,16 +40,15 @@ export type SearchKanbanRequest = {
     limit: number;
 }
 
-export function toKanbanResponse(Kanban: Kanban & { spare_part: SparePart }): KanbanResponse {
+export function toKanbanResponse(Kanban: any): KanbanResponse {
     return {
         id: Kanban.id,
-        name: Kanban.name,
-        code: Kanban.code,
+        js_code: Kanban.js_code,
         quantity: Kanban.quantity,
-        spare_part: {
-            id: Kanban.spare_part.id,
-            name: Kanban.spare_part.name,
-            part_number: Kanban.spare_part.part_number
-        }
+        lead_time: Kanban.lead_time,
+        spare_part: Kanban.spare_part ?? null,
+        supplier: Kanban.supplier ?? null,
+        maker: Kanban.maker ?? null,
+        rack: Kanban.rack ?? null
     }
 }

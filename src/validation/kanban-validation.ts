@@ -3,17 +3,22 @@ import { z, ZodType } from "zod";
 export class KanbanValidation {
 
     static readonly CREATE: ZodType = z.object({
-        code: z.string().min(1).max(100),
-        name: z.string().min(1).max(100),
+        js_code: z.string().min(1).max(100),
         quantity: z.number().min(1).positive(),
-        spare_part_id: z.number().min(1).positive()
+        spare_part_id: z.number().min(1).positive(),
+        supplier_id: z.number().min(1).positive(),
+        maker_id: z.number().min(1).positive(),
+        rack_id: z.number().min(1).positive(),
+
     });
 
     static readonly UPDATE: ZodType = z.object({
-        code: z.string().min(1).max(100),
-        name: z.string().min(1).max(100),
+        js_code: z.string().min(1).max(100),
         quantity: z.number().min(1).positive(),
-        spare_part_id: z.number().min(1).positive()
+        spare_part_id: z.number().min(1).positive(),
+        supplier_id: z.number().min(1).positive(),
+        maker_id: z.number().min(1).positive(),
+        rack_id: z.number().min(1).positive(),
     });
 
 

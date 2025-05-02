@@ -128,7 +128,7 @@ export class DepartmentService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
-        const [departmens, total] = await Promise.all([
+        const [departments, total] = await Promise.all([
             prismaClient.department.findMany({
                 where: whereClause,
                 take: searchRequest.limit,
@@ -142,7 +142,7 @@ export class DepartmentService {
 
 
         return {
-            data: departmens.map(toDepartmentResponse),
+            data: departments.map(toDepartmentResponse),
             pagination: {
                 curr_page: searchRequest.page,
                 total_page: Math.ceil(total / searchRequest.limit),
