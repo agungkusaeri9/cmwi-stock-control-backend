@@ -21,6 +21,7 @@ export type SearchSupplierRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toSupplierResponse(Supplier: Supplier): SupplierResponse {

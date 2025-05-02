@@ -167,7 +167,7 @@ export class KanbanService {
 
         const searchRequest = Validation.validate(KanbanValidation.SEARCH, request);
 
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
+
 
         const filters: any[] = [];
 
@@ -180,29 +180,22 @@ export class KanbanService {
 
                         }
                     },
-                    {
-                        name: {
-                            contains: searchRequest.keyword
-
-                        }
-                    }
                 ]
             });
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [kanbans, total] = await Promise.all([
             prismaClient.kanban.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
-                include: {
-                    spare_part: true,
-                    supplier: true,
-                    maker: true,
-                    rack: true
-                }
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.kanban.count({
                 where: whereClause,
@@ -211,14 +204,20 @@ export class KanbanService {
 
 
 
-        return {
-            data: kanbans.map(toKanbanResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
                 total: total
             }
+            : undefined;
+
+
+        return {
+            data: kanbans.map(toKanbanResponse),
+            ...(pagination ? { pagination } : {})
+
         };
     }
 

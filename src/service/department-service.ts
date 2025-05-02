@@ -99,40 +99,31 @@ export class DepartmentService {
 
 
     static async get(request: SearchDepartmentRequest): Promise<Pageable<DepartmentResponse>> {
-
-
         const searchRequest = Validation.validate(DepartmentValidation.SEARCH, request);
-
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
 
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
             filters.push({
                 OR: [
-                    {
-                        code: {
-                            contains: searchRequest.keyword
-
-                        }
-                    },
-                    {
-                        name: {
-                            contains: searchRequest.keyword
-
-                        }
-                    }
+                    { code: { contains: searchRequest.keyword } },
+                    { name: { contains: searchRequest.keyword } }
                 ]
             });
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [departments, total] = await Promise.all([
             prismaClient.department.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.department.count({
                 where: whereClause,
@@ -141,16 +132,23 @@ export class DepartmentService {
 
 
 
-        return {
-            data: departments.map(toDepartmentResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
                 total: total
             }
+            : undefined;
+
+
+        return {
+            data: departments.map(toDepartmentResponse),
+            ...(pagination ? { pagination } : {})
+
         };
     }
+
 
     static async show(id: number): Promise<DepartmentResponse> {
 

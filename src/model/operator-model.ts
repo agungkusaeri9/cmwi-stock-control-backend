@@ -20,6 +20,7 @@ export type SearchOperatorRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toOperatorResponse(operator: Operator): OperatorResponse {

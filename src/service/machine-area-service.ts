@@ -80,7 +80,7 @@ export class MachineAreaService {
 
         const searchRequest = Validation.validate(MachineAreaValidation.SEARCH, request);
 
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
+
 
         const filters: any[] = [];
 
@@ -105,11 +105,16 @@ export class MachineAreaService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [machineAreas, total] = await Promise.all([
             prismaClient.machineArea.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.machineArea.count({
                 where: whereClause,
@@ -118,14 +123,20 @@ export class MachineAreaService {
 
 
 
-        return {
-            data: machineAreas.map(toMachineAreaResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
                 total: total
             }
+            : undefined;
+
+
+        return {
+            data: machineAreas.map(toMachineAreaResponse),
+            ...(pagination ? { pagination } : {})
+
         };
     }
 

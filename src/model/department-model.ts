@@ -23,6 +23,7 @@ export type SearchDepartmentRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toDepartmentResponse(Department: Department): DepartmentResponse {

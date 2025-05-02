@@ -148,7 +148,7 @@ export class SparePartService {
 
     static async get(request: SearchSparePartRequest): Promise<Pageable<SparePartResponse>> {
         const searchRequest = Validation.validate(SparePartValidation.SEARCH, request);
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
+
 
         const filters: any[] = [];
 
@@ -173,30 +173,38 @@ export class SparePartService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [spareParts, total] = await Promise.all([
             prismaClient.sparePart.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
-                include: {
-                    Department: true,
-                    MachineArea: true,
-                    Rack: true,
-                },
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.sparePart.count({
                 where: whereClause,
-            }),
+            })
         ]);
+
+
+
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
+                total: total
+            }
+            : undefined;
+
 
         return {
             data: spareParts.map(toSparePartResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
-                total: total,
-            },
+            ...(pagination ? { pagination } : {})
+
         };
     }
 

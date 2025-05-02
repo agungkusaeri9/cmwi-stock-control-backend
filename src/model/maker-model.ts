@@ -21,6 +21,7 @@ export type SearchMakerRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toMakerResponse(Maker: Maker): MakerResponse {

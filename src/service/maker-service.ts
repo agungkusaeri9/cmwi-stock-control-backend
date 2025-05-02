@@ -83,8 +83,6 @@ export class MakerService {
 
         const searchRequest = Validation.validate(MakerValidation.SEARCH, request);
 
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
-
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
@@ -96,23 +94,22 @@ export class MakerService {
 
                         }
                     },
-                    {
-                        name: {
-                            contains: searchRequest.keyword
-
-                        }
-                    }
                 ]
             });
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [makers, total] = await Promise.all([
             prismaClient.maker.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.maker.count({
                 where: whereClause,
@@ -121,14 +118,20 @@ export class MakerService {
 
 
 
-        return {
-            data: makers.map(toMakerResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
                 total: total
             }
+            : undefined;
+
+
+        return {
+            data: makers.map(toMakerResponse),
+            ...(pagination ? { pagination } : {})
+
         };
     }
 

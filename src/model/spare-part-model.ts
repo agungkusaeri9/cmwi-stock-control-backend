@@ -1,4 +1,6 @@
-import { Department, MachineArea, Rack } from "@prisma/client";
+import { DepartmentResponse } from "./department-model";
+import { MachineAreaResponse } from "./machine-area-model";
+import { RackResponse } from "./rack-model";
 
 export type SparePartResponse = {
     id: number;
@@ -7,9 +9,9 @@ export type SparePartResponse = {
     minimum_quantity: number;
     balance: number;
     specification: string;
-    department: Department | null;
-    machine_area: MachineArea | null;
-    rack: Rack | null;
+    department: DepartmentResponse | null;
+    machine_area: MachineAreaResponse | null;
+    rack: RackResponse | null;
 };
 
 export type SparePartResponseSimple = {
@@ -45,6 +47,7 @@ export type SearchSparePartRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toSparePartResponse(sparePart: any): SparePartResponse {

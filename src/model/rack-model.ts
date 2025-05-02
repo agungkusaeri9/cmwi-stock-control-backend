@@ -20,6 +20,7 @@ export type SearchRackRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toRackResponse(rack: Rack): RackResponse {

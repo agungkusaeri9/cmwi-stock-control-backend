@@ -20,6 +20,7 @@ export type SearchMachineAreaRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toMachineAreaResponse(machineArea: MachineArea): MachineAreaResponse {

@@ -1,5 +1,8 @@
-import { Kanban, SparePart, Supplier, Maker, Rack } from "@prisma/client";
-
+import { Kanban } from "@prisma/client";
+import { SparePartResponse } from "./spare-part-model";
+import { SupplierResponse } from "./supplier-model";
+import { MakerResponse } from "./maker-model";
+import { RackResponse } from "./rack-model";
 
 
 
@@ -8,10 +11,10 @@ export type KanbanResponse = {
     js_code: string;
     quantity: number;
     lead_time: number;
-    spare_part: SparePart | null;
-    supplier: Supplier | null;
-    maker: Maker | null;
-    rack: Rack | null;
+    spare_part: SparePartResponse | null;
+    supplier: SupplierResponse | null;
+    maker: MakerResponse | null;
+    rack: RackResponse | null;
 }
 
 export type CreateKanbanRequest = {
@@ -38,6 +41,7 @@ export type SearchKanbanRequest = {
     keyword?: string;
     page: number;
     limit: number;
+    paginate?: boolean;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {

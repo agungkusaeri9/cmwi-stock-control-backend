@@ -77,7 +77,7 @@ export class OperatorService {
     static async get(request: SearchOperatorRequest): Promise<Pageable<OperatorResponse>> {
         const searchRequest = Validation.validate(OperatorValidation.SEARCH, request);
 
-        const skip = (searchRequest.page - 1) * searchRequest.limit;
+
 
         const filters: any[] = [];
 
@@ -102,11 +102,16 @@ export class OperatorService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
         const [operators, total] = await Promise.all([
             prismaClient.operator.findMany({
                 where: whereClause,
-                take: searchRequest.limit,
-                skip: skip,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
             prismaClient.operator.count({
                 where: whereClause,
@@ -115,14 +120,20 @@ export class OperatorService {
 
 
 
-        return {
-            data: operators.map(toOperatorResponse),
-            pagination: {
-                curr_page: searchRequest.page,
-                total_page: Math.ceil(total / searchRequest.limit),
-                limit: searchRequest.limit,
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
                 total: total
             }
+            : undefined;
+
+
+        return {
+            data: operators.map(toOperatorResponse),
+            ...(pagination ? { pagination } : {})
+
         };
     }
 
