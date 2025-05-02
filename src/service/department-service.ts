@@ -76,7 +76,10 @@ export class DepartmentService {
 
         const isNumberExist = await prismaClient.department.findFirst({
             where: {
-                number: updateRequest.number
+                number: updateRequest.number,
+                NOT: {
+                    id: id
+                }
             }
         })
 
