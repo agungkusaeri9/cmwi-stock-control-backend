@@ -180,7 +180,7 @@ export class MakerService {
         });
 
         if (isUsed.length > 0) {
-            throw new ResponseError(400, "Maker used in spare part data");
+            throw new ResponseError(400, "Maker used in kanban data");
         }
 
         await prismaClient.maker.delete({

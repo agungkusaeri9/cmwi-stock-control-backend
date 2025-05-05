@@ -171,6 +171,11 @@ export class RackService {
         });
 
 
+        if (!idISValid) {
+            throw new ResponseError(404, "Rack not found");
+        }
+
+
         const isUsed = await prismaClient.sparePart.findMany({
             where: {
                 rack_id: id
@@ -193,9 +198,7 @@ export class RackService {
             throw new ResponseError(400, "Rack used in kanban data");
         }
 
-        if (!idISValid) {
-            throw new ResponseError(404, "Rack not found");
-        }
+
 
         await prismaClient.rack.delete({
             where: {

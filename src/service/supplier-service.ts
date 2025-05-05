@@ -185,7 +185,7 @@ export class SupplierService {
         });
 
         if (isUsed.length > 0) {
-            throw new ResponseError(400, "Supplier used in spare part data");
+            throw new ResponseError(400, "Supplier used in kanban data");
         }
 
         await prismaClient.supplier.delete({
