@@ -7,6 +7,7 @@ export type SparePartResponse = {
     name: string;
     part_number: string;
     minimum_quantity: number;
+    maximum_quantity: number;
     balance: number;
     specification: string;
     department: DepartmentResponse | null;
@@ -26,6 +27,7 @@ export type CreateSparePartRequest = {
     name: string;
     part_number: string;
     minimum_quantity: number;
+    maximum_quantity: number;
     balance: number;
     specification: string;
     department_id: number;
@@ -37,6 +39,7 @@ export type UpdateSparePartRequest = {
     name: string;
     part_number: string;
     minimum_quantity: number;
+    maximum_quantity: number;
     specification: string;
     department_id: number;
     machine_area_id: number;
@@ -56,6 +59,7 @@ export function toSparePartResponse(sparePart: any): SparePartResponse {
         name: sparePart.name,
         part_number: sparePart.part_number,
         minimum_quantity: sparePart.minimum_quantity,
+        maximum_quantity: sparePart.maximum_quantity,
         balance: sparePart.balance,
         specification: sparePart.specification,
         department: sparePart.Department ?? null,
