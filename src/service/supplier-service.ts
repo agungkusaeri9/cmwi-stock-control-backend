@@ -177,6 +177,17 @@ export class SupplierService {
             throw new ResponseError(404, "Supplier not found");
         }
 
+
+        const isUsed = await prismaClient.kanban.findMany({
+            where: {
+                supplier_id: id
+            }
+        });
+
+        if (isUsed.length > 0) {
+            throw new ResponseError(400, "Supplier used in spare part data");
+        }
+
         await prismaClient.supplier.delete({
             where: {
                 id: id

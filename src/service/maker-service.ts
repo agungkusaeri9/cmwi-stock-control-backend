@@ -171,6 +171,18 @@ export class MakerService {
             throw new ResponseError(404, "Maker not found");
         }
 
+
+
+        const isUsed = await prismaClient.kanban.findMany({
+            where: {
+                maker_id: id
+            }
+        });
+
+        if (isUsed.length > 0) {
+            throw new ResponseError(400, "Maker used in spare part data");
+        }
+
         await prismaClient.maker.delete({
             where: {
                 id: id

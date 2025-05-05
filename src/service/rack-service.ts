@@ -170,6 +170,29 @@ export class RackService {
             }
         });
 
+
+        const isUsed = await prismaClient.sparePart.findMany({
+            where: {
+                rack_id: id
+            }
+        });
+
+        if (isUsed.length > 0) {
+            throw new ResponseError(400, "Rack used in spare part data");
+        }
+
+
+
+        const isUsedKanban = await prismaClient.kanban.findMany({
+            where: {
+                rack_id: id
+            }
+        });
+
+        if (isUsedKanban.length > 0) {
+            throw new ResponseError(400, "Rack used in kanban data");
+        }
+
         if (!idISValid) {
             throw new ResponseError(404, "Rack not found");
         }
