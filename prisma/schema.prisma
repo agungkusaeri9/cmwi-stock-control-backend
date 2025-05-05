@@ -137,3 +137,38 @@ model Kanban {
 
   @@map("kanbans")
 }
+
+model PurchaseRequest {
+  id                   Int       @id @default(autoincrement())
+  date                 DateTime?
+  pr_number            String?
+  department           String?
+  budget_number        String?
+  fixed_asset_number   String?
+  type                 String?
+  transportation       String?
+  kind_of_request      String?
+  acc                  String?
+  item_code            String?
+  item_name            String?
+  description_of_goods String?
+  specification        String?
+  part                 String?
+  quantity             Int?
+  unit                 String?
+  est_unit_price       Float?
+  est_amount           Float?
+  currency             String?
+  req_delivery         DateTime?
+  supplier             String?
+  remark               String?
+  purpose              String?
+  requested            String?
+  gen_manager          String?
+  supervisor           String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("purchase_requests")
+}

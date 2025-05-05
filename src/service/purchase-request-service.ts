@@ -1,0 +1,202 @@
+import xlsx from 'xlsx';
+import { Validation } from '../validation/validation';
+import { PurchaseRequestValidation } from '../validation/purchase-request-validation';
+import { prismaClient } from "../application/database";
+import { CreatePurchaseRequestRequest, PurchaseRequestResponse, PurchaseRequestRawEntry, SearchPurchaseRequestRequest, toPurchaseRequestResponse } from "../model/purchase-request-model";
+import { logger } from '../application/logging';
+import { convertDate } from '../type/convert-date-helper';
+import { ResponseError } from "../error/response-error";
+import { Pageable } from "../model/page";
+
+export class PurchaseRequestService {
+    static async create(filePath: string) {
+
+
+
+        const workbook: xlsx.WorkBook = xlsx.readFile(filePath);
+
+        // Ambil sheet (pastikan nama sheet sesuai)
+        const sheet: xlsx.WorkSheet = workbook.Sheets["Sheet1"];
+
+        // Konversi sheet ke JSON
+        const data: any[][] = xlsx.utils.sheet_to_json(sheet, {
+            header: 1,
+        });
+
+
+        const headers: string[] = data[4] as string[];
+
+
+        const importantHeaders: string[] = [
+            "Date",
+            "PR No.",
+            "Department",
+            "Budget No.",
+            "Fixed Asset No",
+            "Type",
+            "Transportation",
+            "Kind of Request",
+        ];
+
+
+        const missingHeaders: string[] = importantHeaders.filter((h) => !headers.includes(h));
+        if (missingHeaders.length > 0) {
+            logger.error(`Missing important headers: ${missingHeaders.join(", ")}`);
+            return;
+        }
+
+
+
+        const res: PurchaseRequestRawEntry[] = [];
+
+        for (let i = 5; i < data.length - 1; i++) {
+            if (data[i].length === 0) continue;
+
+            const obj: PurchaseRequestRawEntry = {};
+            for (let j = 0; j < headers.length; j++) {
+                obj[headers[j]] = data[i][j];
+            }
+
+            const isPurposeOnly: boolean =
+                data[i].filter(Boolean).length === 1 && Boolean(obj["Purpose"]);
+
+            if (isPurposeOnly && res.length > 0) {
+                res[res.length - 1]["Purpose"] += ` ${obj["Purpose"]}`;
+                continue;
+            }
+
+            const isContinuationRow: boolean = importantHeaders.every((header) => !obj[header]);
+
+            if (isContinuationRow && res.length > 0) {
+                importantHeaders.forEach((header) => {
+                    obj[header] = res[res.length - 1][header];
+                });
+            }
+
+            res.push(obj);
+        }
+
+
+        const formattedResult: CreatePurchaseRequestRequest[] = res.map((entry: PurchaseRequestRawEntry) => {
+            const parseNumber = (val: string | undefined): number | null =>
+                val && val !== "-" ? Number(val) : null;
+
+            const parseString = (val: string | undefined): string | null =>
+                val && val !== "-" ? val : null;
+
+            const parseDate = (val: string | undefined): Date | null =>
+                val && val !== "-" ? convertDate(val) : null;
+
+            return {
+                date: parseDate(entry["Date"]),
+                pr_number: parseString(entry["PR No."]),
+                department: parseString(entry.PurchaseRequest),
+                budget_number: parseString(entry["Budget No."]),
+                fixed_asset_number: parseString(entry["Fixed Asset No"]),
+                type: parseString(entry.Type),
+                transportation: parseString(entry.Transportation),
+                kind_of_request: parseString(entry["Kind of Request"]),
+                acc: parseString(entry.Acc),
+                item_code: parseString(entry["Item Code"]),
+                item_name: parseString(entry["Item Name"]),
+                description_of_goods: parseString(entry["Description of Goods"]),
+                specification: parseString(entry.Specification),
+                part: parseString(entry.Part),
+                quantity: parseNumber(entry.Quantity),
+                unit: parseString(entry.Unit),
+                est_unit_price: parseNumber(entry["Est. Unit Price"]),
+                est_amount: parseNumber(entry["Est. Amount"]),
+                currency: parseString(entry.Currency),
+                req_delivery: parseDate(entry["Req. Delivery"]),
+                supplier: parseString(entry.Supplier),
+                remark: parseString(entry.Remark),
+                purpose: parseString(entry.Purpose),
+                requested: parseString(entry.Requested),
+                gen_manager: parseString(entry["Gen. Manager"]),
+                supervisor: parseString(entry.Supervisor),
+            };
+        });
+
+        try {
+            const createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult);
+            await prismaClient.purchaseRequest.createMany({ data: createRequest });
+            logger.info("Purchase request created successfully");
+            return true;
+        } catch (error) {
+            logger.error(`Error while creating purchase request: ${error}`);
+            return;
+        }
+    }
+
+
+    static async get(request: SearchPurchaseRequestRequest): Promise<Pageable<PurchaseRequestResponse>> {
+        const searchRequest = Validation.validate(PurchaseRequestValidation.SEARCH, request);
+
+        const filters: any[] = [];
+
+        if (searchRequest.keyword) {
+            filters.push({
+                OR: [
+                    { pr_number: { contains: searchRequest.keyword } },
+                    { item_code: { contains: searchRequest.keyword } }
+                ]
+            });
+        }
+
+        const whereClause = filters.length > 0 ? { AND: filters } : {};
+
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
+        const [purchaseRequests, total] = await Promise.all([
+            prismaClient.purchaseRequest.findMany({
+                where: whereClause,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
+            }),
+            prismaClient.purchaseRequest.count({
+                where: whereClause,
+            })
+        ]);
+
+
+
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
+                total: total
+            }
+            : undefined;
+
+
+        return {
+            data: purchaseRequests.map(toPurchaseRequestResponse),
+            ...(pagination ? { pagination } : {})
+
+        };
+    }
+
+
+    static async show(id: number): Promise<PurchaseRequestResponse> {
+
+        if (isNaN(id)) {
+            throw new ResponseError(400, "Invalid id");
+        }
+
+        const PurchaseRequest = await prismaClient.purchaseRequest.findUnique({
+            where: {
+                id: id
+            }
+        });
+
+        if (!PurchaseRequest) {
+            throw new ResponseError(404, "PurchaseRequest not found");
+        }
+
+        return toPurchaseRequestResponse(PurchaseRequest);
+    }
+}
