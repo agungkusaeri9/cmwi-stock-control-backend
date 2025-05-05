@@ -26,8 +26,8 @@ model SparePart {
   id               Int          @id @default(autoincrement())
   name             String       @db.VarChar(100)
   part_number      String       @unique @db.VarChar(100)
-  minimum_quantity Int
-  maximum_quantity Int
+  minimum_quantity Int          @default(0)
+  maximum_quantity Int          @default(0)
   balance          Int
   specification    String       @db.VarChar(100)
   Department       Department?  @relation(fields: [department_id], references: [id], onDelete: SetNull)
