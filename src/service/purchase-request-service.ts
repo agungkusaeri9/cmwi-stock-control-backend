@@ -90,7 +90,7 @@ export class PurchaseRequestService {
             return {
                 date: parseDate(entry["Date"]),
                 pr_number: parseString(entry["PR No."]),
-                department: parseString(entry.PurchaseRequest),
+                department: parseString(entry.Department),
                 budget_number: parseString(entry["Budget No."]),
                 fixed_asset_number: parseString(entry["Fixed Asset No"]),
                 type: parseString(entry.Type),
