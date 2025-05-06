@@ -171,6 +171,26 @@ export class SparePartService {
             });
         }
 
+
+        if (searchRequest.department_id) {
+            filters.push({
+                department_id: searchRequest.department_id,
+            });
+        }
+
+        if (searchRequest.machine_area_id) {
+            filters.push({
+                machine_area_id: searchRequest.machine_area_id
+
+            })
+        }
+
+        if (searchRequest.rack_id) {
+            filters.push({
+                rack_id: searchRequest.rack_id
+            })
+        }
+
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
         // Default pagination values if not provided

@@ -51,6 +51,9 @@ export type SearchSparePartRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
+    department_id?: number;
+    machine_area_id?: number;
+    rack_id?: number;
 }
 
 export function toSparePartResponse(sparePart: any): SparePartResponse {

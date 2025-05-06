@@ -107,7 +107,8 @@ export class DepartmentService {
             filters.push({
                 OR: [
                     { code: { contains: searchRequest.keyword } },
-                    { name: { contains: searchRequest.keyword } }
+                    { name: { contains: searchRequest.keyword } },
+                    { number: { contains: searchRequest.keyword } }
                 ]
             });
         }

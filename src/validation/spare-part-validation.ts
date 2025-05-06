@@ -30,6 +30,9 @@ export class SparePartValidation {
         keyword: z.string().optional(),
         page: z.number().min(1).positive().optional(),
         limit: z.number().min(1).max(100).positive().optional(),
-        paginate: z.boolean().optional()
+        paginate: z.boolean().optional(),
+        department_id: z.number().min(1).positive().optional(),
+        machine_area_id: z.number().min(1).positive().optional(),
+        rack_id: z.number().min(1).positive().optional(),
     })
 }

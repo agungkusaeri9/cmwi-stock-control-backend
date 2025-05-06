@@ -42,6 +42,10 @@ export type SearchKanbanRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
+    spare_part_id?: number;
+    supplier_id?: number;
+    maker_id?: number;
+    rack_id?: number;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {

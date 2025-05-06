@@ -93,12 +93,6 @@ export class SupplierService {
                             contains: searchRequest.keyword
 
                         }
-                    },
-                    {
-                        name: {
-                            contains: searchRequest.keyword
-
-                        }
                     }
                 ]
             });

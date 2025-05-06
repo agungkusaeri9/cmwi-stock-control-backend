@@ -37,7 +37,10 @@ export class SparePartController {
                 keyword: req.query.keyword as string,
                 page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
                 limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
-                paginate: req.query.paginate === "true"
+                paginate: req.query.paginate === "true",
+                department_id: isNaN(Number(req.query.department_id)) ? undefined : Number(req.query.department_id),
+                machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
+                rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id)
             };
 
 

@@ -184,6 +184,30 @@ export class KanbanService {
             });
         }
 
+        if (searchRequest.spare_part_id) {
+            filters.push({
+                spare_part_id: searchRequest.spare_part_id,
+            });
+        }
+
+        if (searchRequest.supplier_id) {
+            filters.push({
+                supplier_id: searchRequest.supplier_id,
+            });
+        }
+
+        if (searchRequest.maker_id) {
+            filters.push({
+                maker_id: searchRequest.maker_id,
+            });
+        }
+
+        if (searchRequest.rack_id) {
+            filters.push({
+                rack_id: searchRequest.rack_id,
+            });
+        }
+
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
         // Default pagination values if not provided

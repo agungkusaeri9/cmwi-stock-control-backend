@@ -28,6 +28,10 @@ export class KanbanValidation {
         keyword: z.string().optional(),
         page: z.number().min(1).positive().optional(),
         limit: z.number().min(1).max(100).positive().optional(),
-        paginate: z.boolean().optional()
+        paginate: z.boolean().optional(),
+        spare_part_id: z.number().min(1).positive().optional(),
+        supplier_id: z.number().min(1).positive().optional(),
+        maker_id: z.number().min(1).positive().optional(),
+        rack_id: z.number().min(1).positive().optional(),
     })
 }
