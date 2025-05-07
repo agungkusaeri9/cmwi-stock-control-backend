@@ -10,6 +10,7 @@ import { KanbanController } from "../controller/kanban-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
 import { PurchaseRequestController } from "../controller/purchase-request-controller";
+import { PurchaseOrderController } from "../controller/purchase-order-controller";
 
 export const apiRouter = express.Router();
 apiRouter.use(authMiddleware);
@@ -85,3 +86,8 @@ apiRouter.delete("/api/makers/:id", MakerController.remove);
 // Purchase Request
 apiRouter.get("/api/purchase-requests", PurchaseRequestController.get);
 apiRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
+
+
+// Purchase Order
+apiRouter.get("/api/purchase-orders", PurchaseOrderController.get);
+apiRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);

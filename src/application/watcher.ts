@@ -2,12 +2,15 @@ import chokidar from "chokidar";
 import path from "path";
 import { logger } from "./logging";
 import { PurchaseRequestService } from "../service/purchase-request-service";
+import { PurchaseOrderService } from "../service/purchase-order-service";
 
-const folderPath = path.join(__dirname, "../../", "watched-folder");
-logger.info("Folder yang diwatch:" + folderPath);
+const purchaseRequestFolderPath = path.join(__dirname, "../../", "watched-folder/purchase-request");
+const purchaseOrderFolderPath = path.join(__dirname, "../../", "watched-folder/purchase-order");
+
+
 
 const startWatcher = () => {
-    const watcher = chokidar.watch(folderPath, {
+    const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath], {
         persistent: true,
         ignoreInitial: true,
         ignored: /(^|[\/\\])~\$/,
@@ -18,30 +21,34 @@ const startWatcher = () => {
         ignorePermissionErrors: true,
     });
 
-    // Perhatikan perubahan pada tipe parameter error
+
     (watcher as any)
-        .on("add", (filePath: string) => {
-            logger.info(`🟢 File ditambahkan: ${filePath}`);
-            const ext = path.extname(filePath).toLowerCase();
+        .on("add", async (filePath: string) => {
+            const normalizedPath = path.normalize(filePath);
+            logger.info(`🟢 File ditambahkan: ${normalizedPath}`);
+
+            const ext = path.extname(normalizedPath).toLowerCase();
             const allowedExts = [".xlsx", ".xls", ".xlsb", ".xlsm", ".csv", ".ods"];
 
-            if (!allowedExts.includes(ext)) {
-                return;
+            if (!allowedExts.includes(ext)) return;
+
+            try {
+                if (normalizedPath.includes(purchaseOrderFolderPath)) {
+                    await PurchaseOrderService.create(normalizedPath);
+                } else if (normalizedPath.includes(purchaseRequestFolderPath)) {
+                    await PurchaseRequestService.create(normalizedPath);
+                }
+            } catch (error: any) {
+                logger.error(`❌ Error memproses file ${normalizedPath}: ${error.message}`);
             }
-
-
-            const request = PurchaseRequestService.create(filePath);
-
-
-
         })
-        .on("change", (filePath: string) => {
+        .on("change", async (filePath: string) => {
             logger.info(`🟡 File diubah: ${filePath}`);
         })
-        .on("unlink", (filePath: string) => {
+        .on("unlink", async (filePath: string) => {
             logger.info(`🔴 File dihapus: ${filePath}`);
         })
-        .on("error", (error: Error) => {
+        .on("error", async (error: Error) => {
             logger.error(`❌ Error: ${error}`);
         });
 };

@@ -172,3 +172,24 @@ model PurchaseRequest {
 
   @@map("purchase_requests")
 }
+
+model PurchaseOrder {
+  id            Int       @id @default(autoincrement())
+  department    String?
+  supplier      String?
+  po_number     String?
+  po_date       DateTime?
+  pr_date       DateTime?
+  pr_number     String?
+  description   String?
+  specification String?
+  quantity      Int?
+  unit          String?
+  status        String?
+  remark        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("purchase_orders")
+}

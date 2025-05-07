@@ -1,0 +1,33 @@
+import { z, ZodType } from "zod";
+
+const PurchaseOrderSchema = z.object({
+
+    department: z.string().nullable().optional(),
+    supplier: z.string().nullable().optional(),
+    po_number: z.string().nullable().optional(),
+    po_date: z.coerce.date().nullable().optional(),
+    pr_number: z.string().nullable().optional(),
+    pr_date: z.coerce.date().nullable().optional(),
+    description: z.string().nullable().optional(),
+    specification: z.string().nullable().optional(),
+    quantity: z.coerce.number().int().nullable().optional(),
+    unit: z.string().nullable().optional(),
+    status: z.string().nullable().optional(),
+    remark: z.string().nullable().optional(),
+
+});
+
+
+
+export class PurchaseOrderValidation {
+
+
+    static readonly CREATE: ZodType = z.array(PurchaseOrderSchema);
+
+    static readonly SEARCH: ZodType = z.object({
+        keyword: z.string().optional(),
+        page: z.number().min(1).positive().optional(),
+        limit: z.number().min(1).max(100).positive().optional(),
+        paginate: z.boolean().optional()
+    })
+}

@@ -4,7 +4,7 @@ import { PurchaseRequestValidation } from '../validation/purchase-request-valida
 import { prismaClient } from "../application/database";
 import { CreatePurchaseRequestRequest, PurchaseRequestResponse, PurchaseRequestRawEntry, SearchPurchaseRequestRequest, toPurchaseRequestResponse } from "../model/purchase-request-model";
 import { logger } from '../application/logging';
-import { convertDate } from '../type/convert-date-helper';
+import { convertDate } from '../helper/convert-date-helper';
 import { ResponseError } from "../error/response-error";
 import { Pageable } from "../model/page";
 
@@ -82,7 +82,7 @@ export class PurchaseRequestService {
                 val && val !== "-" ? Number(val) : null;
 
             const parseString = (val: string | undefined): string | null =>
-                val && val !== "-" ? val : null;
+                val && val !== "-" ? val.toString() : null;
 
             const parseDate = (val: string | undefined): Date | null =>
                 val && val !== "-" ? convertDate(val) : null;
