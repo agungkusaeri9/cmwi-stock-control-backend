@@ -1,0 +1,70 @@
+import { PurchaseOrderDetail } from "@prisma/client";
+
+export type PurchaseOrderDetailResponse = {
+    id: number;
+    po_number: string | null;
+    pr_number: string | null;
+    pr_requested: string | null;
+    product_code: string | null;
+    description: string | null;
+    specification: string | null;
+    quantity: number | null;
+    unit: string | null;
+    status: string | null;
+    remark: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+
+export type PurchaseOrderDetailRawEntry = {
+    [key: string]: any;
+    "PO No."?: any;
+    "SOB/PR No."?: any;
+    "Product Code"?: any;
+    pr_requested?: any;
+    Description?: any;
+    specification?: any;
+    Quantity?: any;
+    Unit?: any;
+    Status?: any;
+    Remark?: any;
+}
+
+export type CreatePurchaseOrderDetailRequest = {
+    po_number: string | null;
+    pr_number: string | null;
+    pr_requested: string | null;
+    product_code: string | null;
+    description: string | null;
+    specification: string | null;
+    quantity: number | null;
+    unit: string | null;
+    status: string | null;
+    remark: string | null;
+}
+
+export type SearchPurchaseOrderDetailRequest = {
+    keyword?: string;
+    page: number;
+    limit: number;
+    paginate?: boolean;
+}
+
+export function toPurchaseOrderDetailResponse(PurchaseOrderDetail: PurchaseOrderDetail): PurchaseOrderDetailResponse {
+    return {
+        id: PurchaseOrderDetail.id,
+        po_number: PurchaseOrderDetail.po_number,
+        pr_number: PurchaseOrderDetail.pr_number,
+        pr_requested: PurchaseOrderDetail.pr_requested,
+        product_code: PurchaseOrderDetail.product_code,
+        description: PurchaseOrderDetail.description,
+        specification: PurchaseOrderDetail.specification,
+        quantity: PurchaseOrderDetail.quantity,
+        unit: PurchaseOrderDetail.unit,
+        status: PurchaseOrderDetail.status,
+        remark: PurchaseOrderDetail.remark,
+        createdAt: PurchaseOrderDetail.createdAt,
+        updatedAt: PurchaseOrderDetail.updatedAt
+    }
+}

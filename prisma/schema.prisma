@@ -174,13 +174,29 @@ model PurchaseRequest {
 }
 
 model PurchaseOrder {
-  id            Int       @id @default(autoincrement())
-  department    String?
-  supplier      String?
+  id         Int       @id @default(autoincrement())
+  department String?
+  supplier   String?
+  po_number  String?   @unique
+  po_date    DateTime?
+  pr_date    DateTime?
+
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  PurchaseOrderDetail PurchaseOrderDetail[]
+
+  @@map("purchase_orders")
+}
+
+model PurchaseOrderDetail {
+  id Int @id @default(autoincrement())
+
+  PurchaseOrder PurchaseOrder? @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
   po_number     String?
-  po_date       DateTime?
-  pr_date       DateTime?
+
   pr_number     String?
+  pr_requested  String?
+  product_code  String?
   description   String?
   specification String?
   quantity      Int?
@@ -191,5 +207,5 @@ model PurchaseOrder {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("purchase_orders")
+  @@map("purchase_order_details")
 }

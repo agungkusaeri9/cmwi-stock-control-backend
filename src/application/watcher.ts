@@ -3,16 +3,17 @@ import path from "path";
 import { logger } from "./logging";
 import { PurchaseRequestService } from "../service/purchase-request-service";
 import { PurchaseOrderService } from "../service/purchase-order-service";
+import { SHARED_FOLDER_PATH } from "./config";
 
-const purchaseRequestFolderPath = path.join(__dirname, "../../", "watched-folder/purchase-request");
-const purchaseOrderFolderPath = path.join(__dirname, "../../", "watched-folder/purchase-order");
+const purchaseRequestFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-request");
+const purchaseOrderFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-order");
 
 
 
 const startWatcher = () => {
     const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath], {
         persistent: true,
-        ignoreInitial: true,
+        ignoreInitial: false,
         ignored: /(^|[\/\\])~\$/,
         awaitWriteFinish: {
             stabilityThreshold: 2000,
@@ -25,7 +26,7 @@ const startWatcher = () => {
     (watcher as any)
         .on("add", async (filePath: string) => {
             const normalizedPath = path.normalize(filePath);
-            logger.info(`🟢 File ditambahkan: ${normalizedPath}`);
+            logger.info(`🟢 File added: ${normalizedPath}`);
 
             const ext = path.extname(normalizedPath).toLowerCase();
             const allowedExts = [".xlsx", ".xls", ".xlsb", ".xlsm", ".csv", ".ods"];
@@ -39,14 +40,14 @@ const startWatcher = () => {
                     await PurchaseRequestService.create(normalizedPath);
                 }
             } catch (error: any) {
-                logger.error(`❌ Error memproses file ${normalizedPath}: ${error.message}`);
+                logger.error(`❌ Error processing file ${normalizedPath}: ${error.message}`);
             }
         })
         .on("change", async (filePath: string) => {
-            logger.info(`🟡 File diubah: ${filePath}`);
+            logger.info(`🟡 File changed: ${filePath}`);
         })
         .on("unlink", async (filePath: string) => {
-            logger.info(`🔴 File dihapus: ${filePath}`);
+            logger.info(`🔴 File deleted: ${filePath}`);
         })
         .on("error", async (error: Error) => {
             logger.error(`❌ Error: ${error}`);

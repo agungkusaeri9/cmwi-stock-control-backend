@@ -1,8 +1,9 @@
 import xlsx from 'xlsx';
 import { PurchaseOrderResponse, CreatePurchaseOrderRequest, PurchaseOrderRawEntry, toPurchaseOrderResponse, SearchPurchaseOrderRequest } from "../model/purchase-order-model";
+import { PurchaseOrderDetailRawEntry, CreatePurchaseOrderDetailRequest } from "../model/purchase-order-detail-model";
 import { Validation } from "../validation/validation";
 import { PurchaseOrderValidation } from "../validation/purchase-order-validation";
-import { PurchaseOrder } from "@prisma/client";
+import { PurchaseOrderDetailValidation } from "../validation/purchase-order-detail-validation";
 import { prismaClient } from "../application/database";
 import { logger } from "../application/logging";
 import { ResponseError } from "../error/response-error";
@@ -12,8 +13,6 @@ import { convertShortDate } from "../helper/convert-date-short-helper";
 export class PurchaseOrderService {
 
     static async create(filePath: string) {
-
-
 
         const workbook: xlsx.WorkBook = xlsx.readFile(filePath);
 
@@ -27,7 +26,7 @@ export class PurchaseOrderService {
 
 
         const headers: string[] = data[5] as string[];
-        headers[10] = "unit";
+        headers[10] = "Unit";
 
 
         const importantHeaders: string[] = [
@@ -46,90 +45,113 @@ export class PurchaseOrderService {
             return;
         }
 
+        const purchaseOrders: PurchaseOrderRawEntry[] = [];
+        const purchaseOrderDetails: PurchaseOrderDetailRawEntry[] = [];
 
-
-        const res: PurchaseOrderRawEntry[] = [];
 
         for (let i = 6; i < data.length - 1; i++) {
             if (data[i].length === 0) continue;
 
-            const obj: PurchaseOrderRawEntry = {};
+            const purchaseOrderTemp: PurchaseOrderRawEntry = {};
+            const purchaseOrderDetailTemp: PurchaseOrderDetailRawEntry = {};
+
             for (let j = 0; j < headers.length; j++) {
-                obj[headers[j]] = data[i][j];
+                purchaseOrderTemp[headers[j]] = data[i][j];
+                purchaseOrderDetailTemp[headers[j]] = data[i][j];
             }
 
             const isDescriptionOnly: boolean =
-                data[i].filter(Boolean).length === 1 && Boolean(obj["Description"]);
+                data[i].filter(Boolean).length === 1 && Boolean(purchaseOrderDetailTemp["Description"]);
 
-            if (isDescriptionOnly && res.length > 0) {
-                res[res.length - 1]["Description"] += ` ${obj["Description"]}`;
+            if (isDescriptionOnly && purchaseOrderDetails.length > 0) {
+                purchaseOrderDetails[purchaseOrderDetails.length - 1]["Description"] += ` ${purchaseOrderDetailTemp["Description"]}`;
                 continue;
             }
 
-            const isContinuationRow: boolean = importantHeaders.every((header) => !obj[header]);
+            const isContinuationRow: boolean = importantHeaders.every((header) => !purchaseOrderTemp[header]);
 
-            if (isContinuationRow && res.length > 0) {
-                importantHeaders.forEach((header) => {
-                    obj[header] = res[res.length - 1][header];
-                });
+            if (isContinuationRow && purchaseOrders.length > 0) {
+                purchaseOrderDetailTemp["PO No."] = purchaseOrders[purchaseOrders.length - 1]["PO No."];
+                purchaseOrderDetails.push(purchaseOrderDetailTemp);
+            } else {
+                purchaseOrders.push(purchaseOrderTemp);
             }
 
-            if (res.length > 0 && res[res.length - 1]["Description"] === undefined) {
-                res.pop();
-            }
-
-            res.push(obj);
         }
 
 
-        for (const entry of res) {
+        for (const entry of purchaseOrderDetails) {
             const parts = entry["Description"].split(", ");
+            const pr = entry["SOB/PR No."].split("|");
 
             if (parts.length > 1) {
                 const [description, ...rest] = parts;
                 entry["Description"] = description;
-                entry["Specification"] = rest.join(", ");
+                entry["specification"] = rest.join(", ");
+            }
+
+            if (pr.length > 1) {
+                const [prNumber, ...rest] = pr;
+                entry["SOB/PR No."] = prNumber;
+                entry["pr_requested"] = rest.join("|");
+
             }
         }
 
+        const parseNumber = (val: string | undefined): number | null =>
+            val && val !== "-" ? Number(val) : null;
+
+        const parseString = (val: string | undefined): string | null =>
+            val && val !== "-" ? val.toString() : null;
+
+        const parseDate = (val: string | undefined): Date | null =>
+            val && val !== "-" ? convertShortDate(val) : null;
 
 
-
-        const formattedResult: CreatePurchaseOrderRequest[] = res.map((entry: PurchaseOrderRawEntry) => {
-            const parseNumber = (val: string | undefined): number | null =>
-                val && val !== "-" ? Number(val) : null;
-
-            const parseString = (val: string | undefined): string | null =>
-                val && val !== "-" ? val.toString() : null;
-
-            const parseDate = (val: string | undefined): Date | null =>
-                val && val !== "-" ? convertShortDate(val) : null;
+        const purrchaseOrderFormattedResult: CreatePurchaseOrderRequest[] = purchaseOrders.map((entry: PurchaseOrderRawEntry) => {
 
             return {
                 department: parseString(entry["Dept."]),
                 supplier: parseString(entry.Supplier),
                 po_number: parseString(entry["PO No."]),
                 po_date: parseDate(entry["PO Date"]),
-                pr_number: parseString(entry["SOB/PR No."]),
                 pr_date: parseDate(entry["SOB/PR Date"]),
-                description: parseString(entry.Description),
-                specification: parseString(entry.Specification),
-                quantity: parseNumber(entry.Quantity),
-                unit: parseString(entry.unit),
-                status: parseString(entry.Status),
-                remark: parseString(entry.Remark),
             };
         });
 
+        const purrchaseOrderDetailFormattedResult: CreatePurchaseOrderDetailRequest[] = purchaseOrderDetails.map((entry: PurchaseOrderDetailRawEntry) => {
+
+            return {
+                po_number: parseString(entry["PO No."]),
+                pr_number: parseString(entry["SOB/PR No."]),
+                pr_requested: parseString(entry.pr_requested),
+                product_code: parseString(entry["Product Code"]),
+                description: parseString(entry.Description),
+                specification: parseString(entry.specification),
+                quantity: parseNumber(entry.Quantity),
+                unit: parseString(entry.Unit),
+                status: parseString(entry.Status),
+                remark: parseString(entry.Remark),
+            }
+        })
+
         try {
-            const createRequest = Validation.validate(PurchaseOrderValidation.CREATE, formattedResult);
-            await prismaClient.purchaseOrder.createMany({ data: createRequest });
-            logger.info("Purchase request created successfully");
+
+            const createRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
+            const createRequestDetail = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
+
+            await prismaClient.$transaction([
+                prismaClient.purchaseOrder.createMany({ data: createRequest }),
+                prismaClient.purchaseOrderDetail.createMany({ data: createRequestDetail }),
+            ]);
+
+            logger.info("Purchase order and details created successfully");
             return true;
         } catch (error) {
-            logger.error(`Error while creating purchase request: ${error}`);
-            return;
+            logger.error(`Error while creating purchase order and details: ${error}`);
+            return false;
         }
+
     }
 
 
@@ -161,7 +183,7 @@ export class PurchaseOrderService {
 
         const skip = (page - 1) * limit;
 
-        const [purchaseOrders, total] = await Promise.all([
+        const [purchaseOrderss, total] = await Promise.all([
             prismaClient.purchaseOrder.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
@@ -184,7 +206,7 @@ export class PurchaseOrderService {
 
 
         return {
-            data: purchaseOrders.map(toPurchaseOrderResponse),
+            data: purchaseOrderss.map(toPurchaseOrderResponse),
             ...(pagination ? { pagination } : {})
 
         };

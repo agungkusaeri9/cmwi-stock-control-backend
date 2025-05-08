@@ -6,14 +6,7 @@ const PurchaseOrderSchema = z.object({
     supplier: z.string().nullable().optional(),
     po_number: z.string().nullable().optional(),
     po_date: z.coerce.date().nullable().optional(),
-    pr_number: z.string().nullable().optional(),
     pr_date: z.coerce.date().nullable().optional(),
-    description: z.string().nullable().optional(),
-    specification: z.string().nullable().optional(),
-    quantity: z.coerce.number().int().nullable().optional(),
-    unit: z.string().nullable().optional(),
-    status: z.string().nullable().optional(),
-    remark: z.string().nullable().optional(),
 
 });
 
