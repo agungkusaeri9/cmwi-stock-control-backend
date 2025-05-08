@@ -34,6 +34,10 @@ export class PurchaseOrderService {
             "PO No.",
             "PO Date",
             "SOB/PR Date",
+            "Requested",
+            "Gen. Manager",
+            "Supervisor",
+
         ];
 
 

@@ -1,8 +1,10 @@
 import xlsx from 'xlsx';
 import { Validation } from '../validation/validation';
 import { PurchaseRequestValidation } from '../validation/purchase-request-validation';
+import { PurchaseRequestDetailValidation } from '../validation/purchase-request-detail-validation';
 import { prismaClient } from "../application/database";
 import { CreatePurchaseRequestRequest, PurchaseRequestResponse, PurchaseRequestRawEntry, SearchPurchaseRequestRequest, toPurchaseRequestResponse } from "../model/purchase-request-model";
+import { PurchaseRequestDetailRawEntry, CreatePurchaseRequestDetailRequest } from "../model/purchase-request-detail-model";
 import { logger } from '../application/logging';
 import { convertDate } from '../helper/convert-date-helper';
 import { ResponseError } from "../error/response-error";
@@ -47,45 +49,50 @@ export class PurchaseRequestService {
 
 
 
-        const res: PurchaseRequestRawEntry[] = [];
+        const purchaseRequests: PurchaseRequestRawEntry[] = [];
+        const purchaseRequestDetails: PurchaseRequestDetailRawEntry[] = [];
 
         for (let i = 5; i < data.length - 1; i++) {
             if (data[i].length === 0) continue;
 
             const obj: PurchaseRequestRawEntry = {};
+            const objDetail: PurchaseRequestDetailRawEntry = {};
             for (let j = 0; j < headers.length; j++) {
                 obj[headers[j]] = data[i][j];
+                objDetail[headers[j]] = data[i][j];
             }
 
             const isPurposeOnly: boolean =
-                data[i].filter(Boolean).length === 1 && Boolean(obj["Purpose"]);
+                data[i].filter(Boolean).length === 1 && Boolean(objDetail["Purpose"]);
 
-            if (isPurposeOnly && res.length > 0) {
-                res[res.length - 1]["Purpose"] += ` ${obj["Purpose"]}`;
+            if (isPurposeOnly && purchaseRequestDetails.length > 0) {
+                purchaseRequestDetails[purchaseRequestDetails.length - 1]["Purpose"] += ` ${objDetail["Purpose"]}`;
                 continue;
             }
 
             const isContinuationRow: boolean = importantHeaders.every((header) => !obj[header]);
 
-            if (isContinuationRow && res.length > 0) {
-                importantHeaders.forEach((header) => {
-                    obj[header] = res[res.length - 1][header];
-                });
+            if (isContinuationRow && purchaseRequests.length > 0) {
+
+                objDetail["PR No."] = purchaseRequests[purchaseRequests.length - 1]["PR No."];
+                purchaseRequestDetails.push(objDetail);
+
+            } else {
+                purchaseRequests.push(obj);
             }
 
-            res.push(obj);
         }
 
+        const parseNumber = (val: string | undefined): number | null =>
+            val && val !== "-" ? Number(val) : null;
 
-        const formattedResult: CreatePurchaseRequestRequest[] = res.map((entry: PurchaseRequestRawEntry) => {
-            const parseNumber = (val: string | undefined): number | null =>
-                val && val !== "-" ? Number(val) : null;
+        const parseString = (val: string | undefined): string | null =>
+            val && val !== "-" ? val.toString() : null;
 
-            const parseString = (val: string | undefined): string | null =>
-                val && val !== "-" ? val.toString() : null;
+        const parseDate = (val: string | undefined): Date | null =>
+            val && val !== "-" ? convertDate(val) : null;
 
-            const parseDate = (val: string | undefined): Date | null =>
-                val && val !== "-" ? convertDate(val) : null;
+        const formattedResult: CreatePurchaseRequestRequest[] = purchaseRequests.map((entry: PurchaseRequestRawEntry) => {
 
             return {
                 date: parseDate(entry["Date"]),
@@ -96,6 +103,16 @@ export class PurchaseRequestService {
                 type: parseString(entry.Type),
                 transportation: parseString(entry.Transportation),
                 kind_of_request: parseString(entry["Kind of Request"]),
+                requested: parseString(entry.Requested),
+                gen_manager: parseString(entry["Gen. Manager"]),
+                supervisor: parseString(entry.Supervisor),
+            };
+        });
+
+        const detailFormattedResult: CreatePurchaseRequestDetailRequest[] = purchaseRequestDetails.map((entry: PurchaseRequestRawEntry) => {
+
+            return {
+                pr_number: parseString(entry["PR No."]),
                 acc: parseString(entry.Acc),
                 item_code: parseString(entry["Item Code"]),
                 item_name: parseString(entry["Item Name"]),
@@ -111,20 +128,24 @@ export class PurchaseRequestService {
                 supplier: parseString(entry.Supplier),
                 remark: parseString(entry.Remark),
                 purpose: parseString(entry.Purpose),
-                requested: parseString(entry.Requested),
-                gen_manager: parseString(entry["Gen. Manager"]),
-                supervisor: parseString(entry.Supervisor),
             };
         });
 
         try {
+
             const createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult);
-            await prismaClient.purchaseRequest.createMany({ data: createRequest });
-            logger.info("Purchase request created successfully");
+            const createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult);
+
+            await prismaClient.$transaction([
+                prismaClient.purchaseRequest.createMany({ data: createRequest }),
+                prismaClient.purchaseRequestDetail.createMany({ data: createRequestDetail }),
+            ]);
+
+            logger.info("Purchase request and details created successfully");
             return true;
         } catch (error) {
-            logger.error(`Error while creating purchase request: ${error}`);
-            return;
+            logger.error(`Error while creating purchase request and details: ${error}`);
+            return false;
         }
     }
 
@@ -190,7 +211,11 @@ export class PurchaseRequestService {
         const PurchaseRequest = await prismaClient.purchaseRequest.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                PurchaseRequestDetail: true
             }
+
         });
 
         if (!PurchaseRequest) {

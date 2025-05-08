@@ -139,15 +139,33 @@ model Kanban {
 }
 
 model PurchaseRequest {
-  id                   Int       @id @default(autoincrement())
-  date                 DateTime?
-  pr_number            String?
-  department           String?
-  budget_number        String?
-  fixed_asset_number   String?
-  type                 String?
-  transportation       String?
-  kind_of_request      String?
+  id Int @id @default(autoincrement())
+
+  date               DateTime?
+  pr_number          String?   @unique
+  department         String?
+  budget_number      String?
+  fixed_asset_number String?
+  type               String?
+  transportation     String?
+  kind_of_request    String?
+  requested          String?
+  gen_manager        String?
+  supervisor         String?
+
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  PurchaseRequestDetail PurchaseRequestDetail[]
+
+  @@map("purchase_requests")
+}
+
+model PurchaseRequestDetail {
+  id Int @id @default(autoincrement())
+
+  PurchaseRequest PurchaseRequest? @relation(fields: [pr_number], references: [pr_number], onDelete: Cascade)
+  pr_number       String?
+
   acc                  String?
   item_code            String?
   item_name            String?
@@ -163,14 +181,11 @@ model PurchaseRequest {
   supplier             String?
   remark               String?
   purpose              String?
-  requested            String?
-  gen_manager          String?
-  supervisor           String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("purchase_requests")
+  @@map("purchase_request_details")
 }
 
 model PurchaseOrder {
