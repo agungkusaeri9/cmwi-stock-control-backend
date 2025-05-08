@@ -34,9 +34,6 @@ export class PurchaseOrderService {
             "PO No.",
             "PO Date",
             "SOB/PR Date",
-            "Requested",
-            "Gen. Manager",
-            "Supervisor",
 
         ];
 
@@ -175,6 +172,23 @@ export class PurchaseOrderService {
                     },
                 ]
             });
+        }
+
+        if (searchRequest.start_date) {
+            filters.push({
+                po_date: {
+                    gte: searchRequest.start_date
+                }
+            })
+        }
+
+
+        if (searchRequest.end_date) {
+            filters.push({
+                po_date: {
+                    lte: searchRequest.end_date
+                }
+            })
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};

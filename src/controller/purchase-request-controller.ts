@@ -15,7 +15,9 @@ export class PurchaseRequestController {
                 keyword: req.query.keyword as string,
                 page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
                 limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
-                paginate: req.query.paginate === "true"
+                paginate: req.query.paginate === "true",
+                start_date: typeof req.query.start_date === 'string' ? new Date(req.query.start_date) : undefined,
+                end_date: typeof req.query.end_date === 'string' ? new Date(req.query.end_date) : undefined,
             };
 
 

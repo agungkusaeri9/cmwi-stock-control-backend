@@ -38,6 +38,10 @@ export class PurchaseRequestService {
             "Type",
             "Transportation",
             "Kind of Request",
+            "Requested",
+            "Gen. Manager",
+            "Supervisor",
+
         ];
 
 
@@ -162,6 +166,23 @@ export class PurchaseRequestService {
                     { item_code: { contains: searchRequest.keyword } }
                 ]
             });
+        }
+
+        if (searchRequest.start_date) {
+            filters.push({
+                date: {
+                    gte: searchRequest.start_date
+                }
+            })
+        }
+
+
+        if (searchRequest.end_date) {
+            filters.push({
+                date: {
+                    lte: searchRequest.end_date
+                }
+            })
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};

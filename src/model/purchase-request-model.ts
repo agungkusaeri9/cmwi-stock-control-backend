@@ -55,6 +55,8 @@ export type SearchPurchaseRequestRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
+    start_date?: Date;
+    end_date?: Date;
 }
 
 export function toPurchaseRequestResponse(p: any): PurchaseRequestResponse {
