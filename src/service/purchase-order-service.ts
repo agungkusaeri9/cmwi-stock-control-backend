@@ -165,7 +165,7 @@ export class PurchaseOrderService {
             filters.push({
                 OR: [
                     {
-                        name: {
+                        po_number: {
                             contains: searchRequest.keyword
 
                         }

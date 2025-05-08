@@ -140,6 +140,28 @@ export class PurchaseRequestService {
             const createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult);
             const createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult);
 
+            const prNumbers = createRequest.map(item => item.pr_number).filter(Boolean) as string[];
+
+            const existing = await prismaClient.purchaseRequest.findMany({
+                where: {
+                    pr_number: { in: prNumbers }
+                },
+                select: { pr_number: true }
+            });
+
+            const existingNumbers = new Set(existing.map(e => e.pr_number));
+
+            const filteredData = createRequest.filter(item => !existingNumbers.has(item.pr_number));
+
+            if (filteredData.length === 0) {
+                logger.error(`All data on file ${filePath} already exists in database`);
+                return false;
+            }
+
+            if (filteredData.length !== createRequest.length) {
+                logger.error(`Some data on file ${filePath} already exists in database`);
+            }
+
             await prismaClient.$transaction([
                 prismaClient.purchaseRequest.createMany({ data: createRequest }),
                 prismaClient.purchaseRequestDetail.createMany({ data: createRequestDetail }),
