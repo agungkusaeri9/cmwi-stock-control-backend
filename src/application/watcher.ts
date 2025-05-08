@@ -13,7 +13,7 @@ const purchaseOrderFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-order");
 const startWatcher = () => {
     const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath], {
         persistent: true,
-        ignoreInitial: false,
+        ignoreInitial: true,
         ignored: /(^|[\/\\])~\$/,
         awaitWriteFinish: {
             stabilityThreshold: 2000,
