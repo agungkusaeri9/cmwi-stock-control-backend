@@ -77,14 +77,14 @@ export class PurchaseRequestService {
             const isContinuationRow: boolean = importantHeaders.every((header) => !obj[header]);
 
             if (isContinuationRow && purchaseRequests.length > 0) {
-
                 objDetail["PR No."] = purchaseRequests[purchaseRequests.length - 1]["PR No."];
-                purchaseRequestDetails.push(objDetail);
-
             } else {
+                objDetail["PR No."] = obj["PR No."];
                 purchaseRequests.push(obj);
             }
 
+
+            purchaseRequestDetails.push(objDetail);
         }
 
         const parseNumber = (val: string | undefined): number | null =>
