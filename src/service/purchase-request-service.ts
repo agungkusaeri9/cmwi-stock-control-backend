@@ -185,7 +185,6 @@ export class PurchaseRequestService {
             filters.push({
                 OR: [
                     { pr_number: { contains: searchRequest.keyword } },
-                    { item_code: { contains: searchRequest.keyword } }
                 ]
             });
         }
