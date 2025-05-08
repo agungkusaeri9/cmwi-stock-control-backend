@@ -16,10 +16,8 @@ export class PurchaseOrderService {
 
         const workbook: xlsx.WorkBook = xlsx.readFile(filePath);
 
-        // Ambil sheet (pastikan nama sheet sesuai)
         const sheet: xlsx.WorkSheet = workbook.Sheets["Sheet1"];
 
-        // Konversi sheet ke JSON
         const data: any[][] = xlsx.utils.sheet_to_json(sheet, {
             header: 1,
         });
@@ -213,14 +211,14 @@ export class PurchaseOrderService {
     }
 
     static async show(id: number): Promise<PurchaseOrderResponse> {
-
         if (isNaN(id)) {
             throw new ResponseError(400, "Invalid id");
         }
 
         const PurchaseOrder = await prismaClient.purchaseOrder.findUnique({
-            where: {
-                id: id
+            where: { id: id },
+            include: {
+                PurchaseOrderDetail: true,
             }
         });
 
@@ -230,6 +228,7 @@ export class PurchaseOrderService {
 
         return toPurchaseOrderResponse(PurchaseOrder);
     }
+
 
 
 

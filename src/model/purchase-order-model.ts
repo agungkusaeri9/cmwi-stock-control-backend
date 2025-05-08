@@ -1,4 +1,5 @@
 import { PurchaseOrder } from "@prisma/client";
+import { PurchaseOrderDetailResponse } from "./purchase-order-detail-model";
 
 export type PurchaseOrderResponse = {
     id: number;
@@ -7,6 +8,7 @@ export type PurchaseOrderResponse = {
     po_number: string | null;
     po_date: Date | null;
     pr_date: Date | null;
+    purchase_order_details: PurchaseOrderDetailResponse[];
     createdAt: Date;
     updatedAt: Date;
 }
@@ -38,7 +40,7 @@ export type SearchPurchaseOrderRequest = {
     paginate?: boolean;
 }
 
-export function toPurchaseOrderResponse(PurchaseOrder: PurchaseOrder): PurchaseOrderResponse {
+export function toPurchaseOrderResponse(PurchaseOrder: any): PurchaseOrderResponse {
     return {
         id: PurchaseOrder.id,
         department: PurchaseOrder.department,
@@ -46,7 +48,8 @@ export function toPurchaseOrderResponse(PurchaseOrder: PurchaseOrder): PurchaseO
         po_number: PurchaseOrder.po_number,
         po_date: PurchaseOrder.po_date,
         pr_date: PurchaseOrder.pr_date,
+        purchase_order_details: PurchaseOrder.PurchaseOrderDetail,
         createdAt: PurchaseOrder.createdAt,
         updatedAt: PurchaseOrder.updatedAt
-    }
+    };
 }
