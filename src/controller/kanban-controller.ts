@@ -38,10 +38,10 @@ export class KanbanController {
                 page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
                 limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
                 paginate: req.query.paginate === "true",
-                spare_part_id: isNaN(Number(req.query.spare_part_id)) ? undefined : Number(req.query.spare_part_id),
-                supplier_id: isNaN(Number(req.query.supplier_id)) ? undefined : Number(req.query.supplier_id),
-                maker_id: isNaN(Number(req.query.maker_id)) ? undefined : Number(req.query.maker_id),
-                rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id)
+                rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id),
+                part_code: req.query.part_code as string || undefined,
+                machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
+                machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
 
             };
 

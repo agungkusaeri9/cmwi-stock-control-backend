@@ -1,10 +1,3 @@
-import { Kanban } from "@prisma/client";
-import { SparePartResponse } from "./spare-part-model";
-import { SupplierResponse } from "./supplier-model";
-import { MakerResponse } from "./maker-model";
-import { RackResponse } from "./rack-model";
-
-
 
 export type KanbanResponse = {
     id: number;

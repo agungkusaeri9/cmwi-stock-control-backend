@@ -172,15 +172,7 @@ export class MachineAreaService {
         }
 
 
-        const isUsed = await prismaClient.sparePart.findMany({
-            where: {
-                machine_area_id: id
-            }
-        });
 
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Machine Area used in spare part data");
-        }
 
         await prismaClient.machineArea.delete({
             where: {

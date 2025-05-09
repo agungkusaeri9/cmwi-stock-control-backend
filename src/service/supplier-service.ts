@@ -172,16 +172,6 @@ export class SupplierService {
         }
 
 
-        const isUsed = await prismaClient.kanban.findMany({
-            where: {
-                supplier_id: id
-            }
-        });
-
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Supplier used in kanban data");
-        }
-
         await prismaClient.supplier.delete({
             where: {
                 id: id

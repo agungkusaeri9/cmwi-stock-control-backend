@@ -173,15 +173,7 @@ export class MakerService {
 
 
 
-        const isUsed = await prismaClient.kanban.findMany({
-            where: {
-                maker_id: id
-            }
-        });
 
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Maker used in kanban data");
-        }
 
         await prismaClient.maker.delete({
             where: {

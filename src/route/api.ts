@@ -5,7 +5,6 @@ import { OperatorController } from "../controller/operator-controller";
 import { DepartmentController } from "../controller/department-controller";
 import { MachineAreaController } from "../controller/machine-area-controller";
 import { RackController } from "../controller/rack-controller";
-import { SparePartController } from "../controller/spare-part-controller";
 import { KanbanController } from "../controller/kanban-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
@@ -53,12 +52,6 @@ apiRouter.put("/api/racks/:id", RackController.update);
 apiRouter.delete("/api/racks/:id", RackController.remove);
 
 
-// Spare Part
-apiRouter.post("/api/spare-parts", SparePartController.create);
-apiRouter.get("/api/spare-parts", SparePartController.get);
-apiRouter.get("/api/spare-parts/:id", SparePartController.show);
-apiRouter.put("/api/spare-parts/:id", SparePartController.update);
-apiRouter.delete("/api/spare-parts/:id", SparePartController.remove);
 
 
 // Kanban

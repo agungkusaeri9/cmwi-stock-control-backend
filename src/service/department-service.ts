@@ -188,15 +188,7 @@ export class DepartmentService {
         }
 
 
-        const isUsed = await prismaClient.sparePart.findMany({
-            where: {
-                department_id: id
-            }
-        });
 
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Department used in spare part data");
-        }
 
         await prismaClient.department.delete({
             where: {
