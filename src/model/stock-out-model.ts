@@ -1,21 +1,22 @@
-import { StockIn } from "@prisma/client";
 
-export type StockInResponse = {
+export type StockOutResponse = {
     id: number;
     code: string | null;
     quantity: number | null;
+    machine: string | null;
+    machine_area: string | null;
     created_at: Date;
 }
 
-export type CreateStockInRequest = {
+export type CreateStockOutRequest = {
     code: string;
-    rack_id: number;
+    machine_id: number;
+    machine_area_id: number;
     quantity: number;
-
 }
 
 
-export type SearchStockInRequest = {
+export type SearchStockOutRequest = {
     keyword?: string;
     page: number;
     limit: number;
@@ -23,10 +24,12 @@ export type SearchStockInRequest = {
 }
 
 
-export function toStockInResponse(stock_id: StockIn): StockInResponse {
+export function toStockOutResponse(stock_id: any): StockOutResponse {
     return {
         id: stock_id.id,
         code: stock_id.kanban_code,
+        machine: stock_id.Machine.code,
+        machine_area: stock_id.MachineArea.name,
         quantity: stock_id.quantity,
         created_at: stock_id.created_at
 

@@ -1,0 +1,112 @@
+import { StockInResponse, CreateStockInRequest, toStockInResponse, SearchStockInRequest } from "../model/stock-in-model";
+import { Validation } from "../validation/validation";
+import { StockInValidation } from "../validation/stock-in-validation";
+import { StockIn } from "@prisma/client";
+import { prismaClient } from "../application/database";
+import { logger } from "../application/logging";
+import { ResponseError } from "../error/response-error";
+import { Pageable } from "../model/page";
+
+
+export class StockInService {
+
+    static async create(request: CreateStockInRequest): Promise<StockInResponse> {
+        const createRequest = Validation.validate(StockInValidation.CREATE, request);
+
+
+        const isCodeExist = await prismaClient.kanban.findUnique({
+            where: { code: createRequest.code }
+        });
+        if (!isCodeExist) {
+            throw new ResponseError(404, "Kanban not found");
+        }
+
+
+        const stockIn = await prismaClient.stockIn.create({
+            data: createRequest
+        });
+
+        return toStockInResponse(stockIn);
+    }
+
+
+    static async get(request: SearchStockInRequest): Promise<Pageable<StockInResponse>> {
+
+
+        const searchRequest = Validation.validate(StockInValidation.SEARCH, request);
+
+        const filters: any[] = [];
+
+        if (searchRequest.keyword) {
+            filters.push({
+                OR: [
+                    {
+                        code: {
+                            contains: searchRequest.keyword
+
+                        }
+                    },
+                ]
+            });
+        }
+
+        const whereClause = filters.length > 0 ? { AND: filters } : {};
+
+        // Default pagination values if not provided
+        const page = searchRequest.page || 1;
+        const limit = searchRequest.limit || 10;
+
+        const skip = (page - 1) * limit;
+
+        const [stockIns, total] = await Promise.all([
+            prismaClient.stockIn.findMany({
+                where: whereClause,
+                ...(searchRequest.paginate ? { take: limit, skip } : {}),
+            }),
+            prismaClient.stockIn.count({
+                where: whereClause,
+            })
+        ]);
+
+
+
+        const pagination = searchRequest.paginate
+            ? {
+                curr_page: page,
+                total_page: Math.ceil(total / limit),
+                limit: limit,
+                total: total
+            }
+            : undefined;
+
+
+        return {
+            data: stockIns.map(toStockInResponse),
+            ...(pagination ? { pagination } : {})
+
+        };
+    }
+
+    static async show(id: number): Promise<StockInResponse> {
+
+        if (isNaN(id)) {
+            throw new ResponseError(400, "Invalid id");
+        }
+
+        const stockIn = await prismaClient.stockIn.findUnique({
+            where: {
+                id: id
+            }
+        });
+
+        if (!stockIn) {
+            throw new ResponseError(404, "StockIn not found");
+        }
+
+        return toStockInResponse(stockIn);
+    }
+
+
+}
+
+

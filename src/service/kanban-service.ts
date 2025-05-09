@@ -14,11 +14,11 @@ export class KanbanService {
         const createRequest = Validation.validate(KanbanValidation.CREATE, request);
 
         // Validasi unique: part_code
-        const isPartExist = await prismaClient.kanban.findUnique({
+        const isCodeExist = await prismaClient.kanban.findUnique({
             where: { code: createRequest.code }
         });
-        if (isPartExist) {
-            throw new ResponseError(404, "Code already exist");
+        if (isCodeExist) {
+            throw new ResponseError(400, "Code already exist");
         }
 
         // Validasi foreign key: rack_id
@@ -74,7 +74,7 @@ export class KanbanService {
         });
 
         if (!idISValid) {
-            throw new ResponseError(404, "Kanban not found");
+            throw new ResponseError(400, "Kanban not found");
         }
 
 

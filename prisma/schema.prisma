@@ -62,9 +62,8 @@ model Rack {
   code    String   @unique @db.VarChar(100)
   kanbans Kanban[]
 
-  created_at DateTime  @default(now()) // otomatis terisi saat create
-  updated_at DateTime  @updatedAt
-  StockIn    StockIn[]
+  created_at DateTime @default(now()) // otomatis terisi saat create
+  updated_at DateTime @updatedAt
 
   @@map("racks")
 }
@@ -234,8 +233,6 @@ model StockIn {
   id          Int     @id @default(autoincrement())
   Kanban      Kanban? @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
   kanban_code String?
-  Rack        Rack?   @relation(fields: [rack_id], references: [id], onDelete: SetNull)
-  rack_id     Int?
   quantity    Int
 
   created_at DateTime @default(now())

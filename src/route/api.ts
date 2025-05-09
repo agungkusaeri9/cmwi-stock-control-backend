@@ -12,6 +12,8 @@ import { PurchaseRequestController } from "../controller/purchase-request-contro
 import { PurchaseOrderController } from "../controller/purchase-order-controller";
 import { MachineController } from "../controller/machine-controller";
 import { PartController } from "../controller/part-controller";
+import { StockInController } from "../controller/stock-in-controller";
+import { StockOutController } from "../controller/stock-out-controller";
 
 export const apiRouter = express.Router();
 apiRouter.use(authMiddleware);
@@ -100,3 +102,15 @@ apiRouter.get("/api/parts", PartController.get);
 apiRouter.get("/api/parts/:id", PartController.show);
 apiRouter.put("/api/parts/:id", PartController.update);
 apiRouter.delete("/api/parts/:id", PartController.remove);
+
+
+// Stock In
+apiRouter.post("/api/stock-ins", StockInController.create);
+apiRouter.get("/api/stock-ins", StockInController.get);
+apiRouter.get("/api/stock-ins/:id", StockInController.show);
+
+
+// Stock Out
+apiRouter.post("/api/stock-outs", StockOutController.create);
+apiRouter.get("/api/stock-outs", StockOutController.get);
+apiRouter.get("/api/stock-outs/:id", StockOutController.show);
