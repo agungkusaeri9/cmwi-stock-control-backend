@@ -4,8 +4,8 @@ export class KanbanValidation {
 
     static readonly CREATE: ZodType = z.object({
         code: z.string().min(1).max(100),
-        minimum_quantity: z.number().min(0).positive(),
-        maximum_quantity: z.number().min(0).positive(),
+        min_quantity: z.number().min(0).positive(),
+        max_quantity: z.number().min(0).positive(),
         description: z.string().min(1).max(100),
         specification: z.string().min(1).max(100),
         balance: z.number().min(0).positive(),
@@ -18,8 +18,8 @@ export class KanbanValidation {
 
     static readonly UPDATE: ZodType = z.object({
         code: z.string().min(1).max(100),
-        minimum_quantity: z.number().min(0).positive(),
-        maximum_quantity: z.number().min(0).positive(),
+        min_quantity: z.number().min(0).positive(),
+        max_quantity: z.number().min(0).positive(),
         description: z.string().min(1).max(100),
         specification: z.string().min(1).max(100),
         balance: z.number().min(0).positive(),

@@ -13,12 +13,39 @@ export class StockOutService {
     static async create(request: CreateStockOutRequest): Promise<StockOutResponse> {
         const createRequest = Validation.validate(StockOutValidation.CREATE, request);
 
-        const stockIn = await prismaClient.stockIn.create({
-            data: createRequest
-        });
+        return await prismaClient.$transaction(async (prisma) => {
 
-        return toStockOutResponse(stockIn);
+            const kanbanRows = await prisma.$queryRaw<
+                Array<{ id: string, balance: number }>
+            >`SELECT id, balance FROM kanban WHERE code = ${createRequest.code} FOR UPDATE`;
+
+            if (kanbanRows.length === 0) {
+                throw new ResponseError(404, "Code not found");
+            }
+
+            const kanban = kanbanRows[0];
+
+            if (kanban.balance < createRequest.quantity) {
+                throw new ResponseError(400, "Kanban stock is not enough");
+            }
+
+            // Update kanban balance
+            await prisma.kanban.update({
+                where: { id: Number(kanban.id) },
+                data: {
+                    balance: { decrement: createRequest.quantity }
+                }
+            });
+
+            // Create stock out record
+            const stockOut = await prisma.stockOut.create({
+                data: createRequest
+            });
+
+            return toStockOutResponse(stockOut);
+        });
     }
+
 
 
     static async get(request: SearchStockOutRequest): Promise<Pageable<StockOutResponse>> {
@@ -49,12 +76,12 @@ export class StockOutService {
 
         const skip = (page - 1) * limit;
 
-        const [stockIns, total] = await Promise.all([
-            prismaClient.stockIn.findMany({
+        const [stockOuts, total] = await Promise.all([
+            prismaClient.stockOut.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
-            prismaClient.stockIn.count({
+            prismaClient.stockOut.count({
                 where: whereClause,
             })
         ]);
@@ -72,7 +99,7 @@ export class StockOutService {
 
 
         return {
-            data: stockIns.map(toStockOutResponse),
+            data: stockOuts.map(toStockOutResponse),
             ...(pagination ? { pagination } : {})
 
         };
@@ -84,17 +111,17 @@ export class StockOutService {
             throw new ResponseError(400, "Invalid id");
         }
 
-        const stockIn = await prismaClient.stockIn.findUnique({
+        const stockOut = await prismaClient.stockOut.findUnique({
             where: {
                 id: id
             }
         });
 
-        if (!stockIn) {
+        if (!stockOut) {
             throw new ResponseError(404, "StockOut not found");
         }
 
-        return toStockOutResponse(stockIn);
+        return toStockOutResponse(stockOut);
     }
 
 

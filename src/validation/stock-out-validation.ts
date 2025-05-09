@@ -4,7 +4,7 @@ export class StockOutValidation {
 
     static readonly CREATE: ZodType = z.object({
         code: z.string().min(1).max(100),
-        quantity: z.number().min(0).positive(),
+        quantity: z.number().min(1).positive(),
         machine_id: z.number().min(1).positive(),
         machine_area_id: z.number().min(1).positive(),
     });

@@ -13,21 +13,44 @@ export class StockInService {
     static async create(request: CreateStockInRequest): Promise<StockInResponse> {
         const createRequest = Validation.validate(StockInValidation.CREATE, request);
 
+        return await prismaClient.$transaction(async (prisma) => {
+            // Lock baris kanban berdasarkan code
+            const kanbanRows = await prisma.$queryRaw<
+                Array<{ id: string, stock_in_quantity: number, balance: number }>
+            >`SELECT id, stock_in_quantity, balance FROM kanban WHERE code = ${createRequest.code} FOR UPDATE`;
 
-        const isCodeExist = await prismaClient.kanban.findUnique({
-            where: { code: createRequest.code }
+            if (kanbanRows.length === 0) {
+                throw new ResponseError(404, "Kanban not found");
+            }
+
+            const kanbanData = kanbanRows[0];
+
+            if (kanbanData.stock_in_quantity <= 0) {
+                throw new ResponseError(400, "Kanban stock in quantity is empty");
+            }
+
+            if (kanbanData.balance < createRequest.quantity) {
+                throw new ResponseError(400, "Kanban stock is not enough");
+            }
+
+            // Create stock-in
+            const stockIn = await prisma.stockIn.create({
+                data: createRequest
+            });
+
+            await prisma.kanban.update({
+                where: { id: Number(kanbanData.id) },
+                data: {
+                    balance: { decrement: createRequest.quantity }
+                }
+            });
+
+            return toStockInResponse(stockIn);
         });
-        if (!isCodeExist) {
-            throw new ResponseError(404, "Kanban not found");
-        }
-
-
-        const stockIn = await prismaClient.stockIn.create({
-            data: createRequest
-        });
-
-        return toStockInResponse(stockIn);
     }
+
+
+
 
 
     static async get(request: SearchStockInRequest): Promise<Pageable<StockInResponse>> {
