@@ -1,27 +1,44 @@
 
 export type KanbanResponse = {
     id: number;
+    code: string;
+    description: string | null;
+    specification: string | null;
+    min_quantity: number;
+    max_quantity: number;
+    balance: number;
     uom: string;
     lead_time: number;
-    part_code: string;
     rack: string | null;
     machine_area: string | null;
     machine: string | null;
+    stock_in_quantity: number | null;
 }
 
 export type CreateKanbanRequest = {
+
+    code: string;
+    description: string;
+    specification: string;
+    min_quantity: number;
+    max_quantity: number;
+    balance: number;
     uom: string;
     lead_time: number;
-    part_code: string;
     rack_id?: number;
     machine_area_id?: number;
     machine_id?: number;
 }
 
 export type UpdateKanbanRequest = {
+    code: string;
+    description: string;
+    specification: string;
+    min_quantity: number;
+    max_quantity: number;
+    balance: number;
     uom: string;
     lead_time: number;
-    part_code: string;
     rack_id: number;
     machine_area_id: number;
     machine_id: number;
@@ -32,7 +49,6 @@ export type SearchKanbanRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
-    part_code?: string;
     rack_id?: number;
     machine_area_id?: number;
     machine_id?: number;
@@ -41,11 +57,17 @@ export type SearchKanbanRequest = {
 export function toKanbanResponse(Kanban: any): KanbanResponse {
     return {
         id: Kanban.id,
+        code: Kanban.code,
+        specification: Kanban.specification,
+        description: Kanban.description,
+        min_quantity: Kanban.min_quantity,
+        max_quantity: Kanban.max_quantity,
+        balance: Kanban.balance,
         uom: Kanban.uom,
         lead_time: Kanban.lead_time,
-        part_code: Kanban.Part?.code || null,
         rack: Kanban.Rack?.code || null,
         machine_area: Kanban.MachineArea?.name || null,
-        machine: Kanban.Machine?.code || null
+        machine: Kanban.Machine?.code || null,
+        stock_in_quantity: Kanban.stock_in_quantity
     }
 }

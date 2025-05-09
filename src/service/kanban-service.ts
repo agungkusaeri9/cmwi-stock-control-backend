@@ -13,12 +13,12 @@ export class KanbanService {
     static async create(request: CreateKanbanRequest): Promise<KanbanResponse> {
         const createRequest = Validation.validate(KanbanValidation.CREATE, request);
 
-        // Validasi foreign key: part_code
-        const isPartExist = await prismaClient.part.findUnique({
-            where: { code: createRequest.part_code }
+        // Validasi unique: part_code
+        const isPartExist = await prismaClient.kanban.findUnique({
+            where: { code: createRequest.code }
         });
-        if (!isPartExist) {
-            throw new ResponseError(404, "Part not found");
+        if (isPartExist) {
+            throw new ResponseError(404, "Code already exist");
         }
 
         // Validasi foreign key: rack_id
@@ -50,7 +50,6 @@ export class KanbanService {
         const Kanban = await prismaClient.kanban.create({
             data: createRequest,
             include: {
-                Part: true,
                 Rack: true,
                 MachineArea: true,
                 Machine: true
@@ -82,12 +81,12 @@ export class KanbanService {
 
         const updateRequest = Validation.validate(KanbanValidation.UPDATE, request);
 
-        // Validasi foreign key: part_code
-        const isPartExist = await prismaClient.part.findUnique({
-            where: { code: updateRequest.part_code }
+        // Validasi unique: part_code
+        const isPartExist = await prismaClient.kanban.findUnique({
+            where: { code: updateRequest.code }
         });
-        if (!isPartExist) {
-            throw new ResponseError(404, "Part not found");
+        if (isPartExist) {
+            throw new ResponseError(404, "Code already exist");
         }
 
         // Validasi foreign key: rack_id
@@ -126,7 +125,6 @@ export class KanbanService {
             },
             data: updateRequest,
             include: {
-                Part: true,
                 Rack: true,
                 MachineArea: true,
                 Machine: true
@@ -159,11 +157,6 @@ export class KanbanService {
             });
         }
 
-        if (searchRequest.part_code) {
-            filters.push({
-                part_code: searchRequest.part_code,
-            });
-        }
 
         if (searchRequest.rack_id) {
             filters.push({
@@ -197,7 +190,6 @@ export class KanbanService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
-                    Part: true,
                     Rack: true,
                     MachineArea: true,
                     Machine: true
@@ -227,30 +219,42 @@ export class KanbanService {
         };
     }
 
-    static async show(id: number): Promise<KanbanResponse> {
+    static async show(identifier: number | string): Promise<KanbanResponse> {
+        let kanban;
 
-        if (isNaN(id)) {
-            throw new ResponseError(400, "Invalid id");
+        if (typeof identifier === "number" || (!isNaN(Number(identifier)) && Number(identifier) > 0)) {
+            kanban = await prismaClient.kanban.findUnique({
+                where: {
+                    id: Number(identifier),
+                },
+                include: {
+                    Rack: true,
+                    MachineArea: true,
+                    Machine: true,
+                },
+            });
+        } else if (typeof identifier === "string") {
+            kanban = await prismaClient.kanban.findUnique({
+                where: {
+                    code: identifier,
+                },
+                include: {
+                    Rack: true,
+                    MachineArea: true,
+                    Machine: true,
+                },
+            });
+        } else {
+            throw new ResponseError(400, "Invalid identifier");
         }
 
-        const Kanban = await prismaClient.kanban.findUnique({
-            where: {
-                id: id
-            },
-            include: {
-                Part: true,
-                Rack: true,
-                MachineArea: true,
-                Machine: true
-            }
-        });
-
-        if (!Kanban) {
+        if (!kanban) {
             throw new ResponseError(404, "Kanban not found");
         }
 
-        return toKanbanResponse(Kanban);
+        return toKanbanResponse(kanban);
     }
+
 
 
     static async remove(id: number) {

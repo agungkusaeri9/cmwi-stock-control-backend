@@ -3,17 +3,26 @@ import { z, ZodType } from "zod";
 export class KanbanValidation {
 
     static readonly CREATE: ZodType = z.object({
+        code: z.string().min(1).max(100),
+        minimum_quantity: z.number().min(0).positive(),
+        maximum_quantity: z.number().min(0).positive(),
+        description: z.string().min(1).max(100),
+        specification: z.string().min(1).max(100),
+        balance: z.number().min(0).positive(),
         uom: z.string().min(1).max(100),
         lead_time: z.number().min(1).positive(),
-        part_code: z.string().min(1).max(100),
         rack_id: z.number().min(1).positive(),
         machine_id: z.number().min(1).positive(),
         machine_area_id: z.number().min(1).positive(),
-
-
     });
 
     static readonly UPDATE: ZodType = z.object({
+        code: z.string().min(1).max(100),
+        minimum_quantity: z.number().min(0).positive(),
+        maximum_quantity: z.number().min(0).positive(),
+        description: z.string().min(1).max(100),
+        specification: z.string().min(1).max(100),
+        balance: z.number().min(0).positive(),
         uom: z.string().min(1).max(100),
         lead_time: z.number().min(1).positive(),
         part_code: z.string().min(1).max(100),
@@ -31,6 +40,5 @@ export class KanbanValidation {
         rack_id: z.number().min(1).positive().optional(),
         machine_area_id: z.number().min(1).positive().optional(),
         machine_id: z.number().min(1).positive().optional(),
-        part_code: z.string().min(1).max(100).optional(),
     })
 }

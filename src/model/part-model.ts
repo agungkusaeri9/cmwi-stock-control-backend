@@ -18,7 +18,6 @@ export type PartResponseSimple = {
 
 
 export type CreatePartRequest = {
-    name: string;
     code: string;
     description: string;
     specification: string;
@@ -28,7 +27,6 @@ export type CreatePartRequest = {
 }
 
 export type UpdatePartRequest = {
-    name: string;
     code: string;
     description: string;
     specification: string;

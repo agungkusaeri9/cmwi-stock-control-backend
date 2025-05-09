@@ -39,7 +39,6 @@ export class KanbanController {
                 limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
                 paginate: req.query.paginate === "true",
                 rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id),
-                part_code: req.query.part_code as string || undefined,
                 machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
                 machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
 
@@ -56,8 +55,8 @@ export class KanbanController {
 
     static async show(req: Request, res: Response, next: NextFunction) {
         try {
-            const id: number = Number(req.params.id);
-            const response = await KanbanService.show(id);
+            const identifier: number = Number(req.params.id);
+            const response = await KanbanService.show(identifier);
             sendSuccess(res, 200, "Get Kanban success", response);
         } catch (e) {
             next(e);
