@@ -67,7 +67,7 @@ export class StockInService {
             filters.push({
                 OR: [
                     {
-                        code: {
+                        kanban_code: {
                             contains: searchRequest.keyword
 
                         }
