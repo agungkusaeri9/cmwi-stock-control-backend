@@ -148,7 +148,7 @@ export class KanbanService {
             filters.push({
                 OR: [
                     {
-                        part_code: {
+                        code: {
                             contains: searchRequest.keyword
 
                         }

@@ -55,7 +55,7 @@ export class KanbanController {
 
     static async show(req: Request, res: Response, next: NextFunction) {
         try {
-            const identifier: number = Number(req.params.id);
+            const identifier = req.params.id;
             const response = await KanbanService.show(identifier);
             sendSuccess(res, 200, "Get Kanban success", response);
         } catch (e) {

@@ -57,8 +57,6 @@ apiRouter.delete("/api/racks/:id", RackController.remove);
 
 // Kanban
 apiRouter.post("/api/kanbans", KanbanController.create);
-apiRouter.get("/api/kanbans", KanbanController.get);
-apiRouter.get("/api/kanbans/:id", KanbanController.show);
 apiRouter.put("/api/kanbans/:id", KanbanController.update);
 apiRouter.delete("/api/kanbans/:id", KanbanController.remove);
 
