@@ -29,13 +29,16 @@ export class StockInService {
                 throw new ResponseError(400, "Kanban stock in quantity is empty");
             }
 
-            if (kanbanData.balance < createRequest.quantity) {
+            if (kanbanData.balance < kanbanData.stock_in_quantity) {
                 throw new ResponseError(400, "Kanban stock is not enough");
             }
 
             // Create stock-in
             const stockIn = await prisma.stockIn.create({
-                data: createRequest
+                data: {
+                    ...createRequest,
+                    quantity: kanbanData.stock_in_quantity
+                }
             });
 
             await prisma.kanban.update({

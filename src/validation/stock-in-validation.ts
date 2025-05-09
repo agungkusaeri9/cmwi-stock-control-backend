@@ -4,7 +4,6 @@ export class StockInValidation {
 
     static readonly CREATE: ZodType = z.object({
         kanban_code: z.string().min(1).max(100),
-        quantity: z.number().min(1).positive(),
     });
 
     static readonly SEARCH: ZodType = z.object({
