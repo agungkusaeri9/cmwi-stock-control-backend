@@ -13,33 +13,13 @@ export class KanbanService {
     static async create(request: CreateKanbanRequest): Promise<KanbanResponse> {
         const createRequest = Validation.validate(KanbanValidation.CREATE, request);
 
-
-        const isJsCodeExist = await prismaClient.kanban.findFirst({
-            where: {
-                js_code: createRequest.js_code
-            }
+        // Validasi foreign key: part_code
+        const isPartExist = await prismaClient.part.findUnique({
+            where: { code: createRequest.part_code }
         });
-
-        if (isJsCodeExist) {
-            throw new ResponseError(400, "JsCode already exists");
+        if (!isPartExist) {
+            throw new ResponseError(404, "Part not found");
         }
-
-        // Validasi foreign key: supplier_id
-        const isSupplierExist = await prismaClient.supplier.findUnique({
-            where: { id: createRequest.supplier_id }
-        });
-        if (!isSupplierExist) {
-            throw new ResponseError(404, "Supplier not found");
-        }
-
-        // Validasi foreign key: maker_id
-        const isMakerExist = await prismaClient.maker.findUnique({
-            where: { id: createRequest.maker_id }
-        });
-        if (!isMakerExist) {
-            throw new ResponseError(404, "Maker not found");
-        }
-
 
         // Validasi foreign key: rack_id
         const isRackExist = await prismaClient.rack.findUnique({
@@ -49,22 +29,31 @@ export class KanbanService {
             throw new ResponseError(404, "Rack not found");
         }
 
-        // Validasi foreign key: spare_part_id
-        const isSparePartExist = await prismaClient.sparePart.findUnique({
-            where: { id: createRequest.spare_part_id }
-        });
 
-        if (!isSparePartExist) {
-            throw new ResponseError(404, "Spare Part not found");
+        // Validasi foreign key: machine_area_id
+        const isMachineAreaExist = await prismaClient.machineArea.findUnique({
+            where: { id: createRequest.machine_area_id }
+        });
+        if (!isMachineAreaExist) {
+            throw new ResponseError(404, "Machine Area not found");
         }
+
+        // Validasi foreign key: machine_id
+        const isMachineExist = await prismaClient.machine.findUnique({
+            where: { id: createRequest.machine_id }
+        });
+        if (!isMachineExist) {
+            throw new ResponseError(404, "Machine not found");
+        }
+
 
         const Kanban = await prismaClient.kanban.create({
             data: createRequest,
             include: {
-                spare_part: true,
-                supplier: true,
-                maker: true,
-                rack: true
+                Part: true,
+                Rack: true,
+                MachineArea: true,
+                Machine: true
             }
         });
 
@@ -93,44 +82,13 @@ export class KanbanService {
 
         const updateRequest = Validation.validate(KanbanValidation.UPDATE, request);
 
-        const isJsCodeExist = await prismaClient.kanban.findFirst({
-            where: {
-                js_code: updateRequest.js_code,
-                NOT: {
-                    id: id
-                }
-            }
+        // Validasi foreign key: part_code
+        const isPartExist = await prismaClient.part.findUnique({
+            where: { code: updateRequest.part_code }
         });
-
-        if (isJsCodeExist) {
-            throw new ResponseError(400, "JsCode already exists");
+        if (!isPartExist) {
+            throw new ResponseError(404, "Part not found");
         }
-
-        // Validasi foreign key: spare_part_id
-        const isSparePartExist = await prismaClient.sparePart.findUnique({
-            where: { id: updateRequest.spare_part_id }
-        });
-        if (!isSparePartExist) {
-            throw new ResponseError(404, "Spare Part not found");
-        }
-
-
-        // Validasi foreign key: supplier_id
-        const isSupplierExist = await prismaClient.supplier.findUnique({
-            where: { id: updateRequest.supplier_id }
-        });
-        if (!isSupplierExist) {
-            throw new ResponseError(404, "Supplier not found");
-        }
-
-        // Validasi foreign key: maker_id
-        const isMakerExist = await prismaClient.maker.findUnique({
-            where: { id: updateRequest.maker_id }
-        });
-        if (!isMakerExist) {
-            throw new ResponseError(404, "Maker not found");
-        }
-
 
         // Validasi foreign key: rack_id
         const isRackExist = await prismaClient.rack.findUnique({
@@ -138,6 +96,23 @@ export class KanbanService {
         });
         if (!isRackExist) {
             throw new ResponseError(404, "Rack not found");
+        }
+
+
+        // Validasi foreign key: machine_area_id
+        const isMachineAreaExist = await prismaClient.machineArea.findUnique({
+            where: { id: updateRequest.machine_area_id }
+        });
+        if (!isMachineAreaExist) {
+            throw new ResponseError(404, "Machine Area not found");
+        }
+
+        // Validasi foreign key: machine_id
+        const isMachineExist = await prismaClient.machine.findUnique({
+            where: { id: updateRequest.machine_id }
+        });
+        if (!isMachineExist) {
+            throw new ResponseError(404, "Machine not found");
         }
 
 
@@ -151,10 +126,10 @@ export class KanbanService {
             },
             data: updateRequest,
             include: {
-                spare_part: true,
-                supplier: true,
-                maker: true,
-                rack: true
+                Part: true,
+                Rack: true,
+                MachineArea: true,
+                Machine: true
             }
         });
 
@@ -184,27 +159,28 @@ export class KanbanService {
             });
         }
 
-        if (searchRequest.spare_part_id) {
+        if (searchRequest.part_code) {
             filters.push({
-                spare_part_id: searchRequest.spare_part_id,
-            });
-        }
-
-        if (searchRequest.supplier_id) {
-            filters.push({
-                supplier_id: searchRequest.supplier_id,
-            });
-        }
-
-        if (searchRequest.maker_id) {
-            filters.push({
-                maker_id: searchRequest.maker_id,
+                part_code: searchRequest.part_code,
             });
         }
 
         if (searchRequest.rack_id) {
             filters.push({
                 rack_id: searchRequest.rack_id,
+            });
+        }
+
+
+        if (searchRequest.machine_area_id) {
+            filters.push({
+                machine_area_id: searchRequest.machine_area_id,
+            });
+        }
+
+        if (searchRequest.machine_id) {
+            filters.push({
+                machine_id: searchRequest.machine_id,
             });
         }
 
@@ -221,10 +197,10 @@ export class KanbanService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
-                    spare_part: true,
-                    supplier: true,
-                    maker: true,
-                    rack: true
+                    Part: true,
+                    Rack: true,
+                    MachineArea: true,
+                    Machine: true
                 }
             }),
             prismaClient.kanban.count({
@@ -262,10 +238,10 @@ export class KanbanService {
                 id: id
             },
             include: {
-                spare_part: true,
-                supplier: true,
-                maker: true,
-                rack: true
+                Part: true,
+                Rack: true,
+                MachineArea: true,
+                Machine: true
             }
         });
 

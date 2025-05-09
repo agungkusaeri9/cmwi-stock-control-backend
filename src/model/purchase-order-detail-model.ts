@@ -12,8 +12,7 @@ export type PurchaseOrderDetailResponse = {
     unit: string | null;
     status: string | null;
     remark: string | null;
-    createdAt: Date;
-    updatedAt: Date;
+
 }
 
 
@@ -64,7 +63,5 @@ export function toPurchaseOrderDetailResponse(PurchaseOrderDetail: PurchaseOrder
         unit: PurchaseOrderDetail.unit,
         status: PurchaseOrderDetail.status,
         remark: PurchaseOrderDetail.remark,
-        createdAt: PurchaseOrderDetail.createdAt,
-        updatedAt: PurchaseOrderDetail.updatedAt
     }
 }

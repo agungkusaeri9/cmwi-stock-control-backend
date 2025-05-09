@@ -2,18 +2,16 @@ import { MachineArea } from "@prisma/client";
 
 export type MachineAreaResponse = {
     id: number;
-    code: string;
     name: string;
 }
 
 export type CreateMachineAreaRequest = {
-    code: string;
     name: string;
 }
 
 export type UpdateMachineAreaRequest = {
     name?: string;
-    code?: string;
+
 }
 
 export type SearchMachineAreaRequest = {
@@ -27,6 +25,5 @@ export function toMachineAreaResponse(machineArea: MachineArea): MachineAreaResp
     return {
         id: machineArea.id,
         name: machineArea.name,
-        code: machineArea.code
     }
 }

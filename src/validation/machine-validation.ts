@@ -1,6 +1,6 @@
 import { z, ZodType } from "zod";
 
-export class RackValidation {
+export class MachineValidation {
 
     static readonly CREATE: ZodType = z.object({
         code: z.string().min(1).max(100),

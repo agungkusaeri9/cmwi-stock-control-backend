@@ -90,12 +90,6 @@ export class RackService {
 
                         }
                     },
-                    {
-                        name: {
-                            contains: searchRequest.keyword
-
-                        }
-                    }
                 ]
             });
         }

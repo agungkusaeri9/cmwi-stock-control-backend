@@ -1,22 +1,22 @@
-import { MachineAreaResponse, CreateMachineAreaRequest, UpdateMachineAreaRequest, toMachineAreaResponse, SearchMachineAreaRequest } from "../model/machine-area-model";
+import { MachineResponse, CreateMachineRequest, UpdateMachineRequest, toMachineResponse, SearchMachineRequest } from "../model/machine-model";
 import { Validation } from "../validation/validation";
-import { MachineAreaValidation } from "../validation/machine-area-validation";
-import { MachineArea } from "@prisma/client";
+import { MachineValidation } from "../validation/machine-validation";
+import { Machine } from "@prisma/client";
 import { prismaClient } from "../application/database";
 import { logger } from "../application/logging";
 import { ResponseError } from "../error/response-error";
 import { Pageable } from "../model/page";
 
 
-export class MachineAreaService {
+export class MachineService {
 
-    static async create(request: CreateMachineAreaRequest): Promise<MachineAreaResponse> {
-        const createRequest = Validation.validate(MachineAreaValidation.CREATE, request);
+    static async create(request: CreateMachineRequest): Promise<MachineResponse> {
+        const createRequest = Validation.validate(MachineValidation.CREATE, request);
 
 
-        const isCodeExist = await prismaClient.machineArea.findFirst({
+        const isCodeExist = await prismaClient.machine.findFirst({
             where: {
-                name: createRequest.name
+                code: createRequest.code
             }
         });
 
@@ -24,36 +24,35 @@ export class MachineAreaService {
             throw new ResponseError(400, "Code already exists");
         }
 
-        const machineArea = await prismaClient.machineArea.create({
+        const machine = await prismaClient.machine.create({
             data: createRequest
         });
 
-        return toMachineAreaResponse(machineArea);
+        return toMachineResponse(machine);
     }
 
 
-    static async update(id: number, request: UpdateMachineAreaRequest): Promise<MachineAreaResponse> {
+    static async update(id: number, request: UpdateMachineRequest): Promise<MachineResponse> {
 
         if (isNaN(id)) {
             throw new ResponseError(400, "Invalid id");
         }
 
-
-        const idISValid = await prismaClient.machineArea.findUnique({
+        const idISValid = await prismaClient.machine.findUnique({
             where: {
                 id: id
             }
         });
 
         if (!idISValid) {
-            throw new ResponseError(404, "Machine Area not found");
+            throw new ResponseError(404, "Machine not found");
         }
 
-        const updateRequest = Validation.validate(MachineAreaValidation.UPDATE, request);
+        const updateRequest = Validation.validate(MachineValidation.UPDATE, request);
 
-        const isCodeExist = await prismaClient.machineArea.findFirst({
+        const isCodeExist = await prismaClient.machine.findFirst({
             where: {
-                name: updateRequest.name,
+                code: updateRequest.code,
                 NOT: {
                     id: id
                 }
@@ -64,23 +63,21 @@ export class MachineAreaService {
             throw new ResponseError(400, "Code already exists");
         }
 
-        const machineArea = await prismaClient.machineArea.update({
+        const machine = await prismaClient.machine.update({
             where: {
                 id: id
             },
             data: updateRequest
         });
 
-        return toMachineAreaResponse(machineArea);
+        return toMachineResponse(machine);
     }
 
 
-    static async get(request: SearchMachineAreaRequest): Promise<Pageable<MachineAreaResponse>> {
+    static async get(request: SearchMachineRequest): Promise<Pageable<MachineResponse>> {
 
 
-        const searchRequest = Validation.validate(MachineAreaValidation.SEARCH, request);
-
-
+        const searchRequest = Validation.validate(MachineValidation.SEARCH, request);
 
         const filters: any[] = [];
 
@@ -88,11 +85,11 @@ export class MachineAreaService {
             filters.push({
                 OR: [
                     {
-                        name: {
+                        code: {
                             contains: searchRequest.keyword
 
                         }
-                    }
+                    },
                 ]
             });
         }
@@ -105,12 +102,12 @@ export class MachineAreaService {
 
         const skip = (page - 1) * limit;
 
-        const [machineAreas, total] = await Promise.all([
-            prismaClient.machineArea.findMany({
+        const [machines, total] = await Promise.all([
+            prismaClient.machine.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
             }),
-            prismaClient.machineArea.count({
+            prismaClient.machine.count({
                 where: whereClause,
             })
         ]);
@@ -128,29 +125,29 @@ export class MachineAreaService {
 
 
         return {
-            data: machineAreas.map(toMachineAreaResponse),
+            data: machines.map(toMachineResponse),
             ...(pagination ? { pagination } : {})
 
         };
     }
 
-    static async show(id: number): Promise<MachineAreaResponse> {
+    static async show(id: number): Promise<MachineResponse> {
 
         if (isNaN(id)) {
             throw new ResponseError(400, "Invalid id");
         }
 
-        const machineArea = await prismaClient.machineArea.findUnique({
+        const machine = await prismaClient.machine.findUnique({
             where: {
                 id: id
             }
         });
 
-        if (!machineArea) {
-            throw new ResponseError(404, "MachineArea not found");
+        if (!machine) {
+            throw new ResponseError(404, "Machine not found");
         }
 
-        return toMachineAreaResponse(machineArea);
+        return toMachineResponse(machine);
     }
 
 
@@ -161,28 +158,24 @@ export class MachineAreaService {
         }
 
 
-        const idISValid = await prismaClient.machineArea.findUnique({
+        const idISValid = await prismaClient.machine.findUnique({
             where: {
                 id: id
             }
         });
 
+
         if (!idISValid) {
-            throw new ResponseError(404, "Machine Area not found");
+            throw new ResponseError(404, "Machine not found");
         }
 
 
-        const isUsed = await prismaClient.sparePart.findMany({
-            where: {
-                machine_area_id: id
-            }
-        });
 
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Machine Area used in spare part data");
-        }
 
-        await prismaClient.machineArea.delete({
+
+
+
+        await prismaClient.machine.delete({
             where: {
                 id: id
             }

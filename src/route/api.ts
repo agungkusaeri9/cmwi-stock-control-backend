@@ -11,6 +11,8 @@ import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
 import { PurchaseRequestController } from "../controller/purchase-request-controller";
 import { PurchaseOrderController } from "../controller/purchase-order-controller";
+import { MachineController } from "../controller/machine-controller";
+import { PartController } from "../controller/part-controller";
 
 export const apiRouter = express.Router();
 apiRouter.use(authMiddleware);
@@ -91,3 +93,17 @@ apiRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
 // Purchase Order
 apiRouter.get("/api/purchase-orders", PurchaseOrderController.get);
 apiRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
+
+// Machine
+apiRouter.post("/api/machines", MachineController.create);
+apiRouter.get("/api/machines", MachineController.get);
+apiRouter.get("/api/machines/:id", MachineController.show);
+apiRouter.put("/api/machines/:id", MachineController.update);
+apiRouter.delete("/api/machines/:id", MachineController.remove);
+
+// Part
+apiRouter.post("/api/parts", PartController.create);
+apiRouter.get("/api/parts", PartController.get);
+apiRouter.get("/api/parts/:id", PartController.show);
+apiRouter.put("/api/parts/:id", PartController.update);
+apiRouter.delete("/api/parts/:id", PartController.remove);

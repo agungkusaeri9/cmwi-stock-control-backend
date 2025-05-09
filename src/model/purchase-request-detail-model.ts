@@ -18,8 +18,7 @@ export type PurchaseRequestDetailResponse = {
     supplier: string | null;
     remark: string | null;
     purpose: string | null;
-    createdAt: Date;
-    updatedAt: Date;
+
 };
 
 export type PurchaseRequestDetailRawEntry = {
@@ -91,7 +90,6 @@ export function toPurchaseRequestDetailResponse(p: PurchaseRequestDetail): Purch
         supplier: p.supplier,
         remark: p.remark,
         purpose: p.purpose,
-        createdAt: p.createdAt,
-        updatedAt: p.updatedAt,
+
     };
 }

@@ -271,15 +271,15 @@ export class SparePartService {
         }
 
 
-        const isUsed = await prismaClient.kanban.findMany({
-            where: {
-                spare_part_id: id
-            }
-        });
+        // const isUsed = await prismaClient.kanban.findMany({
+        //     where: {
+        //         spare_part_id: id
+        //     }
+        // });
 
-        if (isUsed.length > 0) {
-            throw new ResponseError(400, "Spare part used in kanban data");
-        }
+        // if (isUsed.length > 0) {
+        //     throw new ResponseError(400, "Spare part used in kanban data");
+        // }
 
         await prismaClient.sparePart.delete({
             where: { id },

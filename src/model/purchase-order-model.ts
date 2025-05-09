@@ -9,8 +9,6 @@ export type PurchaseOrderResponse = {
     po_date: Date | null;
     pr_date: Date | null;
     purchase_order_details: PurchaseOrderDetailResponse[];
-    createdAt: Date;
-    updatedAt: Date;
 }
 
 
@@ -51,7 +49,5 @@ export function toPurchaseOrderResponse(PurchaseOrder: any): PurchaseOrderRespon
         po_date: PurchaseOrder.po_date,
         pr_date: PurchaseOrder.pr_date,
         purchase_order_details: PurchaseOrder.PurchaseOrderDetail,
-        createdAt: PurchaseOrder.createdAt,
-        updatedAt: PurchaseOrder.updatedAt
     };
 }

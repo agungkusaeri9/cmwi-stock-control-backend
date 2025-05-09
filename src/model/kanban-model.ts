@@ -8,33 +8,30 @@ import { RackResponse } from "./rack-model";
 
 export type KanbanResponse = {
     id: number;
-    js_code: string;
-    quantity: number;
+    uom: string;
     lead_time: number;
-    spare_part: SparePartResponse | null;
-    supplier: SupplierResponse | null;
-    maker: MakerResponse | null;
-    rack: RackResponse | null;
+    part_code: string;
+    rack: string | null;
+    machine_area: string | null;
+    machine: string | null;
 }
 
 export type CreateKanbanRequest = {
-    js_code: string;
-    quantity: number;
+    uom: string;
     lead_time: number;
-    spare_part_id: number;
-    supplier_id: number;
-    maker_id: number;
+    part_code: string;
     rack_id: number;
+    machine_area_id: number;
+    machine_id: number;
 }
 
 export type UpdateKanbanRequest = {
-    js_code: string;
-    quantity: number;
+    uom: string;
     lead_time: number;
-    spare_part_id: number;
-    supplier_id: number;
-    maker_id: number;
+    part_code: string;
     rack_id: number;
+    machine_area_id: number;
+    machine_id: number;
 }
 
 export type SearchKanbanRequest = {
@@ -42,21 +39,20 @@ export type SearchKanbanRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
-    spare_part_id?: number;
-    supplier_id?: number;
-    maker_id?: number;
+    part_code?: string;
     rack_id?: number;
+    machine_area_id?: number;
+    machine_id?: number;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {
     return {
         id: Kanban.id,
-        js_code: Kanban.js_code,
-        quantity: Kanban.quantity,
+        uom: Kanban.uom,
         lead_time: Kanban.lead_time,
-        spare_part: Kanban.spare_part ?? null,
-        supplier: Kanban.supplier ?? null,
-        maker: Kanban.maker ?? null,
-        rack: Kanban.rack ?? null
+        part_code: Kanban.Part.code,
+        rack: Kanban.Rack.code,
+        machine_area: Kanban.MachineArea.name,
+        machine: Kanban.Machine.name
     }
 }

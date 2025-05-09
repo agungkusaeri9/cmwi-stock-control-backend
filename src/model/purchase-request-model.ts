@@ -15,8 +15,7 @@ export type PurchaseRequestResponse = {
     gen_manager: string | null;
     supervisor: string | null;
     purchase_request_details: PurchaseRequestDetailResponse[];
-    createdAt: Date;
-    updatedAt: Date;
+
 };
 
 export type PurchaseRequestRawEntry = {
@@ -74,7 +73,6 @@ export function toPurchaseRequestResponse(p: any): PurchaseRequestResponse {
         gen_manager: p.gen_manager,
         supervisor: p.supervisor,
         purchase_request_details: p.PurchaseRequestDetail,
-        createdAt: p.createdAt,
-        updatedAt: p.updatedAt,
+
     };
 }
