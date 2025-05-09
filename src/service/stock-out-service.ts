@@ -12,15 +12,15 @@ export class StockOutService {
 
     static async create(request: CreateStockOutRequest): Promise<StockOutResponse> {
         const createRequest = Validation.validate(StockOutValidation.CREATE, request);
-
+        console.log(createRequest);
         return await prismaClient.$transaction(async (prisma) => {
 
             const kanbanRows = await prisma.$queryRaw<
                 Array<{ id: string, balance: number }>
-            >`SELECT id, balance FROM kanban WHERE code = ${createRequest.code} FOR UPDATE`;
+            >`SELECT id, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
             if (kanbanRows.length === 0) {
-                throw new ResponseError(404, "Code not found");
+                throw new ResponseError(404, "Kanban Code not found");
             }
 
             const kanban = kanbanRows[0];

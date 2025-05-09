@@ -2,13 +2,13 @@ import { StockIn } from "@prisma/client";
 
 export type StockInResponse = {
     id: number;
-    code: string | null;
+    kanban_code: string | null;
     quantity: number | null;
     created_at: Date;
 }
 
 export type CreateStockInRequest = {
-    code: string;
+    kanban_code: string;
     rack_id: number;
     quantity: number;
 
@@ -23,12 +23,12 @@ export type SearchStockInRequest = {
 }
 
 
-export function toStockInResponse(stock_id: StockIn): StockInResponse {
+export function toStockInResponse(stockIn: StockIn): StockInResponse {
     return {
-        id: stock_id.id,
-        code: stock_id.kanban_code,
-        quantity: stock_id.quantity,
-        created_at: stock_id.created_at
+        id: stockIn.id,
+        kanban_code: stockIn.kanban_code,
+        quantity: stockIn.quantity,
+        created_at: stockIn.created_at
 
     }
 }

@@ -1,7 +1,7 @@
 
 export type StockOutResponse = {
     id: number;
-    code: string | null;
+    kanban_code: string | null;
     quantity: number | null;
     machine: string | null;
     machine_area: string | null;
@@ -9,7 +9,7 @@ export type StockOutResponse = {
 }
 
 export type CreateStockOutRequest = {
-    code: string;
+    kanban_code: string;
     machine_id: number;
     machine_area_id: number;
     quantity: number;
@@ -24,14 +24,14 @@ export type SearchStockOutRequest = {
 }
 
 
-export function toStockOutResponse(stock_id: any): StockOutResponse {
+export function toStockOutResponse(stockOut: any): StockOutResponse {
     return {
-        id: stock_id.id,
-        code: stock_id.kanban_code,
-        machine: stock_id.Machine.code,
-        machine_area: stock_id.MachineArea.name,
-        quantity: stock_id.quantity,
-        created_at: stock_id.created_at
+        id: stockOut.id,
+        kanban_code: stockOut.kanban_code,
+        machine: stockOut.Machine?.code,
+        machine_area: stockOut.MachineArea?.name,
+        quantity: stockOut.quantity,
+        created_at: stockOut.created_at
 
     }
 }
