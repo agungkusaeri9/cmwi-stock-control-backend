@@ -13,9 +13,9 @@ export type CreateKanbanRequest = {
     uom: string;
     lead_time: number;
     part_code: string;
-    rack_id: number;
-    machine_area_id: number;
-    machine_id: number;
+    rack_id?: number;
+    machine_area_id?: number;
+    machine_id?: number;
 }
 
 export type UpdateKanbanRequest = {
@@ -43,9 +43,9 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         id: Kanban.id,
         uom: Kanban.uom,
         lead_time: Kanban.lead_time,
-        part_code: Kanban.Part.code,
-        rack: Kanban.Rack.code,
-        machine_area: Kanban.MachineArea.name,
-        machine: Kanban.Machine.name
+        part_code: Kanban.Part?.code || null,
+        rack: Kanban.Rack?.code || null,
+        machine_area: Kanban.MachineArea?.name || null,
+        machine: Kanban.Machine?.code || null
     }
 }
