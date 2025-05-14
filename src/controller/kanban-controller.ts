@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { CreateKanbanRequest, UpdateKanbanRequest, SearchKanbanRequest } from "../model/kanban-model";
 import { KanbanService } from "../service/kanban-service";
 import { sendSuccess } from "../helper/response-helper";
+import { logger } from "../application/logging";
 
 
 export class KanbanController {
@@ -57,6 +58,7 @@ export class KanbanController {
         try {
             const identifier = req.params.id;
             const response = await KanbanService.show(identifier);
+            logger.info("Kanban is found successfully");
             sendSuccess(res, 200, "Get Kanban success", response);
         } catch (e) {
             next(e);

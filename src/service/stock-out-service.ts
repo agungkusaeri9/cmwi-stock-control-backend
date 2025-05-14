@@ -68,6 +68,23 @@ export class StockOutService {
             });
         }
 
+        if (searchRequest.start_date) {
+            filters.push({
+                date: {
+                    gte: searchRequest.start_date
+                }
+            })
+        }
+
+
+        if (searchRequest.end_date) {
+            filters.push({
+                date: {
+                    lte: searchRequest.end_date
+                }
+            })
+        }
+
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
         // Default pagination values if not provided

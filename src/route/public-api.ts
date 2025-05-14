@@ -3,6 +3,15 @@ import { UserController } from "../controller/user-controller";
 import { StockInController } from "../controller/stock-in-controller";
 import { StockOutController } from "../controller/stock-out-controller";
 import { KanbanController } from "../controller/kanban-controller";
+import { MachineAreaController } from "../controller/machine-area-controller";
+import { MachineController } from './../controller/machine-controller';
+import { OperatorController } from "../controller/operator-controller";
+import { DepartmentController } from "../controller/department-controller";
+import { RackController } from "../controller/rack-controller";
+import { SupplierController } from "../controller/supplier-controller";
+import { MakerController } from "../controller/Maker-controller";
+import { PartController } from "../controller/part-controller";
+
 
 export const publicRouter = express.Router();
 publicRouter.post("/api/auth/login", UserController.login);
@@ -22,3 +31,39 @@ publicRouter.get("/api/stock-outs/:id", StockOutController.show);
 // Kanban
 publicRouter.get("/api/kanbans", KanbanController.get);
 publicRouter.get("/api/kanbans/:id", KanbanController.show);
+
+// Machine Area
+publicRouter.get("/api/machine-areas", MachineAreaController.get);
+publicRouter.get("/api/machine-areas/:id", MachineAreaController.show);
+
+// Machine
+publicRouter.get("/api/machines", MachineController.get);
+publicRouter.get("/api/machines/:id", MachineController.show);
+
+
+// Operator
+publicRouter.get("/api/operators", OperatorController.get);
+publicRouter.get("/api/operators/:id", OperatorController.show);
+
+// Departement
+publicRouter.get("/api/departments", DepartmentController.get);
+publicRouter.get("/api/departments/:id", DepartmentController.show);
+
+
+// Rack
+publicRouter.get("/api/racks", RackController.get);
+publicRouter.get("/api/racks/:id", RackController.show);
+
+
+// Supplier
+publicRouter.get("/api/suppliers", SupplierController.get);
+publicRouter.get("/api/suppliers/:id", SupplierController.show);
+
+// Maker
+publicRouter.get("/api/makers", MakerController.get);
+publicRouter.get("/api/makers/:id", MakerController.show);
+
+
+// Part
+publicRouter.get("/api/parts", PartController.get);
+publicRouter.get("/api/parts/:id", PartController.show);

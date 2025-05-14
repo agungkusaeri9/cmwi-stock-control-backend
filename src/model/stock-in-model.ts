@@ -20,6 +20,8 @@ export type SearchStockInRequest = {
     page: number;
     limit: number;
     paginate?: boolean;
+    start_date?: Date;
+    end_date?: Date;
 }
 
 

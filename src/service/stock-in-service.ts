@@ -26,7 +26,7 @@ export class StockInService {
             const kanbanData = kanbanRows[0];
 
             if (kanbanData.stock_in_quantity <= 0) {
-                throw new ResponseError(400, "Kanban stock in quantity is empty");
+                throw new ResponseError(400, "Kanban stock in quantity js system is empty");
             }
 
             if (kanbanData.balance < kanbanData.stock_in_quantity) {
@@ -74,6 +74,23 @@ export class StockInService {
                     },
                 ]
             });
+        }
+
+        if (searchRequest.start_date) {
+            filters.push({
+                date: {
+                    gte: searchRequest.start_date
+                }
+            })
+        }
+
+
+        if (searchRequest.end_date) {
+            filters.push({
+                date: {
+                    lte: searchRequest.end_date
+                }
+            })
         }
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
