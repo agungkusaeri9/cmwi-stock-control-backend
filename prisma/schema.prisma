@@ -28,7 +28,7 @@ model Department {
   name   String @db.VarChar(100)
   number String @db.VarChar(100)
 
-  created_at DateTime @default(now()) // otomatis terisi saat create
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("departmens")
@@ -38,7 +38,7 @@ model MachineArea {
   id   Int    @id @default(autoincrement())
   name String @unique @db.VarChar(100)
 
-  created_at DateTime   @default(now()) // otomatis terisi saat create
+  created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
   Kanban     Kanban[]
   StockOut   StockOut[]
@@ -51,7 +51,7 @@ model Operator {
   nik  String @unique @db.VarChar(100)
   name String @db.VarChar(100)
 
-  created_at DateTime @default(now()) // otomatis terisi saat create
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("operators")
@@ -62,7 +62,7 @@ model Rack {
   code    String   @unique @db.VarChar(100)
   kanbans Kanban[]
 
-  created_at DateTime @default(now()) // otomatis terisi saat create
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("racks")
@@ -72,7 +72,7 @@ model Supplier {
   id   Int    @id @default(autoincrement())
   name String @unique @db.VarChar(100)
 
-  created_at DateTime @default(now()) // otomatis terisi saat create
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("suppliers")
@@ -82,7 +82,7 @@ model Maker {
   id   Int    @id @default(autoincrement())
   name String @unique @db.VarChar(100)
 
-  created_at DateTime @default(now()) // otomatis terisi saat create
+  created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("makers")
@@ -179,7 +179,7 @@ model Machine {
   id   Int    @id @default(autoincrement())
   code String @unique @db.VarChar(100)
 
-  created_at DateTime   @default(now()) // otomatis terisi saat create
+  created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
   Kanban     Kanban[]
   StockOut   StockOut[]
@@ -209,10 +209,8 @@ model Kanban {
   specification     String?      @db.VarChar(255)
   min_quantity      Int          @default(0)
   max_quantity      Int          @default(0)
-  balance           Int          @default(0)
   uom               String
   lead_time         Int
-  quantity          Int          @default(0)
   Rack              Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
   rack_id           Int?
   MachineArea       MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
@@ -220,8 +218,9 @@ model Kanban {
   Machine           Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id        Int?
   stock_in_quantity Int          @default(0)
+  balance           Int          @default(0)
 
-  created_at DateTime   @default(now()) // otomatis terisi saat create
+  created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
   StockIn    StockIn[]
   StockOut   StockOut[]
@@ -230,10 +229,12 @@ model Kanban {
 }
 
 model StockIn {
-  id          Int     @id @default(autoincrement())
-  Kanban      Kanban? @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
-  kanban_code String?
-  quantity    Int
+  id             Int     @id @default(autoincrement())
+  Kanban         Kanban? @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code    String?
+  quantity       Int
+  balance_before Int
+  balance_after  Int
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -250,6 +251,8 @@ model StockOut {
   MachineArea     MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
   machine_area_id Int?
   quantity        Int
+  balance_before  Int
+  balance_after   Int
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

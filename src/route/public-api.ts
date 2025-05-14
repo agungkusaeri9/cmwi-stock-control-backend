@@ -13,6 +13,7 @@ import { MakerController } from "../controller/Maker-controller";
 import { PartController } from "../controller/part-controller";
 import { PurchaseRequestController } from "../controller/purchase-request-controller";
 import { PurchaseOrderController } from "../controller/purchase-order-controller";
+import { ReminderController } from "../controller/reminder-controller";
 
 
 export const publicRouter = express.Router();
@@ -79,3 +80,7 @@ publicRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
 // Purchase Order
 publicRouter.get("/api/purchase-orders", PurchaseOrderController.get);
 publicRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
+
+
+// Reminder
+publicRouter.get("/api/reminders", ReminderController.get);
