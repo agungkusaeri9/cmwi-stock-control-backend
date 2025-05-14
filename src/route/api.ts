@@ -8,8 +8,6 @@ import { RackController } from "../controller/rack-controller";
 import { KanbanController } from "../controller/kanban-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
-import { PurchaseRequestController } from "../controller/purchase-request-controller";
-import { PurchaseOrderController } from "../controller/purchase-order-controller";
 import { MachineController } from "../controller/machine-controller";
 import { PartController } from "../controller/part-controller";
 
@@ -66,14 +64,6 @@ apiRouter.put("/api/makers/:id", MakerController.update);
 apiRouter.delete("/api/makers/:id", MakerController.remove);
 
 
-// Purchase Request
-apiRouter.get("/api/purchase-requests", PurchaseRequestController.get);
-apiRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
-
-
-// Purchase Order
-apiRouter.get("/api/purchase-orders", PurchaseOrderController.get);
-apiRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
 
 // Machine
 apiRouter.post("/api/machines", MachineController.create);

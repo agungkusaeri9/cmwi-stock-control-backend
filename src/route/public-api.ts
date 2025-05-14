@@ -11,6 +11,8 @@ import { RackController } from "../controller/rack-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
 import { PartController } from "../controller/part-controller";
+import { PurchaseRequestController } from "../controller/purchase-request-controller";
+import { PurchaseOrderController } from "../controller/purchase-order-controller";
 
 
 export const publicRouter = express.Router();
@@ -67,3 +69,13 @@ publicRouter.get("/api/makers/:id", MakerController.show);
 // Part
 publicRouter.get("/api/parts", PartController.get);
 publicRouter.get("/api/parts/:id", PartController.show);
+
+
+// Purchase Request
+publicRouter.get("/api/purchase-requests", PurchaseRequestController.get);
+publicRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
+
+
+// Purchase Order
+publicRouter.get("/api/purchase-orders", PurchaseOrderController.get);
+publicRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
