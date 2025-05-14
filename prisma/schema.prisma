@@ -103,8 +103,8 @@ model PurchaseRequest {
   gen_manager        String?
   supervisor         String?
 
-  createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @updatedAt
+  created_at            DateTime                @default(now())
+  updated_at            DateTime                @updatedAt
   PurchaseRequestDetail PurchaseRequestDetail[]
 
   @@map("purchase_requests")
@@ -132,8 +132,8 @@ model PurchaseRequestDetail {
   remark               String?
   purpose              String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("purchase_request_details")
 }
@@ -146,8 +146,8 @@ model PurchaseOrder {
   po_date    DateTime?
   pr_date    DateTime?
 
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime              @updatedAt
+  created_at          DateTime              @default(now())
+  updated_at          DateTime              @updatedAt
   PurchaseOrderDetail PurchaseOrderDetail[]
 
   @@map("purchase_orders")
@@ -169,8 +169,8 @@ model PurchaseOrderDetail {
   status        String?
   remark        String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
   @@map("purchase_order_details")
 }

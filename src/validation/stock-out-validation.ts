@@ -13,6 +13,8 @@ export class StockOutValidation {
         keyword: z.string().optional(),
         page: z.number().min(1).positive().optional(),
         limit: z.number().min(1).max(100).positive().optional(),
-        paginate: z.boolean().optional()
+        paginate: z.boolean().optional(),
+        start_date: z.coerce.date().nullable().optional(),
+        end_date: z.coerce.date().nullable().optional(),
     })
 }

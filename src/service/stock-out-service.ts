@@ -70,7 +70,7 @@ export class StockOutService {
 
         if (searchRequest.start_date) {
             filters.push({
-                date: {
+                created_at: {
                     gte: searchRequest.start_date
                 }
             })
@@ -79,7 +79,7 @@ export class StockOutService {
 
         if (searchRequest.end_date) {
             filters.push({
-                date: {
+                created_at: {
                     lte: searchRequest.end_date
                 }
             })
@@ -131,6 +131,9 @@ export class StockOutService {
         const stockOut = await prismaClient.stockOut.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                Kanban: true
             }
         });
 

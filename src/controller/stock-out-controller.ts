@@ -33,6 +33,9 @@ export class StockOutController {
             };
 
 
+            console.log(request.start_date)
+
+
             const response = await StockOutService.get(request);
 
             sendSuccess(res, 200, "Get stockOut success", response.data, response.pagination);
