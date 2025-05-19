@@ -34,8 +34,8 @@ export function toStockOutResponse(stockOut: any): StockOutResponse {
     return {
         id: stockOut.id,
         kanban_code: stockOut.kanban_code,
-        machine: stockOut.Machine?.code,
-        machine_area: stockOut.MachineArea?.name,
+        machine: stockOut.Machine,
+        machine_area: stockOut.MachineArea,
         quantity: stockOut.quantity,
         kanban: stockOut.Kanban,
         // operator: stockOut.Operator,
