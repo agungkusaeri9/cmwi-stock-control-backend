@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { CreateStockInRequest, SearchStockInRequest } from "../model/stock-in-model";
 import { StockInService } from "../service/stock-in-service";
 import { sendSuccess } from "../helper/response-helper";
+import { logger } from "../application/logging";
 
 
 export class StockInController {
@@ -12,7 +13,7 @@ export class StockInController {
             const response = await StockInService.create(request);
 
             sendSuccess(res, 200, "Create stockIn success", response);
-
+            logger.info("Create stockIn success");
         } catch (e) {
             next(e);
         }

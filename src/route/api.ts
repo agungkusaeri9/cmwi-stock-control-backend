@@ -21,7 +21,6 @@ apiRouter.get("/api/users/current", UserController.get);
 
 // Operator APi
 apiRouter.post("/api/operators", OperatorController.create);
-
 apiRouter.put("/api/operators/:id", OperatorController.update);
 apiRouter.delete("/api/operators/:id", OperatorController.remove);
 

@@ -1,4 +1,4 @@
-import { Kanban } from "@prisma/client";
+import { Kanban, Operator } from "@prisma/client";
 
 export type StockOutResponse = {
     id: number;
@@ -7,6 +7,7 @@ export type StockOutResponse = {
     machine: string | null;
     machine_area: string | null;
     kanban: Kanban | null;
+    operator: Operator | null;
     created_at: Date;
 }
 
@@ -15,6 +16,7 @@ export type CreateStockOutRequest = {
     machine_id: number;
     machine_area_id: number;
     quantity: number;
+    operator_id: number;
 }
 
 
@@ -36,6 +38,7 @@ export function toStockOutResponse(stockOut: any): StockOutResponse {
         machine_area: stockOut.MachineArea?.name,
         quantity: stockOut.quantity,
         kanban: stockOut.Kanban,
+        operator: stockOut.Operator,
         created_at: stockOut.created_at
 
     }

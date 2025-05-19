@@ -38,6 +38,7 @@ export class StockInService {
                 data: {
                     ...createRequest,
                     quantity: kanbanData.stock_in_quantity,
+                    operator_id: createRequest.operator_id,
                     balance_before: kanbanData.balance,
                     balance_after: kanbanData.balance + kanbanData.stock_in_quantity
                 }
@@ -46,7 +47,7 @@ export class StockInService {
             await prisma.kanban.update({
                 where: { id: Number(kanbanData.id) },
                 data: {
-                    balance: { decrement: kanbanData.stock_in_quantity },
+                    balance: { increment: kanbanData.stock_in_quantity },
                 }
             });
 

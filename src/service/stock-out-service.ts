@@ -41,6 +41,7 @@ export class StockOutService {
             const stockOut = await prisma.stockOut.create({
                 data: {
                     ...createRequest,
+                    operator_id: createRequest.operator_id,
                     balance_before: kanban.balance,
                     balance_after: kanban.balance - createRequest.quantity
                 },

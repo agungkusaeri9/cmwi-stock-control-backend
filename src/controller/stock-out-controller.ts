@@ -11,6 +11,8 @@ export class StockOutController {
             const request: CreateStockOutRequest = req.body as CreateStockOutRequest;
             const response = await StockOutService.create(request);
 
+            console.log("masuk ke create stock out");
+
             sendSuccess(res, 200, "Create stockOut success", response);
 
         } catch (e) {
@@ -33,10 +35,10 @@ export class StockOutController {
             };
 
 
-            console.log(request.start_date)
 
 
             const response = await StockOutService.get(request);
+
 
             sendSuccess(res, 200, "Get stockOut success", response.data, response.pagination);
         } catch (e) {

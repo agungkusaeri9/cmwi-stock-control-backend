@@ -1,19 +1,18 @@
 
-import { Kanban } from "@prisma/client";
+import { Kanban, Operator } from "@prisma/client";
 
 export type StockInResponse = {
     id: number;
     kanban_code: string | null;
     quantity: number | null;
     kanban: Kanban | null;
+    operator: Operator | null;
     created_at: Date;
 }
 
 export type CreateStockInRequest = {
     kanban_code: string;
-    rack_id: number;
-    quantity: number;
-
+    operator_id: number;
 }
 
 
@@ -33,6 +32,7 @@ export function toStockInResponse(stockIn: any): StockInResponse {
         kanban_code: stockIn.kanban_code,
         quantity: stockIn.quantity,
         kanban: stockIn.Kanban,
+        operator: stockIn.Operator,
         created_at: stockIn.created_at
 
     }
