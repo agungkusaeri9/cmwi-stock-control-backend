@@ -6,13 +6,13 @@ export type StockInResponse = {
     kanban_code: string | null;
     quantity: number | null;
     kanban: Kanban | null;
-    operator: Operator | null;
+    // operator: Operator | null;
     created_at: Date;
 }
 
 export type CreateStockInRequest = {
     kanban_code: string;
-    operator_id: number;
+    // operator_id: number;
 }
 
 
@@ -32,7 +32,7 @@ export function toStockInResponse(stockIn: any): StockInResponse {
         kanban_code: stockIn.kanban_code,
         quantity: stockIn.quantity,
         kanban: stockIn.Kanban,
-        operator: stockIn.Operator,
+        // operator: stockIn.Operator,
         created_at: stockIn.created_at
 
     }

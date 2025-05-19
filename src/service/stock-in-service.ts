@@ -38,7 +38,7 @@ export class StockInService {
                 data: {
                     ...createRequest,
                     quantity: kanbanData.stock_in_quantity,
-                    operator_id: createRequest.operator_id,
+                    // operator_id: createRequest.operator_id,
                     balance_before: kanbanData.balance,
                     balance_after: kanbanData.balance + kanbanData.stock_in_quantity
                 }
