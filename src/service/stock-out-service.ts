@@ -45,6 +45,11 @@ export class StockOutService {
                     balance_before: kanban.balance,
                     balance_after: kanban.balance - createRequest.quantity
                 },
+                include: {
+                    MachineArea: true,
+                    Machine: true
+
+                }
 
             });
 
@@ -103,6 +108,11 @@ export class StockOutService {
             prismaClient.stockOut.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    MachineArea: true,
+                    Machine: true
+
+                }
             }),
             prismaClient.stockOut.count({
                 where: whereClause,
@@ -139,7 +149,9 @@ export class StockOutService {
                 id: id
             },
             include: {
-                Kanban: true
+                MachineArea: true,
+                Machine: true
+
             }
         });
 
