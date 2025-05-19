@@ -9882,6 +9882,7 @@ async function insertKanbanData() {
         return {
             code: data.code,
             description: data.description,
+            specification: data.specification,
             min_quantity: data.min_quantity,
             max_quantity: data.max_quantity,
             balance: data.balance,
