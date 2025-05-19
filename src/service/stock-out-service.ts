@@ -79,6 +79,18 @@ export class StockOutService {
             });
         }
 
+        if (searchRequest.machine_area_id) {
+            filters.push({
+                machine_area_id: searchRequest.machine_area_id,
+            });
+        }
+
+        if (searchRequest.machine_id) {
+            filters.push({
+                machine_id: searchRequest.machine_id,
+            });
+        }
+
         if (searchRequest.start_date) {
             filters.push({
                 created_at: {
@@ -95,6 +107,8 @@ export class StockOutService {
                 }
             })
         }
+
+
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 

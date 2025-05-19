@@ -27,6 +27,8 @@ export type SearchStockOutRequest = {
     paginate?: boolean;
     start_date?: Date;
     end_date?: Date;
+    machine_id?: number;
+    machine_area_id?: number;
 }
 
 

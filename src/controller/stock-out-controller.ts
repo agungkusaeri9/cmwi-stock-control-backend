@@ -32,6 +32,8 @@ export class StockOutController {
                 paginate: req.query.paginate === "true",
                 start_date: typeof req.query.start_date === 'string' ? new Date(req.query.start_date) : undefined,
                 end_date: typeof req.query.end_date === 'string' ? new Date(req.query.end_date) : undefined,
+                machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
+                machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
             };
 
 
