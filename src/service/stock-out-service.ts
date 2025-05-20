@@ -41,13 +41,14 @@ export class StockOutService {
             const stockOut = await prisma.stockOut.create({
                 data: {
                     ...createRequest,
-                    // operator_id: createRequest.operator_id,
+                    operator_id: createRequest.operator_id,
                     balance_before: kanban.balance,
                     balance_after: kanban.balance - createRequest.quantity
                 },
                 include: {
                     MachineArea: true,
-                    Machine: true
+                    Machine: true,
+                    operator: true
 
                 }
 
@@ -124,7 +125,8 @@ export class StockOutService {
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
                     MachineArea: true,
-                    Machine: true
+                    Machine: true,
+                    operator: true
 
                 }
             }),
@@ -164,7 +166,8 @@ export class StockOutService {
             },
             include: {
                 MachineArea: true,
-                Machine: true
+                Machine: true,
+                operator: true
 
             }
         });

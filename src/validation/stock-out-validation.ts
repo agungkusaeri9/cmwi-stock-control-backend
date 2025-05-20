@@ -7,7 +7,7 @@ export class StockOutValidation {
         quantity: z.number().min(1).positive(),
         machine_id: z.number().min(1).positive(),
         machine_area_id: z.number().min(1).positive(),
-        // operator_id: z.number().min(1).positive(),
+        operator_id: z.number().min(1).positive(),
     });
 
     static readonly SEARCH: ZodType = z.object({
@@ -17,5 +17,8 @@ export class StockOutValidation {
         paginate: z.boolean().optional(),
         start_date: z.coerce.date().nullable().optional(),
         end_date: z.coerce.date().nullable().optional(),
+        machine_id: z.number().min(1).positive().optional(),
+        machine_area_id: z.number().min(1).positive().optional(),
+        operator_id: z.number().min(1).positive().optional(),
     })
 }

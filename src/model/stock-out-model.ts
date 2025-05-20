@@ -7,7 +7,7 @@ export type StockOutResponse = {
     machine: string | null;
     machine_area: string | null;
     kanban: Kanban | null;
-    // operator: Operator | null;
+    operator: Operator | null;
     created_at: Date;
 }
 
@@ -16,7 +16,7 @@ export type CreateStockOutRequest = {
     machine_id: number;
     machine_area_id: number;
     quantity: number;
-    // operator_id: number;
+    operator_id: number;
 }
 
 
@@ -40,8 +40,7 @@ export function toStockOutResponse(stockOut: any): StockOutResponse {
         machine_area: stockOut.MachineArea,
         quantity: stockOut.quantity,
         kanban: stockOut.Kanban,
-        // operator: stockOut.Operator,
+        operator: stockOut.Operator,
         created_at: stockOut.created_at
-
     }
 }

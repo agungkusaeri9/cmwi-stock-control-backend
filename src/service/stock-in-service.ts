@@ -33,7 +33,7 @@ export class StockInService {
                 data: {
                     ...createRequest,
                     quantity: kanbanData.stock_in_quantity,
-                    // operator_id: createRequest.operator_id,
+                    operator_id: createRequest.operator_id,
                     balance_before: kanbanData.balance,
                     balance_after: kanbanData.balance + kanbanData.stock_in_quantity
                 }
@@ -103,6 +103,9 @@ export class StockInService {
             prismaClient.stockIn.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    operator: true
+                }
             }),
             prismaClient.stockIn.count({
                 where: whereClause,
@@ -139,7 +142,8 @@ export class StockInService {
                 id: id
             },
             include: {
-                Kanban: true
+                Kanban: true,
+                operator: true
             }
         });
 
