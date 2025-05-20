@@ -48,7 +48,7 @@ export class StockOutService {
                 include: {
                     MachineArea: true,
                     Machine: true,
-                    operator: true
+                    Operator: true
 
                 }
 
@@ -126,7 +126,7 @@ export class StockOutService {
                 include: {
                     MachineArea: true,
                     Machine: true,
-                    operator: true
+                    Operator: true
 
                 }
             }),
@@ -167,7 +167,7 @@ export class StockOutService {
             include: {
                 MachineArea: true,
                 Machine: true,
-                operator: true
+                Operator: true
 
             }
         });

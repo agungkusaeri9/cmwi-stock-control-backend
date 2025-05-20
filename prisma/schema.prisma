@@ -141,12 +141,10 @@ model PurchaseRequestDetail {
 }
 
 model PurchaseOrder {
-  id         Int       @id @default(autoincrement())
+  id         Int     @id @default(autoincrement())
   department String?
   supplier   String?
-  po_number  String?   @unique
-  po_date    DateTime?
-  pr_date    DateTime?
+  po_number  String? @unique
 
   created_at          DateTime              @default(now())
   updated_at          DateTime              @updatedAt
@@ -161,6 +159,8 @@ model PurchaseOrderDetail {
   PurchaseOrder PurchaseOrder? @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
   po_number     String?
 
+  po_date       DateTime?
+  pr_date       DateTime?
   pr_number     String?
   pr_requested  String?
   product_code  String?
@@ -222,10 +222,11 @@ model Kanban {
   stock_in_quantity Int          @default(0)
   balance           Int          @default(0)
 
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-  StockIn    StockIn[]
-  StockOut   StockOut[]
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @updatedAt
+  StockIn         StockIn[]
+  StockOut        StockOut[]
+  ReceivingReport ReceivingReport[]
 
   @@map("kanbans")
 }
@@ -234,7 +235,7 @@ model StockIn {
   id             Int       @id @default(autoincrement())
   Kanban         Kanban?   @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
   kanban_code    String?
-  operator       Operator? @relation(fields: [operator_id], references: [id], onDelete: SetNull)
+  Operator       Operator? @relation(fields: [operator_id], references: [id], onDelete: SetNull)
   operator_id    Int?
   quantity       Int
   balance_before Int
@@ -250,7 +251,7 @@ model StockOut {
   id              Int          @id @default(autoincrement())
   Kanban          Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
   kanban_code     String?
-  operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
+  Operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
   operator_id     Int?
   Machine         Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id      Int?
@@ -264,4 +265,26 @@ model StockOut {
   updated_at DateTime @updatedAt
 
   @@map("stock_outs")
+}
+
+model ReceivingReport {
+  id                Int     @id @default(autoincrement())
+  Kanban            Kanban? @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code       String?
+  received_quantity Int     @default(0)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("receiving_reports")
+}
+
+model ProcessedFile {
+  id         Int      @id @default(autoincrement())
+  file_name  String   @unique @db.VarChar(100)
+  type       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("processed_files")
 }

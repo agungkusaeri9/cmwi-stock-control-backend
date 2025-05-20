@@ -113,8 +113,7 @@ export class PurchaseOrderService {
                 department: parseString(entry["Dept."]),
                 supplier: parseString(entry.Supplier),
                 po_number: parseString(entry["PO No."]),
-                po_date: parseDate(entry["PO Date"]),
-                pr_date: parseDate(entry["SOB/PR Date"]),
+
             };
         });
 
@@ -122,6 +121,8 @@ export class PurchaseOrderService {
 
             return {
                 po_number: parseString(entry["PO No."]),
+                po_date: parseDate(entry["PO Date"]),
+                pr_date: parseDate(entry["SOB/PR Date"]),
                 pr_number: parseString(entry["SOB/PR No."]),
                 pr_requested: parseString(entry.pr_requested),
                 product_code: parseString(entry["Product Code"]),

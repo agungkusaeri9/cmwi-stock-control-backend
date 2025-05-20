@@ -1,20 +1,15 @@
 import { z, ZodType } from "zod";
 
-const PurchaseOrderSchema = z.object({
 
-    department: z.string().nullable().optional(),
-    supplier: z.string().nullable().optional(),
-    po_number: z.string().nullable().optional(),
-
+const ReceivingReportSchema = z.object({
+    kanban_code: z.string().min(1).max(100),
+    received_quantity: z.number().min(1).positive(),
 });
 
 
+export class ReceivingReportValidation {
 
-export class PurchaseOrderValidation {
-
-
-    static readonly CREATE: ZodType = z.array(PurchaseOrderSchema);
-
+    static readonly CREATE: ZodType = z.array(ReceivingReportSchema);
     static readonly SEARCH: ZodType = z.object({
         keyword: z.string().optional(),
         page: z.number().min(1).positive().optional(),

@@ -6,8 +6,6 @@ export type PurchaseOrderResponse = {
     department: string | null;
     supplier: string | null;
     po_number: string | null;
-    po_date: Date | null;
-    pr_date: Date | null;
     purchase_order_details: PurchaseOrderDetailResponse[];
 }
 
@@ -17,8 +15,7 @@ export type PurchaseOrderRawEntry = {
     "Dept."?: any;
     Supplier?: any;
     "PO No."?: any;
-    "PO Date"?: any;
-    "SOB/PR Date"?: any;
+
 
 }
 
@@ -26,8 +23,7 @@ export type CreatePurchaseOrderRequest = {
     department: string | null;
     supplier: string | null;
     po_number: string | null;
-    po_date: Date | null;
-    pr_date: Date | null;
+
 
 }
 
@@ -46,8 +42,6 @@ export function toPurchaseOrderResponse(PurchaseOrder: any): PurchaseOrderRespon
         department: PurchaseOrder.department,
         supplier: PurchaseOrder.supplier,
         po_number: PurchaseOrder.po_number,
-        po_date: PurchaseOrder.po_date,
-        pr_date: PurchaseOrder.pr_date,
         purchase_order_details: PurchaseOrder.PurchaseOrderDetail,
     };
 }
