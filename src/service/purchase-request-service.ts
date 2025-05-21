@@ -9,6 +9,7 @@ import { logger } from '../application/logging';
 import { convertDate } from '../helper/convert-date-helper';
 import { ResponseError } from "../error/response-error";
 import { Pageable } from "../model/page";
+import { log } from 'console';
 
 export class PurchaseRequestService {
     static async create(filePath: string) {
@@ -138,7 +139,7 @@ export class PurchaseRequestService {
         try {
 
             const createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult);
-            const createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult);
+            let createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult);
 
             const prNumbers = createRequest.map(item => item.pr_number).filter(Boolean) as string[];
 
@@ -160,10 +161,16 @@ export class PurchaseRequestService {
 
             if (filteredData.length !== createRequest.length) {
                 logger.error(`Some data on file ${filePath} already exists in database`);
+                existingNumbers.forEach(prNumber => {
+                    logger.error(`PR Number ${prNumber} already exists in database`);
+                })
+
+                createRequestDetail = createRequestDetail.filter(item => !existingNumbers.has(item.pr_number));
             }
 
+
             await prismaClient.$transaction([
-                prismaClient.purchaseRequest.createMany({ data: createRequest }),
+                prismaClient.purchaseRequest.createMany({ data: filteredData }),
                 prismaClient.purchaseRequestDetail.createMany({ data: createRequestDetail }),
             ]);
 

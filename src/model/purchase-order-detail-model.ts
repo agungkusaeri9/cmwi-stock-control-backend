@@ -3,8 +3,7 @@ import { PurchaseOrderDetail } from "@prisma/client";
 export type PurchaseOrderDetailResponse = {
     id: number;
     po_number: string | null;
-    po_date: Date | null;
-    pr_date: Date | null;
+
     pr_number: string | null;
     pr_requested: string | null;
     product_code: string | null;
@@ -21,8 +20,6 @@ export type PurchaseOrderDetailResponse = {
 export type PurchaseOrderDetailRawEntry = {
     [key: string]: any;
     "PO No."?: any;
-    "PO Date"?: any;
-    "SOB/PR Date"?: any;
     "SOB/PR No."?: any;
     "Product Code"?: any;
     pr_requested?: any;
@@ -35,9 +32,7 @@ export type PurchaseOrderDetailRawEntry = {
 }
 
 export type CreatePurchaseOrderDetailRequest = {
-    po_number: string | null;
-    po_date: Date | null;
-    pr_date: Date | null;
+    po_number: string;
     pr_number: string | null;
     pr_requested: string | null;
     product_code: string | null;
@@ -59,8 +54,6 @@ export type SearchPurchaseOrderDetailRequest = {
 export function toPurchaseOrderDetailResponse(PurchaseOrderDetail: PurchaseOrderDetail): PurchaseOrderDetailResponse {
     return {
         id: PurchaseOrderDetail.id,
-        po_date: PurchaseOrderDetail.po_date,
-        pr_date: PurchaseOrderDetail.pr_date,
         po_number: PurchaseOrderDetail.po_number,
         pr_number: PurchaseOrderDetail.pr_number,
         pr_requested: PurchaseOrderDetail.pr_requested,

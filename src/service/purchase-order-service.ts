@@ -107,22 +107,20 @@ export class PurchaseOrderService {
             val && val !== "-" ? convertShortDate(val) : null;
 
 
-        const purrchaseOrderFormattedResult: CreatePurchaseOrderRequest[] = purchaseOrders.map((entry: PurchaseOrderRawEntry) => {
-
-            return {
+        const purrchaseOrderFormattedResult: CreatePurchaseOrderRequest[] = purchaseOrders
+            .map((entry: PurchaseOrderRawEntry) => ({
                 department: parseString(entry["Dept."]),
                 supplier: parseString(entry.Supplier),
-                po_number: entry["PO No."].toString(),
-
-            };
-        });
-
-        const purrchaseOrderDetailFormattedResult: CreatePurchaseOrderDetailRequest[] = purchaseOrderDetails.map((entry: PurchaseOrderDetailRawEntry) => {
-
-            return {
                 po_number: parseString(entry["PO No."]),
                 po_date: parseDate(entry["PO Date"]),
                 pr_date: parseDate(entry["SOB/PR Date"]),
+            }))
+            .filter((entry): entry is CreatePurchaseOrderRequest => entry.po_number !== null);
+
+
+        const purrchaseOrderDetailFormattedResult: CreatePurchaseOrderDetailRequest[] = purchaseOrderDetails
+            .map((entry: PurchaseOrderDetailRawEntry) => ({
+                po_number: parseString(entry["PO No."]),
                 pr_number: parseString(entry["SOB/PR No."]),
                 pr_requested: parseString(entry.pr_requested),
                 product_code: parseString(entry["Product Code"]),
@@ -132,14 +130,39 @@ export class PurchaseOrderService {
                 unit: parseString(entry.Unit),
                 status: parseString(entry.Status),
                 remark: parseString(entry.Remark),
-            }
-        })
+            }))
+            .filter((entry): entry is CreatePurchaseOrderDetailRequest => entry.po_number !== null);
+
 
         try {
 
 
-            const createRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
-            const createRequestDetail = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
+            let createRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
+            let createRequestDetail = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
+
+
+
+            const prNumbers: string[] = createRequestDetail
+                .map((po) => po.pr_number)
+                .filter((po_number) => po_number !== null) as string[];
+
+            const existingPurchaseRequests = await prismaClient.purchaseRequest.findMany({
+                where: { pr_number: { in: prNumbers } },
+                select: { pr_number: true }
+            })
+
+            const existingNumbers = new Set(existingPurchaseRequests.map(e => e.pr_number));
+
+            const invalidPRNumbers = prNumbers.filter(pr => !existingNumbers.has(pr));
+            if (invalidPRNumbers.length > 0) {
+                invalidPRNumbers.forEach(pr => logger.error(`PR Number ${pr} not found in DB`));
+
+                createRequestDetail = createRequestDetail.filter(e => !invalidPRNumbers.includes(e.pr_number as string));
+
+                const validPRNumbers = new Set(createRequestDetail.map(e => e.po_number));
+
+                createRequest = createRequest.filter(e => validPRNumbers.has(e.po_number as string));
+            }
 
 
             const poNumbers: string[] = createRequest
@@ -147,12 +170,21 @@ export class PurchaseOrderService {
                 .filter((po_number) => po_number !== null) as string[];
 
             const existingPurchaseOrders = await prismaClient.purchaseOrder.findMany({
-                where: { po_number: { in: poNumbers } }
+                where: { po_number: { in: poNumbers } },
+                select: { po_number: true }
             });
 
-            existingPurchaseOrders.forEach((po) => {
+            const existingOrders = Array.from(
+                new Set(existingPurchaseOrders.map(e => e.po_number))
+            ).filter((po): po is string => po !== null);
 
-            })
+            existingOrders.forEach(po => logger.error(`Update in PO Number: ${po}`));
+
+            await prismaClient.purchaseOrder.deleteMany({
+                where: {
+                    po_number: { in: existingOrders }
+                }
+            });
 
             await prismaClient.$transaction([
                 prismaClient.purchaseOrder.createMany({ data: createRequest }),

@@ -12,8 +12,6 @@ export class ReminderService {
 
         const searchRequest = Validation.validate(ReminderValidation.SEARCH, request);
 
-
-
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
@@ -36,7 +34,6 @@ export class ReminderService {
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
-        // Default pagination values if not provided
         const page = searchRequest.page || 1;
         const limit = searchRequest.limit || 10;
 

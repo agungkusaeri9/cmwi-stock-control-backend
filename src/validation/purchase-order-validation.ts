@@ -4,7 +4,10 @@ const PurchaseOrderSchema = z.object({
 
     department: z.string().nullable().optional(),
     supplier: z.string().nullable().optional(),
-    po_number: z.string().nullable().optional(),
+    po_number: z.string().nullable(),
+    po_date: z.coerce.date().nullable().optional(),
+    pr_date: z.coerce.date().nullable().optional(),
+
 
 });
 

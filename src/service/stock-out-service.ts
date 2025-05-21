@@ -49,7 +49,6 @@ export class StockOutService {
                     machine_area: true,
                     machine: true,
                     operator: true
-
                 }
 
             });
@@ -168,7 +167,6 @@ export class StockOutService {
                 machine_area: true,
                 machine: true,
                 operator: true
-
             }
         });
 

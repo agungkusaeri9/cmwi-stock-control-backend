@@ -131,10 +131,12 @@ model PurchaseRequestDetail {
 }
 
 model PurchaseOrder {
-  id         Int     @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   department String?
   supplier   String?
-  po_number  String  @unique
+  po_number  String    @unique
+  po_date    DateTime?
+  pr_date    DateTime?
 
   created_at            DateTime              @default(now())
   updated_at            DateTime              @updatedAt
@@ -147,10 +149,8 @@ model PurchaseOrderDetail {
   id Int @id @default(autoincrement())
 
   purchase_order PurchaseOrder? @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
-  po_number      String?
+  po_number      String
 
-  po_date       DateTime?
-  pr_date       DateTime?
   pr_number     String?
   pr_requested  String?
   product_code  String?
