@@ -6,11 +6,9 @@ import { KanbanController } from "../controller/kanban-controller";
 import { MachineAreaController } from "../controller/machine-area-controller";
 import { MachineController } from './../controller/machine-controller';
 import { OperatorController } from "../controller/operator-controller";
-import { DepartmentController } from "../controller/department-controller";
 import { RackController } from "../controller/rack-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
-import { PartController } from "../controller/part-controller";
 import { PurchaseRequestController } from "../controller/purchase-request-controller";
 import { PurchaseOrderController } from "../controller/purchase-order-controller";
 import { ReminderController } from "../controller/reminder-controller";
@@ -48,10 +46,6 @@ publicRouter.get("/api/machines/:id", MachineController.show);
 publicRouter.get("/api/operators", OperatorController.get);
 publicRouter.get("/api/operators/:id", OperatorController.show);
 
-// Departement
-publicRouter.get("/api/departments", DepartmentController.get);
-publicRouter.get("/api/departments/:id", DepartmentController.show);
-
 
 // Rack
 publicRouter.get("/api/racks", RackController.get);
@@ -65,11 +59,6 @@ publicRouter.get("/api/suppliers/:id", SupplierController.show);
 // Maker
 publicRouter.get("/api/makers", MakerController.get);
 publicRouter.get("/api/makers/:id", MakerController.show);
-
-
-// Part
-publicRouter.get("/api/parts", PartController.get);
-publicRouter.get("/api/parts/:id", PartController.show);
 
 
 // Purchase Request

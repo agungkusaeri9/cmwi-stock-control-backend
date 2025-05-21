@@ -50,9 +50,10 @@ export class KanbanService {
         const Kanban = await prismaClient.kanban.create({
             data: createRequest,
             include: {
-                Rack: true,
-                MachineArea: true,
-                Machine: true
+                rack: true,
+                machine_area: true,
+                machine: true,
+                supplier: true
             }
         });
 
@@ -125,9 +126,10 @@ export class KanbanService {
             },
             data: updateRequest,
             include: {
-                Rack: true,
-                MachineArea: true,
-                Machine: true
+                rack: true,
+                machine_area: true,
+                machine: true,
+                supplier: true
             }
         });
 
@@ -190,9 +192,10 @@ export class KanbanService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
-                    Rack: true,
-                    MachineArea: true,
-                    Machine: true
+                    rack: true,
+                    machine_area: true,
+                    machine: true,
+                    supplier: true
                 }
             }),
             prismaClient.kanban.count({
@@ -228,10 +231,11 @@ export class KanbanService {
                     id: Number(identifier),
                 },
                 include: {
-                    Rack: true,
-                    MachineArea: true,
-                    Machine: true,
-                },
+                    rack: true,
+                    machine_area: true,
+                    machine: true,
+                    supplier: true
+                }
             });
         } else if (typeof identifier === "string") {
             kanban = await prismaClient.kanban.findUnique({
@@ -239,10 +243,11 @@ export class KanbanService {
                     code: identifier,
                 },
                 include: {
-                    Rack: true,
-                    MachineArea: true,
-                    Machine: true,
-                },
+                    rack: true,
+                    machine_area: true,
+                    machine: true,
+                    supplier: true
+                }
             });
         } else {
             throw new ResponseError(400, "Invalid identifier");

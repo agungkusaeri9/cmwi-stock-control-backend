@@ -104,7 +104,7 @@ export class StockInService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
-                    Operator: true
+                    operator: true
                 }
             }),
             prismaClient.stockIn.count({
@@ -142,8 +142,8 @@ export class StockInService {
                 id: id
             },
             include: {
-                Kanban: true,
-                Operator: true
+                kanban: true,
+                operator: true
             }
         });
 

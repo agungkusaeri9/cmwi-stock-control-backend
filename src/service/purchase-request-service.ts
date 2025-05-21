@@ -255,7 +255,7 @@ export class PurchaseRequestService {
                 id: id
             },
             include: {
-                PurchaseRequestDetail: true
+                purchase_request_detail: true
             }
 
         });

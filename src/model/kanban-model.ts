@@ -1,4 +1,4 @@
-import { Rack, MachineArea, Machine } from "@prisma/client";
+import { Rack, MachineArea, Machine, Supplier } from "@prisma/client";
 
 export type KanbanResponse = {
     id: number;
@@ -14,6 +14,8 @@ export type KanbanResponse = {
     machine_area: MachineArea | null;
     machine: Machine | null;
     stock_in_quantity: number | null;
+    supplier: Supplier[] | null;
+
 }
 
 
@@ -68,9 +70,10 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         balance: Kanban.balance,
         uom: Kanban.uom,
         lead_time: Kanban.lead_time,
-        rack: Kanban.Rack || null,
-        machine_area: Kanban.MachineArea || null,
-        machine: Kanban.Machine || null,
-        stock_in_quantity: Kanban.stock_in_quantity
+        rack: Kanban.rack || null,
+        machine_area: Kanban.machine_area || null,
+        machine: Kanban.machine || null,
+        stock_in_quantity: Kanban.stock_in_quantity,
+        supplier: Kanban.supplier
     }
 }

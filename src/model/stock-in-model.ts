@@ -31,8 +31,8 @@ export function toStockInResponse(stockIn: any): StockInResponse {
         id: stockIn.id,
         kanban_code: stockIn.kanban_code,
         quantity: stockIn.quantity,
-        kanban: stockIn.Kanban,
-        operator: stockIn.Operator,
+        kanban: stockIn.kanban,
+        operator: stockIn.operator,
         created_at: stockIn.created_at
 
     }

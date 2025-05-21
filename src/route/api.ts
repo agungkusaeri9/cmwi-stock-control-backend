@@ -2,14 +2,12 @@ import express from "express";
 import { authMiddleware } from "../middleware/auth-middleware";
 import { UserController } from "../controller/user-controller";
 import { OperatorController } from "../controller/operator-controller";
-import { DepartmentController } from "../controller/department-controller";
 import { MachineAreaController } from "../controller/machine-area-controller";
 import { RackController } from "../controller/rack-controller";
 import { KanbanController } from "../controller/kanban-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
 import { MachineController } from "../controller/machine-controller";
-import { PartController } from "../controller/part-controller";
 
 
 export const apiRouter = express.Router();
@@ -24,11 +22,6 @@ apiRouter.post("/api/operators", OperatorController.create);
 apiRouter.put("/api/operators/:id", OperatorController.update);
 apiRouter.delete("/api/operators/:id", OperatorController.remove);
 
-
-// Departement APi
-apiRouter.post("/api/departments", DepartmentController.create);
-apiRouter.put("/api/departments/:id", DepartmentController.update);
-apiRouter.delete("/api/departments/:id", DepartmentController.remove);
 
 
 // Machine Area
@@ -68,10 +61,3 @@ apiRouter.delete("/api/makers/:id", MakerController.remove);
 apiRouter.post("/api/machines", MachineController.create);
 apiRouter.put("/api/machines/:id", MachineController.update);
 apiRouter.delete("/api/machines/:id", MachineController.remove);
-
-// Part
-apiRouter.post("/api/parts", PartController.create);
-apiRouter.put("/api/parts/:id", PartController.update);
-apiRouter.delete("/api/parts/:id", PartController.remove);
-
-

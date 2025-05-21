@@ -72,7 +72,7 @@ export function toPurchaseRequestResponse(p: any): PurchaseRequestResponse {
         requested: p.requested,
         gen_manager: p.gen_manager,
         supervisor: p.supervisor,
-        purchase_request_details: p.PurchaseRequestDetail,
+        purchase_request_details: p.purchase_request_detail,
 
     };
 }

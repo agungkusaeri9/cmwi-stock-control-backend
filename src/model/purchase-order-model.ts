@@ -22,7 +22,7 @@ export type PurchaseOrderRawEntry = {
 export type CreatePurchaseOrderRequest = {
     department: string | null;
     supplier: string | null;
-    po_number: string | null;
+    po_number: string;
 
 
 }
@@ -42,6 +42,6 @@ export function toPurchaseOrderResponse(PurchaseOrder: any): PurchaseOrderRespon
         department: PurchaseOrder.department,
         supplier: PurchaseOrder.supplier,
         po_number: PurchaseOrder.po_number,
-        purchase_order_details: PurchaseOrder.PurchaseOrderDetail,
+        purchase_order_details: PurchaseOrder.purchase_order_detail,
     };
 }

@@ -22,26 +22,14 @@ model User {
   @@map("users")
 }
 
-model Department {
-  id     Int    @id @default(autoincrement())
-  code   String @unique @db.VarChar(100)
-  name   String @db.VarChar(100)
-  number String @db.VarChar(100)
-
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  @@map("departmens")
-}
-
 model MachineArea {
   id   Int    @id @default(autoincrement())
   name String @unique @db.VarChar(100)
 
   created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
-  Kanban     Kanban[]
-  StockOut   StockOut[]
+  kanban     Kanban[]
+  stock_out  StockOut[]
 
   @@map("machine_areas")
 }
@@ -53,16 +41,16 @@ model Operator {
 
   created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
-  StockIn    StockIn[]
-  StockOut   StockOut[]
+  stock_in   StockIn[]
+  stock_out  StockOut[]
 
   @@map("operators")
 }
 
 model Rack {
-  id      Int      @id @default(autoincrement())
-  code    String   @unique @db.VarChar(100)
-  kanbans Kanban[]
+  id     Int      @id @default(autoincrement())
+  code   String   @unique @db.VarChar(100)
+  kanban Kanban[]
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -71,8 +59,9 @@ model Rack {
 }
 
 model Supplier {
-  id   Int    @id @default(autoincrement())
-  name String @unique @db.VarChar(100)
+  id     Int      @id @default(autoincrement())
+  name   String   @unique @db.VarChar(100)
+  kanban Kanban[]
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -105,9 +94,9 @@ model PurchaseRequest {
   gen_manager        String?
   supervisor         String?
 
-  created_at            DateTime                @default(now())
-  updated_at            DateTime                @updatedAt
-  PurchaseRequestDetail PurchaseRequestDetail[]
+  created_at              DateTime                @default(now())
+  updated_at              DateTime                @updatedAt
+  purchase_request_detail PurchaseRequestDetail[]
 
   @@map("purchase_requests")
 }
@@ -115,8 +104,8 @@ model PurchaseRequest {
 model PurchaseRequestDetail {
   id Int @id @default(autoincrement())
 
-  PurchaseRequest PurchaseRequest? @relation(fields: [pr_number], references: [pr_number], onDelete: Cascade)
-  pr_number       String?
+  purchase_request PurchaseRequest? @relation(fields: [pr_number], references: [pr_number], onDelete: Cascade)
+  pr_number        String?
 
   acc                  String?
   item_code            String?
@@ -133,6 +122,7 @@ model PurchaseRequestDetail {
   supplier             String?
   remark               String?
   purpose              String?
+  is_active            Boolean?  @default(true)
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -144,11 +134,11 @@ model PurchaseOrder {
   id         Int     @id @default(autoincrement())
   department String?
   supplier   String?
-  po_number  String? @unique
+  po_number  String  @unique
 
-  created_at          DateTime              @default(now())
-  updated_at          DateTime              @updatedAt
-  PurchaseOrderDetail PurchaseOrderDetail[]
+  created_at            DateTime              @default(now())
+  updated_at            DateTime              @updatedAt
+  purchase_order_detail PurchaseOrderDetail[]
 
   @@map("purchase_orders")
 }
@@ -156,8 +146,8 @@ model PurchaseOrder {
 model PurchaseOrderDetail {
   id Int @id @default(autoincrement())
 
-  PurchaseOrder PurchaseOrder? @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
-  po_number     String?
+  purchase_order PurchaseOrder? @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
+  po_number      String?
 
   po_date       DateTime?
   pr_date       DateTime?
@@ -168,8 +158,8 @@ model PurchaseOrderDetail {
   specification String?
   quantity      Int?
   unit          String?
-  status        String?
   remark        String?
+  status        String?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -183,25 +173,10 @@ model Machine {
 
   created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
-  Kanban     Kanban[]
-  StockOut   StockOut[]
+  kanban     Kanban[]
+  stock_out  StockOut[]
 
   @@map("machines")
-}
-
-model Part {
-  id            Int     @id @default(autoincrement())
-  code          String  @unique @db.VarChar(100)
-  description   String? @db.VarChar(255)
-  specification String? @db.VarChar(255)
-  min_quantity  Int     @default(0)
-  max_quantity  Int     @default(0)
-  balance       Int     @default(0)
-
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  @@map("parts")
 }
 
 model Kanban {
@@ -213,29 +188,30 @@ model Kanban {
   max_quantity      Int          @default(0)
   uom               String
   lead_time         Int
-  Rack              Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
+  rack              Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
   rack_id           Int?
-  MachineArea       MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
+  machine_area      MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
   machine_area_id   Int?
-  Machine           Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
+  machine           Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id        Int?
   stock_in_quantity Int          @default(0)
   balance           Int          @default(0)
 
-  created_at      DateTime          @default(now())
-  updated_at      DateTime          @updatedAt
-  StockIn         StockIn[]
-  StockOut        StockOut[]
-  ReceivingReport ReceivingReport[]
+  created_at       DateTime          @default(now())
+  updated_at       DateTime          @updatedAt
+  stock_in         StockIn[]
+  stock_out        StockOut[]
+  receiving_report ReceivingReport[]
+  supplier         Supplier[]
 
   @@map("kanbans")
 }
 
 model StockIn {
   id             Int       @id @default(autoincrement())
-  Kanban         Kanban?   @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban         Kanban?   @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
   kanban_code    String?
-  Operator       Operator? @relation(fields: [operator_id], references: [id], onDelete: SetNull)
+  operator       Operator? @relation(fields: [operator_id], references: [id], onDelete: SetNull)
   operator_id    Int?
   quantity       Int
   balance_before Int
@@ -249,13 +225,13 @@ model StockIn {
 
 model StockOut {
   id              Int          @id @default(autoincrement())
-  Kanban          Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban          Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
   kanban_code     String?
-  Operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
+  operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
   operator_id     Int?
-  Machine         Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
+  machine         Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id      Int?
-  MachineArea     MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
+  machine_area    MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
   machine_area_id Int?
   quantity        Int
   balance_before  Int

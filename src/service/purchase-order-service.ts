@@ -112,7 +112,7 @@ export class PurchaseOrderService {
             return {
                 department: parseString(entry["Dept."]),
                 supplier: parseString(entry.Supplier),
-                po_number: parseString(entry["PO No."]),
+                po_number: entry["PO No."].toString(),
 
             };
         });
@@ -137,8 +137,22 @@ export class PurchaseOrderService {
 
         try {
 
+
             const createRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
             const createRequestDetail = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
+
+
+            const poNumbers: string[] = createRequest
+                .map((po) => po.po_number)
+                .filter((po_number) => po_number !== null) as string[];
+
+            const existingPurchaseOrders = await prismaClient.purchaseOrder.findMany({
+                where: { po_number: { in: poNumbers } }
+            });
+
+            existingPurchaseOrders.forEach((po) => {
+
+            })
 
             await prismaClient.$transaction([
                 prismaClient.purchaseOrder.createMany({ data: createRequest }),
@@ -237,7 +251,7 @@ export class PurchaseOrderService {
         const PurchaseOrder = await prismaClient.purchaseOrder.findUnique({
             where: { id: id },
             include: {
-                PurchaseOrderDetail: true,
+                purchase_order_detail: true,
             }
         });
 

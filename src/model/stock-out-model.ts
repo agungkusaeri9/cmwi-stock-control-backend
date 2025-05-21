@@ -36,11 +36,11 @@ export function toStockOutResponse(stockOut: any): StockOutResponse {
     return {
         id: stockOut.id,
         kanban_code: stockOut.kanban_code,
-        machine: stockOut.Machine,
-        machine_area: stockOut.MachineArea,
+        machine: stockOut.machine,
+        machine_area: stockOut.machine_area,
         quantity: stockOut.quantity,
-        kanban: stockOut.Kanban,
-        operator: stockOut.Operator,
+        kanban: stockOut.kanban,
+        operator: stockOut.operator,
         created_at: stockOut.created_at
     }
 }

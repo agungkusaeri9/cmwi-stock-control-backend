@@ -46,9 +46,9 @@ export class StockOutService {
                     balance_after: kanban.balance - createRequest.quantity
                 },
                 include: {
-                    MachineArea: true,
-                    Machine: true,
-                    Operator: true
+                    machine_area: true,
+                    machine: true,
+                    operator: true
 
                 }
 
@@ -124,9 +124,9 @@ export class StockOutService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
-                    MachineArea: true,
-                    Machine: true,
-                    Operator: true
+                    machine_area: true,
+                    machine: true,
+                    operator: true
 
                 }
             }),
@@ -165,9 +165,9 @@ export class StockOutService {
                 id: id
             },
             include: {
-                MachineArea: true,
-                Machine: true,
-                Operator: true
+                machine_area: true,
+                machine: true,
+                operator: true
 
             }
         });
