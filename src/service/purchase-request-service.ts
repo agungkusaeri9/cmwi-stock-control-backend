@@ -52,6 +52,12 @@ export class PurchaseRequestService {
             throw new Error(`Missing important headers in file ${filePath}: ${missingHeaders.join(", ")}`);
         }
 
+        const isValidProductCode = (code: string): boolean => {
+            const prefix = code.split("-")[0];
+            return prefix === "EA";
+        };
+
+
 
 
         const purchaseRequests: PurchaseRequestRawEntry[] = [];
@@ -59,6 +65,8 @@ export class PurchaseRequestService {
 
         for (let i = 5; i < data.length - 1; i++) {
             if (data[i].length === 0) continue;
+
+
 
             const obj: PurchaseRequestRawEntry = {};
             const objDetail: PurchaseRequestDetailRawEntry = {};
@@ -137,41 +145,59 @@ export class PurchaseRequestService {
         });
 
         try {
-            const createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult);
-            let createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult);
+            // Validasi data
+            let createRequest = Validation.validate(PurchaseRequestValidation.CREATE, formattedResult)
+                .filter(item => item.pr_number?.startsWith("75"));
+
+            let createRequestDetail = Validation.validate(PurchaseRequestDetailValidation.CREATE, detailFormattedResult)
+                .filter(item =>
+                    item.pr_number?.startsWith("75") &&
+                    (item.kanban_code === null || isValidProductCode(item.kanban_code))
+                );
 
             const kanbanCodes = createRequestDetail
                 .map(item => item.kanban_code)
-                .filter(Boolean) as string[];
+                .filter((code): code is string => Boolean(code));
 
-
+            // Cari kanban code yang sudah ada di DB
             const existingKanban = await prismaClient.kanban.findMany({
                 where: { code: { in: kanbanCodes } },
                 select: { code: true }
             });
 
-            const existingKanbanCodes = new Set(existingKanban.map(e => e.code));
+            const existingKanbanCodes = new Set(existingKanban.map(k => k.code));
 
-            const missingKanbanCodes = kanbanCodes.filter(code => !existingKanbanCodes.has(code));
+            // Deteksi dan buat kanban yang tidak ada
+            const missingKanban = createRequestDetail.filter(
+                item => item.kanban_code && !existingKanbanCodes.has(item.kanban_code)
+            );
 
-            if (missingKanbanCodes.length > 0) {
-                logger.error(`Some kanban codes in file ${filePath} do not exist in database: ${missingKanbanCodes.join(", ")}`);
+            if (missingKanban.length > 0) {
+                logger.error(`Missing kanban codes in file ${filePath}: ${missingKanban.map(i => i.kanban_code).join(", ")}`);
+
+                const newKanbans = missingKanban.map(item => ({
+                    code: item.kanban_code!,
+                    description: item.kanban_code!,
+                    specification: item.kanban_code!,
+                    uom: item.unit ?? ""
+                }));
+
+                await prismaClient.kanban.createMany({ data: newKanbans });
             }
 
-
-
+            // Filter hanya yang kanban-nya valid
             createRequestDetail = createRequestDetail.filter(
                 item => !item.kanban_code || existingKanbanCodes.has(item.kanban_code)
             );
 
             if (createRequestDetail.length === 0) {
-                logger.error(`All kanban codes in file ${filePath} do not exist in database`);
-                throw new Error(`All kanban codes in file ${filePath} do not exist in database`);
+                const msg = `All kanban codes in file ${filePath} do not exist in database`;
+                logger.error(msg);
+                throw new Error(msg);
             }
 
-            const prNumbers = createRequest
-                .map(item => item.pr_number)
-                .filter(Boolean) as string[];
+            // Cek apakah PR number sudah ada
+            const prNumbers = createRequest.map(item => item.pr_number).filter(Boolean) as string[];
 
             const existing = await prismaClient.purchaseRequest.findMany({
                 where: { pr_number: { in: prNumbers } },
@@ -180,28 +206,21 @@ export class PurchaseRequestService {
 
             const existingNumbers = new Set(existing.map(e => e.pr_number));
 
-
+            // Filter yang belum ada
             const filteredRequest = createRequest.filter(item => !existingNumbers.has(item.pr_number));
-
-
-            createRequestDetail = createRequestDetail.filter(
-                item => !existingNumbers.has(item.pr_number)
-            );
+            createRequestDetail = createRequestDetail.filter(item => !existingNumbers.has(item.pr_number));
 
             if (filteredRequest.length === 0) {
                 logger.error(`All PR numbers in file ${filePath} already exist in database`);
-            }
-
-            if (filteredRequest.length !== createRequest.length) {
+            } else if (filteredRequest.length !== createRequest.length) {
                 logger.warn(`Some PR numbers in file ${filePath} already exist in database`);
-                existingNumbers.forEach(prNumber => {
-                    logger.warn(`PR Number ${prNumber} already exists in database`);
-                });
+                existingNumbers.forEach(pr => logger.warn(`PR Number ${pr} already exists in database`));
             }
 
+            // Simpan ke database
             await prismaClient.$transaction([
                 prismaClient.purchaseRequest.createMany({ data: filteredRequest }),
-                prismaClient.purchaseRequestDetail.createMany({ data: createRequestDetail }),
+                prismaClient.purchaseRequestDetail.createMany({ data: createRequestDetail })
             ]);
 
             logger.info("Purchase request and details created successfully");
@@ -211,6 +230,7 @@ export class PurchaseRequestService {
             logger.error(`Error while creating purchase request and details: ${error}`);
             throw new Error(`Error while creating purchase request and details: ${error}`);
         }
+
     }
 
 
@@ -256,6 +276,7 @@ export class PurchaseRequestService {
             prismaClient.purchaseRequest.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+
             }),
             prismaClient.purchaseRequest.count({
                 where: whereClause,

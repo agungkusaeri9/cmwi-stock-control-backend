@@ -15,6 +15,7 @@ export type KanbanResponse = {
     machine: Machine | null;
     stock_in_quantity: number | null;
     supplier: Supplier[] | null;
+    js_ending_quantity: number | null;
 
 }
 
@@ -74,6 +75,7 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         machine_area: Kanban.machine_area || null,
         machine: Kanban.machine || null,
         stock_in_quantity: Kanban.stock_in_quantity,
-        supplier: Kanban.supplier
+        supplier: Kanban.supplier,
+        js_ending_quantity: Kanban.js_ending_quantity
     }
 }

@@ -185,22 +185,23 @@ model Machine {
 }
 
 model Kanban {
-  id                Int          @id @default(autoincrement())
-  code              String       @unique @db.VarChar(100)
-  description       String?      @db.VarChar(255)
-  specification     String?      @db.VarChar(255)
-  min_quantity      Int          @default(0)
-  max_quantity      Int          @default(0)
-  uom               String
-  lead_time         Int
-  rack              Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
-  rack_id           Int?
-  machine_area      MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
-  machine_area_id   Int?
-  machine           Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
-  machine_id        Int?
-  stock_in_quantity Int          @default(0)
-  balance           Int          @default(0)
+  id                 Int          @id @default(autoincrement())
+  code               String       @unique @db.VarChar(100)
+  description        String?      @db.VarChar(255)
+  specification      String?      @db.VarChar(255)
+  min_quantity       Int          @default(0)
+  max_quantity       Int          @default(0)
+  uom                String?      @db.VarChar(100)
+  lead_time          Int          @default(0)
+  rack               Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
+  rack_id            Int?
+  machine_area       MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
+  machine_area_id    Int?
+  machine            Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
+  machine_id         Int?
+  stock_in_quantity  Int          @default(0)
+  balance            Int          @default(0)
+  js_ending_quantity Int          @default(0)
 
   created_at              DateTime                @default(now())
   updated_at              DateTime                @updatedAt

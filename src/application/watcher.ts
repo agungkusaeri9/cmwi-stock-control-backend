@@ -5,17 +5,19 @@ import { PurchaseRequestService } from "../service/purchase-request-service";
 import { PurchaseOrderService } from "../service/purchase-order-service";
 import { ReceivingReportService } from "../service/receiving-report-service";
 import { ProcessedFileService } from "../service/processed-file-service";
+import { JsService } from "../service/js-service";
 import { SHARED_FOLDER_PATH } from "./config";
 import { prismaClient } from "./database";
 
 const purchaseRequestFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-request");
 const purchaseOrderFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-order");
 const receivingReportFolderPath = path.join(SHARED_FOLDER_PATH, "receiving-report");
+const jsFolderPath = path.join(SHARED_FOLDER_PATH, "js-ending-quantity");
 
 
 
 const startWatcher = () => {
-    const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath, receivingReportFolderPath], {
+    const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath, receivingReportFolderPath, jsFolderPath], {
         persistent: true,
         ignoreInitial: true,
         ignored: /(^|[\/\\])~\$/,
@@ -57,6 +59,13 @@ const startWatcher = () => {
                     regex: /^RR_\d{8}$/,
                     service: ReceivingReportService,
                 },
+                {
+                    type: "JS",
+                    folderPath: jsFolderPath,
+                    regex: /^JS_\d{8}$/,
+                    service: JsService,
+                },
+
             ];
 
             const matched = fileTypes.find(({ folderPath }) =>
