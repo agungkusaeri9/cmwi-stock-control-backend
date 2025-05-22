@@ -1,12 +1,9 @@
 import xlsx from 'xlsx';
-import { ReceivingReportResponse, CreateReceivingReportRequest, ReceivingReportRawEntry, toReceivingReportResponse, SearchReceivingReportRequest } from "../model/receiving-report-model";
+import { CreateReceivingReportRequest, ReceivingReportRawEntry } from "../model/receiving-report-model";
 import { Validation } from "../validation/validation";
 import { ReceivingReportValidation } from "../validation/receiving-report-validation";
 import { prismaClient } from "../application/database";
 import { logger } from "../application/logging";
-import { ResponseError } from "../error/response-error";
-import { Pageable } from "../model/page";
-import fs from 'fs';
 
 
 export class ReceivingReportService {
@@ -33,7 +30,7 @@ export class ReceivingReportService {
         const missingHeaders: string[] = importantHeaders.filter((h) => !headers.includes(h));
         if (missingHeaders.length > 0) {
             logger.error(`Missing important headers: ${missingHeaders.join(", ")}`);
-            return;
+            throw new Error(`Missing important headers: ${missingHeaders.join(", ")}`);
         }
 
         const receivingReports: ReceivingReportRawEntry[] = [];
@@ -107,7 +104,7 @@ export class ReceivingReportService {
 
             if (validRequests.length === 0) {
                 logger.warn("No valid kanban codes found. Aborting insert.");
-                return false;
+                throw new Error("No valid kanban codes found. Aborting insert.");
             }
 
 
@@ -136,7 +133,7 @@ export class ReceivingReportService {
             return true;
         } catch (error) {
             logger.error(`Error while creating receiving report and updating kanban: ${error}`);
-            return false;
+            throw new Error(`Error while creating receiving report and updating kanban: ${error}`);
         }
 
     }

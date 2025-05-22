@@ -41,7 +41,7 @@ export class PurchaseOrderService {
         const missingHeaders: string[] = importantHeaders.filter((h) => !headers.includes(h));
         if (missingHeaders.length > 0) {
             logger.error(`Missing important headers in file ${filePath}: ${missingHeaders.join(", ")}`);
-            return;
+            throw new Error(`Missing important headers in file ${filePath}: ${missingHeaders.join(", ")}`);
         }
 
         const purchaseOrders: PurchaseOrderRawEntry[] = [];
@@ -324,7 +324,7 @@ export class PurchaseOrderService {
             return true;
         } catch (error) {
             logger.error(`Error while creating PO and details: ${error instanceof Error ? error.stack : JSON.stringify(error)}`);
-            return false;
+            throw error;
         }
 
 
