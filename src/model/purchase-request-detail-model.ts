@@ -76,7 +76,7 @@ export function toPurchaseRequestDetailResponse(p: PurchaseRequestDetail): Purch
         id: p.id,
         pr_number: p.pr_number,
         acc: p.acc,
-        kanban_code: p.item_code,
+        kanban_code: p.kanban_code,
         item_name: p.item_name,
         description_of_goods: p.description_of_goods,
         specification: p.specification,

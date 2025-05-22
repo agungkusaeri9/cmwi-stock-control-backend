@@ -1,10 +1,11 @@
 import { PurchaseOrder } from "@prisma/client";
 import { PurchaseOrderDetailResponse } from "./purchase-order-detail-model";
+import { SupplierResponse } from "./supplier-model";
 
 export type PurchaseOrderResponse = {
     id: number;
     department: string | null;
-    supplier: string | null;
+    supplier: SupplierResponse | null;
     po_number: string | null;
     po_date: Date | null;
     pr_date: Date | null;
@@ -48,7 +49,7 @@ export function toPurchaseOrderResponse(PurchaseOrder: any): PurchaseOrderRespon
     return {
         id: PurchaseOrder.id,
         department: PurchaseOrder.department,
-        supplier: PurchaseOrder.supplier,
+        supplier: PurchaseOrder.supplier || null,
         po_number: PurchaseOrder.po_number,
         po_date: PurchaseOrder.po_date,
         pr_date: PurchaseOrder.pr_date,

@@ -380,6 +380,9 @@ export class PurchaseOrderService {
             prismaClient.purchaseOrder.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    supplier: true
+                }
             }),
             prismaClient.purchaseOrder.count({
                 where: whereClause,
@@ -414,6 +417,7 @@ export class PurchaseOrderService {
             where: { id: id },
             include: {
                 purchase_order_detail: true,
+                supplier: true
             }
         });
 
