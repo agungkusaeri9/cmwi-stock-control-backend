@@ -3,10 +3,9 @@ import { PurchaseOrderDetail } from "@prisma/client";
 export type PurchaseOrderDetailResponse = {
     id: number;
     po_number: string | null;
-
     pr_number: string | null;
     pr_requested: string | null;
-    product_code: string | null;
+    kanban_code: string | null;
     description: string | null;
     specification: string | null;
     quantity: number | null;
@@ -35,7 +34,7 @@ export type CreatePurchaseOrderDetailRequest = {
     po_number: string;
     pr_number: string | null;
     pr_requested: string | null;
-    product_code: string | null;
+    kanban_code: string | null;
     description: string | null;
     specification: string | null;
     quantity: number | null;
@@ -57,7 +56,7 @@ export function toPurchaseOrderDetailResponse(PurchaseOrderDetail: PurchaseOrder
         po_number: PurchaseOrderDetail.po_number,
         pr_number: PurchaseOrderDetail.pr_number,
         pr_requested: PurchaseOrderDetail.pr_requested,
-        product_code: PurchaseOrderDetail.product_code,
+        kanban_code: PurchaseOrderDetail.kanban_code,
         description: PurchaseOrderDetail.description,
         specification: PurchaseOrderDetail.specification,
         quantity: PurchaseOrderDetail.quantity,

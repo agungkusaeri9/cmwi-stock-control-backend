@@ -40,7 +40,7 @@ export class PurchaseOrderService {
 
         const missingHeaders: string[] = importantHeaders.filter((h) => !headers.includes(h));
         if (missingHeaders.length > 0) {
-            logger.error(`Missing important headers: ${missingHeaders.join(", ")}`);
+            logger.error(`Missing important headers in file ${filePath}: ${missingHeaders.join(", ")}`);
             return;
         }
 
@@ -106,24 +106,60 @@ export class PurchaseOrderService {
         const parseDate = (val: string | undefined): Date | null =>
             val && val !== "-" ? convertShortDate(val) : null;
 
+        // ⬇️ NEW: Handle Supplier - Get/Create and map supplier_id
+        const supplierNames = Array.from(new Set(
+            purchaseOrders
+                .map((entry) => parseString(entry.Supplier))
+                .filter((s): s is string => !!s)
+        ));
+
+        const existingSuppliers = await prismaClient.supplier.findMany({
+            where: { name: { in: supplierNames } },
+            select: { id: true, name: true }
+        });
+
+        const existingSupplierMap = new Map(existingSuppliers.map(s => [s.name, s.id]));
+
+        const newSupplierNames = supplierNames.filter(name => !existingSupplierMap.has(name));
+
+        const newSuppliers = await prismaClient.$transaction(async (tx) => {
+            return await tx.supplier.createMany({
+                data: newSupplierNames.map(name => ({ name })),
+                skipDuplicates: true
+            }).then(() =>
+                tx.supplier.findMany({
+                    where: { name: { in: newSupplierNames } },
+                    select: { id: true, name: true }
+                })
+            );
+        });
+
+        newSuppliers.forEach(s => existingSupplierMap.set(s.name, s.id));
+
+
+
 
         const purrchaseOrderFormattedResult: CreatePurchaseOrderRequest[] = purchaseOrders
-            .map((entry: PurchaseOrderRawEntry) => ({
-                department: parseString(entry["Dept."]),
-                supplier: parseString(entry.Supplier),
-                po_number: parseString(entry["PO No."]),
-                po_date: parseDate(entry["PO Date"]),
-                pr_date: parseDate(entry["SOB/PR Date"]),
-            }))
-            .filter((entry): entry is CreatePurchaseOrderRequest => entry.po_number !== null);
+            .map((entry) => {
+                const supplierName = parseString(entry.Supplier);
+                const supplier_id = supplierName ? existingSupplierMap.get(supplierName) : null;
+                return {
+                    department: parseString(entry["Dept."]),
+                    supplier_id,
+                    po_number: parseString(entry["PO No."]),
+                    po_date: parseDate(entry["PO Date"]),
+                    pr_date: parseDate(entry["SOB/PR Date"]),
+                };
+            })
+            .filter((entry): entry is CreatePurchaseOrderRequest => entry.po_number !== null && entry.supplier_id !== null);
 
 
         const purrchaseOrderDetailFormattedResult: CreatePurchaseOrderDetailRequest[] = purchaseOrderDetails
-            .map((entry: PurchaseOrderDetailRawEntry) => ({
+            .map((entry) => ({
                 po_number: parseString(entry["PO No."]),
                 pr_number: parseString(entry["SOB/PR No."]),
                 pr_requested: parseString(entry.pr_requested),
-                product_code: parseString(entry["Product Code"]),
+                kanban_code: parseString(entry["Product Code"]),
                 description: parseString(entry.Description),
                 specification: parseString(entry.specification),
                 quantity: parseNumber(entry.Quantity),
@@ -135,68 +171,162 @@ export class PurchaseOrderService {
 
 
         try {
+            const validatedRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
+            const validatedDetailRequest = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
 
+            const prNumbers = validatedDetailRequest
+                .map(po => po.pr_number)
+                .filter(Boolean) as string[];
 
-            let createRequest = Validation.validate(PurchaseOrderValidation.CREATE, purrchaseOrderFormattedResult);
-            let createRequestDetail = Validation.validate(PurchaseOrderDetailValidation.CREATE, purrchaseOrderDetailFormattedResult);
-
-
-
-            const prNumbers: string[] = createRequestDetail
-                .map((po) => po.pr_number)
-                .filter((po_number) => po_number !== null) as string[];
-
-            const existingPurchaseRequests = await prismaClient.purchaseRequest.findMany({
+            const existingPRs = await prismaClient.purchaseRequest.findMany({
                 where: { pr_number: { in: prNumbers } },
                 select: { pr_number: true }
-            })
+            });
 
-            const existingNumbers = new Set(existingPurchaseRequests.map(e => e.pr_number));
+            const existingPRSet = new Set(existingPRs.map(e => e.pr_number));
+            const invalidPRNumbers = prNumbers.filter(pr => !existingPRSet.has(pr));
 
-            const invalidPRNumbers = prNumbers.filter(pr => !existingNumbers.has(pr));
             if (invalidPRNumbers.length > 0) {
-                invalidPRNumbers.forEach(pr => logger.error(`PR Number ${pr} not found in DB`));
+                logger.error(`PR Numbers in file ${filePath} not found in DB: ${invalidPRNumbers.join(", ")}`);
+            }
 
-                createRequestDetail = createRequestDetail.filter(e => !invalidPRNumbers.includes(e.pr_number as string));
+            let filteredDetailRequest = validatedDetailRequest.filter(
+                detail => detail.pr_number && !invalidPRNumbers.includes(detail.pr_number)
+            );
 
-                const validPRNumbers = new Set(createRequestDetail.map(e => e.po_number));
+            const kanbanCodes = validatedDetailRequest
+                .map(item => item.kanban_code)
+                .filter(Boolean) as string[];
 
-                createRequest = createRequest.filter(e => validPRNumbers.has(e.po_number as string));
+
+            const existingKanban = await prismaClient.kanban.findMany({
+                where: { code: { in: kanbanCodes } },
+                select: { code: true }
+            });
+
+            const existingKanbanCodes = new Set(existingKanban.map(e => e.code));
+
+            const missingKanbanCodes = kanbanCodes.filter(code => !existingKanbanCodes.has(code));
+
+            if (missingKanbanCodes.length > 0) {
+                logger.error(`Some kanban codes in file ${filePath} do not exist in database: ${missingKanbanCodes.join(", ")}`);
             }
 
 
-            const poNumbers: string[] = createRequest
-                .map((po) => po.po_number)
-                .filter((po_number) => po_number !== null) as string[];
+            filteredDetailRequest = filteredDetailRequest.filter(
+                item => !item.kanban_code || existingKanbanCodes.has(item.kanban_code)
+            );
 
-            const existingPurchaseOrders = await prismaClient.purchaseOrder.findMany({
-                where: { po_number: { in: poNumbers } },
+            const validPONumbers = new Set(filteredDetailRequest.map(e => e.po_number));
+            const validPrNumbers = Array.from(
+                new Set(
+                    filteredDetailRequest
+                        .map(e => e.pr_number)
+                        .filter((pr): pr is string => pr !== null)
+                )
+            );
+            const filteredRequest = validatedRequest.filter(po => validPONumbers.has(po.po_number));
+
+            const incomingPONumbers = Array.from(validPONumbers);
+
+            const existingPOs = await prismaClient.purchaseOrder.findMany({
+                where: { po_number: { in: incomingPONumbers } },
                 select: { po_number: true }
             });
 
-            const existingOrders = Array.from(
-                new Set(existingPurchaseOrders.map(e => e.po_number))
-            ).filter((po): po is string => po !== null);
+            const existingPONumbers = existingPOs.map(e => e.po_number);
+            if (existingPONumbers.length > 0) {
+                logger.error(`Duplicate PO Numbers in file ${filePath} found in DB (will be replaced): ${existingPONumbers.join(", ")}`);
+            }
 
-            existingOrders.forEach(po => logger.error(`Update in PO Number: ${po}`));
+            await prismaClient.$transaction(async (tx) => {
+                if (existingPONumbers.length > 0) {
+                    await tx.purchaseOrder.deleteMany({
+                        where: { po_number: { in: existingPONumbers } }
+                    });
+                }
 
-            await prismaClient.purchaseOrder.deleteMany({
-                where: {
-                    po_number: { in: existingOrders }
+                await tx.purchaseOrderDetail.updateMany({
+                    where: {
+                        po_number: { notIn: incomingPONumbers },
+                        is_active: true
+                    },
+                    data: { is_active: false }
+                });
+
+                await tx.purchaseRequestDetail.updateMany({
+                    where: {
+                        pr_number: { notIn: validPrNumbers },
+                        is_active: true
+                    },
+                    data: { is_active: false }
+                });
+
+
+
+                if (filteredRequest.length > 0) {
+                    await tx.purchaseOrder.createMany({ data: filteredRequest });
+                }
+
+                if (filteredDetailRequest.length > 0) {
+                    await tx.purchaseOrderDetail.createMany({ data: filteredDetailRequest });
+                }
+
+                // Ambil pasangan product_code dan supplier_id dari detail PO
+                const productSupplierPairs = filteredDetailRequest
+                    .map(detail => {
+                        const product_code = detail.kanban_code;
+                        const po = filteredRequest.find(po => po.po_number === detail.po_number);
+                        if (!po || !product_code || !po.supplier_id) return null;
+                        return { product_code, supplier_id: po.supplier_id };
+                    })
+                    .filter((entry): entry is { product_code: string; supplier_id: number } => !!entry);
+
+                // Ambil ID kanban berdasarkan code
+                const uniqueProductCodes = Array.from(new Set(productSupplierPairs.map(e => e.product_code)));
+                const kanbans = await tx.kanban.findMany({
+                    where: { code: { in: uniqueProductCodes } },
+                    select: { id: true, code: true }
+                });
+
+                const kanbanMap = new Map(kanbans.map(k => [k.code, k.id]));
+
+                // Buat relasi kanban_id dan supplier_id
+                const relationData = productSupplierPairs
+                    .map(({ product_code, supplier_id }) => {
+                        const kanban_id = kanbanMap.get(product_code);
+                        return kanban_id ? { kanban_id, supplier_id } : null;
+                    })
+                    .filter((r): r is { kanban_id: number; supplier_id: number } => !!r);
+
+                // Hapus duplikat
+                const uniqueRelations = Array.from(new Set(relationData.map(
+                    r => `${r.kanban_id}-${r.supplier_id}`
+                ))).map(key => {
+                    const [kanban_id, supplier_id] = key.split("-").map(Number);
+                    return { kanban_id, supplier_id };
+                });
+
+                // Simpan ke tabel pivot (_KanbanToSupplier)
+                for (const { kanban_id, supplier_id } of uniqueRelations) {
+                    await tx.kanban.update({
+                        where: { id: kanban_id },
+                        data: {
+                            supplier: {
+                                connect: { id: supplier_id }
+                            }
+                        }
+                    });
                 }
             });
 
-            await prismaClient.$transaction([
-                prismaClient.purchaseOrder.createMany({ data: createRequest }),
-                prismaClient.purchaseOrderDetail.createMany({ data: createRequestDetail }),
-            ]);
-
-            logger.info("Purchase order and details created successfully");
+            logger.info("Purchase order and details created successfully.");
             return true;
         } catch (error) {
-            logger.error(`Error while creating purchase order and details: ${error}`);
+            logger.error(`Error while creating PO and details: ${error instanceof Error ? error.stack : JSON.stringify(error)}`);
             return false;
         }
+
 
     }
 

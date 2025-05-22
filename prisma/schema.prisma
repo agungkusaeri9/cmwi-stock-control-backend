@@ -63,8 +63,9 @@ model Supplier {
   name   String   @unique @db.VarChar(100)
   kanban Kanban[]
 
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at    DateTime        @default(now())
+  updated_at    DateTime        @updatedAt
+  PurchaseOrder PurchaseOrder[]
 
   @@map("suppliers")
 }
@@ -108,7 +109,8 @@ model PurchaseRequestDetail {
   pr_number        String?
 
   acc                  String?
-  item_code            String?
+  kanban               Kanban?   @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code          String?
   item_name            String?
   description_of_goods String?
   specification        String?
@@ -131,12 +133,13 @@ model PurchaseRequestDetail {
 }
 
 model PurchaseOrder {
-  id         Int       @id @default(autoincrement())
-  department String?
-  supplier   String?
-  po_number  String    @unique
-  po_date    DateTime?
-  pr_date    DateTime?
+  id          Int       @id @default(autoincrement())
+  department  String?
+  supplier    Supplier? @relation(fields: [supplier_id], references: [id], onDelete: SetNull)
+  supplier_id Int?
+  po_number   String    @unique
+  po_date     DateTime?
+  pr_date     DateTime?
 
   created_at            DateTime              @default(now())
   updated_at            DateTime              @updatedAt
@@ -153,13 +156,15 @@ model PurchaseOrderDetail {
 
   pr_number     String?
   pr_requested  String?
-  product_code  String?
+  kanban        Kanban?  @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code   String?
   description   String?
   specification String?
   quantity      Int?
   unit          String?
   remark        String?
   status        String?
+  is_active     Boolean? @default(true)
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -197,12 +202,14 @@ model Kanban {
   stock_in_quantity Int          @default(0)
   balance           Int          @default(0)
 
-  created_at       DateTime          @default(now())
-  updated_at       DateTime          @updatedAt
-  stock_in         StockIn[]
-  stock_out        StockOut[]
-  receiving_report ReceivingReport[]
-  supplier         Supplier[]
+  created_at              DateTime                @default(now())
+  updated_at              DateTime                @updatedAt
+  stock_in                StockIn[]
+  stock_out               StockOut[]
+  receiving_report        ReceivingReport[]
+  supplier                Supplier[]
+  purchase_request_detail PurchaseRequestDetail[]
+  purchase_order_detail   PurchaseOrderDetail[]
 
   @@map("kanbans")
 }

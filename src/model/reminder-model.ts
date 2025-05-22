@@ -1,8 +1,8 @@
 export type ReminderResponse = {
     code: string | null;
-    pr_status: string | null;
+    pr_status: boolean;
     pr_date: Date | null;
-    po_status: string | null;
+    po_status: boolean;
     po_date: Date | null;
 }
 
@@ -14,12 +14,12 @@ export type SearchReminderRequest = {
     paginate?: boolean;
 }
 
-export function toReminderResponse(operator: any): ReminderResponse {
+export function toReminderResponse(reminder: any): ReminderResponse {
     return {
-        code: operator.code,
-        pr_status: operator.pr_status ?? null,
-        pr_date: operator.pr_date ?? null,
-        po_status: operator.po_status ?? null,
-        po_date: operator.po_date ?? null
+        code: reminder.code,
+        pr_status: reminder.pr_status ?? null,
+        pr_date: reminder.pr_date ?? null,
+        po_status: reminder.po_status ?? null,
+        po_date: reminder.po_date ?? null
     }
 }

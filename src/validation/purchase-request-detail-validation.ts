@@ -3,7 +3,7 @@ import { z, ZodType } from "zod";
 const PurchaseRequestDetailSchema = z.object({
     pr_number: z.string().nullable().optional(),
     acc: z.string().nullable().optional(),
-    item_code: z.string().nullable().optional(),
+    kanban_code: z.string().nullable().optional(),
     item_name: z.string().nullable().optional(),
     description_of_goods: z.string().nullable().optional(),
     specification: z.string().nullable().optional(),

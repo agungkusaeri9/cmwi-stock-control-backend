@@ -3,7 +3,7 @@ import { z, ZodType } from "zod";
 const PurchaseOrderSchema = z.object({
 
     department: z.string().nullable().optional(),
-    supplier: z.string().nullable().optional(),
+    supplier_id: z.number().nullable().optional(),
     po_number: z.string().nullable(),
     po_date: z.coerce.date().nullable().optional(),
     pr_date: z.coerce.date().nullable().optional(),

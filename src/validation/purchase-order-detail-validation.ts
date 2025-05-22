@@ -4,7 +4,7 @@ const PurchaseOrderSchema = z.object({
     po_number: z.string().nullable(),
     pr_number: z.string().nullable().optional(),
     pr_requested: z.string().nullable().optional(),
-    product_code: z.string().nullable().optional(),
+    kanban_code: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     specification: z.string().nullable().optional(),
     quantity: z.coerce.number().int().nullable().optional(),

@@ -53,7 +53,8 @@ export class KanbanService {
                 rack: true,
                 machine_area: true,
                 machine: true,
-                supplier: true
+                supplier: true,
+
             }
         });
 
@@ -234,7 +235,8 @@ export class KanbanService {
                     rack: true,
                     machine_area: true,
                     machine: true,
-                    supplier: true
+                    supplier: true,
+
                 }
             });
         } else if (typeof identifier === "string") {
@@ -246,7 +248,8 @@ export class KanbanService {
                     rack: true,
                     machine_area: true,
                     machine: true,
-                    supplier: true
+                    supplier: true,
+
                 }
             });
         } else {

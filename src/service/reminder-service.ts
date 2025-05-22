@@ -18,7 +18,7 @@ export class ReminderService {
             filters.push({
                 OR: [
                     {
-                        kanban_code: {
+                        code: {
                             contains: searchRequest.keyword
                         }
                     },
@@ -43,11 +43,42 @@ export class ReminderService {
             prismaClient.kanban.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                include: {
+                    purchase_request_detail: {
+                        include: {
+                            purchase_request: true
+                        }
+                    },
+                    purchase_order_detail: {
+                        include: {
+                            purchase_order: true
+                        }
+                    }
+                }
             }),
             prismaClient.kanban.count({
                 where: whereClause,
             })
         ]);
+
+        const data = reminders.map((kanban) => {
+            const hasPR = kanban.purchase_request_detail.length > 0;
+            const hasPO = kanban.purchase_order_detail.length > 0;
+
+            const prDate = hasPR ? kanban.purchase_request_detail[0]?.purchase_request?.date ?? null : null;
+            const poDate = hasPO ? kanban.purchase_order_detail[0]?.purchase_order?.po_date ?? null : null;
+
+            const reminderResponse: ReminderResponse = {
+                code: kanban.code,
+                pr_status: hasPR ? true : false,
+                pr_date: prDate,
+                po_status: hasPO ? true : false,
+                po_date: poDate
+            };
+
+            return reminderResponse;
+        });
+
 
 
 
@@ -62,7 +93,7 @@ export class ReminderService {
 
 
         return {
-            data: reminders.map(toReminderResponse),
+            data: data.map(toReminderResponse),
             ...(pagination ? { pagination } : {})
 
         };

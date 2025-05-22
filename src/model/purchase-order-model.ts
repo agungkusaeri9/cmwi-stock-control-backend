@@ -26,7 +26,7 @@ export type PurchaseOrderRawEntry = {
 
 export type CreatePurchaseOrderRequest = {
     department: string | null;
-    supplier: string | null;
+    supplier_id: number | null;
     po_number: string;
     po_date: Date | null;
     pr_date: Date | null;

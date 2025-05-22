@@ -4,7 +4,7 @@ export type PurchaseRequestDetailResponse = {
     id: number;
     pr_number: string | null;
     acc: string | null;
-    item_code: string | null;
+    kanban_code: string | null;
     item_name: string | null;
     description_of_goods: string | null;
     specification: string | null;
@@ -46,7 +46,7 @@ export type PurchaseRequestDetailRawEntry = {
 export type CreatePurchaseRequestDetailRequest = {
     pr_number: string | null;
     acc: string | null;
-    item_code: string | null;
+    kanban_code: string | null;
     item_name: string | null;
     description_of_goods: string | null;
     specification: string | null;
@@ -76,7 +76,7 @@ export function toPurchaseRequestDetailResponse(p: PurchaseRequestDetail): Purch
         id: p.id,
         pr_number: p.pr_number,
         acc: p.acc,
-        item_code: p.item_code,
+        kanban_code: p.item_code,
         item_name: p.item_name,
         description_of_goods: p.description_of_goods,
         specification: p.specification,
