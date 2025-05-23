@@ -10,9 +10,6 @@ export class StockOutController {
         try {
             const request: CreateStockOutRequest = req.body as CreateStockOutRequest;
             const response = await StockOutService.create(request);
-
-            console.log("masuk ke create stock out");
-
             sendSuccess(res, 200, "Create stockOut success", response);
 
         } catch (e) {
@@ -53,6 +50,33 @@ export class StockOutController {
             const id: number = Number(req.params.id);
             const response = await StockOutService.show(id);
             sendSuccess(res, 200, "Get stockOut success", response);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    static async exportExcel(req: Request, res: Response, next: NextFunction) {
+        try {
+            const request: SearchStockOutRequest = {
+                keyword: req.query.keyword as string,
+                page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
+                limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
+                paginate: req.query.paginate === "true",
+                start_date: typeof req.query.start_date === 'string' ? new Date(req.query.start_date) : undefined,
+                end_date: typeof req.query.end_date === 'string' ? new Date(req.query.end_date) : undefined,
+                machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
+                machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
+            };
+
+
+            const response = await StockOutService.exportExcel(request);
+
+            res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            res.setHeader("Content-Disposition", "attachment; filename=StockOutExport.xlsx");
+            res.send(response);
+
+
+
         } catch (e) {
             next(e);
         }

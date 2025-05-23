@@ -235,7 +235,7 @@ export class StockInService {
             row.getCell(1).value = number++;
             row.getCell(2).value = 75;
             row.getCell(3).value = stock.kanban_code ?? "-";
-            row.getCell(4).value = stock.operator?.name ?? "Unknown";
+            row.getCell(4).value = stock.operator?.name ?? "-";
             row.getCell(5).value = stock.quantity;
 
             // Human-readable date format

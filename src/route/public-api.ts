@@ -28,7 +28,7 @@ publicRouter.get("/api/stock-ins/export/excel", StockInController.exportExcel);
 publicRouter.post("/api/stock-outs", StockOutController.create);
 publicRouter.get("/api/stock-outs", StockOutController.get);
 publicRouter.get("/api/stock-outs/:id", StockOutController.show);
-
+publicRouter.get("/api/stock-outs/export/excel", StockOutController.exportExcel);
 
 // Kanban
 publicRouter.get("/api/kanbans", KanbanController.get);
