@@ -53,4 +53,28 @@ export class StockInController {
     }
 
 
+    static async exportExcel(req: Request, res: Response, next: NextFunction) {
+        try {
+            const request: SearchStockInRequest = {
+                keyword: req.query.keyword as string,
+                page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
+                limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
+                paginate: req.query.paginate === "true",
+                start_date: typeof req.query.start_date === 'string' ? new Date(req.query.start_date) : undefined,
+                end_date: typeof req.query.end_date === 'string' ? new Date(req.query.end_date) : undefined,
+            };
+
+
+            const response = await StockInService.exportExcel(request);
+
+            res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            res.setHeader("Content-Disposition", "attachment; filename=StockInExport.xlsx");
+            res.send(response);
+
+        } catch (e) {
+            next(e);
+        }
+    }
+
+
 }
