@@ -17,6 +17,17 @@ export class StockInService {
         const createRequest = Validation.validate(StockInValidation.CREATE, request);
 
         return await prismaClient.$transaction(async (prisma) => {
+
+            const isOperatorExist = await prisma.operator.findFirst({
+                where: {
+                    id: createRequest.operator_id
+                }
+            });
+
+            if (!isOperatorExist) {
+                throw new ResponseError(404, "Operator not found");
+            }
+
             // Lock baris kanban berdasarkan code
             const kanbanRows = await prisma.$queryRaw<
                 Array<{ id: string, stock_in_quantity: number, balance: number }>

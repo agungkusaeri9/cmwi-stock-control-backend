@@ -9,6 +9,7 @@ import { Pageable } from "../model/page";
 import { Workbook } from "exceljs"
 import path from 'path';
 import { convertToReadableDate } from "../helper/readable-date-helper";
+import { sendNotification } from "../application/websocket";
 
 
 
@@ -18,6 +19,17 @@ export class StockOutService {
         const createRequest = Validation.validate(StockOutValidation.CREATE, request);
         console.log(createRequest);
         return await prismaClient.$transaction(async (prisma) => {
+
+
+            const isOperatorExist = await prisma.operator.findFirst({
+                where: {
+                    id: createRequest.operator_id
+                }
+            });
+
+            if (!isOperatorExist) {
+                throw new ResponseError(404, "Operator not found");
+            }
 
             const kanbanRows = await prisma.$queryRaw<
                 Array<{ id: string, balance: number }>
@@ -34,7 +46,7 @@ export class StockOutService {
             }
 
             // Update kanban balance
-            await prisma.kanban.update({
+            const newKanban = await prisma.kanban.update({
                 where: { id: Number(kanban.id) },
                 data: {
                     balance: { decrement: createRequest.quantity }
@@ -56,6 +68,13 @@ export class StockOutService {
                 }
 
             });
+
+
+            if (newKanban.balance < newKanban.min_quantity) {
+                logger.info(`Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`);
+                sendNotification(`Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`);
+            }
+
 
             return toStockOutResponse(stockOut);
         });
