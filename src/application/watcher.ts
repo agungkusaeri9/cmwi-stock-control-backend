@@ -5,19 +5,23 @@ import { PurchaseRequestService } from "../service/purchase-request-service";
 import { PurchaseOrderService } from "../service/purchase-order-service";
 import { ReceivingReportService } from "../service/receiving-report-service";
 import { ProcessedFileService } from "../service/processed-file-service";
+import { KanbanService } from "../service/kanban-service";
 import { JsService } from "../service/js-service";
 import { SHARED_FOLDER_PATH } from "./config";
 import { prismaClient } from "./database";
+
+
 
 const purchaseRequestFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-request");
 const purchaseOrderFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-order");
 const receivingReportFolderPath = path.join(SHARED_FOLDER_PATH, "receiving-report");
 const jsFolderPath = path.join(SHARED_FOLDER_PATH, "js-ending-quantity");
+const kanbanMasterFolderPath = path.join(SHARED_FOLDER_PATH, "kanban-master");
 
 
 
 const startWatcher = () => {
-    const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath, receivingReportFolderPath, jsFolderPath], {
+    const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath, receivingReportFolderPath, jsFolderPath, kanbanMasterFolderPath], {
         persistent: true,
         ignoreInitial: true,
         ignored: /(^|[\/\\])~\$/,
@@ -65,6 +69,12 @@ const startWatcher = () => {
                     regex: /^JS_\d{8}$/,
                     service: JsService,
                 },
+                {
+                    type: "KM",
+                    folderPath: kanbanMasterFolderPath,
+                    regex: /^KM_\d{8}$/,
+                    service: KanbanService,
+                },
 
             ];
 
@@ -73,7 +83,7 @@ const startWatcher = () => {
             );
 
             if (!matched) {
-                logger.warn(`⚠️ File ${fileName} not in PO/PR/RR`);
+                logger.warn(`⚠️ File ${fileName} not in PO/PR/RR/JS/KM folder`);
                 return;
             }
 

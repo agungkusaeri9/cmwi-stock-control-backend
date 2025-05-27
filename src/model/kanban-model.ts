@@ -19,10 +19,30 @@ export type KanbanResponse = {
 
 }
 
+export type KanbanRawEntry = {
+    [key: string]: any;
+    "CODE JS SYSTEM"?: any;
+    AREA?: any;
+    MESIN?: any;
+    "CODE RACK"?: any;
+    DESCRIPTION?: any;
+    SPESIFICATION?: any;
+    MAKER?: any;
+    SUPPLIER?: any;
+    CURRENCY?: any;
+    PRICE?: any;
+    "Safety Stock"?: any;
+    RANK?: any;
+    UoM?: any;
+    "Minimal Stock"?: any;
+    "Maximal Stock"?: any;
+    "BEGINING BALANCE"?: any;
+    "Lead Time"?: any;
+    "Order Point"?: any;
+}
 
 
 export type CreateKanbanRequest = {
-
     code: string;
     description: string;
     specification: string;
@@ -34,6 +54,15 @@ export type CreateKanbanRequest = {
     rack_id?: number;
     machine_area_id?: number;
     machine_id?: number;
+    supplier_id?: number;
+    maker_id?: number;
+    rank?: string;
+    order_point?: number;
+    currency?: string;
+    price?: number;
+    safety_stock?: number;
+
+
 }
 
 export type UpdateKanbanRequest = {

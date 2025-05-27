@@ -10,7 +10,7 @@ export class KanbanController {
     static async create(req: Request, res: Response, next: NextFunction) {
         try {
             const request: CreateKanbanRequest = req.body as CreateKanbanRequest;
-            const response = await KanbanService.create(request);
+            const response = await KanbanService.createFromRequest(request);
 
             sendSuccess(res, 200, "Create Kanban success", response);
 

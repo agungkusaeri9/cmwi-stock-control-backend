@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 async function main() {
     await prisma.user.createMany({

@@ -8,7 +8,7 @@ import { Validation } from "../validation/validation";
 import { UserValidation } from "../validation/user-validation";
 import { prismaClient } from "../application/database";
 import { ResponseError } from "../error/response-error";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET_KEY } from "../application/config";
 

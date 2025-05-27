@@ -5,7 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -76,6 +77,7 @@ model Maker {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  Kanban     Kanban[]
 
   @@map("makers")
 }
@@ -191,7 +193,7 @@ model Kanban {
   specification      String?      @db.VarChar(255)
   min_quantity       Int          @default(0)
   max_quantity       Int          @default(0)
-  uom                String?      @db.VarChar(100)
+  uom                String?      @db.VarChar(10)
   lead_time          Int          @default(0)
   rack               Rack?        @relation(fields: [rack_id], references: [id], onDelete: SetNull)
   rack_id            Int?
@@ -202,6 +204,13 @@ model Kanban {
   stock_in_quantity  Int          @default(0)
   balance            Int          @default(0)
   js_ending_quantity Int          @default(0)
+  safety_stock       Int          @default(0)
+  currency           String?      @db.VarChar(10)
+  price              Int          @default(0)
+  rank               String?      @db.VarChar(5)
+  order_point        Int?
+  maker              Maker?       @relation(fields: [maker_id], references: [id], onDelete: SetNull)
+  maker_id           Int?
 
   created_at              DateTime                @default(now())
   updated_at              DateTime                @updatedAt
