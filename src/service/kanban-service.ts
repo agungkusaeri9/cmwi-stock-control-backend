@@ -54,6 +54,7 @@ export class KanbanService {
                 machine_area: true,
                 machine: true,
                 supplier: true,
+                maker: true
 
             }
         });
@@ -438,7 +439,8 @@ export class KanbanService {
                 rack: true,
                 machine_area: true,
                 machine: true,
-                supplier: true
+                supplier: true,
+                maker: true
             }
         });
 
@@ -501,7 +503,8 @@ export class KanbanService {
                     rack: true,
                     machine_area: true,
                     machine: true,
-                    supplier: true
+                    supplier: true,
+                    maker: true
                 }
             }),
             prismaClient.kanban.count({
@@ -541,6 +544,7 @@ export class KanbanService {
                     machine_area: true,
                     machine: true,
                     supplier: true,
+                    maker: true
 
                 }
             });
@@ -554,6 +558,7 @@ export class KanbanService {
                     machine_area: true,
                     machine: true,
                     supplier: true,
+                    maker: true
 
                 }
             });
