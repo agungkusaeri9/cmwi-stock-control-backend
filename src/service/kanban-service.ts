@@ -489,19 +489,19 @@ export class KanbanService {
         }
 
         if (searchRequest.stock_status) {
-            if (searchRequest.stock_status === "Overstock") {
+            if (searchRequest.stock_status.toLocaleLowerCase() === "overstock") {
                 filters.push({
                     balance: {
                         gt: prismaClient.kanban.fields.max_quantity
                     }
                 });
-            } else if (searchRequest.stock_status === "Understock") {
+            } else if (searchRequest.stock_status.toLocaleLowerCase() === "understock") {
                 filters.push({
                     balance: {
                         lt: prismaClient.kanban.fields.min_quantity
                     }
                 });
-            } else if (searchRequest.stock_status === "Normal") {
+            } else if (searchRequest.stock_status.toLocaleLowerCase() === "normal") {
                 filters.push({
                     balance: {
                         gte: prismaClient.kanban.fields.min_quantity,

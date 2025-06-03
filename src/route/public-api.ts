@@ -12,10 +12,13 @@ import { MakerController } from "../controller/Maker-controller";
 import { PurchaseRequestController } from "../controller/purchase-request-controller";
 import { PurchaseOrderController } from "../controller/purchase-order-controller";
 import { ReminderController } from "../controller/reminder-controller";
-
+import { MainController } from "../controller/main-controller";
 
 export const publicRouter = express.Router();
 publicRouter.post("/api/auth/login", UserController.login);
+
+// Main
+publicRouter.get("/api/statistics", MainController.get);
 
 // Stock In
 publicRouter.post("/api/stock-ins", StockInController.create);
