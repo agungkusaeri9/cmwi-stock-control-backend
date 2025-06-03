@@ -39,5 +39,6 @@ export class KanbanValidation {
         rack_id: z.number().min(0).positive().optional(),
         machine_area_id: z.number().min(0).positive().optional(),
         machine_id: z.number().min(0).positive().optional(),
+        stock_status: z.string().optional()
     })
 }

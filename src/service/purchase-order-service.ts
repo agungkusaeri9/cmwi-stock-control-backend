@@ -262,8 +262,6 @@ export class PurchaseOrderService {
                     data: { is_active: false }
                 });
 
-
-
                 if (filteredRequest.length > 0) {
                     await tx.purchaseOrder.createMany({ data: filteredRequest });
                 }

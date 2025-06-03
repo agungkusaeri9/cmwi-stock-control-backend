@@ -45,13 +45,30 @@ export class ReminderService {
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
                     purchase_request_detail: {
+                        where: {
+                            is_active: true
+                        },
                         include: {
                             purchase_request: true
+                        },
+
+                        orderBy: {
+                            purchase_request: {
+                                date: 'desc'
+                            }
                         }
                     },
                     purchase_order_detail: {
+                        where: {
+                            is_active: true
+                        },
                         include: {
                             purchase_order: true
+                        },
+                        orderBy: {
+                            purchase_order: {
+                                po_date: 'desc'
+                            }
                         }
                     }
                 }
@@ -63,23 +80,38 @@ export class ReminderService {
 
         const data = reminders.map((kanban) => {
             const hasPR = kanban.purchase_request_detail.length > 0;
-            const hasPO = kanban.purchase_order_detail.length > 0;
+            const prDate = hasPR
+                ? kanban.purchase_request_detail[0]?.purchase_request?.date ?? null
+                : null;
 
-            const prDate = hasPR ? kanban.purchase_request_detail[0]?.purchase_request?.date ?? null : null;
-            const poDate = hasPO ? kanban.purchase_order_detail[0]?.purchase_order?.po_date ?? null : null;
+            const prStatus = hasPR ? "Requested" : "Not Requested";
+
+            const poDetails = kanban.purchase_order_detail;
+            let poStatus = "Not Ordered";
+            let poDate = null;
+
+            if (poDetails.length > 0) {
+                const ordered = poDetails.find((po) => po.status === "On Order");
+                if (ordered) {
+                    poStatus = "On Order";
+                    poDate = ordered.purchase_order?.po_date ?? null;
+                } else {
+                    const firstDetail = poDetails[0];
+                    poStatus = firstDetail.status ?? "Partial Delivery";
+                    poDate = firstDetail.purchase_order?.po_date ?? null;
+                }
+            }
 
             const reminderResponse: ReminderResponse = {
                 code: kanban.code,
-                pr_status: hasPR ? true : false,
+                pr_status: prStatus,
                 pr_date: prDate,
-                po_status: hasPO ? true : false,
+                po_status: poStatus,
                 po_date: poDate
             };
 
             return reminderResponse;
         });
-
-
 
 
         const pagination = searchRequest.paginate

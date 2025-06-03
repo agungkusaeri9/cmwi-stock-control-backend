@@ -1,8 +1,8 @@
 export type ReminderResponse = {
     code: string | null;
-    pr_status: boolean;
+    pr_status: string | null;
     pr_date: Date | null;
-    po_status: boolean;
+    po_status: string | null;
     po_date: Date | null;
 }
 

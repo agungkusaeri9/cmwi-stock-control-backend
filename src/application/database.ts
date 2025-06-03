@@ -20,7 +20,8 @@ export const prismaClient = new PrismaClient({
             level: "warn"
         }
     ]
-});
+}
+);
 
 prismaClient.$on("error", (e) => {
     logger.error(e);

@@ -109,6 +109,8 @@ const startWatcher = () => {
                             type: type,
                         },
                     });
+                }, {
+                    timeout: 60000 // 60 detik
                 });
 
                 logger.info(`✅ File ${type} successfully processed: ${fileName}`);

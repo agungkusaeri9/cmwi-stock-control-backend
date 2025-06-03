@@ -66,7 +66,7 @@ export class KanbanService {
 
         const workbook: xlsx.WorkBook = xlsx.readFile(filePath);
 
-        const sheet: xlsx.WorkSheet = workbook.Sheets["Sheet1"];
+        const sheet: xlsx.WorkSheet = workbook.Sheets["MASTER MATERIAL"];
 
         if (!sheet) {
             logger.error("MASTER MATERIAL sheet not found");
@@ -77,7 +77,7 @@ export class KanbanService {
             header: 1,
         });
 
-        const headers: string[] = data[1] as string[];
+        const headers: string[] = data[2] as string[];
 
         const importantHeaders: string[] = [
             "CODE JS SYSTEM",
@@ -94,8 +94,13 @@ export class KanbanService {
 
         const kanbans: KanbanRawEntry[] = [];
 
-        for (let i = 2; i < data.length; i++) {
-            if (data[i].length !== headers.length) continue;
+        for (let i = 3; i < data.length; i++) {
+            if (data[i].length !== headers.length) {
+                // if (data[i].length > 0) {
+                //     console.log(data[i]);
+                // }
+                continue
+            };
 
             const kanbanTemp: KanbanRawEntry = {};
 
@@ -107,11 +112,11 @@ export class KanbanService {
         }
 
 
-        const parseNumber = (val: string): number =>
-            Number(val);
+        const parseNumber = (val: string | undefined): number =>
+            val && val !== "-" ? Number(val) : 0;
 
-        const parseString = (val: string): string =>
-            val.toString()
+        const parseString = (val: string | undefined): string =>
+            val && val !== "-" ? val.toString() : '';
 
         const isValidProductCode = (code: string): boolean => {
             const prefix = code.split("-")[0];
@@ -121,7 +126,7 @@ export class KanbanService {
 
         const supplierNames = Array.from(new Set(
             kanbans
-                .map((entry) => parseString(entry.SUPPLIER))
+                .map((entry) => entry.SUPPLIER === "" || entry.SUPPLIER === null || entry.SUPPLIER === undefined || entry.SUPPLIER === "-" ? null : parseString(entry.SUPPLIER))
                 .filter((s): s is string => !!s)
         ));
 
@@ -151,7 +156,7 @@ export class KanbanService {
 
         const makerNames = Array.from(new Set(
             kanbans
-                .map((entry) => parseString(entry.MAKER))
+                .map((entry) => entry.MAKER === "" || entry.MAKER === null || entry.MAKER === undefined || entry.MAKER === "-" ? null : parseString(entry.MAKER))
                 .filter((s): s is string => !!s)
         ));
 
@@ -184,7 +189,7 @@ export class KanbanService {
 
         const areaNames = Array.from(new Set(
             kanbans
-                .map((entry) => parseString(entry.AREA))
+                .map((entry) => entry.AREA === "" || entry.AREA === null || entry.AREA === undefined || entry.AREA === "-" ? null : parseString(entry.AREA))
                 .filter((s): s is string => !!s)
         ));
 
@@ -217,7 +222,7 @@ export class KanbanService {
 
         const machineNames = Array.from(new Set(
             kanbans
-                .map((entry) => parseString(entry.MESIN))
+                .map((entry) => entry.MESIN === "" || entry.MESIN === null || entry.MESIN === undefined || entry.MESIN === "-" ? null : parseString(entry.MESIN))
                 .filter((s): s is string => !!s)
         ));
 
@@ -245,13 +250,9 @@ export class KanbanService {
         newMachines.forEach(s => existingMachineMap.set(s.code, s.id));
 
 
-
-
-
-
         const rackNames = Array.from(new Set(
             kanbans
-                .map((entry) => parseString(entry["CODE RACK"]))
+                .map((entry) => entry["CODE RACK"] === "" || entry["CODE RACK"] === null || entry["CODE RACK"] === undefined || entry["CODE RACK"] === "-" ? null : parseString(entry["CODE RACK"]))
                 .filter((s): s is string => !!s)
         ));
 
@@ -282,22 +283,22 @@ export class KanbanService {
             .filter((entry: KanbanRawEntry) => entry["CODE JS SYSTEM"] !== undefined && isValidProductCode(entry["CODE JS SYSTEM"]))
             .map((entry: KanbanRawEntry) => {
 
-                const supplierName = parseString(entry.SUPPLIER);
+                const supplierName = entry.SUPPLIER === "" || entry.SUPPLIER === null || entry.SUPPLIER === undefined || entry.SUPPLIER === "-" ? null : parseString(entry.SUPPLIER);
                 const supplier_id = supplierName ? existingSupplierMap.get(supplierName) : undefined;
 
-                const makerName = parseString(entry.MAKER);
+                const makerName = entry.MAKER === "" || entry.MAKER === null || entry.MAKER === undefined || entry.MAKER === "-" ? null : parseString(entry.MAKER);
                 const maker_id = makerName ? existingMakerMap.get(makerName) : undefined;
 
 
-                const areaName = parseString(entry.AREA);
+                const areaName = entry.AREA === "" || entry.AREA === null || entry.AREA === undefined || entry.AREA === "-" ? null : parseString(entry.AREA);
                 const area_id = areaName ? existingAreaMap.get(areaName) : undefined;
 
 
-                const machineName = parseString(entry.MESIN);
+                const machineName = entry.MESIN === "" || entry.MESIN === null || entry.MESIN === undefined || entry.MESIN === "-" ? null : parseString(entry.MESIN);
                 const machine_id = machineName ? existingMachineMap.get(machineName) : undefined;
 
 
-                const rackName = parseString(entry["CODE RACK"]);
+                const rackName = entry["CODE RACK"] === "" || entry["CODE RACK"] === null || entry["CODE RACK"] === undefined || entry["CODE RACK"] === "-" ? null : parseString(entry["CODE RACK"]);
                 const rack_id = rackName ? existingRackMap.get(rackName) : undefined;
 
                 return {
@@ -322,8 +323,6 @@ export class KanbanService {
                     price: parseNumber(entry.PRICE),
                 }
             });
-
-        console.log(kanbanFormattedResult)
 
 
         try {
@@ -354,20 +353,42 @@ export class KanbanService {
 
             const validRequest = createRequest.filter(s => !existingKanbanSet.has(s.code));
 
-            await prismaClient.$transaction(
-                validRequest.map(({ rack_id, maker_id, machine_id, machine_area_id, supplier_id, ...rest }) =>
-                    prismaClient.kanban.create({
-                        data: {
-                            ...rest,
-                            ...(supplier_id && { supplier: { connect: { id: supplier_id } } }),
-                            ...(rack_id && { rack: { connect: { id: rack_id } } }),
-                            ...(maker_id && { maker: { connect: { id: maker_id } } }),
-                            ...(machine_id && { machine: { connect: { id: machine_id } } }),
-                            ...(machine_area_id && { machine_area: { connect: { id: machine_area_id } } }),
-                        }
-                    })
-                )
-            );
+            const createConnect = (field: string, id: any) => (id ? { [field]: { connect: { id } } } : {});
+
+            const createKanbanData = (data: any) => {
+                const {
+                    rack_id,
+                    maker_id,
+                    machine_id,
+                    machine_area_id,
+                    supplier_id,
+                    ...rest
+                } = data;
+
+                return {
+                    ...rest,
+                    ...createConnect("supplier", supplier_id),
+                    ...createConnect("rack", rack_id),
+                    ...createConnect("maker", maker_id),
+                    ...createConnect("machine", machine_id),
+                    ...createConnect("machine_area", machine_area_id),
+                };
+            };
+
+            const chunkSize = 50;
+
+            for (let i = 0; i < validRequest.length; i += chunkSize) {
+                const chunk = validRequest.slice(i, i + chunkSize);
+
+                await prismaClient.$transaction(async (tx) => {
+                    for (const item of chunk) {
+                        await tx.kanban.create({
+                            data: createKanbanData(item),
+                        });
+                    }
+                });
+            }
+
 
             return true;
 
@@ -467,6 +488,30 @@ export class KanbanService {
             });
         }
 
+        if (searchRequest.stock_status) {
+            if (searchRequest.stock_status === "Overstock") {
+                filters.push({
+                    balance: {
+                        gt: prismaClient.kanban.fields.max_quantity
+                    }
+                });
+            } else if (searchRequest.stock_status === "Understock") {
+                filters.push({
+                    balance: {
+                        lt: prismaClient.kanban.fields.min_quantity
+                    }
+                });
+            } else if (searchRequest.stock_status === "Normal") {
+                filters.push({
+                    balance: {
+                        gte: prismaClient.kanban.fields.min_quantity,
+                        lte: prismaClient.kanban.fields.max_quantity
+                    }
+                });
+            }
+
+        }
+
 
         if (searchRequest.rack_id) {
             filters.push({
@@ -522,6 +567,7 @@ export class KanbanService {
                 total: total
             }
             : undefined;
+
 
 
         return {

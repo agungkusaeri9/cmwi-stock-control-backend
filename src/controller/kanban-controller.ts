@@ -42,7 +42,7 @@ export class KanbanController {
                 rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id),
                 machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
                 machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
-
+                stock_status: req.query.stock_status as string
             };
 
 

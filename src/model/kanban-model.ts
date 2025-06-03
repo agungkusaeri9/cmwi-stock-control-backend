@@ -17,6 +17,7 @@ export type KanbanResponse = {
     supplier: Supplier[] | null;
     maker: Maker | null;
     js_ending_quantity: number | null;
+    stock_status: string | null;
 
 }
 
@@ -88,6 +89,7 @@ export type SearchKanbanRequest = {
     rack_id?: number;
     machine_area_id?: number;
     machine_id?: number;
+    stock_status?: string;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {
@@ -107,6 +109,7 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         stock_in_quantity: Kanban.stock_in_quantity,
         supplier: Kanban.supplier,
         maker: Kanban.maker,
-        js_ending_quantity: Kanban.js_ending_quantity
+        js_ending_quantity: Kanban.js_ending_quantity,
+        stock_status: Kanban.balance < Kanban.min_quantity ? "Understock" : (Kanban.balance > Kanban.max_quantity ? "Overstock" : "Normal")
     }
 }
