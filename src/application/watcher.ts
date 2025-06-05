@@ -20,10 +20,13 @@ const kanbanMasterFolderPath = path.join(SHARED_FOLDER_PATH, "kanban-master");
 
 
 
+
 const startWatcher = () => {
+    logger.info("🟢 Starting watcher..." + SHARED_FOLDER_PATH);
     const watcher = chokidar.watch([purchaseRequestFolderPath, purchaseOrderFolderPath, receivingReportFolderPath, jsFolderPath, kanbanMasterFolderPath], {
         persistent: true,
         ignoreInitial: true,
+        usePolling: true,
         ignored: /(^|[\/\\])~\$/,
         awaitWriteFinish: {
             stabilityThreshold: 2000,

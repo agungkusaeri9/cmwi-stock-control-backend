@@ -16,3 +16,5 @@ coverage
 dist
 .DS_Store
 Thumbs.db
+watched-folder
+logging
