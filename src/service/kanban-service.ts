@@ -754,7 +754,7 @@ export class KanbanService {
 
             row.commit();
         }
-        await workbook.xlsx.writeFile(path.resolve(__dirname, "../../uncompleted_kanban_export.xlsx"))
+        // await workbook.xlsx.writeFile(path.resolve(__dirname, "../../uncompleted_kanban_export.xlsx"))
         const buffer = await workbook.xlsx.writeBuffer();
         return buffer;
 
