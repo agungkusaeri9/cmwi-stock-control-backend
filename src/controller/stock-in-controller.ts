@@ -12,8 +12,8 @@ export class StockInController {
             const request: CreateStockInRequest = req.body as CreateStockInRequest;
             const response = await StockInService.create(request);
 
-            sendSuccess(res, 200, "Create stockIn success", response);
             logger.info("Create stockIn success");
+            sendSuccess(res, 200, "Create stockIn success", response);
         } catch (e) {
             next(e);
         }

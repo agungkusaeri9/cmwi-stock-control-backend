@@ -64,7 +64,8 @@ export class StockOutService {
                 include: {
                     machine_area: true,
                     machine: true,
-                    operator: true
+                    operator: true,
+                    kanban: true
                 }
 
             });
@@ -96,6 +97,20 @@ export class StockOutService {
                         kanban_code: {
                             contains: searchRequest.keyword
 
+                        }
+                    },
+                    {
+                        kanban: {
+                            specification: {
+                                contains: searchRequest.keyword
+                            }
+                        }
+                    },
+                    {
+                        kanban: {
+                            description: {
+                                contains: searchRequest.keyword
+                            }
                         }
                     },
                 ]
@@ -148,7 +163,8 @@ export class StockOutService {
                 include: {
                     machine_area: true,
                     machine: true,
-                    operator: true
+                    operator: true,
+                    kanban: true
 
                 }
             }),
@@ -189,7 +205,8 @@ export class StockOutService {
             include: {
                 machine_area: true,
                 machine: true,
-                operator: true
+                operator: true,
+                kanban: true
             }
         });
 

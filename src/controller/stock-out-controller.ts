@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { CreateStockOutRequest, SearchStockOutRequest } from "../model/stock-out-model";
 import { StockOutService } from "../service/stock-out-service";
 import { sendSuccess } from "../helper/response-helper";
-
+import { logger } from "../application/logging";
 
 export class StockOutController {
 
@@ -10,6 +10,7 @@ export class StockOutController {
         try {
             const request: CreateStockOutRequest = req.body as CreateStockOutRequest;
             const response = await StockOutService.create(request);
+            logger.info("Create stockOut success");
             sendSuccess(res, 200, "Create stockOut success", response);
 
         } catch (e) {

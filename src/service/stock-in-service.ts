@@ -50,6 +50,10 @@ export class StockInService {
                     operator_id: createRequest.operator_id,
                     balance_before: kanbanData.balance,
                     balance_after: kanbanData.balance + kanbanData.stock_in_quantity
+                },
+                include: {
+                    operator: true,
+                    kanban: true
                 }
             });
 
@@ -81,7 +85,20 @@ export class StockInService {
                     {
                         kanban_code: {
                             contains: searchRequest.keyword
-
+                        }
+                    },
+                    {
+                        kanban: {
+                            specification: {
+                                contains: searchRequest.keyword
+                            }
+                        }
+                    },
+                    {
+                        kanban: {
+                            description: {
+                                contains: searchRequest.keyword
+                            }
                         }
                     },
                 ]
@@ -118,6 +135,7 @@ export class StockInService {
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
+                    kanban: true,
                     operator: true
                 }
             }),
@@ -214,7 +232,7 @@ export class StockInService {
             where: whereClause,
             include: {
                 kanban: true,
-                operator: true
+                operator: true,
             }
         });
 
