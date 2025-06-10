@@ -750,8 +750,6 @@ export class KanbanService {
             row.commit();
         }
 
-
-        await workbook.xlsx.writeFile(path.resolve(__dirname, "../../MasterExportTemplate.xlsx"));
         const buffer = await workbook.xlsx.writeBuffer();
         return buffer;
 
