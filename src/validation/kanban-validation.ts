@@ -6,7 +6,7 @@ const KanbanSchema = z.object({
     max_quantity: z.number().min(0),
     description: z.string().max(255).optional().nullable(),
     specification: z.string().max(255).optional().nullable(),
-    balance: z.number().min(0),
+    balance: z.number().min(0).optional(),
     uom: z.string().max(10).optional().nullable(),
     lead_time: z.number().min(0),
     rack_id: z.number().min(0).optional().nullable(),
@@ -18,7 +18,7 @@ const KanbanSchema = z.object({
     order_point: z.number().min(0).optional().nullable(),
     price: z.number().min(0),
     currency: z.string().max(10).optional().nullable(),
-    rank: z.string().max(5).optional().nullable()
+    rank: z.string().max(1).optional().nullable()
 });
 
 
@@ -39,6 +39,7 @@ export class KanbanValidation {
         rack_id: z.number().min(0).positive().optional(),
         machine_area_id: z.number().min(0).positive().optional(),
         machine_id: z.number().min(0).positive().optional(),
-        stock_status: z.string().optional()
+        stock_status: z.string().optional(),
+        completed_status: z.string().optional(),
     })
 }

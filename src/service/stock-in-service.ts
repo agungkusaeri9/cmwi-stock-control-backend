@@ -254,7 +254,6 @@ export class StockInService {
             row.commit();
         }
 
-
         const buffer = await workbook.xlsx.writeBuffer();
         return buffer;
 

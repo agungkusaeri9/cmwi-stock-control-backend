@@ -177,9 +177,11 @@ export class PurchaseRequestService {
 
                 const newKanbans = missingKanban.map(item => ({
                     code: item.kanban_code!,
-                    description: item.kanban_code!,
-                    specification: item.kanban_code!,
-                    uom: item.unit ?? ""
+                    description: item.description_of_goods!,
+                    specification: item.specification!,
+                    uom: item.unit!,
+                    price: item.est_unit_price!,
+                    currency: item.currency!,
                 }));
 
                 await prismaClient.kanban.createMany({ data: newKanbans });

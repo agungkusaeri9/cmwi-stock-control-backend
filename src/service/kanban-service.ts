@@ -6,6 +6,9 @@ import { logger } from "../application/logging";
 import { ResponseError } from "../error/response-error";
 import { Pageable } from "../model/page";
 import xlsx from 'xlsx';
+import { Workbook, BorderStyle } from "exceljs"
+import path from 'path';
+
 
 
 export class KanbanService {
@@ -66,7 +69,7 @@ export class KanbanService {
 
         const workbook: xlsx.WorkBook = xlsx.readFile(filePath);
 
-        const sheet: xlsx.WorkSheet = workbook.Sheets["MASTER MATERIAL"];
+        const sheet: xlsx.WorkSheet = workbook.Sheets["Sheet1"];
 
         if (!sheet) {
             logger.error("MASTER MATERIAL sheet not found");
@@ -77,13 +80,25 @@ export class KanbanService {
             header: 1,
         });
 
-        const headers: string[] = data[2] as string[];
+        const headers: string[] = data[3] as string[];
 
         const importantHeaders: string[] = [
             "CODE JS SYSTEM",
+            "AREA",
+            "CODE RACK",
+            "MESIN",
+            "DESCRIPTION",
+            "SPECIFICATION",
+            "MAKER",
+            "CURRENCY",
+            "PRICE",
             "UoM",
+            "Safety Stock",
             "Minimal Stock",
             "Maximal Stock",
+            "Lead Time",
+            "Order Point",
+            "Rank"
         ];
 
         const missingHeaders: string[] = importantHeaders.filter((h) => !headers.includes(h));
@@ -94,13 +109,10 @@ export class KanbanService {
 
         const kanbans: KanbanRawEntry[] = [];
 
-        for (let i = 3; i < data.length; i++) {
-            if (data[i].length !== headers.length) {
-                // if (data[i].length > 0) {
-                //     console.log(data[i]);
-                // }
-                continue
-            };
+        for (let i = 4; i < data.length; i++) {
+            // if (data[i].length !== headers.length) {                
+            //     continue
+            // };
 
             const kanbanTemp: KanbanRawEntry = {};
 
@@ -122,36 +134,6 @@ export class KanbanService {
             const prefix = code.split("-")[0];
             return prefix === "EA";
         };
-
-
-        const supplierNames = Array.from(new Set(
-            kanbans
-                .map((entry) => entry.SUPPLIER === "" || entry.SUPPLIER === null || entry.SUPPLIER === undefined || entry.SUPPLIER === "-" ? null : parseString(entry.SUPPLIER))
-                .filter((s): s is string => !!s)
-        ));
-
-        const existingSuppliers = await prismaClient.supplier.findMany({
-            where: { name: { in: supplierNames } },
-            select: { id: true, name: true }
-        });
-
-        const existingSupplierMap = new Map(existingSuppliers.map(s => [s.name, s.id]));
-
-        const newSupplierNames = supplierNames.filter(name => !existingSupplierMap.has(name));
-
-        const newSuppliers = await prismaClient.$transaction(async (tx) => {
-            return await tx.supplier.createMany({
-                data: newSupplierNames.map(name => ({ name })),
-                skipDuplicates: true
-            }).then(() =>
-                tx.supplier.findMany({
-                    where: { name: { in: newSupplierNames } },
-                    select: { id: true, name: true }
-                })
-            );
-        });
-
-        newSuppliers.forEach(s => existingSupplierMap.set(s.name, s.id));
 
 
         const makerNames = Array.from(new Set(
@@ -208,7 +190,7 @@ export class KanbanService {
                 skipDuplicates: true
             }).then(() =>
                 tx.machineArea.findMany({
-                    where: { name: { in: newMakerNames } },
+                    where: { name: { in: newAreaNames } },
                     select: { id: true, name: true }
                 })
             );
@@ -280,11 +262,8 @@ export class KanbanService {
         newRacks.forEach(s => existingRackMap.set(s.code, s.id));
 
         const kanbanFormattedResult: CreateKanbanRequest[] = kanbans
-            .filter((entry: KanbanRawEntry) => entry["CODE JS SYSTEM"] !== undefined && isValidProductCode(entry["CODE JS SYSTEM"]))
+            .filter((entry: KanbanRawEntry) => entry["CODE JS SYSTEM"] !== undefined && entry["CODE JS SYSTEM"] !== null && entry["CODE JS SYSTEM"] !== "" && isValidProductCode(entry["CODE JS SYSTEM"]))
             .map((entry: KanbanRawEntry) => {
-
-                const supplierName = entry.SUPPLIER === "" || entry.SUPPLIER === null || entry.SUPPLIER === undefined || entry.SUPPLIER === "-" ? null : parseString(entry.SUPPLIER);
-                const supplier_id = supplierName ? existingSupplierMap.get(supplierName) : undefined;
 
                 const makerName = entry.MAKER === "" || entry.MAKER === null || entry.MAKER === undefined || entry.MAKER === "-" ? null : parseString(entry.MAKER);
                 const maker_id = makerName ? existingMakerMap.get(makerName) : undefined;
@@ -306,11 +285,9 @@ export class KanbanService {
                     uom: parseString(entry.UoM),
                     min_quantity: parseNumber(entry["Minimal Stock"]),
                     max_quantity: parseNumber(entry["Maximal Stock"]),
-                    balance: parseNumber(entry["BEGINING BALANCE"]),
                     lead_time: parseNumber(entry["Lead Time"]),
                     description: parseString(entry.DESCRIPTION),
-                    specification: parseString(entry.SPESIFICATION),
-                    supplier_id: supplier_id,
+                    specification: parseString(entry.SPECIFICATION),
                     maker_id: maker_id,
                     area_id: area_id,
                     machine_id: machine_id,
@@ -318,7 +295,7 @@ export class KanbanService {
                     rack_id: rack_id,
                     safety_stock: parseNumber(entry["Safety Stock"]),
                     order_point: parseNumber(entry["Order Point"]),
-                    rank: parseString(entry.RANK),
+                    rank: parseString(entry.Rank),
                     currency: parseString(entry.CURRENCY),
                     price: parseNumber(entry.PRICE),
                 }
@@ -326,32 +303,8 @@ export class KanbanService {
 
 
         try {
+            // Validasi data dari input
             const createRequest = Validation.validate(KanbanValidation.CREATE_MULTIPLE, kanbanFormattedResult);
-
-            const kanbanCodes = createRequest.map(s => s.code);
-
-
-
-            const existingKanbans = await prismaClient.kanban.findMany({
-                where: { code: { in: kanbanCodes } },
-                select: { id: true, code: true }
-            });
-
-            const existingKanbanSet = new Set(existingKanbans.map(s => s.code));
-            const invalidKanbanCodes = kanbanCodes.filter(code => existingKanbanSet.has(code));
-
-
-            if (invalidKanbanCodes.length > 0) {
-                logger.warn("Kanban with code " + invalidKanbanCodes.join(", ") + " already exist");
-            }
-
-            if (invalidKanbanCodes.length === kanbanCodes.length) {
-                logger.error("All kanban already exist");
-                throw new Error("All kanban already exist");
-            }
-
-
-            const validRequest = createRequest.filter(s => !existingKanbanSet.has(s.code));
 
             const createConnect = (field: string, id: any) => (id ? { [field]: { connect: { id } } } : {});
 
@@ -377,27 +330,31 @@ export class KanbanService {
 
             const chunkSize = 50;
 
-            for (let i = 0; i < validRequest.length; i += chunkSize) {
-                const chunk = validRequest.slice(i, i + chunkSize);
+            // Bagi data menjadi chunk untuk mencegah beban berat dalam satu transaksi
+            for (let i = 0; i < createRequest.length; i += chunkSize) {
+                const chunk = createRequest.slice(i, i + chunkSize);
 
                 await prismaClient.$transaction(async (tx) => {
                     for (const item of chunk) {
-                        await tx.kanban.create({
-                            data: createKanbanData(item),
+                        const kanbanData = createKanbanData(item);
+                        await tx.kanban.upsert({
+                            where: { code: item.code },
+                            update: kanbanData, // update jika code sudah ada
+                            create: kanbanData, // insert jika belum ada
                         });
+                        logger.info(`Kanban with code ${item.code} upserted`);
                     }
                 });
             }
 
-
             return true;
 
-
         } catch (error) {
-            logger.error("Error while create kanban master data: " + error);
+            logger.error("Error while upserting kanban master data: " + error);
             throw new ResponseError(400, "Invalid request");
-
         }
+
+
     }
 
 
@@ -418,14 +375,19 @@ export class KanbanService {
         }
 
         const updateRequest = Validation.validate(KanbanValidation.UPDATE, request);
-
-        // Validasi unique: part_code
-        const isPartExist = await prismaClient.kanban.findUnique({
-            where: { code: updateRequest.code }
+        const isPartExist = await prismaClient.kanban.findFirst({
+            where: {
+                code: updateRequest.code,
+                id: {
+                    not: id
+                }
+            }
         });
+
         if (isPartExist) {
-            throw new ResponseError(404, "Code already exist");
+            throw new ResponseError(400, "Code already exists");
         }
+
 
         // Validasi foreign key: rack_id
         const isRackExist = await prismaClient.rack.findUnique({
@@ -478,14 +440,57 @@ export class KanbanService {
         if (searchRequest.keyword) {
             filters.push({
                 OR: [
-                    {
-                        code: {
-                            contains: searchRequest.keyword
-
-                        }
-                    },
+                    { code: { contains: searchRequest.keyword } },
+                    { description: { contains: searchRequest.keyword } },
+                    { specification: { contains: searchRequest.keyword } }
                 ]
             });
+        }
+
+        if (searchRequest.completed_status) {
+
+            if (searchRequest.completed_status.toLocaleLowerCase() === "completed") {
+                filters.push({
+                    AND: [
+                        { machine_area_id: { not: null } },
+                        { machine_id: { not: null } },
+                        { rack_id: { not: null } },
+                        { maker_id: { not: null } },
+                        { description: { not: null } },
+                        { specification: { not: null } },
+                        { currency: { not: null } },
+                        { price: { not: null } },
+                        { uom: { not: null } },
+                        { safety_stock: { not: null } },
+                        { order_point: { not: null } },
+                        { min_quantity: { not: null } },
+                        { max_quantity: { not: null } },
+                        { lead_time: { not: null } },
+                        { rank: { not: null } }
+                    ]
+                });
+            } else if (searchRequest.completed_status.toLocaleLowerCase() === "uncompleted") {
+                filters.push({
+                    OR: [
+                        { machine_area_id: null },
+                        { machine_id: null },
+                        { rack_id: null },
+                        { maker_id: null },
+                        { description: null },
+                        { specification: null },
+                        { currency: null },
+                        { price: null },
+                        { uom: null },
+                        { safety_stock: null },
+                        { order_point: null },
+                        { min_quantity: null },
+                        { max_quantity: null },
+                        { lead_time: null },
+                        { rank: null }
+                    ]
+                });
+            }
+
         }
 
         if (searchRequest.stock_status) {
@@ -643,6 +648,112 @@ export class KanbanService {
                 id: id
             }
         });
+
+    }
+
+
+    static async exportUncompletedKanbanToExcel(): Promise<any> {
+
+
+        const unCompletedKanbans = await prismaClient.kanban.findMany({
+            where: {
+                OR: [
+                    { machine_area_id: null },
+                    { machine_id: null },
+                    { rack_id: null },
+                    { maker_id: null },
+                    { description: null },
+                    { specification: null },
+                    { currency: null },
+                    { price: null },
+                    { uom: null },
+                    { safety_stock: null },
+                    { order_point: null },
+                    { min_quantity: null },
+                    { max_quantity: null },
+                    { lead_time: null },
+                    { rank: null }
+                ]
+            },
+            include: {
+                rack: true,
+                machine_area: true,
+                machine: true,
+                maker: true
+            }
+        });
+
+
+
+        const workbook = new Workbook()
+        const templatePath = path.resolve(__dirname, "../../template_file/MasterExportTemplate.xlsx")
+
+        await workbook.xlsx.readFile(templatePath)
+        const worksheet = workbook.getWorksheet(1)
+        if (!worksheet) throw new Error("Worksheet tidak ditemukan.")
+
+        const blackBorder = {
+            top: { style: 'thin' as BorderStyle, color: { argb: 'FF000000' } },
+            left: { style: 'thin' as BorderStyle, color: { argb: 'FF000000' } },
+            bottom: { style: 'thin' as BorderStyle, color: { argb: 'FF000000' } },
+            right: { style: 'thin' as BorderStyle, color: { argb: 'FF000000' } }
+        };
+
+
+        let rowIndex = 5;
+
+
+        for (const kanban of unCompletedKanbans) {
+            const row = worksheet.getRow(rowIndex++);
+
+            const cells = [
+                kanban.code,
+                kanban.machine_area?.name || null,
+                kanban.machine?.code || null,
+                kanban.rack?.code || null,
+                kanban.description,
+                kanban.specification,
+                kanban.maker?.name || null,
+                kanban.currency,
+                kanban.price,
+                kanban.uom,
+                kanban.safety_stock,
+                kanban.min_quantity,
+                kanban.order_point,
+                kanban.max_quantity,
+                kanban.lead_time,
+                kanban.rank
+            ];
+
+            cells.forEach((value, index) => {
+                const cell = row.getCell(index + 1);
+
+                cell.border = blackBorder;
+                const prevStyle = { ...cell.style };
+
+                if (value === null || value === undefined) {
+                    cell.value = '';
+                    cell.style = {
+                        ...prevStyle,
+                        fill: {
+                            type: 'pattern',
+                            pattern: 'solid',
+                            fgColor: { argb: 'FFFFFF00' } // kuning (alpha FF)
+                        }
+                    };
+                } else {
+                    cell.value = value;
+                    cell.style = prevStyle;
+                }
+            });
+
+            row.commit();
+        }
+
+
+        await workbook.xlsx.writeFile(path.resolve(__dirname, "../../MasterExportTemplate.xlsx"));
+        const buffer = await workbook.xlsx.writeBuffer();
+        return buffer;
 
     }
 

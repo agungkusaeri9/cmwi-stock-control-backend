@@ -18,7 +18,12 @@ export type KanbanResponse = {
     maker: Maker | null;
     js_ending_quantity: number | null;
     stock_status: string | null;
-
+    rank: string | null;
+    order_point: number | null;
+    currency: string | null;
+    price: number | null;
+    safety_stock: number | null;
+    is_completed: boolean;
 }
 
 export type KanbanRawEntry = {
@@ -28,17 +33,15 @@ export type KanbanRawEntry = {
     MESIN?: any;
     "CODE RACK"?: any;
     DESCRIPTION?: any;
-    SPESIFICATION?: any;
+    SPECIFICATION?: any;
     MAKER?: any;
-    SUPPLIER?: any;
     CURRENCY?: any;
     PRICE?: any;
     "Safety Stock"?: any;
-    RANK?: any;
+    Rank?: any;
     UoM?: any;
     "Minimal Stock"?: any;
     "Maximal Stock"?: any;
-    "BEGINING BALANCE"?: any;
     "Lead Time"?: any;
     "Order Point"?: any;
 }
@@ -50,7 +53,7 @@ export type CreateKanbanRequest = {
     specification: string;
     min_quantity: number;
     max_quantity: number;
-    balance: number;
+    balance?: number;
     uom: string;
     lead_time: number;
     rack_id?: number;
@@ -63,8 +66,6 @@ export type CreateKanbanRequest = {
     currency?: string;
     price?: number;
     safety_stock?: number;
-
-
 }
 
 export type UpdateKanbanRequest = {
@@ -90,6 +91,7 @@ export type SearchKanbanRequest = {
     machine_area_id?: number;
     machine_id?: number;
     stock_status?: string;
+    completed_status?: string;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {
@@ -110,6 +112,12 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         supplier: Kanban.supplier,
         maker: Kanban.maker,
         js_ending_quantity: Kanban.js_ending_quantity,
-        stock_status: Kanban.balance < Kanban.min_quantity ? "Understock" : (Kanban.balance > Kanban.max_quantity ? "Overstock" : "Normal")
+        rank: Kanban.rank,
+        order_point: Kanban.order_point,
+        currency: Kanban.currency,
+        price: Kanban.price,
+        safety_stock: Kanban.safety_stock,
+        stock_status: Kanban.balance < Kanban.min_quantity ? "Understock" : (Kanban.balance > Kanban.max_quantity ? "Overstock" : "Normal"),
+        is_completed: Kanban.specification == null || Kanban.description == null || Kanban.currency == null || Kanban.price == null || Kanban.safety_stock == null || Kanban.order_point == null || Kanban.min_quantity == null || Kanban.max_quantity == null || Kanban.uom == null || Kanban.lead_time == null || Kanban.rack_id == null || Kanban.machine_area_id == null || Kanban.machine_id == null || Kanban.maker_id == null ? false : true
     }
 }

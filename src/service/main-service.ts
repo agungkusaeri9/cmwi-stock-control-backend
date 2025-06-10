@@ -38,7 +38,7 @@ export class MainService {
 
         const unProcessed = kanbans.filter(
             (k) =>
-                k.balance < k.min_quantity &&
+                k.min_quantity && k.balance < k.min_quantity &&
                 k.purchase_order_detail.filter((po) => po.is_active).length === 0 &&
                 k.purchase_request_detail.filter((pr) => pr.is_active).length === 0
         ).length;

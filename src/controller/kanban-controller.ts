@@ -42,7 +42,8 @@ export class KanbanController {
                 rack_id: isNaN(Number(req.query.rack_id)) ? undefined : Number(req.query.rack_id),
                 machine_id: isNaN(Number(req.query.machine_id)) ? undefined : Number(req.query.machine_id),
                 machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
-                stock_status: req.query.stock_status as string
+                stock_status: req.query.stock_status as string,
+                completed_status: req.query.completed_status as string,
             };
 
 
@@ -71,6 +72,23 @@ export class KanbanController {
             await KanbanService.remove(id);
 
             sendSuccess(res, 200, "Remove Kanban success");
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    static async exportUncompletedKanbanToExcel(req: Request, res: Response, next: NextFunction) {
+        try {
+
+            const response = await KanbanService.exportUncompletedKanbanToExcel();
+
+
+            res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            res.setHeader("Content-Disposition", "attachment; filename=UncompletedKanbanExport.xlsx");
+            res.send(response);
+
+
+
         } catch (e) {
             next(e);
         }
