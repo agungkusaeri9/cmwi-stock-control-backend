@@ -49,23 +49,44 @@ export type KanbanRawEntry = {
 
 export type CreateKanbanRequest = {
     code: string;
-    description: string;
-    specification: string;
+    description: string | null;
+    specification: string | null;
     min_quantity: number;
     max_quantity: number;
-    balance?: number;
+    balance: number;
     uom: string;
     lead_time: number;
+    rack_id: number;
+    machine_area_id: number | null;
+    machine_id: number | null;
+    supplier_id: number | null;
+    maker_id: number | null;
+    rank: string;
+    order_point: number;
+    currency: string;
+    price: number;
+    safety_stock: number;
+}
+
+
+export type CreateKanbanImportRequest = {
+    code: string;
+    description: string | null;
+    specification: string | null;
+    min_quantity: number | null;
+    max_quantity: number | null;
+    uom: string | null;
+    lead_time: number | null;
     rack_id?: number;
     machine_area_id?: number;
     machine_id?: number;
     supplier_id?: number;
     maker_id?: number;
-    rank?: string;
-    order_point?: number;
-    currency?: string;
-    price?: number;
-    safety_stock?: number;
+    rank: string | null;
+    order_point: number | null;
+    currency: string | null;
+    price: number | null;
+    safety_stock: number | null;
 }
 
 export type UpdateKanbanRequest = {

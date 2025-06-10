@@ -194,7 +194,7 @@ export class PurchaseOrderService {
                 detail => detail.pr_number && !invalidPRNumbers.includes(detail.pr_number)
             );
 
-            const kanbanCodes = validatedDetailRequest
+            const kanbanCodes = filteredDetailRequest
                 .map(item => item.kanban_code)
                 .filter(Boolean) as string[];
 

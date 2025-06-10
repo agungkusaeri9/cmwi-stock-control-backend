@@ -1,4 +1,4 @@
-import { KanbanResponse, CreateKanbanRequest, UpdateKanbanRequest, toKanbanResponse, SearchKanbanRequest, KanbanRawEntry } from "../model/kanban-model";
+import { KanbanResponse, CreateKanbanRequest, UpdateKanbanRequest, toKanbanResponse, SearchKanbanRequest, KanbanRawEntry, CreateKanbanImportRequest } from "../model/kanban-model";
 import { Validation } from "../validation/validation";
 import { KanbanValidation } from "../validation/kanban-validation";
 import { prismaClient } from "../application/database";
@@ -34,20 +34,25 @@ export class KanbanService {
 
 
         // Validasi foreign key: machine_area_id
-        const isMachineAreaExist = await prismaClient.machineArea.findUnique({
-            where: { id: createRequest.machine_area_id }
-        });
-        if (!isMachineAreaExist) {
-            throw new ResponseError(404, "Machine Area not found");
+        if (createRequest.machine_area_id) {
+            const isMachineAreaExist = await prismaClient.machineArea.findUnique({
+                where: { id: createRequest.machine_area_id }
+            });
+            if (!isMachineAreaExist) {
+                throw new ResponseError(404, "Machine Area not found");
+            }
         }
 
         // Validasi foreign key: machine_id
-        const isMachineExist = await prismaClient.machine.findUnique({
-            where: { id: createRequest.machine_id }
-        });
-        if (!isMachineExist) {
-            throw new ResponseError(404, "Machine not found");
+        if (createRequest.machine_id) {
+            const isMachineExist = await prismaClient.machine.findUnique({
+                where: { id: createRequest.machine_id }
+            });
+            if (!isMachineExist) {
+                throw new ResponseError(404, "Machine not found");
+            }
         }
+
 
 
         const Kanban = await prismaClient.kanban.create({
@@ -124,11 +129,11 @@ export class KanbanService {
         }
 
 
-        const parseNumber = (val: string | undefined): number =>
-            val && val !== "-" ? Number(val) : 0;
+        const parseNumber = (val: string | undefined): number | null =>
+            val && val !== "-" ? Number(val) : null;
 
-        const parseString = (val: string | undefined): string =>
-            val && val !== "-" ? val.toString() : '';
+        const parseString = (val: string | undefined): string | null =>
+            val && val !== "-" ? val.toString() : null;
 
         const isValidProductCode = (code: string): boolean => {
             const prefix = code.split("-")[0];
@@ -261,7 +266,7 @@ export class KanbanService {
 
         newRacks.forEach(s => existingRackMap.set(s.code, s.id));
 
-        const kanbanFormattedResult: CreateKanbanRequest[] = kanbans
+        const kanbanFormattedResult: CreateKanbanImportRequest[] = kanbans
             .filter((entry: KanbanRawEntry) => entry["CODE JS SYSTEM"] !== undefined && entry["CODE JS SYSTEM"] !== null && entry["CODE JS SYSTEM"] !== "" && isValidProductCode(entry["CODE JS SYSTEM"]))
             .map((entry: KanbanRawEntry) => {
 
@@ -281,7 +286,7 @@ export class KanbanService {
                 const rack_id = rackName ? existingRackMap.get(rackName) : undefined;
 
                 return {
-                    code: parseString(entry["CODE JS SYSTEM"]),
+                    code: entry["CODE JS SYSTEM"],
                     uom: parseString(entry.UoM),
                     min_quantity: parseNumber(entry["Minimal Stock"]),
                     max_quantity: parseNumber(entry["Maximal Stock"]),
@@ -702,8 +707,8 @@ export class KanbanService {
 
         let rowIndex = 5;
 
-
         for (const kanban of unCompletedKanbans) {
+            console.log(rowIndex);
             const row = worksheet.getRow(rowIndex++);
 
             const cells = [
@@ -731,7 +736,7 @@ export class KanbanService {
                 cell.border = blackBorder;
                 const prevStyle = { ...cell.style };
 
-                if (value === null || value === undefined) {
+                if (value === null || value === undefined || value === '') {
                     cell.value = '';
                     cell.style = {
                         ...prevStyle,
@@ -749,7 +754,7 @@ export class KanbanService {
 
             row.commit();
         }
-
+        await workbook.xlsx.writeFile(path.resolve(__dirname, "../../uncompleted_kanban_export.xlsx"))
         const buffer = await workbook.xlsx.writeBuffer();
         return buffer;
 

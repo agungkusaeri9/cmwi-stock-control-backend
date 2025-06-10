@@ -172,8 +172,9 @@ export class PurchaseRequestService {
                 item => item.kanban_code && !existingKanbanCodes.has(item.kanban_code)
             );
 
+
+
             if (missingKanban.length > 0) {
-                logger.error(`Missing kanban codes in file ${filePath}: ${missingKanban.map(i => i.kanban_code).join(", ")}`);
 
                 const newKanbans = missingKanban.map(item => ({
                     code: item.kanban_code!,
@@ -185,12 +186,8 @@ export class PurchaseRequestService {
                 }));
 
                 await prismaClient.kanban.createMany({ data: newKanbans });
+                logger.info(`Created kanban codes from ${filePath}: ${missingKanban.map(i => i.kanban_code).join(", ")}`);
             }
-
-            // Filter hanya yang kanban-nya valid
-            createRequestDetail = createRequestDetail.filter(
-                item => !item.kanban_code || existingKanbanCodes.has(item.kanban_code)
-            );
 
             if (createRequestDetail.length === 0) {
                 const msg = `All kanban codes in file ${filePath} do not exist in database`;
