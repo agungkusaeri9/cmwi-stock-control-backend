@@ -212,7 +212,6 @@ export class PurchaseOrderService {
                 logger.error(`Some kanban codes in file ${filePath} do not exist in database: ${missingKanbanCodes.join(", ")}`);
             }
 
-
             filteredDetailRequest = filteredDetailRequest.filter(
                 item => !item.kanban_code || existingKanbanCodes.has(item.kanban_code)
             );
@@ -240,11 +239,7 @@ export class PurchaseOrderService {
             }
 
             await prismaClient.$transaction(async (tx) => {
-                if (existingPONumbers.length > 0) {
-                    await tx.purchaseOrder.deleteMany({
-                        where: { po_number: { in: existingPONumbers } }
-                    });
-                }
+
 
                 await tx.purchaseOrderDetail.updateMany({
                     where: {
@@ -263,12 +258,96 @@ export class PurchaseOrderService {
                 });
 
                 if (filteredRequest.length > 0) {
-                    await tx.purchaseOrder.createMany({ data: filteredRequest });
+                    await tx.purchaseOrder.createMany({ data: filteredRequest, skipDuplicates: true });
                 }
 
                 if (filteredDetailRequest.length > 0) {
                     await tx.purchaseOrderDetail.createMany({ data: filteredDetailRequest });
                 }
+
+                const kanbanPoPairs = filteredDetailRequest
+                    .filter(item => item.kanban_code && item.po_number)
+                    .map(item => ({
+                        kanban_code: item.kanban_code!,
+                        po_number: item.po_number!
+                    }));
+
+                const lastOrderStock = await prismaClient.stockOrderKanban.findMany({
+                    where: {
+                        OR: kanbanPoPairs
+                    }
+                });
+
+
+
+
+                const kanbanGroup = Object.values(
+                    filteredDetailRequest.reduce((acc, curr) => {
+                        if (!curr.kanban_code || !curr.po_number) return acc;
+
+                        const key = `${curr.kanban_code}-${curr.po_number}`;
+
+                        if (!acc[key]) {
+                            acc[key] = { kanban_code: curr.kanban_code, po_number: curr.po_number, quantity: 0 };
+                        }
+
+                        acc[key].quantity += (curr.quantity || 0);
+                        return acc;
+                    }, {} as Record<string, { kanban_code: string; po_number: string; quantity: number }>)
+                );
+
+
+                const updatedKanbanGroup = kanbanGroup.map(item => {
+                    const lastStock = lastOrderStock.find(e => e.kanban_code === item.kanban_code && e.po_number === item.po_number);
+                    if (lastStock) {
+                        item.quantity -= lastStock.last_stock;
+                    }
+                    return item;
+                })
+
+                const validKanbanGroup = updatedKanbanGroup.filter(item => item.quantity > 0);
+
+
+                await Promise.all(
+                    validKanbanGroup.map(item =>
+                        tx.kanban.update({
+                            where: {
+                                code: item.kanban_code
+                            },
+                            data: {
+                                incoming_order_stock: {
+                                    increment: item.quantity
+                                }
+                            }
+                        })
+                    )
+                );
+
+
+                await Promise.all(
+                    validKanbanGroup.map(item => {
+                        return tx.stockOrderKanban.upsert({
+                            where: {
+                                kanban_code_po_number: {
+                                    kanban_code: item.kanban_code,
+                                    po_number: item.po_number
+                                }
+                            },
+                            update: {
+                                last_stock: {
+                                    increment: item.quantity
+                                }
+                            },
+                            create: {
+                                kanban_code: item.kanban_code,
+                                po_number: item.po_number,
+                                last_stock: item.quantity
+                            }
+                        });
+                    })
+                );
+
+
 
                 // Ambil pasangan product_code dan supplier_id dari detail PO
                 const productSupplierPairs = filteredDetailRequest

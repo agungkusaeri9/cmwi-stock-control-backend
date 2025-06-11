@@ -708,7 +708,7 @@ export class KanbanService {
         let rowIndex = 5;
 
         for (const kanban of unCompletedKanbans) {
-            console.log(rowIndex);
+
             const row = worksheet.getRow(rowIndex++);
 
             const cells = [

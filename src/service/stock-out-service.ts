@@ -308,8 +308,8 @@ export class StockOutService {
             row.getCell(2).value = 75;
             row.getCell(3).value = stock.kanban_code ?? "-";
             row.getCell(4).value = stock.operator?.name ?? "-";
-            row.getCell(5).value = stock.machine?.code ?? "-";
-            row.getCell(6).value = stock.machine_area?.name ?? "-";
+            row.getCell(5).value = stock.machine_area?.name ?? "-";
+            row.getCell(6).value = stock.machine?.code ?? "-";
             row.getCell(7).value = stock.quantity;
 
             // Human-readable date format

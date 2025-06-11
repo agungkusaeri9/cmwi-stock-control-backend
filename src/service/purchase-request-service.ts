@@ -185,7 +185,10 @@ export class PurchaseRequestService {
                     currency: item.currency!,
                 }));
 
-                await prismaClient.kanban.createMany({ data: newKanbans });
+                await prismaClient.$transaction(async (tx) => {
+                    await tx.kanban.createMany({ data: newKanbans, skipDuplicates: true });
+                });
+
                 logger.info(`Created kanban codes from ${filePath}: ${missingKanban.map(i => i.kanban_code).join(", ")}`);
             }
 

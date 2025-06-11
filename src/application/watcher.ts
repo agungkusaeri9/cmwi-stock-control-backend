@@ -9,6 +9,7 @@ import { KanbanService } from "../service/kanban-service";
 import { JsService } from "../service/js-service";
 import { SHARED_FOLDER_PATH } from "./config";
 import { prismaClient } from "./database";
+import fileQueue from "./file-queue";
 
 
 
@@ -36,8 +37,8 @@ const startWatcher = () => {
     });
 
 
-    (watcher as any)
-        .on("add", async (filePath: string) => {
+    (watcher as any).on("add", (filePath: string) => {
+        fileQueue.add(async () => {
             const normalizedPath = path.normalize(filePath);
             const ext = path.extname(normalizedPath).toLowerCase();
 
@@ -48,50 +49,20 @@ const startWatcher = () => {
             logger.info(`🟢 File added: ${normalizedPath}`);
 
             const fileTypes = [
-                {
-                    type: "PO",
-                    folderPath: purchaseOrderFolderPath,
-                    regex: /^PO_\d{8}$/,
-                    service: PurchaseOrderService,
-                },
-                {
-                    type: "PR",
-                    folderPath: purchaseRequestFolderPath,
-                    regex: /^PR_\d{8}$/,
-                    service: PurchaseRequestService,
-                },
-                {
-                    type: "RR",
-                    folderPath: receivingReportFolderPath,
-                    regex: /^RR_\d{8}$/,
-                    service: ReceivingReportService,
-                },
-                {
-                    type: "JS",
-                    folderPath: jsFolderPath,
-                    regex: /^JS_\d{8}$/,
-                    service: JsService,
-                },
-                {
-                    type: "KM",
-                    folderPath: kanbanMasterFolderPath,
-                    regex: /^KM_\d{8}$/,
-                    service: KanbanService,
-                },
-
+                { type: "PO", folderPath: purchaseOrderFolderPath, regex: /^PO_\d{8}$/, service: PurchaseOrderService },
+                { type: "PR", folderPath: purchaseRequestFolderPath, regex: /^PR_\d{8}$/, service: PurchaseRequestService },
+                { type: "RR", folderPath: receivingReportFolderPath, regex: /^RR_\d{8}$/, service: ReceivingReportService },
+                { type: "JS", folderPath: jsFolderPath, regex: /^JS_\d{8}$/, service: JsService },
+                { type: "KM", folderPath: kanbanMasterFolderPath, regex: /^KM_\d{8}$/, service: KanbanService },
             ];
 
-            const matched = fileTypes.find(({ folderPath }) =>
-                normalizedPath.includes(folderPath)
-            );
-
+            const matched = fileTypes.find(({ folderPath }) => normalizedPath.includes(folderPath));
             if (!matched) {
                 logger.warn(`⚠️ File ${fileName} not in PO/PR/RR/JS/KM folder`);
                 return;
             }
 
             const { type, regex, service } = matched;
-
             if (!regex.test(fileName)) {
                 logger.warn(`⚠️ File name ${type} does not match: ${fileName}`);
                 return;
@@ -107,20 +78,17 @@ const startWatcher = () => {
                 await prismaClient.$transaction(async (tx) => {
                     await service.create(normalizedPath);
                     await tx.processedFile.create({
-                        data: {
-                            file_name: fileName,
-                            type: type,
-                        },
+                        data: { file_name: fileName, type: type }
                     });
-                }, {
-                    timeout: 60000 // 60 detik
-                });
+                }, { timeout: 60000 });
 
                 logger.info(`✅ File ${type} successfully processed: ${fileName}`);
             } catch (error: any) {
                 logger.error(`❌ Failed to process file ${normalizedPath}: ${error.message}`);
             }
-        })
+        });
+    })
+
 
 
         .on("change", async (filePath: string) => {
