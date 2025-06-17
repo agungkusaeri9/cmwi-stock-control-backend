@@ -30,7 +30,7 @@ export class StockInService {
 
             // Lock baris kanban berdasarkan code
             const kanbanRows = await prisma.$queryRaw<
-                Array<{ id: string, stock_in_quantity: number, balance: number }>
+                Array<{ id: string, stock_in_quantity: number, balance: number, incoming_order_stock: number }>
             >`SELECT id, stock_in_quantity, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
             if (kanbanRows.length === 0) {
@@ -39,9 +39,15 @@ export class StockInService {
 
             const kanbanData = kanbanRows[0];
 
+
             if (kanbanData.stock_in_quantity <= 0) {
-                throw new ResponseError(400, "Kanban stock in quantity js system is empty");
+                throw new ResponseError(400, "stock in quantity empty");
             }
+
+            if (kanbanData.incoming_order_stock < kanbanData.stock_in_quantity) {
+                throw new ResponseError(400, "stock in quantity less than incoming order stock");
+            }
+
             // Create stock-in
             const stockIn = await prisma.stockIn.create({
                 data: {
@@ -61,11 +67,13 @@ export class StockInService {
                 where: { id: Number(kanbanData.id) },
                 data: {
                     balance: { increment: kanbanData.stock_in_quantity },
+                    incoming_order_stock: { decrement: kanbanData.stock_in_quantity }
                 }
             });
 
             return toStockInResponse(stockIn);
-        });
+        }, { timeout: 60000 }
+        );
     }
 
 

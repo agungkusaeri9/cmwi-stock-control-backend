@@ -155,6 +155,8 @@ export class PurchaseRequestService {
                     (item.kanban_code === null || isValidProductCode(item.kanban_code))
                 );
 
+
+
             const kanbanCodes = createRequestDetail
                 .map(item => item.kanban_code)
                 .filter((code): code is string => Boolean(code));

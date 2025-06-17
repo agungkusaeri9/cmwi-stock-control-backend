@@ -141,7 +141,7 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
         currency: Kanban.currency,
         price: Kanban.price,
         safety_stock: Kanban.safety_stock,
-        stock_status: Kanban.balance < Kanban.min_quantity ? "Understock" : (Kanban.balance > Kanban.max_quantity ? "Overstock" : "Normal"),
+        stock_status: Kanban.min_quantity == null || Kanban.max_quantity == null ? null : (Kanban.balance < Kanban.min_quantity ? "Understock" : (Kanban.balance > Kanban.max_quantity ? "Overstock" : "Normal")),
         incoming_order_stock: Kanban.incoming_order_stock,
         is_completed: Kanban.specification == null || Kanban.description == null || Kanban.currency == null || Kanban.price == null || Kanban.safety_stock == null || Kanban.order_point == null || Kanban.min_quantity == null || Kanban.max_quantity == null || Kanban.uom == null || Kanban.lead_time == null || Kanban.rack_id == null || Kanban.machine_area_id == null || Kanban.machine_id == null || Kanban.maker_id == null ? false : true
     }
