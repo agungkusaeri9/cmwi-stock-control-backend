@@ -279,6 +279,9 @@ export class PurchaseRequestService {
         const [purchaseRequests, total] = await Promise.all([
             prismaClient.purchaseRequest.findMany({
                 where: whereClause,
+                orderBy: {
+                    created_at: 'desc'
+                },
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
 
             }),

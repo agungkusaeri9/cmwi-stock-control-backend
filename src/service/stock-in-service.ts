@@ -122,13 +122,18 @@ export class StockInService {
         }
 
 
+
         if (searchRequest.end_date) {
+            const endDate = new Date(searchRequest.end_date);
+            endDate.setHours(23, 59, 59, 999);
             filters.push({
                 created_at: {
-                    lte: searchRequest.end_date
+                    lte: endDate
                 }
-            })
+            });
         }
+
+
 
         const whereClause = filters.length > 0 ? { AND: filters } : {};
 
@@ -141,6 +146,9 @@ export class StockInService {
         const [stockIns, total] = await Promise.all([
             prismaClient.stockIn.findMany({
                 where: whereClause,
+                orderBy: {
+                    created_at: 'desc'
+                },
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
                 include: {
                     kanban: true,
