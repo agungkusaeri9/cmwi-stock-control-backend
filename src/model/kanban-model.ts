@@ -94,16 +94,23 @@ export type CreateKanbanImportRequest = {
 
 export type UpdateKanbanRequest = {
     code: string;
-    description: string;
-    specification: string;
+    description: string | null;
+    specification: string | null;
     min_quantity: number;
     max_quantity: number;
     balance: number;
     uom: string;
     lead_time: number;
     rack_id: number;
-    machine_area_id: number;
-    machine_id: number;
+    machine_area_id: number | null;
+    machine_id: number | null;
+    supplier_id: number | null;
+    maker_id: number | null;
+    rank: string;
+    order_point: number;
+    currency: string;
+    price: number;
+    safety_stock: number;
 }
 
 export type SearchKanbanRequest = {

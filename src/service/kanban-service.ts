@@ -380,6 +380,7 @@ export class KanbanService {
         }
 
         const updateRequest = Validation.validate(KanbanValidation.UPDATE, request);
+
         const isPartExist = await prismaClient.kanban.findFirst({
             where: {
                 code: updateRequest.code,
@@ -393,7 +394,6 @@ export class KanbanService {
             throw new ResponseError(400, "Code already exists");
         }
 
-
         // Validasi foreign key: rack_id
         const isRackExist = await prismaClient.rack.findUnique({
             where: { id: updateRequest.rack_id }
@@ -402,38 +402,70 @@ export class KanbanService {
             throw new ResponseError(404, "Rack not found");
         }
 
-        // Validasi foreign key: machine_area_id
-        const isMachineAreaExist = await prismaClient.machineArea.findUnique({
-            where: { id: updateRequest.machine_area_id }
-        });
-        if (!isMachineAreaExist) {
-            throw new ResponseError(404, "Machine Area not found");
+        if (updateRequest.machine_area_id) {
+            const isMachineAreaExist = await prismaClient.machineArea.findUnique({
+                where: { id: updateRequest.machine_area_id }
+            });
+            if (!isMachineAreaExist) {
+                throw new ResponseError(404, "Machine Area not found");
+            }
+        }
+        if (updateRequest.machine_id) {
+            const isMachineExist = await prismaClient.machine.findUnique({
+                where: { id: updateRequest.machine_id }
+            });
+            if (!isMachineExist) {
+                throw new ResponseError(404, "Machine not found");
+            }
         }
 
-        // Validasi foreign key: machine_id
-        const isMachineExist = await prismaClient.machine.findUnique({
-            where: { id: updateRequest.machine_id }
-        });
-        if (!isMachineExist) {
-            throw new ResponseError(404, "Machine not found");
-        }
-
-        const Kanban = await prismaClient.kanban.update({
+        // Lakukan update dengan relasi menggunakan `connect`
+        const kanban = await prismaClient.kanban.update({
             where: {
-                id: id
+                id: id,
             },
-            data: updateRequest,
+            data: {
+                code: updateRequest.code,
+                min_quantity: updateRequest.min_quantity,
+                max_quantity: updateRequest.max_quantity,
+                description: updateRequest.description,
+                specification: updateRequest.specification,
+                balance: updateRequest.balance,
+                uom: updateRequest.uom,
+                lead_time: updateRequest.lead_time,
+                safety_stock: updateRequest.safety_stock,
+                order_point: updateRequest.order_point,
+                price: updateRequest.price,
+                currency: updateRequest.currency,
+                rank: updateRequest.rank,
+                rack: {
+                    connect: { id: updateRequest.rack_id },
+                },
+                machine_area: updateRequest.machine_area_id !== null
+                    ? { connect: { id: updateRequest.machine_area_id } }
+                    : undefined,
+                machine: updateRequest.machine_id
+                    ? { connect: { id: updateRequest.machine_id } }
+                    : undefined,
+                supplier: updateRequest.supplier_id
+                    ? { connect: { id: updateRequest.supplier_id } }
+                    : undefined,
+                maker: updateRequest.maker_id
+                    ? { connect: { id: updateRequest.maker_id } }
+                    : undefined,
+            },
             include: {
                 rack: true,
                 machine_area: true,
                 machine: true,
+                maker: true,
                 supplier: true,
-                maker: true
-            }
+            },
         });
 
-        return toKanbanResponse(Kanban);
+        return toKanbanResponse(kanban);
     }
+
 
 
     static async get(request: SearchKanbanRequest): Promise<Pageable<KanbanResponse>> {
@@ -443,11 +475,12 @@ export class KanbanService {
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
+            const keyword = searchRequest.keyword.replace(/\\/g, '\\\\');
             filters.push({
                 OR: [
-                    { code: { contains: searchRequest.keyword } },
-                    { description: { contains: searchRequest.keyword } },
-                    { specification: { contains: searchRequest.keyword } }
+                    { code: { contains: keyword } },
+                    { description: { contains: keyword } },
+                    { specification: { contains: keyword } }
                 ]
             });
         }

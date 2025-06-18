@@ -91,25 +91,26 @@ export class StockOutService {
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
+            const keyword = searchRequest.keyword.replace(/\\/g, '\\\\');
             filters.push({
                 OR: [
                     {
                         kanban_code: {
-                            contains: searchRequest.keyword
+                            contains: keyword
 
                         }
                     },
                     {
                         kanban: {
                             specification: {
-                                contains: searchRequest.keyword
+                                contains: keyword
                             }
                         }
                     },
                     {
                         kanban: {
                             description: {
-                                contains: searchRequest.keyword
+                                contains: keyword
                             }
                         }
                     },
@@ -227,11 +228,12 @@ export class StockOutService {
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
+            const keyword = searchRequest.keyword.replace(/\\/g, '\\\\');
             filters.push({
                 OR: [
                     {
                         kanban_code: {
-                            contains: searchRequest.keyword
+                            contains: keyword
 
                         }
                     },
