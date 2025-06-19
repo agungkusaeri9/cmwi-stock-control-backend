@@ -262,6 +262,11 @@ export class PurchaseOrderService {
                 }
 
                 if (filteredDetailRequest.length > 0) {
+                    await tx.purchaseOrderDetail.deleteMany({
+                        where: {
+                            po_number: { in: existingPONumbers }
+                        }
+                    });
                     await tx.purchaseOrderDetail.createMany({ data: filteredDetailRequest });
                 }
 

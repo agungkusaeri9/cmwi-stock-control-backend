@@ -1204,7 +1204,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-PA-346",
             "area": "PAINTING",
-            "machine": "pp",
+            "machine": "PP",
             "rack": "K1-03-005",
             "description": "VALVE UNI-D",
             "specification": "UW-65F FLANGE 2 1//2\" 110 VOLT",

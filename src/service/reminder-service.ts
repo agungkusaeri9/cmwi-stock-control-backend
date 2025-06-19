@@ -15,13 +15,12 @@ export class ReminderService {
         const filters: any[] = [];
 
         if (searchRequest.keyword) {
+            const keyword = searchRequest.keyword.replace(/\\/g, '\\\\');
             filters.push({
                 OR: [
-                    {
-                        code: {
-                            contains: searchRequest.keyword
-                        }
-                    },
+                    { code: { contains: keyword } },
+                    { description: { contains: keyword } },
+                    { specification: { contains: keyword } }
                 ]
             });
         }
@@ -70,7 +69,7 @@ export class ReminderService {
                                 po_date: 'desc'
                             }
                         }
-                    }
+                    },
                 }
             }),
             prismaClient.kanban.count({
@@ -104,6 +103,8 @@ export class ReminderService {
 
             const reminderResponse: ReminderResponse = {
                 code: kanban.code,
+                description: kanban.description,
+                specification: kanban.specification,
                 pr_status: prStatus,
                 pr_date: prDate,
                 po_status: poStatus,
