@@ -53,7 +53,7 @@ const startWatcher = () => {
                 { type: "PR", folderPath: purchaseRequestFolderPath, regex: /^PR_\d{8}$/, service: PurchaseRequestService },
                 { type: "RR", folderPath: receivingReportFolderPath, regex: /^RR_\d{8}$/, service: ReceivingReportService },
                 { type: "JS", folderPath: jsFolderPath, regex: /^JS_\d{8}$/, service: JsService },
-                { type: "KM", folderPath: kanbanMasterFolderPath, regex: /^KM_\d{8}$/, service: KanbanService },
+                { type: "KM", folderPath: kanbanMasterFolderPath, regex: /^KM_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: KanbanService },
             ];
 
             const matched = fileTypes.find(({ folderPath }) => normalizedPath.includes(folderPath));

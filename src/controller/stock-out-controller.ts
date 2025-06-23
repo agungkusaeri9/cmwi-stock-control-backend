@@ -18,6 +18,18 @@ export class StockOutController {
         }
     }
 
+    static async update(req: Request, res: Response, next: NextFunction) {
+        try {
+            const id: number = Number(req.params.id);
+            const request: CreateStockOutRequest = req.body as CreateStockOutRequest;
+            const response = await StockOutService.update(id, request);
+            logger.info("Update stockOut success");
+            sendSuccess(res, 200, "Update stockOut success", response);
+        } catch (e) {
+            next(e);
+        }
+    }
+
 
 
     static async get(req: Request, res: Response, next: NextFunction) {

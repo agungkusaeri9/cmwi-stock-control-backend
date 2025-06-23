@@ -11,7 +11,7 @@ export class MachineAreaController {
             const request: CreateMachineAreaRequest = req.body as CreateMachineAreaRequest;
             const response = await MachineAreaService.create(request);
 
-            sendSuccess(res, 200, "Create machine area success", response);
+            sendSuccess(res, 200, "Create area success", response);
 
         } catch (e) {
             next(e);
@@ -24,7 +24,7 @@ export class MachineAreaController {
             const request: UpdateMachineAreaRequest = req.body as UpdateMachineAreaRequest;
             const response = await MachineAreaService.update(id, request);
 
-            sendSuccess(res, 200, "Update machine area success", response);
+            sendSuccess(res, 200, "Update area success", response);
         } catch (e) {
             next(e);
         }
@@ -43,7 +43,7 @@ export class MachineAreaController {
 
             const response = await MachineAreaService.get(request);
 
-            sendSuccess(res, 200, "Get machine area success", response.data, response.pagination);
+            sendSuccess(res, 200, "Get area success", response.data, response.pagination);
         } catch (e) {
             next(e);
         }
@@ -53,7 +53,7 @@ export class MachineAreaController {
         try {
             const id: number = Number(req.params.id);
             const response = await MachineAreaService.show(id);
-            sendSuccess(res, 200, "Get machine area success", response);
+            sendSuccess(res, 200, "Get area success", response);
         } catch (e) {
             next(e);
         }
@@ -64,7 +64,7 @@ export class MachineAreaController {
             const id: number = Number(req.params.id);
             await MachineAreaService.remove(id);
 
-            sendSuccess(res, 200, "Remove machine area success");
+            sendSuccess(res, 200, "Remove area success");
         } catch (e) {
             next(e);
         }

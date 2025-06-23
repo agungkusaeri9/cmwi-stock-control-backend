@@ -5,7 +5,7 @@ import { logger } from "./logging";
 const wss = new WebSocket.Server({ port: Number(3001) });
 
 wss.on("connection", (ws) => {
-    logger.info("Client connected via WebSocket");
+    console.log("Client connected via WebSocket");
 });
 
 wss.on("error", (err) => {

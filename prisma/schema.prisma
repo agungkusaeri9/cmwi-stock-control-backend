@@ -244,18 +244,19 @@ model StockIn {
 }
 
 model StockOut {
-  id              Int          @id @default(autoincrement())
-  kanban          Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
-  kanban_code     String?
-  operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
-  operator_id     Int?
-  machine         Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
-  machine_id      Int?
-  machine_area    MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
-  machine_area_id Int?
-  quantity        Int
-  balance_before  Int
-  balance_after   Int
+  id                Int          @id @default(autoincrement())
+  kanban            Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code       String?
+  operator          Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
+  operator_id       Int?
+  machine           Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
+  machine_id        Int?
+  machine_area      MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
+  machine_area_id   Int?
+  quantity          Int
+  original_quantity Int
+  balance_before    Int
+  balance_after     Int
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

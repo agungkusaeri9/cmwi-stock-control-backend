@@ -10,6 +10,10 @@ export class StockOutValidation {
         operator_id: z.number().min(1).positive(),
     });
 
+    static readonly UPDATE: ZodType = z.object({
+        quantity: z.number().min(0).positive(),
+    });
+
     static readonly SEARCH: ZodType = z.object({
         keyword: z.string().optional(),
         page: z.number().min(1).positive().optional(),

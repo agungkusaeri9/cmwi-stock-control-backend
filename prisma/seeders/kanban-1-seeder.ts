@@ -1735,7 +1735,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0001",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "C1-01-003",
             "description": "PILLOW BLOCK",
             "specification": "UCP 205 D1",
@@ -1887,7 +1887,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0002",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "C1-03-001",
             "description": "ROLLER CHAIN",
             "specification": "RS40-1RP",
@@ -1925,7 +1925,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0003",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "C1-03-003",
             "description": "ROLLER CHAIN",
             "specification": "RS601R",
@@ -3578,7 +3578,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0004",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "C3-05-007",
             "description": "FILTER ELEMENT",
             "specification": "AF40P-060S",
@@ -3597,7 +3597,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0005",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "C3-05-008",
             "description": "ELEMENT ASSY",
             "specification": "AFM40P-060AS",
@@ -3844,7 +3844,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0006",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D1-04-001",
             "description": "AIR CYLINDER",
             "specification": "MGPS50-50-M9BAL(24V)",
@@ -4053,7 +4053,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0007",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D1-05-004",
             "description": "CHAIN",
             "specification": "RS40-2RP",
@@ -4471,7 +4471,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0008",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D2-05-001",
             "description": "AIR CYLINDER",
             "specification": "CQ2A63-150DCMZ",
@@ -4718,7 +4718,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0009",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D3-02-002",
             "description": "AIR CYLINDER",
             "specification": "CDA2B40-400Z",
@@ -4832,7 +4832,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0010",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D3-03-002",
             "description": "AIR CYLINDER",
             "specification": "CA2T80-150Z-XB6",
@@ -4851,7 +4851,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0011",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D3-03-003",
             "description": "AIR CYLINDER",
             "specification": "CA2B100-400Z",
@@ -4870,7 +4870,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0012",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D3-03-004",
             "description": "AIR CYLINDER",
             "specification": "CDA2B80-600Z-M9BL ",
@@ -4927,7 +4927,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0013",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "D3-04-002",
             "description": "STAYS",
             "specification": "B-461-2",
@@ -7546,7 +7546,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0014",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F1-03-002",
             "description": "ADAPTER SLEEVE",
             "specification": "H2312",
@@ -7565,7 +7565,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0015",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F1-03-003",
             "description": "AIR COMBINATION",
             "specification": "AC30-03G-TV A",
@@ -8325,7 +8325,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0016",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F2-03-011",
             "description": "AIR SOLENOID VALVE",
             "specification": "VS7-8-FG-S-1N-A04",
@@ -8553,7 +8553,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0017",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F2-05-002",
             "description": "BALL VALVE",
             "specification": "FH2-2 (125)",
@@ -8743,7 +8743,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0018",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F3-02-002",
             "description": "CHAIN",
             "specification": "RS50-1-RP",
@@ -8762,7 +8762,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0019",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F3-02-003",
             "description": "CHAIN",
             "specification": "RS80-1-RP",
@@ -8800,7 +8800,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0020",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F3-03-001",
             "description": "LIMIT SWITCH",
             "specification": "VM830-01-13",
@@ -8914,7 +8914,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0021",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "F3-03-008",
             "description": "CHAIN COUPLE DOUBLE",
             "specification": "RS50-2RP",
@@ -9446,7 +9446,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0022",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "G1-03-002",
             "description": "GUIDE CYLINDER",
             "specification": "MGPS80-125-M9BVL",
@@ -10320,7 +10320,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0023",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "G2-04-006",
             "description": "CHECK VALVE",
             "specification": "1/2 Inch (Kuningan)",
@@ -10757,7 +10757,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0024",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "G3-04-004",
             "description": "SUB PLATE",
             "specification": "VS7-1-A03",
@@ -10966,7 +10966,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0025",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H1-01-001",
             "description": "JUNCTION BOX",
             "specification": "Size: 300W x 150H x 105D",
@@ -11004,7 +11004,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0026",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H1-02-002",
             "description": "SAFETY SENSOR",
             "specification": "F3SJ-E0545N25 / GL-R28H",
@@ -11099,7 +11099,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0027",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H1-03-004",
             "description": "CABLE",
             "specification": "FA-CBL-10FMV",
@@ -11156,7 +11156,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0028",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H1-04-003",
             "description": "SIGN TOWER",
             "specification": "HY-TBN/DC24V",
@@ -11213,7 +11213,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0029",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H1-04-006",
             "description": "LONG LEVER",
             "specification": "WL-3A200 ( For WLCAL5-N OMRON - 450mm )",
@@ -11441,7 +11441,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0030",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H2-02-002",
             "description": "SAFETY SENSOR",
             "specification": "SL-V88H",
@@ -11593,7 +11593,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0031",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H2-04-001",
             "description": "VARIABLE SPEED CONTROL",
             "specification": "M91C60GV4L",
@@ -11612,7 +11612,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0032",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H2-04-002",
             "description": "SPEED CONTROLLER",
             "specification": "BLED 12A",
@@ -11631,7 +11631,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0033",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H2-04-003",
             "description": "SPEED CONTROLLER",
             "specification": "BLED 3A",
@@ -11840,7 +11840,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0034",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H3-03-001",
             "description": "SIGNAL LAMP PATLITE",
             "specification": "SKH-M1J-R RED (Disc. From RH-24L-R)",
@@ -11859,7 +11859,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0035",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H3-03-002",
             "description": "Rotating Beacon Patlite",
             "specification": "RH-24L-Y (YELLOW)",
@@ -11878,7 +11878,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0036",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H3-03-003",
             "description": "SIGNAL LAMP PATLITE",
             "specification": "SKH-M1J-G",
@@ -11973,7 +11973,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0037",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H3-04-001",
             "description": "TUBE LAMP",
             "specification": "36 W/54-765 ISL/25 (TLD Lifemax)",
@@ -12011,7 +12011,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0038",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "H3-04-003",
             "description": "CIRCUIT BOARD RACK",
             "specification": "POS-RACK",
@@ -12372,7 +12372,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0039",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-02-008",
             "description": "POWER SUPPLY",
             "specification": "S8VM-1502VCD",
@@ -12467,7 +12467,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0040",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-03-003",
             "description": "SERIAL COMMUNICATION UNIT",
             "specification": "QJ71C24N",
@@ -12524,7 +12524,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0041",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-03-006",
             "description": "BASE UNIT",
             "specification": "Q35B",
@@ -12543,7 +12543,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0042",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-03-007",
             "description": "CPU UNIT",
             "specification": "Q00UJCPU ( MITSUBISHI )",
@@ -12619,7 +12619,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0043",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-03-011",
             "description": "SPESIAL WASHER / NORD LOCK WASHER",
             "specification": "NL20",
@@ -12638,7 +12638,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0044",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I1-03-012",
             "description": "Socket Timer",
             "specification": "PF113A-E BY OMZ",
@@ -12866,7 +12866,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0045",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-01-001",
             "description": "INVERTER",
             "specification": "FR-F740P-55K",
@@ -12961,7 +12961,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0046",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-03-001",
             "description": "MCCB",
             "specification": "BW32SAG 3P 20 A",
@@ -12980,7 +12980,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0047",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-03-002",
             "description": "BARIER RELAY",
             "specification": "EB3C-T16CKDN",
@@ -12999,7 +12999,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0048",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-03-003",
             "description": "MCCB 4",
             "specification": "BW125JAG.50A",
@@ -13113,7 +13113,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0049",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-03-009",
             "description": "MCCB",
             "specification": "BW32 AAG 3P 20A",
@@ -13322,7 +13322,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0050",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I2-05-003",
             "description": "TOUCH BOARD CONTROL",
             "specification": "GT2712-STBA/ GOT2000",
@@ -13455,7 +13455,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0051",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-01-002",
             "description": "INVERTER",
             "specification": "FR-F740P-37K",
@@ -13550,7 +13550,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0052",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-03-001",
             "description": "TRANSISTOR INVERTER",
             "specification": "FR-BLF 1A16BF",
@@ -13683,7 +13683,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0053",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-03-008",
             "description": "CC LINK",
             "specification": "AJ6SSBTB1-16T",
@@ -13702,7 +13702,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0054",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-03-009",
             "description": "FUSE KERAMIK MERK ELGRAND",
             "specification": "UK. 10 X 30 X 30A",
@@ -13721,7 +13721,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0055",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-03-010",
             "description": "Fuse Glass",
             "specification": "5A",
@@ -13740,7 +13740,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0056",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-03-011",
             "description": "Fuse Glass",
             "specification": "10A",
@@ -13759,7 +13759,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0057",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-04-001",
             "description": "INVERTER",
             "specification": "FR-E720-3.7K",
@@ -13816,7 +13816,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0058",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-04-004",
             "description": "INVERTER",
             "specification": "FR-F740P-1.5K",
@@ -13854,7 +13854,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0059",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-04-006",
             "description": "ELECTROMAGNETIC SWITCH",
             "specification": "MSOD-Q11 (0.7A/COIL 24VDC)",
@@ -13873,7 +13873,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0060",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-04-009",
             "description": "SIGNAL LIGHT",
             "specification": "MS115L-FFF-12",
@@ -13949,7 +13949,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0061",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-05-003",
             "description": "CIRCUIT PROTECTOR",
             "specification": "CP32FM/10",
@@ -13968,7 +13968,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0062",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-05-004",
             "description": "MOLDED CASE CIRCUIT BREAKER ( 15A )",
             "specification": "BW32SAG",
@@ -13987,7 +13987,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0063",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-05-005",
             "description": "EARTH LEAKAGE CIRCUIT BREAKER ( 40A )",
             "specification": "EW50RAG",
@@ -14006,7 +14006,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0064",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-05-006",
             "description": "MOLDED CASE CIRCUIT BREAKER ( 75A )",
             "specification": "BW 100 EAG-3/75",
@@ -14044,7 +14044,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0065",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "I3-05-008",
             "description": "MOLDED CASE CIRCUIT BREAKER ( 10A )",
             "specification": "BW32SAG 10 A",
@@ -14063,7 +14063,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0066",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-001",
             "description": "INTERLOCK PLUG",
             "specification": "SPT-11",
@@ -14082,7 +14082,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0067",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-002",
             "description": "INTERLOCK PLUG",
             "specification": "NSP-11",
@@ -14101,7 +14101,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0068",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-003",
             "description": "SOCKET RELAY",
             "specification": "DTF08A  ( OMRON )",
@@ -14120,7 +14120,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0069",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-004",
             "description": "RELAY",
             "specification": "LY2N  100-110VAC ( OMRON )",
@@ -14158,7 +14158,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0070",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-006",
             "description": "TIMER RELAY",
             "specification": "LF4N-A",
@@ -14196,7 +14196,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0071",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-008",
             "description": "THERMAL OL",
             "specification": "TR-0N/3 ( 2.8 - 4.2A )",
@@ -14215,7 +14215,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0072",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-009",
             "description": "SAGINOMIYA PRESSURE CONTROL SWITCH",
             "specification": "SNS-C110X",
@@ -14234,7 +14234,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0073",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-010",
             "description": "RECTIFIER",
             "specification": "A200-D90",
@@ -14272,7 +14272,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0074",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-01-012",
             "description": "FUJI ELECTRIC CIRCUIT PROTECTOR",
             "specification": "CP32FM-2P003",
@@ -14728,7 +14728,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0075",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-02-021",
             "description": "VGA CABLE",
             "specification": "KRS-403XFIK 1.5 M",
@@ -14823,7 +14823,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0076",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-002",
             "description": "FUSE",
             "specification": "CR6L 75A Miro 600V",
@@ -14842,7 +14842,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0077",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-003",
             "description": "STATER",
             "specification": "For Tube Lamp",
@@ -14994,7 +14994,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0078",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-011",
             "description": "TACHOMETER",
             "specification": "DV-0P001",
@@ -15013,7 +15013,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0079",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-012",
             "description": "SPEED CONTROLLER",
             "specification": "DV-1104",
@@ -15032,7 +15032,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0080",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-013",
             "description": "LEVER LIMIT SWITCH ( STANDARD LEVER )",
             "specification": "WL-1A100 (WLCA Lever)",
@@ -15070,7 +15070,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0081",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-015",
             "description": "CPU UNIT",
             "specification": "Q00UCPU",
@@ -15127,7 +15127,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0082",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-018",
             "description": "SCREW TERMINAL BLOCK",
             "specification": "FA-TB32XY",
@@ -15146,7 +15146,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0083",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-019",
             "description": "REPLACEMENT BULB (G14/BA9S)",
             "specification": "D02400604-F-1",
@@ -15203,7 +15203,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0084",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-03-022",
             "description": "PRESSURE SWITCH",
             "specification": "IS10M-40-6L",
@@ -15260,7 +15260,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0085",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-001",
             "description": "GENERAL PURPOSE RY",
             "specification": "MY2N-GS-R DC24V BY OMZ",
@@ -15279,7 +15279,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0086",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-002",
             "description": "RELAY",
             "specification": "MY4N 24VCD",
@@ -15298,7 +15298,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0087",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-003",
             "description": "RELAY",
             "specification": "MY2N 100/110VAC",
@@ -15317,7 +15317,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0088",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-004",
             "description": "RELAY",
             "specification": "MY4N 100/110VAC",
@@ -15336,7 +15336,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0089",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-005",
             "description": "RELAY",
             "specification": "MY2N 200/220VAC",
@@ -15355,7 +15355,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0090",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-006",
             "description": "GENERAL PURPOSE RY",
             "specification": "MY4N-GS-R AC200//220 BY OMZ",
@@ -15374,7 +15374,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0091",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-007",
             "description": "RELAY",
             "specification": "LY4N 100/110VAC",
@@ -15393,7 +15393,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0092",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-008",
             "description": "TIMER",
             "specification": "H3CR-A8 AC100-240/DC100-125",
@@ -15412,7 +15412,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0093",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-009",
             "description": "Exclusive Socket",
             "specification": "1-PYF14A-E By OMZ FOR MY4N",
@@ -15431,7 +15431,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0094",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-010",
             "description": "SOCKET RELAY",
             "specification": "PYF08A-E / For MY2N",
@@ -15450,7 +15450,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0095",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-011",
             "description": "SOCKET RELAY",
             "specification": "PTF 08A",
@@ -15488,7 +15488,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0096",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-013",
             "description": "SOCKET RELAY",
             "specification": "PTF 14A-E",
@@ -15507,7 +15507,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0097",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-014",
             "description": "SOCKET TIMER",
             "specification": "PF083A-E",
@@ -15526,7 +15526,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0098",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-015",
             "description": "VOLTMETER",
             "specification": "0-600 V",
@@ -15602,7 +15602,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0099",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-019",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-0 / 220V",
@@ -15621,7 +15621,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0100",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-020",
             "description": "BULB LAMP",
             "specification": "24V - 10W",
@@ -15640,7 +15640,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0101",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-04-021",
             "description": "BULB LAMP",
             "specification": "24V - 5W",
@@ -15735,7 +15735,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0102",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-002",
             "description": "UNIT DISPLAY",
             "specification": "DD96F31N-B",
@@ -15754,7 +15754,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0103",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-003",
             "description": "END PLATE FOR UNIT DISPLAY",
             "specification": "DD96-W-D",
@@ -15773,7 +15773,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0104",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-004",
             "description": "CONNECTOR",
             "specification": "OP-87533",
@@ -15792,7 +15792,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0105",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-005",
             "description": "CIRCUIT PROTECTOR",
             "specification": "CP32FM 2P 10A",
@@ -15811,7 +15811,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0106",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-006",
             "description": "PROXIMITY SENSOR",
             "specification": "E2E-X3D1-N",
@@ -15830,7 +15830,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0107",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-007",
             "description": "DIGITAL CONTROLLER",
             "specification": "C35TC0UA12Y0 / SDC35",
@@ -15849,7 +15849,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0108",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-008",
             "description": "POWER SUPPLY PS-242",
             "specification": "A500-76997",
@@ -15868,7 +15868,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0109",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-009",
             "description": "General Limit switch",
             "specification": "D4C-3202",
@@ -15887,7 +15887,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0110",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-010",
             "description": "DIGITAL FLOW SWITCH",
             "specification": "PF3W720-03-AT-MR / PF3W720S-04-C-M",
@@ -15906,7 +15906,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0111",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-011",
             "description": "GAS LEAK DETECTOR",
             "specification": "JITech JIT 702",
@@ -15925,7 +15925,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0112",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J1-05-012",
             "description": "DIGITAL CONTROLLER",
             "specification": "C35TC0UA2100",
@@ -15944,7 +15944,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0113",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-001",
             "description": "PRESSURE SWITCH",
             "specification": "ANS-C103M1 0.3 MPA",
@@ -15963,7 +15963,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0114",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-002",
             "description": "PRESSURE SWITCH",
             "specification": "ANS-C110M1 1MPA",
@@ -15982,7 +15982,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0115",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-003",
             "description": "THERMAL OL",
             "specification": "TR-0N/3 ( 0.36 ~ 0.54A )",
@@ -16001,7 +16001,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0116",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-004",
             "description": "THERMAL OL",
             "specification": "TR-0N/3 ( 1.7 ~ 2.6A )",
@@ -16020,7 +16020,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0117",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-005",
             "description": "BOTTOM VIEW",
             "specification": "G4Q-212S",
@@ -16039,7 +16039,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0118",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-006",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-03  / 200-220V",
@@ -16058,7 +16058,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0119",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-007",
             "description": "PUSH BOTTON",
             "specification": "AR30EOL-01E3 / Red",
@@ -16077,7 +16077,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0120",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-008",
             "description": "TOMBOL EMERGENCY",
             "specification": "AR 30 MOR-01 / Red",
@@ -16096,7 +16096,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0121",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-009",
             "description": "Push Button Selector FUJI",
             "specification": "AR22PR-211B",
@@ -16115,7 +16115,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0122",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-010",
             "description": "PUSH BOTTON",
             "specification": "AR22FOR-10Y",
@@ -16134,7 +16134,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0123",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-011",
             "description": "PILOT LAMP",
             "specification": "DR30DOL-E3",
@@ -16153,7 +16153,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0124",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-012",
             "description": "AZBIL PRESSURE SWITCH",
             "specification": "C6097A0310 (3-15 KPA)",
@@ -16172,7 +16172,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0125",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-013",
             "description": "VIBCON",
             "specification": "V-725",
@@ -16191,7 +16191,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0126",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-014",
             "description": "CIRCUIT PROTECTOR",
             "specification": "CP32FM 2P 7A",
@@ -16210,7 +16210,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0127",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-015",
             "description": "SOLID START RELAY",
             "specification": "G3PA-240B-VD",
@@ -16229,7 +16229,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0128",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-016",
             "description": "HEATER FAUT DETECTOR",
             "specification": "K2CU F40A-F",
@@ -16248,7 +16248,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0129",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-017",
             "description": "PUSH BUTTON",
             "specification": "AR30FOR-10G",
@@ -16267,7 +16267,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0130",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-018",
             "description": "FUSE",
             "specification": "A60L-001-0175/2.0 A",
@@ -16286,7 +16286,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0131",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-019",
             "description": "FUSE CERAMIC",
             "specification": "250 13A Busman",
@@ -16305,7 +16305,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0132",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-020",
             "description": "CAPASITOR",
             "specification": "2UNF/450-500",
@@ -16324,7 +16324,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0133",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-021",
             "description": "CAPASITOR",
             "specification": "2.5UNF/450-500.",
@@ -16343,7 +16343,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0134",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-022",
             "description": "PLC CABLE CONNECTION",
             "specification": "QC30R2 / RS232",
@@ -16362,7 +16362,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0135",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-023",
             "description": "FUSE",
             "specification": "3A -250V",
@@ -16381,7 +16381,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0136",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-01-024",
             "description": "KEY SWITCH",
             "specification": "AR30JR-2A10B",
@@ -16400,7 +16400,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0137",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-001",
             "description": "LED LIGHT",
             "specification": "6.3V Kuning",
@@ -16419,7 +16419,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0138",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-002",
             "description": "LED LIGHT",
             "specification": "6.3V Merah",
@@ -16438,7 +16438,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0139",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-003",
             "description": "Thermal Overload Relay",
             "specification": "TR-0N/3 5-8",
@@ -16457,7 +16457,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0140",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-004",
             "description": "LED LAMP",
             "specification": "220VAC Merah",
@@ -16476,7 +16476,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0141",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-005",
             "description": "LED LAMP",
             "specification": "220VAC Hijau",
@@ -16495,7 +16495,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0142",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-006",
             "description": "PILOT LAMP",
             "specification": "28V 40mA ",
@@ -16514,7 +16514,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0143",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-007",
             "description": "SELECTOR SWITCH",
             "specification": "AR22PR-311B ",
@@ -16533,7 +16533,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0144",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-008",
             "description": "PILOT LAMP",
             "specification": "DR-30-DOL-H4G-110VAC",
@@ -16552,7 +16552,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0145",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-009",
             "description": "PUSH BOTTON",
             "specification": "AR22 FOR ( Hijau )",
@@ -16571,7 +16571,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0146",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-010",
             "description": "PRESSURE SWITCH",
             "specification": "IS3000-02L1 SMC",
@@ -16590,7 +16590,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0147",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-011",
             "description": "PUSH BUTTON",
             "specification": "NFLPB22-1 O/C (GREEN)",
@@ -16609,7 +16609,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0148",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-012",
             "description": "PUSH BUTTON",
             "specification": "TIEPB25-1 O/C (YELLOW)",
@@ -16647,7 +16647,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0149",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-014",
             "description": "PUSH BOTTON",
             "specification": "AR22 FOR ( Merah )",
@@ -16704,7 +16704,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0150",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-017",
             "description": "INPUT UNIT",
             "specification": "QX40",
@@ -16723,7 +16723,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0151",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-018",
             "description": "STANDARD (DRAM64MB)",
             "specification": "A17B-3301-0107",
@@ -16742,7 +16742,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0152",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-019",
             "description": "THERMAL OVER LOAD",
             "specification": "TR-N2/3 ( 24~36A)",
@@ -16761,7 +16761,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0153",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-020",
             "description": "PUSH BUTTON SELECTOR",
             "specification": "AR30S2R-22B",
@@ -16780,7 +16780,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0154",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-021",
             "description": "Battery",
             "specification": "CR2032",
@@ -16837,7 +16837,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0155",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-02-024",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-N2 / ( Coil 110 Volt )",
@@ -16856,7 +16856,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0156",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-001",
             "description": "SELECTOR SWITCH",
             "specification": "AR30PR-311",
@@ -16875,7 +16875,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0157",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-002",
             "description": "PUSH BUTTON SELECTOR",
             "specification": "AR30S2R-20B",
@@ -16894,7 +16894,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0158",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-003",
             "description": "PB EMERGARITY STOP",
             "specification": "AR30-V2R-01R",
@@ -16913,7 +16913,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0159",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-004",
             "description": "PUSH BUTTON",
             "specification": "AR30-FOR-10B",
@@ -16932,7 +16932,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0160",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-005",
             "description": "SELECTOR SWITCH",
             "specification": "AR30-PR-211",
@@ -16951,7 +16951,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0161",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-006",
             "description": "PILOT LAMP",
             "specification": "DR30-DOL-24VDC-G",
@@ -16970,7 +16970,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0162",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-007",
             "description": "PILOT LAMP",
             "specification": "DR30-DOL-24VDC-R",
@@ -16989,7 +16989,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0163",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-008",
             "description": "BATTERYCITY",
             "specification": "BR-CCF2TH 6 VOLT. SOCKET PANASONIC",
@@ -17008,7 +17008,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0164",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-009",
             "description": "SELECTOR KEY SWITCH",
             "specification": "AR30-JR-2A10A",
@@ -17027,7 +17027,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0165",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-010",
             "description": "PUSH BUTTON",
             "specification": "AR30-FOR-10Y(NO)",
@@ -17046,7 +17046,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0166",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-011",
             "description": "PUSH BUTTON",
             "specification": "AR30-FOR-10R(NC)",
@@ -17065,7 +17065,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0167",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-012",
             "description": "PUSH BUTTON FUJI",
             "specification": "AR22MOR-10G",
@@ -17084,7 +17084,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0168",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-013",
             "description": "PUSH BUTTON",
             "specification": "AR22-EOL-10MY / AR22 MOR-10M4Y",
@@ -17103,7 +17103,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0169",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-014",
             "description": "POWER LAMP",
             "specification": "DR30 DOL-M4W",
@@ -17160,7 +17160,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0170",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-017",
             "description": "COUPLER FOR ENCODER",
             "specification": "E69-C06B",
@@ -17179,7 +17179,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0171",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-018",
             "description": "BALLAST",
             "specification": "BTA 36W 220V CDI",
@@ -17217,7 +17217,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0172",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-03-020",
             "description": "POWER SUPPLY",
             "specification": "CA-U4 / DIFC-U4-(0)",
@@ -17312,7 +17312,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0173",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-001",
             "description": "THERMAL  OL",
             "specification": "TR N3/3 ( 34 - 50A )",
@@ -17331,7 +17331,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0174",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-002",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-03 / 110V AC",
@@ -17350,7 +17350,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0175",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-003",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-4-0 ( AC100-110V ) NO",
@@ -17369,7 +17369,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0176",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-004",
             "description": "MAGNETIC CONTACTOR",
             "specification": "SC-N2S / 110V",
@@ -17388,7 +17388,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0177",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-005",
             "description": "EARTH LEAKAGE CIRCULAR BREAKER",
             "specification": "EW100AAG / 75A",
@@ -17407,7 +17407,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0178",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-006",
             "description": "Thermal OL",
             "specification": "TR-ON//3 (0.95 - 1.45 A)",
@@ -17426,7 +17426,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0179",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-007",
             "description": "THERMAL OL",
             "specification": "TR-ON/ ( 0.46~0.96A )",
@@ -17445,7 +17445,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0180",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-008",
             "description": "Thermal OL",
             "specification": "TR-ON//3 (1.4 - 2.2 A)",
@@ -17464,7 +17464,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0181",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-009",
             "description": "THERMAL OL",
             "specification": "TR-ON/3 (0.48 ~ 0.72 A)",
@@ -17483,7 +17483,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0182",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-010",
             "description": "THERMAL/ OL",
             "specification": "TR-5-IN/3 ( 12~18A )",
@@ -17502,7 +17502,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0183",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-011",
             "description": "THERMAL/ OL",
             "specification": "TK-ON (0.3~0.45A)",
@@ -17521,7 +17521,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0184",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-012",
             "description": "MOLDED CASE CIRCUIT BREAKER",
             "specification": "5A (BW32AAG) 3 Pole",
@@ -17540,7 +17540,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0185",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-013",
             "description": "THERMAL/ OL",
             "specification": "TR-ON/3 ( 9~13A )",
@@ -17597,7 +17597,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0186",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-016",
             "description": "SPESIAL WASHER / NORD LOCK WASHER",
             "specification": "NL4",
@@ -17616,7 +17616,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0187",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-017",
             "description": "SPESIAL WASHER / NORD LOCK WASHER",
             "specification": "NL5",
@@ -17635,7 +17635,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0188",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-018",
             "description": "SPESIAL WASHER / NORD LOCK WASHER",
             "specification": "NL6",
@@ -17673,7 +17673,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0189",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-020",
             "description": "SPESIAL WASHER / NORD LOCK WASHER",
             "specification": "NL8",
@@ -17692,7 +17692,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0190",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-021",
             "description": "BEARING HOLDER",
             "specification": "BGSEB6002ZZ",
@@ -17749,7 +17749,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0191",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-04-024",
             "description": "BRACKET",
             "specification": "PZ-B61",
@@ -17825,7 +17825,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0192",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-05-004",
             "description": "ROTTARY DETECTOR",
             "specification": "MP-981/ ONO SOKKI",
@@ -17901,7 +17901,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0193",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-05-008",
             "description": "LIMIT SWITCH",
             "specification": "1LS1-J",
@@ -17920,7 +17920,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0194",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J2-05-009",
             "description": "PROXIMITY SENSOR",
             "specification": "FL7M-1P5A6-CN03",
@@ -17996,7 +17996,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0195",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-001",
             "description": "FLOW SWITCH",
             "specification": "PF2A511-O3",
@@ -18015,7 +18015,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0196",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-002",
             "description": "COUNTER",
             "specification": "H7GP-CD",
@@ -18034,7 +18034,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0197",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-003",
             "description": "REED SWITCH",
             "specification": "D-A64L",
@@ -18110,7 +18110,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0198",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-007",
             "description": "PROXIMITY SENSOR",
             "specification": "EE-SX670 C34D",
@@ -18148,7 +18148,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0199",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-009",
             "description": "LIMIT SWITCH",
             "specification": "D4ML-3030",
@@ -18167,7 +18167,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0200",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-010",
             "description": "SUPPORT SENSOR",
             "specification": "HP-B11",
@@ -18186,7 +18186,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0201",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-011",
             "description": "REED SWITCH",
             "specification": "APMATIC RD2",
@@ -18205,7 +18205,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0202",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-012",
             "description": "LIMIT SWITCH",
             "specification": "1LS1-JEC",
@@ -18243,7 +18243,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0203",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-014",
             "description": "AIR CATCH SENSOR",
             "specification": "ISE30A-01-N",
@@ -18262,7 +18262,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0204",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-015",
             "description": "CONNECTOR",
             "specification": "A66L-6001-0023#L300R0",
@@ -18281,7 +18281,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0205",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-016",
             "description": "BRACKET SENSOR (PS-05)",
             "specification": "OP-93672",
@@ -18300,7 +18300,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0206",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-017",
             "description": "CONNECTOR",
             "specification": "A63L-0002-0154/230-M",
@@ -18319,7 +18319,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0207",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-018",
             "description": "CONNECTOR",
             "specification": "A60L-0001-0290#LM32C",
@@ -18338,7 +18338,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0208",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-019",
             "description": "FUSE 5.0A",
             "specification": "A60L-0001-0290#LM50C",
@@ -18357,7 +18357,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0209",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-020",
             "description": "FUSE",
             "specification": "A60L-0001-0172/DM10",
@@ -18395,7 +18395,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0210",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-022",
             "description": "FUSE",
             "specification": "A05B-2600-K001",
@@ -18414,7 +18414,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0211",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-01-023",
             "description": "PROXIMITY SENSOR",
             "specification": "E2E-X2D1-N",
@@ -18452,7 +18452,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0212",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-001",
             "description": "CONTROLLER (TERMOCONTROL)",
             "specification": "C15TC0TA03D0",
@@ -18490,7 +18490,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0213",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-003",
             "description": "DIGITAL CONTROLLER",
             "specification": "C15TR0TA03D0",
@@ -18509,7 +18509,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0214",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-004",
             "description": "BRACKET SENSOR",
             "specification": "E39-L98",
@@ -18528,7 +18528,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0215",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-005",
             "description": "PROXIMITY SENSOR",
             "specification": "K15015-3015-ANKG/NI",
@@ -18680,7 +18680,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0216",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-013",
             "description": "CONTROLLER",
             "specification": "C15TRORA0100",
@@ -18832,7 +18832,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0217",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-021",
             "description": "COUNTER UNIT",
             "specification": "QD62 ",
@@ -18851,7 +18851,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0218",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-022",
             "description": "ISOLATOR",
             "specification": "M2SN-2AA/N",
@@ -18870,7 +18870,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0219",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-023",
             "description": "CONNECTOR CABLE 5M",
             "specification": "V3-WM-E2-5M-PUR",
@@ -18889,7 +18889,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0220",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-02-024",
             "description": "I/O MODULE",
             "specification": "A03B-0815-C003",
@@ -18946,7 +18946,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0221",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-03-003",
             "description": "AMP UNIT",
             "specification": "E3X-HD11 2M",
@@ -18965,7 +18965,7 @@ export async function seedKanbans1() {
         {
             "code": "EA-GN-0222",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "J3-03-004",
             "description": "FIBER UNIT",
             "specification": "E32-T11N",

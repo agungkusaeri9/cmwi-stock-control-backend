@@ -31,7 +31,7 @@ export class StockInService {
             // Lock baris kanban berdasarkan code
             const kanbanRows = await prisma.$queryRaw<
                 Array<{ id: string, stock_in_quantity: number, balance: number, incoming_order_stock: number }>
-            >`SELECT id, stock_in_quantity, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
+            >`SELECT id, stock_in_quantity, incoming_order_stock, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
             if (kanbanRows.length === 0) {
                 throw new ResponseError(404, "Kanban not found");
@@ -41,7 +41,7 @@ export class StockInService {
 
 
             if (kanbanData.stock_in_quantity <= 0) {
-                throw new ResponseError(400, "stock in quantity empty");
+                throw new ResponseError(400, "Receiving report file is not uploaded");
             }
 
             if (kanbanData.incoming_order_stock < kanbanData.stock_in_quantity) {
@@ -67,6 +67,7 @@ export class StockInService {
                 where: { id: Number(kanbanData.id) },
                 data: {
                     balance: { increment: kanbanData.stock_in_quantity },
+                    stock_in_quantity: 0,
                     incoming_order_stock: { decrement: kanbanData.stock_in_quantity }
                 }
             });

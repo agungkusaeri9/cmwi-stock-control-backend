@@ -7,7 +7,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0752",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M1-04-021",
             "description": "SLEEVE DIA20",
             "specification": "KK020-000CE",
@@ -83,7 +83,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0753",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M1-05-001",
             "description": "Isolasi Nitto",
             "specification": "3//4 X 25",
@@ -102,7 +102,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0754",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M1-05-002",
             "description": "ISOLASI ANTI PANAS",
             "specification": "Scoth 27 3M",
@@ -310,7 +310,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0755",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-001",
             "description": "Connector Flexible Conduit",
             "specification": "3//8\" Straight",
@@ -329,7 +329,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0756",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-002",
             "description": "Connector Flexible Conduit",
             "specification": "1//2\" Straight",
@@ -348,7 +348,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0757",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-003",
             "description": "Connector Flexible Conduit",
             "specification": "3//4\" Straight",
@@ -367,7 +367,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0758",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-004",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "Size : 3/8\" (45°)",
@@ -386,7 +386,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0759",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-005",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "Size : 1/2\" (45°)",
@@ -405,7 +405,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0760",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-006",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "Size : 3/4\" (45°)",
@@ -424,7 +424,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0761",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-007",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "3//8\" 90°",
@@ -443,7 +443,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0762",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-008",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "1//2\" 90°",
@@ -462,7 +462,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0763",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-009",
             "description": "CONECTOR FLEXIBLE HOSE",
             "specification": "Size : 3/4\" (90°)",
@@ -481,7 +481,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0764",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-010",
             "description": "CONNECTOR FLEXIBLE HOSE",
             "specification": "1\" 90º",
@@ -500,7 +500,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0765",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-01-011",
             "description": "BAUT L SS304",
             "specification": "M5 X 10mm",
@@ -804,7 +804,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0766",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-003",
             "description": "Bolt L SS304",
             "specification": "M8X30",
@@ -823,7 +823,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0767",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-004",
             "description": "FINE U NUTS(FU-SC)",
             "specification": "FUN12SC",
@@ -842,7 +842,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0768",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-005",
             "description": "SPESIAL WASHER",
             "specification": "NL39",
@@ -861,7 +861,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0769",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-006",
             "description": "CONNECTING LINK",
             "specification": "CL 80 1R",
@@ -880,7 +880,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0770",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-007",
             "description": "CONECTOR",
             "specification": "Type : TC-02",
@@ -899,7 +899,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0771",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-008",
             "description": "CONECTOR",
             "specification": "Type : TC-03",
@@ -918,7 +918,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0772",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-009",
             "description": "CONECTOR",
             "specification": "Type : TC-04",
@@ -937,7 +937,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0773",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-010",
             "description": "CONECTOR",
             "specification": "Type : TC-06",
@@ -975,7 +975,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0774",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-012",
             "description": "RETAINING RINGS",
             "specification": "STWN50",
@@ -994,7 +994,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0775",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-013",
             "description": "CONNECTION LINK",
             "specification": "STAINLESS STEEL RS 40 NIKKEN",
@@ -1013,7 +1013,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0776",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-014",
             "description": "CONNECTION LINK",
             "specification": "CL RS 50",
@@ -1032,7 +1032,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0777",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-015",
             "description": "CONNECTION LINK",
             "specification": "CL RS 60",
@@ -1051,7 +1051,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0778",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-016",
             "description": "CONNECTION LINK",
             "specification": "CL RS 100",
@@ -1089,7 +1089,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0779",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-018",
             "description": "OFFSET LINK",
             "specification": "OL RS 40",
@@ -1108,7 +1108,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0780",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-019",
             "description": "OFFSET LINK",
             "specification": "OL RS 50",
@@ -1127,7 +1127,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0781",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-020",
             "description": "OFFSET LINK",
             "specification": "OL RS 60",
@@ -1165,7 +1165,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0782",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-022",
             "description": "CONNECTION LINK",
             "specification": "RS40-2RP (DOUBLE CHAIN)",
@@ -1184,7 +1184,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0783",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-023",
             "description": "CONNECTION LINK",
             "specification": "CL60-2R (DOUBLE CHAIN)",
@@ -1203,7 +1203,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0784",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-02-024",
             "description": "CHAIN LINK CONECTION",
             "specification": "RF2080",
@@ -1260,7 +1260,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0785",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-003",
             "description": "ENGSEL / HINGE",
             "specification": "HHSZ65-FJ-20-21",
@@ -1279,7 +1279,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0786",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-004",
             "description": "ALUMINUM FRAME SERIES ACCESOR",
             "specification": "HHPSN6",
@@ -1298,7 +1298,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0787",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-005",
             "description": "HANDLE PINTU / PULL",
             "specification": "UWAN 10-110-27",
@@ -1317,7 +1317,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0788",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-006",
             "description": "HANDLE PINTU / PULL",
             "specification": "UHFN125-DQ-16-62",
@@ -1336,7 +1336,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0789",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-007",
             "description": "HANDLE",
             "specification": "UWDSD150-GQ-15-31",
@@ -1355,7 +1355,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0790",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-008",
             "description": "ALUMUNIUM HINGES",
             "specification": "HHPSNT8-FN-18-61",
@@ -1374,7 +1374,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0791",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-009",
             "description": "SMC AIR FILTER",
             "specification": "AF50P-060S FILTER FOR AF50-10-A",
@@ -1393,7 +1393,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0792",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-010",
             "description": "SMC AIR FILTER",
             "specification": "AF60P-060S FILTER FOR AF60-10D",
@@ -1412,7 +1412,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0793",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-011",
             "description": "FREEZER AIRTIGHT HANDLES",
             "specification": "FA-118-2",
@@ -1431,7 +1431,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0794",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-012",
             "description": "INSERT FOR COUPLING",
             "specification": "L090GH",
@@ -1583,7 +1583,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0795",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-020",
             "description": "Connecting Link",
             "specification": "CL 35 1R",
@@ -1602,7 +1602,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0796",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-021",
             "description": "Coupling",
             "specification": "MJC-41-8-15",
@@ -1621,7 +1621,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0797",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-022",
             "description": "KARET COUPLING HYDRAULIC",
             "specification": "MERK ROTEK 42 ORI MADE IN GERMANY",
@@ -1659,7 +1659,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0798",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-03-024",
             "description": "WIRE SPRING",
             "specification": "WL20-65",
@@ -1678,7 +1678,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0799",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-001",
             "description": "MOUNTING",
             "specification": "Y-040B",
@@ -1982,7 +1982,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0800",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-017",
             "description": "SNAPRING",
             "specification": "S55",
@@ -2020,7 +2020,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0801",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-019",
             "description": "SNAPRING",
             "specification": "H 19",
@@ -2039,7 +2039,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0802",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-020",
             "description": "RETAINER",
             "specification": "Size : 105",
@@ -2058,7 +2058,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0803",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-021",
             "description": "RETAINER",
             "specification": "Size : 120",
@@ -2077,7 +2077,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0804",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-04-022",
             "description": "RETAINER",
             "specification": "Size : 150",
@@ -2153,7 +2153,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0805",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M2-05-002",
             "description": "SMALL PLUNGER",
             "specification": "PSS-10-2",
@@ -2438,7 +2438,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0806",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-007",
             "description": "O-Ring",
             "specification": "P6 ",
@@ -2457,7 +2457,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0807",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-008",
             "description": "SEAL O RING",
             "specification": "P7 NBR",
@@ -2476,7 +2476,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0808",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-009",
             "description": "SEAL O RING",
             "specification": "P8 NBR",
@@ -2495,7 +2495,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0809",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-010",
             "description": "O-RING",
             "specification": "P-9",
@@ -2514,7 +2514,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0810",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-011",
             "description": "O-RING",
             "specification": "P-11",
@@ -2533,7 +2533,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0811",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-012",
             "description": "O-RING",
             "specification": "P-12",
@@ -2552,7 +2552,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0812",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-013",
             "description": "BEARING",
             "specification": "625 ZZ",
@@ -2571,7 +2571,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0813",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-014",
             "description": "BEARING",
             "specification": "626 ZZ",
@@ -2647,7 +2647,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0814",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-019",
             "description": "BEARING",
             "specification": "6000 ZZ KOYO",
@@ -2666,7 +2666,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0815",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-020",
             "description": "BEARING",
             "specification": "6002 2ZR C3",
@@ -2685,7 +2685,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0816",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-021",
             "description": "BEARING",
             "specification": "6004 2ZR",
@@ -2704,7 +2704,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0817",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-022",
             "description": "Bearing",
             "specification": "6005 ZZ NSK",
@@ -2723,7 +2723,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0818",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-023",
             "description": "BEARING",
             "specification": "6006ZZ",
@@ -2742,7 +2742,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0819",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-01-024",
             "description": "BEARING",
             "specification": "6007 ZZ",
@@ -2761,7 +2761,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0820",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-001",
             "description": "O-RING",
             "specification": "P-16",
@@ -2780,7 +2780,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0821",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-002",
             "description": "O-Ring",
             "specification": "P18 ",
@@ -2799,7 +2799,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0822",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-003",
             "description": "O-Ring",
             "specification": "P22",
@@ -2818,7 +2818,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0823",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-004",
             "description": "O-Ring",
             "specification": "P24",
@@ -2837,7 +2837,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0824",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-005",
             "description": "O-Ring",
             "specification": "P26 ",
@@ -2856,7 +2856,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0825",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-006",
             "description": "O-RING",
             "specification": "P-28",
@@ -2875,7 +2875,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0826",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-007",
             "description": "O-RING",
             "specification": "P-30",
@@ -2894,7 +2894,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0827",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-008",
             "description": "O-Ring",
             "specification": "P32",
@@ -2913,7 +2913,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0828",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-009",
             "description": "O-RING",
             "specification": "P-34",
@@ -2932,7 +2932,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0829",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-010",
             "description": "O-Ring",
             "specification": "P35 ",
@@ -2951,7 +2951,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0830",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-011",
             "description": "O-Ring",
             "specification": "P42 ",
@@ -2970,7 +2970,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0831",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-012",
             "description": "O-RING",
             "specification": "P-44",
@@ -2989,7 +2989,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0832",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-013",
             "description": "BEARING",
             "specification": "6008 ZZ NTN",
@@ -3008,7 +3008,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0833",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-014",
             "description": "BEARING",
             "specification": "6010 C3",
@@ -3027,7 +3027,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0834",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-015",
             "description": "BEARING",
             "specification": "6010 LLU",
@@ -3046,7 +3046,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0835",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-016",
             "description": "BEARING",
             "specification": "6010 ZZ",
@@ -3065,7 +3065,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0836",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-017",
             "description": "BEARING",
             "specification": "6011 ZZ",
@@ -3141,7 +3141,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0837",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-021",
             "description": "BEARING",
             "specification": 6201,
@@ -3179,7 +3179,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0838",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-023",
             "description": "BEARING",
             "specification": "6203 NTN",
@@ -3198,7 +3198,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0839",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-02-024",
             "description": "BEARING",
             "specification": 6204,
@@ -3217,7 +3217,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0840",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-001",
             "description": "O-Ring",
             "specification": "P50 ",
@@ -3236,7 +3236,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0841",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-002",
             "description": "O-RING",
             "specification": "P50A.  Mat : NBR70",
@@ -3255,7 +3255,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0842",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-003",
             "description": "O-Ring",
             "specification": "P52 ",
@@ -3274,7 +3274,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0843",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-004",
             "description": "O-Ring",
             "specification": "P55",
@@ -3293,7 +3293,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0844",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-005",
             "description": "O-Ring",
             "specification": "P65 ",
@@ -3312,7 +3312,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0845",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-006",
             "description": "O-Ring",
             "specification": "P75 ",
@@ -3350,7 +3350,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0846",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-008",
             "description": "O-RING",
             "specification": "P-90",
@@ -3369,7 +3369,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0847",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-009",
             "description": "O-Ring",
             "specification": "P95 ",
@@ -3388,7 +3388,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0848",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-010",
             "description": "O-Ring",
             "specification": "P105 ",
@@ -3407,7 +3407,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0849",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-011",
             "description": "O-RING",
             "specification": "P-110",
@@ -3426,7 +3426,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0850",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-012",
             "description": "O-RING",
             "specification": "P-120 ( O-RING )",
@@ -3445,7 +3445,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0851",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-013",
             "description": "BEARING",
             "specification": "6205 TB P6 C3",
@@ -3464,7 +3464,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0852",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-014",
             "description": "BEARING",
             "specification": "6205 ZZ C3",
@@ -3483,7 +3483,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0853",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-015",
             "description": "BEARING",
             "specification": "6205-C-2Z",
@@ -3502,7 +3502,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0854",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-016",
             "description": "BEARING",
             "specification": "6206 ZZ",
@@ -3521,7 +3521,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0855",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-017",
             "description": "BEARING",
             "specification": "6207 ZZ",
@@ -3540,7 +3540,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0856",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-018",
             "description": "BEARING",
             "specification": "6208 ZZ",
@@ -3559,7 +3559,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0857",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-019",
             "description": "BEARING",
             "specification": "6209 2ZR",
@@ -3578,7 +3578,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0858",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-020",
             "description": "Bearing",
             "specification": "6206 2RS JTEKT",
@@ -3635,7 +3635,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0859",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-023",
             "description": "BEARING",
             "specification": "6216 ZZ",
@@ -3654,7 +3654,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0860",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-03-024",
             "description": "Bearing NTN",
             "specification": "6012 ZZ NTN",
@@ -3711,7 +3711,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0861",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-003",
             "description": "O-RING",
             "specification": "P-180",
@@ -3730,7 +3730,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0862",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-004",
             "description": "O-RING",
             "specification": "P-180 ( O-RING )",
@@ -3749,7 +3749,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0863",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-005",
             "description": "O-RING P-32 NYTRIL RUBBER",
             "specification": "78732(10PCS)",
@@ -3787,7 +3787,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0864",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-007",
             "description": "O-RING",
             "specification": "49.6 x 5.7",
@@ -3863,7 +3863,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0865",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-011",
             "description": "O-RING",
             "specification": "P-155",
@@ -3939,7 +3939,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0866",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-015",
             "description": "BEARING",
             "specification": "6303 ZZ",
@@ -4015,7 +4015,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0867",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-019",
             "description": "BEARING",
             "specification": "6306LLU",
@@ -4091,7 +4091,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0868",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-04-023",
             "description": "BEARING",
             "specification": "6309UU C3",
@@ -4186,7 +4186,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0869",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-004",
             "description": "U-NUTS",
             "specification": "PACK-UNUT6",
@@ -4205,7 +4205,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0870",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-005",
             "description": "U-NUTS",
             "specification": "PACK-UNUT8",
@@ -4224,7 +4224,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0871",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-006",
             "description": "PART OF AIR FILTER",
             "specification": "AF30P-060S",
@@ -4243,7 +4243,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0872",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-007",
             "description": "BEARING",
             "specification": "6310 C3 NTN",
@@ -4262,7 +4262,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0873",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-008",
             "description": "BEARING",
             "specification": "6311-Z-C3",
@@ -4319,7 +4319,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0874",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-011",
             "description": "BEARING",
             "specification": "63NZC3 - 33016",
@@ -4338,7 +4338,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0875",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M3-05-012",
             "description": "Bearing",
             "specification": "6003 ZZ NTN",
@@ -4357,7 +4357,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0876",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-001",
             "description": "O-RING",
             "specification": "G-30",
@@ -4376,7 +4376,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0877",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-002",
             "description": "O-RING",
             "specification": "G-35",
@@ -4395,7 +4395,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0878",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-003",
             "description": "O-RING",
             "specification": "G-40",
@@ -4414,7 +4414,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0879",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-004",
             "description": "O-RING",
             "specification": "G-65 Viton",
@@ -4433,7 +4433,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0880",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-005",
             "description": "O-RING",
             "specification": "G-70",
@@ -4452,7 +4452,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0881",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-006",
             "description": "O-RING",
             "specification": "G-72 ( 3x72 N-70 NBR )",
@@ -4471,7 +4471,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0882",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-007",
             "description": "O-RING",
             "specification": "G-75 VITON",
@@ -4490,7 +4490,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0883",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-008",
             "description": "O-RING",
             "specification": "G-80 ( V-75 Viton )",
@@ -4547,7 +4547,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0884",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-011",
             "description": "O-RING",
             "specification": "G-95",
@@ -4566,7 +4566,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0885",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-012",
             "description": "O-RING",
             "specification": "G-120",
@@ -4585,7 +4585,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0886",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-013",
             "description": "BEARING",
             "specification": "6408 ZZ",
@@ -4604,7 +4604,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0887",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-014",
             "description": "BEARING",
             "specification": "6410 ZZ",
@@ -4623,7 +4623,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0888",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-020",
             "description": "BEARNG",
             "specification": "6902 ZZ 72AS",
@@ -4642,7 +4642,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0889",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-021",
             "description": "BEARING",
             "specification": "6903 ZZ",
@@ -4661,7 +4661,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0890",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-022",
             "description": "Bearing",
             "specification": "6905 ZZ NSK",
@@ -4680,7 +4680,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0891",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-023",
             "description": "BEARING",
             "specification": "6907 LLU",
@@ -4699,7 +4699,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0892",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-01-024",
             "description": "BEARING",
             "specification": "6911 DDU",
@@ -4737,7 +4737,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0893",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-002",
             "description": "O-RING",
             "specification": "G-135",
@@ -4756,7 +4756,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0894",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-003",
             "description": "O-Ring",
             "specification": "G150 ",
@@ -4775,7 +4775,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0895",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-004",
             "description": "O-RING",
             "specification": "G-155",
@@ -4813,7 +4813,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0896",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-006",
             "description": "O-RING",
             "specification": "G-210",
@@ -4889,7 +4889,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0897",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-010",
             "description": "O-ring JIS",
             "specification": "G185 (Material : Viton)",
@@ -4908,7 +4908,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0898",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-011",
             "description": "O-RING",
             "specification": "G-160",
@@ -4946,7 +4946,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0899",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-013",
             "description": "BEARING",
             "specification": 7010,
@@ -5022,7 +5022,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0900",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-02-021",
             "description": "TAPERED ROLLER BEARING",
             "specification": "32010X",
@@ -5095,7 +5095,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0901",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-001",
             "description": "O-RING FANUC",
             "specification": "JB-OR1A-G105",
@@ -5209,7 +5209,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0902",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-007",
             "description": "O-Ring",
             "specification": "S3 ",
@@ -5228,7 +5228,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0903",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-008",
             "description": "O-Ring",
             "specification": "S6 ",
@@ -5266,7 +5266,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0904",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-010",
             "description": "O-Ring",
             "specification": "S8 ",
@@ -5285,7 +5285,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0905",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-011",
             "description": "O-Ring",
             "specification": "S29 ",
@@ -5342,7 +5342,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0906",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-014",
             "description": "BEARING",
             "specification": "4T-32011 X",
@@ -5361,7 +5361,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0907",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-015",
             "description": "Angular Contact Ball Bearing",
             "specification": "AU 0755-1LL/L588",
@@ -5380,7 +5380,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0908",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-016",
             "description": "SUPER PRECISION BEARING",
             "specification": "B 71914 CTP4SUL",
@@ -5399,7 +5399,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0909",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-017",
             "description": "BEARING HOLDER",
             "specification": "BGSA6207ZZ",
@@ -5418,7 +5418,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0910",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-018",
             "description": "BEARING HOLDER",
             "specification": "BGSBB6006ZZ-60",
@@ -5437,7 +5437,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0911",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-019",
             "description": "BEARING HOLDER",
             "specification": "BGSEB6002ZZ",
@@ -5475,7 +5475,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0912",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-021",
             "description": "BEARING",
             "specification": "NU310C4 SKF",
@@ -5494,7 +5494,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0913",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-022",
             "description": "Bearing NTN",
             "specification": "62/22ZZ/2AS",
@@ -5513,7 +5513,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0914",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-03-023",
             "description": "BEARING",
             "specification": "6310 C4",
@@ -5551,7 +5551,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0915",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-001",
             "description": "O-Ring",
             "specification": "S56 ",
@@ -5570,7 +5570,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0916",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-002",
             "description": "O-Ring",
             "specification": "S60 ",
@@ -5608,7 +5608,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0917",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-004",
             "description": "O-Ring",
             "specification": "S105",
@@ -5627,7 +5627,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0918",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-005",
             "description": "O-Ring",
             "specification": "S150 ",
@@ -5684,7 +5684,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0919",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-008",
             "description": "O-RING",
             "specification": "C-65",
@@ -5741,7 +5741,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0920",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-011",
             "description": "O-RING 175",
             "specification": "Spare Part Pompa Diaphragm",
@@ -5760,7 +5760,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0921",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-012",
             "description": "O-RING",
             "specification": "V-15 VITON",
@@ -5798,7 +5798,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0922",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-014",
             "description": "LINEAR BEARING",
             "specification": "HSR20R1SS",
@@ -5817,7 +5817,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0923",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-015",
             "description": "LINER BEARING",
             "specification": "HSR25B1SS",
@@ -5855,7 +5855,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0924",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-017",
             "description": "LINEAR BEARING",
             "specification": "EGW35CA20C",
@@ -5874,7 +5874,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0925",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-018",
             "description": "LM BEARING",
             "specification": "BRS30B BJI09010344",
@@ -5988,7 +5988,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0926",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-04-024",
             "description": "LM GUIDE",
             "specification": "EGW30C HIWIN",
@@ -6007,7 +6007,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0927",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-001",
             "description": "O-RING FANUC",
             "specification": "A98L-0040-0041 #244",
@@ -6026,7 +6026,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0928",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-002",
             "description": "O-RING FANUC",
             "specification": "A98L-0040-0041 #262",
@@ -6045,7 +6045,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0929",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-003",
             "description": "O-RING FANUC",
             "specification": "A98L-0040-0041 #275",
@@ -6064,7 +6064,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0930",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-004",
             "description": "O-RING FANUC",
             "specification": "A98L-0040-0041#272",
@@ -6083,7 +6083,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0931",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-005",
             "description": "O-RING FANUC",
             "specification": "A98L-0040-0041#281",
@@ -6102,7 +6102,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0932",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M4-05-006",
             "description": "O-RING DIRECTIONAL VALVE",
             "specification": "BY SAMPLE",
@@ -6311,7 +6311,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0933",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-005",
             "description": "SEAL KIT",
             "specification": "CG1N63-PS",
@@ -6368,7 +6368,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0934",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-009",
             "description": "COMPONENT SMC PACKING SET",
             "specification": "MY1B32-PS",
@@ -6387,7 +6387,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0935",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-010",
             "description": "SEAL KIT",
             "specification": "CS1N180A-XB6-PS",
@@ -6444,7 +6444,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0936",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-013",
             "description": "BEARING",
             "specification": "CF6-A",
@@ -6558,7 +6558,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0937",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-021",
             "description": "BEARING UNIT",
             "specification": "UCFL 204J",
@@ -6596,7 +6596,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0938",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-01-023",
             "description": "BEARING",
             "specification": "UCFB205-E4",
@@ -6862,7 +6862,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0939",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-02-014",
             "description": "PILLOW BLOCK",
             "specification": "UCP 206J",
@@ -6993,7 +6993,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0940",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-02-021",
             "description": "CAM FOLLOWER",
             "specification": "CF10-1 BUU",
@@ -7183,7 +7183,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0941",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-03-007",
             "description": "OIL SEAL",
             "specification": "TC 30 42 8/AEE092-A0",
@@ -7202,7 +7202,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0942",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-03-008",
             "description": "OIL SEAL",
             "specification": "TC 35-50-7",
@@ -7221,7 +7221,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0943",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-03-009",
             "description": "OIL SEAL",
             "specification": "TC 35 x 55 x 11",
@@ -7278,7 +7278,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0944",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-03-012",
             "description": "OIL SEAL",
             "specification": "AEE276-A0 / TC-80-105-13",
@@ -7426,7 +7426,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0945",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-001",
             "description": "OIL SEAL",
             "specification": "TC 100-25-14",
@@ -7445,7 +7445,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0946",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-002",
             "description": "OIL SEAL",
             "specification": "TC 100-25-13",
@@ -7464,7 +7464,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0947",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-003",
             "description": "OIL SEAL",
             "specification": "TC 100-125-13 NOK",
@@ -7483,7 +7483,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0948",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-004",
             "description": "OIL SEAL",
             "specification": "SC / AC2499E0 Size : 42 * 62 * 10",
@@ -7502,7 +7502,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0949",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-005",
             "description": "OIL SEAL",
             "specification": "TC 100-125-13",
@@ -7521,7 +7521,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0950",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-006",
             "description": "OIL SEAL",
             "specification": "AC 3040",
@@ -7540,7 +7540,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0951",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-007",
             "description": "OIL SEAL",
             "specification": "DS22284 / No. 16RY6401350",
@@ -7559,7 +7559,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0952",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-008",
             "description": "OIL SEAL",
             "specification": "DS32456 / No. RY6400420",
@@ -7578,7 +7578,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0953",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-009",
             "description": "OIL SEAL",
             "specification": "VCW 22-28-4 TTO",
@@ -7635,7 +7635,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0954",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-04-012",
             "description": "SEAL DHS",
             "specification": "55x63x5/6.5",
@@ -7654,7 +7654,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0955",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-05-001",
             "description": "SEAL",
             "specification": "LBH-32 / CL036C0 52",
@@ -7673,7 +7673,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0956",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-05-002",
             "description": "SEAL",
             "specification": "UHS 40 ( VALQUA ) FOR BRIQETTE Mach. ",
@@ -7692,7 +7692,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0957",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-05-003",
             "description": "SEAL",
             "specification": "AC2499E",
@@ -7730,7 +7730,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0958",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M5-05-005",
             "description": "SEAL BELT",
             "specification": "MY32-16C-480",
@@ -7825,7 +7825,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0959",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-004",
             "description": "DUST SEAL",
             "specification": "AR-4046G / NOK",
@@ -7863,7 +7863,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0960",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-006",
             "description": "DUST SEAL",
             "specification": "DKI 20-32-6/9 NOK (FD0995A0)",
@@ -7920,7 +7920,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0961",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-009",
             "description": "BACK UP RING",
             "specification": "P-120",
@@ -7939,7 +7939,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0962",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-010",
             "description": "BACK UP RING",
             "specification": "P-90 T1",
@@ -7958,7 +7958,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0963",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-011",
             "description": "DUST SEAL DW",
             "specification": "167807-19320",
@@ -7977,7 +7977,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0964",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-012",
             "description": "Dust Seal",
             "specification": "IR 40 X 45 X40",
@@ -8129,7 +8129,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0965",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-01-020",
             "description": "LINIER BUSHING",
             "specification": "LHFR16",
@@ -8452,7 +8452,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0966",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-02-013",
             "description": "BUSHING",
             "specification": "SPB-202825",
@@ -8756,7 +8756,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0967",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-03-005",
             "description": "SEAL LBH NOK",
             "specification": "LBH 90",
@@ -8775,7 +8775,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0968",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "M6-03-006",
             "description": "SEAL LBH NOK",
             "specification": "USH 90",
@@ -10007,7 +10007,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0971",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-001",
             "description": "Free Gravity Roller",
             "specification": "DIA 42 X 550 X SHAFT DIA 12MM",
@@ -10025,7 +10025,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0972",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-002",
             "description": "Steel roller (tirus)",
             "specification": "Dia:63/Dia:43x550xshaft Dia:12mm (single groove)",
@@ -10061,7 +10061,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0973",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-004",
             "description": "nylon blue roller with single groove",
             "specification": "Dia:43x550xShaft Dia:12mm",
@@ -10079,7 +10079,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0974",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-005",
             "description": "nylon blue roller with double groove",
             "specification": "Dia:43x550xShaft Dia:12mm",
@@ -10133,7 +10133,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0975",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-008",
             "description": "steel roller",
             "specification": "Dia:43x220xShaft Dia:12mm",
@@ -10151,7 +10151,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0976",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-009",
             "description": "ROLLER",
             "specification": "Dia 60 x 300 mat mc blue",
@@ -10169,7 +10169,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0977",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-010",
             "description": "steel roller",
             "specification": "Dia:43x550xShaft Dia:12mm include bearing (single groove)",
@@ -10187,7 +10187,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0978",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-011",
             "description": "steel roller",
             "specification": "Dia:43x550xShaft Dia:12mm include bearing (double groove)",
@@ -10205,7 +10205,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0979",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-012",
             "description": "steel roller (tirus)",
             "specification": "Dia:63/Dia:43x550xshaft Dia:12mm",
@@ -10241,7 +10241,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0980",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL4-01-014",
             "description": "ROLLER",
             "specification": "DIA 60.3 X 550 X 590 X SHAFT 12 MM MAT. SUS304",
@@ -10421,7 +10421,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0981",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL6-01-003",
             "description": "MOTOR WITH REDUCTION GEAR",
             "specification": "G3LB-22-40-T0 20WA",
@@ -10565,7 +10565,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0982",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL7-01-005",
             "description": "LIVE MOTOR ( TIRUS )",
             "specification": "LMR42BS-15-600-3-200-BR",
@@ -10583,7 +10583,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0983",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL7-01-006",
             "description": "LIVE MOTOR",
             "specification": "LM486BS-30-550-3-200-UR570 A",
@@ -10637,7 +10637,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0984",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL7-01-009",
             "description": "ROLLER CONVEYOR STAINLESS",
             "specification": "Dia:42 x 550 x Shaft Dia: 12mm. Include Bearing. Mat : STAINLESS STEEL",
@@ -10837,7 +10837,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0985",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL9-01-002",
             "description": "MOTOR",
             "specification": "MG80B2-D1 1.10KW",
@@ -10855,7 +10855,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0986",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL9-01-003",
             "description": "HYPONIC DRIVE",
             "specification": "RNYM05-1530-B-240",
@@ -10873,7 +10873,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0987",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL9-01-004",
             "description": "HYPONIC DRIVE",
             "specification": "RNYM05-1530-B-80",
@@ -10909,7 +10909,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0988",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL9-01-006",
             "description": "MOTOR",
             "specification": "V80M/4 0.75KW",
@@ -10945,7 +10945,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0989",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL10-01-001",
             "description": "RODA TROLLEY (SWIVEL)",
             "specification": "DIA 4\"/TYPE 400SR-UB100",
@@ -10963,7 +10963,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0990",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL10-01-002",
             "description": "RODA TROLLEY (RIGID)",
             "specification": "DIA 4\"/TYPE 400S-UB100",
@@ -11036,7 +11036,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0991",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL10-01-006",
             "description": "RODA TROLLEY (RIGID)",
             "specification": "DIA 8\" /TYPE 400 S-UB 200",
@@ -11505,7 +11505,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0993",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL13-01-007",
             "description": "Standard Molded Filter for PPC",
             "specification": "3066 (Polyester) PGA-320173",
@@ -11650,7 +11650,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0994",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL17-01-002",
             "description": "AIR CYLINDER",
             "specification": "CS2A4-ANR04-950",
@@ -11668,7 +11668,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0995",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL17-01-003",
             "description": "TERMINAL BLOCK",
             "specification": "TB-12-4RC",
@@ -13596,7 +13596,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0996",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL37-01-001",
             "description": "INDUCTION MOTOR",
             "specification": "TC-FV/FB-3D",
@@ -13776,7 +13776,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0997",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL39-01-003",
             "description": "MOTOR AF.3.7KW",
             "specification": "TC-FXV",
@@ -13957,7 +13957,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0998",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL40-01-005",
             "description": "TRANSFORMER",
             "specification": "14KVA 40.4 A Primer 3 Phase 380-400-440V. Secunder 3 Phase 200V",
@@ -14350,7 +14350,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0999",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL44-01-002",
             "description": "KITO ELECTRIC CHAIN HOIST",
             "specification": "ER2 010S",
@@ -15147,7 +15147,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-1000",
             "area": "GENERAL",
-            "machine": "",
+            "machine": "GENERAL",
             "rack": "PL53-01-007",
             "description": "POMPA SUBMERSIBLE - EBARA",
             "specification": "TYPE : BEST 3 (MANUAL) VOLTAGE 3 PH // 380V // 50 HZ",

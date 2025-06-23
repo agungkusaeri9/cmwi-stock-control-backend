@@ -1,4 +1,4 @@
-import { StockOutResponse, CreateStockOutRequest, toStockOutResponse, SearchStockOutRequest } from "../model/stock-out-model";
+import { StockOutResponse, CreateStockOutRequest, toStockOutResponse, SearchStockOutRequest, UpdateStockOutRequest } from "../model/stock-out-model";
 import { Validation } from "../validation/validation";
 import { StockOutValidation } from "../validation/stock-out-validation";
 import { StockOut } from "@prisma/client";
@@ -17,7 +17,6 @@ export class StockOutService {
 
     static async create(request: CreateStockOutRequest): Promise<StockOutResponse> {
         const createRequest = Validation.validate(StockOutValidation.CREATE, request);
-        console.log(createRequest);
         return await prismaClient.$transaction(async (prisma) => {
 
 
@@ -57,6 +56,7 @@ export class StockOutService {
             const stockOut = await prisma.stockOut.create({
                 data: {
                     ...createRequest,
+                    original_quantity: createRequest.quantity,
                     operator_id: createRequest.operator_id,
                     balance_before: kanban.balance,
                     balance_after: kanban.balance - createRequest.quantity
@@ -80,6 +80,76 @@ export class StockOutService {
             return toStockOutResponse(stockOut);
         });
     }
+
+    static async update(id: number, request: UpdateStockOutRequest): Promise<StockOutResponse> {
+        const updateRequest = Validation.validate(StockOutValidation.UPDATE, request);
+
+        if (isNaN(id)) {
+            throw new ResponseError(400, "Invalid id");
+        }
+
+        return await prismaClient.$transaction(async (tx) => {
+            const existingStockOut = await tx.stockOut.findUnique({
+                where: { id }
+            });
+
+            if (!existingStockOut) {
+                throw new ResponseError(404, "Stock Out not found");
+            }
+
+            if (!existingStockOut.kanban_code) {
+                throw new ResponseError(400, "Kanban code not found. Cannot update stock out.");
+            }
+
+            const existingQuantity = existingStockOut.quantity;
+
+
+            const updatedStockOut = await tx.stockOut.update({
+                where: { id },
+                data: { ...updateRequest },
+                include: {
+                    machine_area: true,
+                    machine: true,
+                    operator: true,
+                    kanban: true
+                }
+            });
+
+            // Jika quantity berubah, update juga kanban.balance
+            if (existingQuantity !== updateRequest.quantity) {
+
+
+                const kanban = await tx.kanban.findUnique({
+                    where: { code: existingStockOut.kanban_code }
+                });
+
+                if (!kanban) {
+                    throw new ResponseError(404, "Kanban not found");
+                }
+
+                const quantityDiff = updateRequest.quantity - existingQuantity;
+
+                if (quantityDiff > 0 && kanban.balance < quantityDiff) {
+                    throw new ResponseError(400, "Kanban stock is not enough");
+                }
+
+                if (quantityDiff !== 0) {
+                    await tx.kanban.update({
+                        where: { code: existingStockOut.kanban_code },
+                        data: {
+                            balance: {
+                                increment: -quantityDiff
+                            }
+                        }
+                    });
+                }
+
+            }
+
+            return toStockOutResponse(updatedStockOut);
+        });
+    }
+
 
 
 

@@ -90,13 +90,13 @@ export class ReminderService {
             let poDate = null;
 
             if (poDetails.length > 0) {
-                const ordered = poDetails.find((po) => po.status === "On Order");
+                const ordered = poDetails.find((po) => po.status === "Partial Delivery");
                 if (ordered) {
-                    poStatus = "On Order";
+                    poStatus = "Partial Delivery";
                     poDate = ordered.purchase_order?.po_date ?? null;
                 } else {
                     const firstDetail = poDetails[0];
-                    poStatus = firstDetail.status ?? "Partial Delivery";
+                    poStatus = firstDetail.status ?? "On Order";
                     poDate = firstDetail.purchase_order?.po_date ?? null;
                 }
             }

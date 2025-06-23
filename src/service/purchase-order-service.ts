@@ -241,6 +241,27 @@ export class PurchaseOrderService {
             await prismaClient.$transaction(async (tx) => {
 
 
+                // Ambil semua PO Detail yang akan dinonaktifkan
+                const poDetailsToDelete = await tx.purchaseOrderDetail.findMany({
+                    where: {
+                        po_number: { notIn: incomingPONumbers },
+                        is_active: true
+                    },
+                    select: {
+                        pr_number: true
+                    }
+                });
+
+                // Ambil daftar unik PR number
+                const deletedPrNumbers = Array.from(
+                    new Set(
+                        poDetailsToDelete
+                            .map(e => e.pr_number)
+                            .filter((pr): pr is string => pr !== null)
+                    )
+                );
+
+                // Update PO Detail menjadi tidak aktif
                 await tx.purchaseOrderDetail.updateMany({
                     where: {
                         po_number: { notIn: incomingPONumbers },
@@ -249,25 +270,82 @@ export class PurchaseOrderService {
                     data: { is_active: false }
                 });
 
+                // Update PR Detail yang terkait menjadi tidak aktif
                 await tx.purchaseRequestDetail.updateMany({
                     where: {
-                        pr_number: { notIn: validPrNumbers },
+                        pr_number: { in: deletedPrNumbers },
                         is_active: true
                     },
                     data: { is_active: false }
                 });
+
 
                 if (filteredRequest.length > 0) {
                     await tx.purchaseOrder.createMany({ data: filteredRequest, skipDuplicates: true });
                 }
 
                 if (filteredDetailRequest.length > 0) {
-                    await tx.purchaseOrderDetail.deleteMany({
+
+                    // Ambil existing PO Detail berdasarkan existingPONumbers
+                    const existingpurchaseOrderDetail = await prismaClient.purchaseOrderDetail.findMany({
                         where: {
                             po_number: { in: existingPONumbers }
+                        },
+                        select: {
+                            id: true,
+                            po_number: true,
+                            kanban_code: true
                         }
                     });
+
+                    // Buat Set dari kombinasi po_number + kanban_code dari data baru (filtered)
+                    const filteredDetailSet = new Set(
+                        filteredDetailRequest.map(d => `${d.po_number}::${d.kanban_code}`)
+                    );
+
+                    // Cari PO Detail yang tidak ada di filteredDetailRequest
+                    const notInFiltered = existingpurchaseOrderDetail.filter(existing => {
+                        const key = `${existing.po_number}::${existing.kanban_code}`;
+                        return !filteredDetailSet.has(key);
+                    });
+
+                    // Update is_active = false untuk kanban yang terkait
+                    const kanbanCodesToDeactivate = notInFiltered
+                        .map(d => d.kanban_code)
+                        .filter((v): v is string => v !== null) // add null check here
+                        .filter((v, i, a) => a.indexOf(v) === i); // unik dan tidak null
+
+                    if (kanbanCodesToDeactivate.length > 0) {
+                        await tx.purchaseOrderDetail.updateMany({
+                            where: {
+                                kanban_code: { in: kanbanCodesToDeactivate }
+                            },
+                            data: {
+                                is_active: false
+                            }
+                        });
+                    }
+
+
+                    // Hapus hanya PO Detail yang tidak termasuk dan tidak mengandung kanban_code yang dinonaktifkan
+                    const detailToDelete = existingpurchaseOrderDetail.filter(existing => {
+                        const key = `${existing.po_number}::${existing.kanban_code}`;
+                        return filteredDetailSet.has(key);
+                    });
+
+                    if (detailToDelete.length > 0) {
+                        const idsToDelete = detailToDelete.map(d => d.id);
+
+                        await tx.purchaseOrderDetail.deleteMany({
+                            where: {
+                                id: { in: idsToDelete }
+                            }
+                        });
+                    }
+
+                    // Buat ulang detail baru
                     await tx.purchaseOrderDetail.createMany({ data: filteredDetailRequest });
+
                 }
 
                 const kanbanPoPairs = filteredDetailRequest
@@ -295,8 +373,9 @@ export class PurchaseOrderService {
                         if (!acc[key]) {
                             acc[key] = { kanban_code: curr.kanban_code, po_number: curr.po_number, quantity: 0 };
                         }
-
-                        acc[key].quantity += (curr.quantity || 0);
+                        if (curr.status === "On Order") {
+                            acc[key].quantity += (curr.quantity || 0);
+                        }
                         return acc;
                     }, {} as Record<string, { kanban_code: string; po_number: string; quantity: number }>)
                 );

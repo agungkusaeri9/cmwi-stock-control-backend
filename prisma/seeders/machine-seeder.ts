@@ -129,7 +129,10 @@ export async function seedMachines() {
             },
             {
                 "code": "TT"
-            }
+            },
+            {
+                "code": "GENERAL"
+            },
         ],
         skipDuplicates: true
     });

@@ -19,6 +19,10 @@ export type CreateStockOutRequest = {
     operator_id: number;
 }
 
+export type UpdateStockOutRequest = {
+    quantity: number;
+}
+
 
 export type SearchStockOutRequest = {
     keyword?: string;
