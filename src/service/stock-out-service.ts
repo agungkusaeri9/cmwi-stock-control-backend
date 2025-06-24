@@ -56,7 +56,6 @@ export class StockOutService {
             const stockOut = await prisma.stockOut.create({
                 data: {
                     ...createRequest,
-                    original_quantity: createRequest.quantity,
                     operator_id: createRequest.operator_id,
                     balance_before: kanban.balance,
                     balance_after: kanban.balance - createRequest.quantity
@@ -142,15 +141,21 @@ export class StockOutService {
                             }
                         }
                     });
-                }
 
+
+                    await tx.stockOutChangeLog.create({
+                        data: {
+                            stock_out_id: id,
+                            quantity_before: existingQuantity,
+                            quantity_after: updateRequest.quantity
+                        }
+                    })
+                }
             }
 
             return toStockOutResponse(updatedStockOut);
         });
     }
-
-
 
 
     static async get(request: SearchStockOutRequest): Promise<Pageable<StockOutResponse>> {
@@ -280,7 +285,8 @@ export class StockOutService {
                 machine_area: true,
                 machine: true,
                 operator: true,
-                kanban: true
+                kanban: true,
+                stock_out_change_log: true
             }
         });
 

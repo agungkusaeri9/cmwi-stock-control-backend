@@ -30,7 +30,6 @@ publicRouter.get("/api/stock-ins/export/excel", StockInController.exportExcel);
 // Stock Out
 publicRouter.post("/api/stock-outs", StockOutController.create);
 publicRouter.get("/api/stock-outs", StockOutController.get);
-publicRouter.patch("/api/stock-outs/:id", StockOutController.update);
 publicRouter.get("/api/stock-outs/:id", StockOutController.show);
 publicRouter.get("/api/stock-outs/export/excel", StockOutController.exportExcel);
 

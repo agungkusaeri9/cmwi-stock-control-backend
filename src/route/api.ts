@@ -8,6 +8,7 @@ import { KanbanController } from "../controller/kanban-controller";
 import { SupplierController } from "../controller/supplier-controller";
 import { MakerController } from "../controller/Maker-controller";
 import { MachineController } from "../controller/machine-controller";
+import { StockOutController } from "../controller/stock-out-controller";
 
 
 export const apiRouter = express.Router();
@@ -22,6 +23,8 @@ apiRouter.post("/api/operators", OperatorController.create);
 apiRouter.put("/api/operators/:id", OperatorController.update);
 apiRouter.delete("/api/operators/:id", OperatorController.remove);
 
+// Stock Out
+apiRouter.patch("/api/stock-outs/:id", StockOutController.update);
 
 
 // Machine Area
