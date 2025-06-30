@@ -16722,6 +16722,7 @@ export async function seedKanbans3() {
         {
             "code": "EA-GN-0670",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "U3-04-007",
             "description": "Baterai",
             "specification": "CR2450HR 3V maxell",
@@ -18084,6 +18085,7 @@ export async function seedKanbans3() {
         {
             "code": "EA-GN-0722",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M1-03-009",
             "description": "MOUNTING BRACKET REED SWITCH",
             "specification": "BT-06",
@@ -18558,6 +18560,7 @@ export async function seedKanbans3() {
         {
             "code": "EA-GN-0742",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M1-04-010",
             "description": "ASM BRACKET SENSOR MIRROR",
             "specification": 0,
@@ -18576,6 +18579,7 @@ export async function seedKanbans3() {
         {
             "code": "EA-GN-0743",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M1-04-011",
             "description": "ASM BRACKET PHOTOSENSOR",
             "specification": 0,

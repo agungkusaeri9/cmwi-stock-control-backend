@@ -14041,6 +14041,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0454",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "A1-01-053",
             "description": "Timing Belt",
             "specification": "UNITTA 1320-EV8YU-25",
@@ -14059,6 +14060,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0455",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "A1-01-054",
             "description": "Narrow Belt",
             "specification": "3V 530 Bando",
@@ -14077,6 +14079,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0456",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "A1-01-055",
             "description": "Narrow Belt",
             "specification": "3V 560 Bando",
@@ -14319,6 +14322,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0465",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "HS-01-012",
             "description": "Hose Hydraulic",
             "specification": "3/8 x 250",
@@ -15229,6 +15233,7 @@ export async function seedKanbans2() {
         },
         {
             "code": "EA-GN-0506",
+            "machine": "GENERAL",
             "area": "GENERAL",
             "rack": "HS-01-060",
             "description": "HOSE HYDRAULIC YOKOHAMA",
@@ -15248,6 +15253,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0507",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "HS-01-061",
             "description": "Hose Hydraulic +Braiden+Spring",
             "specification": "UK 1/2 x 45",
@@ -15266,6 +15272,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0508",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "HS-01-062",
             "description": "HOSE HYDRAULIC YOKOHAMA",
             "specification": "UK 1/4 x 70",
@@ -15284,6 +15291,7 @@ export async function seedKanbans2() {
         {
             "code": "EA-GN-0509",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "HS-01-063",
             "description": "HOSE HYDRAULIC YOKOHAMA BRIQUET",
             "specification": "ASM FITTING 20PH/38RO UK 1 1/4 x 2m",

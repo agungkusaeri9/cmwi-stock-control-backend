@@ -7373,6 +7373,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-1032",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M5-03-017",
             "description": "BEARING",
             "specification": "6901 ZZ NTN",
@@ -9564,6 +9565,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-1035",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M6-05-004",
             "description": "HINGE PINS",
             "specification": "C-HHSZN65",
@@ -9579,6 +9581,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-1033",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M6-05-005",
             "description": "VALVE ELEMENT",
             "specification": "VN2-4BC",
@@ -9610,6 +9613,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0969",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M7-03-013",
             "description": "Skun R",
             "specification": "120 - 10",
@@ -9628,6 +9632,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0970",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "M7-03-014",
             "description": "Skun R",
             "specification": "120 - 12",
@@ -11108,6 +11113,7 @@ export async function seedKanbans4() {
         {
             "code": "EA-GN-0992",
             "area": "GENERAL",
+            "machine": "GENERAL",
             "rack": "PL10-01-010",
             "description": "ROLLER GRAVITY",
             "specification": "UK DIAMETER 42 MM X 200 MM X AS 12 MM",

@@ -114,6 +114,10 @@ export class StockOutService {
                 }
             });
 
+            if (updateRequest.quantity > existingQuantity) {
+                throw new ResponseError(400, "Quantity cannot be increased");
+            }
+
             // Jika quantity berubah, update juga kanban.balance
             if (existingQuantity !== updateRequest.quantity) {
 
