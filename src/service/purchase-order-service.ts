@@ -294,7 +294,8 @@ export class PurchaseOrderService {
                         select: {
                             id: true,
                             po_number: true,
-                            kanban_code: true
+                            kanban_code: true,
+                            pr_number: true
                         }
                     });
 
@@ -304,27 +305,51 @@ export class PurchaseOrderService {
                     );
 
                     // Cari PO Detail yang tidak ada di filteredDetailRequest
+                    // Ambil existing PO Detail …  (potongan kode awal tetap)
+
                     const notInFiltered = existingpurchaseOrderDetail.filter(existing => {
                         const key = `${existing.po_number}::${existing.kanban_code}`;
                         return !filteredDetailSet.has(key);
                     });
 
-                    // Update is_active = false untuk kanban yang terkait
-                    const kanbanCodesToDeactivate = notInFiltered
-                        .map(d => d.kanban_code)
-                        .filter((v): v is string => v !== null) // add null check here
-                        .filter((v, i, a) => a.indexOf(v) === i); // unik dan tidak null
+                    // Ambil ID‑ID yang harus di‑non‑aktifkan
+                    const idsToDeactivate = notInFiltered.map(d => d.id);
 
-                    if (kanbanCodesToDeactivate.length > 0) {
+
+                    if (idsToDeactivate.length > 0) {
                         await tx.purchaseOrderDetail.updateMany({
-                            where: {
-                                kanban_code: { in: kanbanCodesToDeactivate }
-                            },
-                            data: {
-                                is_active: false
-                            }
+                            where: { id: { in: idsToDeactivate } },
+                            data: { is_active: false }
                         });
                     }
+
+                    const pairsToDeactivate = notInFiltered
+                        // filter yang memastikan hanya data dengan pr_number dan kanban_code yang tidak null
+                        .filter(
+                            (d): d is typeof d & { pr_number: string; kanban_code: string } =>
+                                d.pr_number !== null && d.kanban_code !== null
+                        )
+                        // petakan menjadi pasangan kondisi
+                        .map(d => ({
+                            pr_number: d.pr_number,
+                            kanban_code: d.kanban_code,
+                        }))
+                        // hapus duplikat (opsional tapi aman)
+                        .filter(
+                            (v, i, arr) =>
+                                arr.findIndex(
+                                    p => p.pr_number === v.pr_number && p.kanban_code === v.kanban_code
+                                ) === i
+                        );
+
+                    if (pairsToDeactivate.length > 0) {
+                        await tx.purchaseRequestDetail.updateMany({
+                            where: { OR: pairsToDeactivate },
+                            data: { is_active: false },
+                        });
+                    }
+
+
 
 
                     // Hapus hanya PO Detail yang tidak termasuk dan tidak mengandung kanban_code yang dinonaktifkan

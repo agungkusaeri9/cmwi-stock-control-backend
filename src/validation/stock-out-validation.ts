@@ -11,7 +11,7 @@ export class StockOutValidation {
     });
 
     static readonly UPDATE: ZodType = z.object({
-        quantity: z.number().min(0).positive(),
+        quantity: z.number().min(0),
     });
 
     static readonly SEARCH: ZodType = z.object({
