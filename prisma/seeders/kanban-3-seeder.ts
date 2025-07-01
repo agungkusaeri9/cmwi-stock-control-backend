@@ -23,7 +23,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-198",
@@ -42,7 +43,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0576",
@@ -61,7 +63,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-153",
@@ -80,7 +83,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-UT-082",
@@ -99,7 +103,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0577",
@@ -118,7 +123,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0578",
@@ -137,7 +143,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0579",
@@ -156,7 +163,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0580",
@@ -175,7 +183,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-CM-0581",
@@ -194,7 +203,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0582",
@@ -213,7 +223,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 4,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 5
         },
         {
             "code": "EA-CM-0583",
@@ -232,7 +243,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0584",
@@ -251,7 +263,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0585",
@@ -270,7 +283,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0586",
@@ -289,7 +303,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-PA-199",
@@ -308,7 +323,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-UT-083",
@@ -327,7 +343,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-CM-0587",
@@ -346,7 +363,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0588",
@@ -365,7 +383,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0589",
@@ -384,7 +403,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0590",
@@ -403,7 +423,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0591",
@@ -422,7 +443,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 12
         },
         {
             "code": "EA-CM-0592",
@@ -441,7 +463,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 12
         },
         {
             "code": "EA-CM-0593",
@@ -460,7 +483,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0594",
@@ -479,7 +503,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-PA-200",
@@ -498,7 +523,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-ME-154",
@@ -517,7 +543,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0595",
@@ -536,7 +563,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-CM-0596",
@@ -555,7 +583,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0597",
@@ -574,7 +603,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-201",
@@ -593,7 +623,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0598",
@@ -612,7 +643,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0599",
@@ -631,7 +663,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0600",
@@ -650,7 +683,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0601",
@@ -669,7 +703,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0602",
@@ -688,7 +723,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0603",
@@ -707,7 +743,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0604",
@@ -726,7 +763,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0605",
@@ -745,7 +783,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0606",
@@ -764,7 +803,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0607",
@@ -783,7 +823,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0608",
@@ -802,7 +843,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0609",
@@ -821,7 +863,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PS-111",
@@ -840,7 +883,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PS-112",
@@ -859,7 +903,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PS-113",
@@ -878,7 +923,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PS-114",
@@ -897,7 +943,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0958",
@@ -916,7 +963,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0286",
@@ -935,7 +983,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PS-115",
@@ -954,7 +1003,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PS-116",
@@ -973,7 +1023,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0287",
@@ -992,7 +1043,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 7
         },
         {
             "code": "EA-CM-0288",
@@ -1011,7 +1063,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0267",
@@ -1030,7 +1083,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0268",
@@ -1049,7 +1103,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-155",
@@ -1068,7 +1123,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0289",
@@ -1087,7 +1143,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-156",
@@ -1106,7 +1163,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0610",
@@ -1125,7 +1183,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-ME-157",
@@ -1144,7 +1203,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0608",
@@ -1162,7 +1222,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 1
         },
         {
             "code": "EA-MA-0269",
@@ -1181,7 +1242,8 @@ export async function seedKanbans3() {
             "max_quantity": 18,
             "order_point": 6,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 8
         },
         {
             "code": "EA-CM-0290",
@@ -1200,7 +1262,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-PS-117",
@@ -1219,7 +1282,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-CM-0291",
@@ -1238,7 +1302,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-GN-0513",
@@ -1257,7 +1322,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-MA-0270",
@@ -1276,7 +1342,8 @@ export async function seedKanbans3() {
             "max_quantity": 147,
             "order_point": 49,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-CM-0611",
@@ -1295,7 +1362,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0292",
@@ -1314,7 +1382,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0514",
@@ -1333,7 +1402,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0271",
@@ -1352,7 +1422,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0272",
@@ -1371,7 +1442,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0273",
@@ -1390,7 +1462,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0274",
@@ -1409,7 +1482,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0275",
@@ -1428,7 +1502,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-MA-0276",
@@ -1447,7 +1522,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0277",
@@ -1466,7 +1542,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0278",
@@ -1485,7 +1562,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-UT-084",
@@ -1504,7 +1582,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-GN-0515",
@@ -1523,7 +1602,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0279",
@@ -1542,7 +1622,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-CM-0293",
@@ -1561,7 +1642,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-158",
@@ -1580,7 +1662,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-159",
@@ -1599,7 +1682,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0294",
@@ -1618,7 +1702,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-UT-085",
@@ -1637,7 +1722,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 15
         },
         {
             "code": "EA-MA-0280",
@@ -1656,7 +1742,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-ME-160",
@@ -1675,7 +1762,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0612",
@@ -1694,7 +1782,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PS-118",
@@ -1713,7 +1802,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-MA-0281",
@@ -1732,7 +1822,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-MA-0282",
@@ -1751,7 +1842,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0283",
@@ -1770,7 +1862,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-MA-0284",
@@ -1789,7 +1882,8 @@ export async function seedKanbans3() {
             "max_quantity": 12,
             "order_point": 4,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-MA-0285",
@@ -1808,7 +1902,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0286",
@@ -1827,7 +1922,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0287",
@@ -1846,7 +1942,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 9
         },
         {
             "code": "EA-MA-0288",
@@ -1865,7 +1962,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-PA-202",
@@ -1884,7 +1982,8 @@ export async function seedKanbans3() {
             "max_quantity": 13,
             "order_point": 4,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-HT-184",
@@ -1903,7 +2002,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-203",
@@ -1922,7 +2022,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-GN-0516",
@@ -1941,7 +2042,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PS-119",
@@ -1960,7 +2062,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0295",
@@ -1979,7 +2082,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-GN-0517",
@@ -1998,7 +2102,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-GN-0518",
@@ -2017,7 +2122,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-GN-0519",
@@ -2036,7 +2142,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-204",
@@ -2055,7 +2162,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-MA-0289",
@@ -2074,7 +2182,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-205",
@@ -2093,7 +2202,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0296",
@@ -2112,7 +2222,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0290",
@@ -2131,7 +2242,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-GN-0520",
@@ -2150,7 +2262,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-GN-0521",
@@ -2169,7 +2282,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-ME-161",
@@ -2188,7 +2302,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-ME-162",
@@ -2207,7 +2322,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0297",
@@ -2226,7 +2342,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 9
         },
         {
             "code": "EA-CM-0298",
@@ -2245,7 +2362,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-206",
@@ -2264,7 +2382,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-163",
@@ -2283,7 +2402,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-CM-0613",
@@ -2301,7 +2421,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-MA-0291",
@@ -2320,7 +2441,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-ME-164",
@@ -2336,7 +2458,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-ME-165",
@@ -2354,7 +2477,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-CM-0299",
@@ -2372,7 +2496,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-ME-166",
@@ -2390,7 +2515,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-ME-167",
@@ -2408,7 +2534,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PA-207",
@@ -2427,7 +2554,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-ME-168",
@@ -2445,7 +2573,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-CM-0614",
@@ -2464,7 +2593,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0300",
@@ -2482,7 +2612,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 8
         },
         {
             "code": "EA-ME-169",
@@ -2500,7 +2631,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PA-208",
@@ -2519,7 +2651,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0301",
@@ -2537,7 +2670,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 1
         },
         {
             "code": "EA-CM-0302",
@@ -2555,7 +2689,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 3
         },
         {
             "code": "EA-GN-0522",
@@ -2573,7 +2708,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 5
         },
         {
             "code": "EA-ME-170",
@@ -2591,7 +2727,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-ME-171",
@@ -2609,7 +2746,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0303",
@@ -2627,7 +2765,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-PA-209",
@@ -2646,7 +2785,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-210",
@@ -2665,7 +2805,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-211",
@@ -2684,7 +2825,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-212",
@@ -2703,7 +2845,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0523",
@@ -2721,7 +2864,8 @@ export async function seedKanbans3() {
             "min_quantity": 10,
             "max_quantity": 20,
             "order_point": 7,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 9
         },
         {
             "code": "EA-GN-0524",
@@ -2739,7 +2883,8 @@ export async function seedKanbans3() {
             "min_quantity": 161,
             "max_quantity": 241,
             "order_point": 80,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 4
         },
         {
             "code": "EA-GN-0525",
@@ -2757,7 +2902,8 @@ export async function seedKanbans3() {
             "min_quantity": 12,
             "max_quantity": 18,
             "order_point": 6,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 9
         },
         {
             "code": "EA-GN-0526",
@@ -2776,7 +2922,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 12
         },
         {
             "code": "EA-MA-0292",
@@ -2794,7 +2941,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 0
         },
         {
             "code": "EA-MA-0293",
@@ -2813,7 +2961,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0294",
@@ -2832,7 +2981,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0295",
@@ -2851,7 +3001,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0296",
@@ -2870,7 +3021,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0297",
@@ -2889,7 +3041,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0298",
@@ -2908,7 +3061,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0299",
@@ -2927,7 +3081,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-MA-0300",
@@ -2945,7 +3100,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 2
         },
         {
             "code": "EA-CM-0304",
@@ -2963,7 +3119,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 30
+            "lead_time": 30,
+            "balance": 1
         },
         {
             "code": "EA-MA-0301",
@@ -2982,7 +3139,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 210,
-            "rank": "S"
+            "rank": "S",
+            "balance": 5
         },
         {
             "code": "EA-ME-172",
@@ -3000,7 +3158,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 1
         },
         {
             "code": "EA-UT-086",
@@ -3018,7 +3177,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PA-213",
@@ -3036,7 +3196,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-PS-120",
@@ -3054,7 +3215,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PS-121",
@@ -3072,7 +3234,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PS-122",
@@ -3090,7 +3253,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PA-214",
@@ -3108,7 +3272,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0302",
@@ -3126,7 +3291,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0303",
@@ -3144,7 +3310,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0304",
@@ -3162,7 +3329,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0305",
@@ -3180,7 +3348,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0306",
@@ -3198,7 +3367,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 6
         },
         {
             "code": "EA-MA-0307",
@@ -3216,7 +3386,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0308",
@@ -3234,7 +3405,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0309",
@@ -3252,7 +3424,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0310",
@@ -3270,7 +3443,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0311",
@@ -3288,7 +3462,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0312",
@@ -3306,7 +3481,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0313",
@@ -3324,7 +3500,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0314",
@@ -3342,7 +3519,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 0
         },
         {
             "code": "EA-MA-0315",
@@ -3360,7 +3538,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0316",
@@ -3378,7 +3557,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0317",
@@ -3396,7 +3576,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0318",
@@ -3414,7 +3595,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0319",
@@ -3432,7 +3614,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0320",
@@ -3450,7 +3633,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0321",
@@ -3468,7 +3652,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0322",
@@ -3486,7 +3671,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0323",
@@ -3504,7 +3690,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0324",
@@ -3522,7 +3709,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0325",
@@ -3540,7 +3728,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0326",
@@ -3558,7 +3747,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 0
         },
         {
             "code": "EA-MA-0327",
@@ -3576,7 +3766,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0328",
@@ -3594,7 +3785,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0329",
@@ -3612,7 +3804,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0330",
@@ -3630,7 +3823,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0331",
@@ -3648,7 +3842,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0332",
@@ -3666,7 +3861,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 6
         },
         {
             "code": "EA-MA-0333",
@@ -3684,7 +3880,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0334",
@@ -3702,7 +3899,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 5
         },
         {
             "code": "EA-MA-0335",
@@ -3720,7 +3918,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0336",
@@ -3738,7 +3937,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0337",
@@ -3756,7 +3956,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0338",
@@ -3775,7 +3976,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-MA-0339",
@@ -3793,7 +3995,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 0
         },
         {
             "code": "EA-MA-0340",
@@ -3811,7 +4014,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0341",
@@ -3829,7 +4033,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0342",
@@ -3847,7 +4052,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 0
         },
         {
             "code": "EA-MA-0343",
@@ -3865,7 +4071,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0344",
@@ -3883,7 +4090,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 5
         },
         {
             "code": "EA-MA-0345",
@@ -3902,7 +4110,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0346",
@@ -3920,7 +4129,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0347",
@@ -3938,7 +4148,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0348",
@@ -3956,7 +4167,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0349",
@@ -3974,7 +4186,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0350",
@@ -3993,7 +4206,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-MA-0351",
@@ -4011,7 +4225,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0352",
@@ -4029,7 +4244,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0353",
@@ -4047,7 +4263,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0354",
@@ -4065,7 +4282,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0355",
@@ -4083,7 +4301,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0356",
@@ -4101,7 +4320,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0357",
@@ -4119,7 +4339,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0358",
@@ -4137,7 +4358,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0359",
@@ -4155,7 +4377,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0360",
@@ -4173,7 +4396,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0361",
@@ -4191,7 +4415,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0362",
@@ -4209,7 +4434,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0363",
@@ -4227,7 +4453,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0364",
@@ -4245,7 +4472,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 1
         },
         {
             "code": "EA-MA-0365",
@@ -4263,7 +4491,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0366",
@@ -4281,7 +4510,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 4
         },
         {
             "code": "EA-MA-0367",
@@ -4299,7 +4529,8 @@ export async function seedKanbans3() {
             "min_quantity": 9,
             "max_quantity": 13,
             "order_point": 4,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 8
         },
         {
             "code": "EA-MA-0368",
@@ -4317,7 +4548,8 @@ export async function seedKanbans3() {
             "min_quantity": 9,
             "max_quantity": 13,
             "order_point": 4,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 8
         },
         {
             "code": "EA-MA-0369",
@@ -4335,7 +4567,8 @@ export async function seedKanbans3() {
             "min_quantity": 9,
             "max_quantity": 13,
             "order_point": 4,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 8
         },
         {
             "code": "EA-MA-0370",
@@ -4353,7 +4586,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0371",
@@ -4371,7 +4605,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-MA-0372",
@@ -4389,7 +4624,8 @@ export async function seedKanbans3() {
             "min_quantity": 8,
             "max_quantity": 12,
             "order_point": 4,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 7
         },
         {
             "code": "EA-MA-0373",
@@ -4407,7 +4643,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 2
         },
         {
             "code": "EA-ME-173",
@@ -4425,7 +4662,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0305",
@@ -4443,7 +4681,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0615",
@@ -4461,7 +4700,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-UT-087",
@@ -4480,7 +4720,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0616",
@@ -4498,7 +4739,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0617",
@@ -4516,7 +4758,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-MA-0374",
@@ -4534,7 +4777,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0618",
@@ -4552,7 +4796,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0619",
@@ -4570,7 +4815,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0620",
@@ -4588,7 +4834,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 0
         },
         {
             "code": "EA-MA-0375",
@@ -4606,7 +4853,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0621",
@@ -4624,7 +4872,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0622",
@@ -4642,7 +4891,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 6
         },
         {
             "code": "EA-CM-0623",
@@ -4660,7 +4910,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0624",
@@ -4678,7 +4929,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-MA-0376",
@@ -4696,7 +4948,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-MA-0377",
@@ -4714,7 +4967,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 4
         },
         {
             "code": "EA-UT-088",
@@ -4732,7 +4986,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0625",
@@ -4751,7 +5006,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "S"
+            "rank": "S",
+            "balance": 0
         },
         {
             "code": "EA-MA-0378",
@@ -4769,7 +5025,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-MA-0379",
@@ -4787,7 +5044,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0306",
@@ -4805,7 +5063,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-ME-174",
@@ -4823,7 +5082,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0307",
@@ -4841,7 +5101,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0308",
@@ -4859,7 +5120,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0309",
@@ -4877,7 +5139,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-MA-0380",
@@ -4896,7 +5159,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-PS-123",
@@ -4914,7 +5178,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0626",
@@ -4932,7 +5197,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0310",
@@ -4950,7 +5216,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0311",
@@ -4968,7 +5235,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 90
+            "lead_time": 90,
+            "balance": 6
         },
         {
             "code": "EA-MA-0381",
@@ -4987,7 +5255,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0382",
@@ -5006,7 +5275,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-215",
@@ -5024,7 +5294,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-GN-0527",
@@ -5042,7 +5313,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-HT-185",
@@ -5060,7 +5332,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-ME-175",
@@ -5078,7 +5351,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 6
         },
         {
             "code": "EA-UT-089",
@@ -5096,7 +5370,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0312",
@@ -5114,7 +5389,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 4
         },
         {
             "code": "EA-CM-0313",
@@ -5132,7 +5408,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 4
         },
         {
             "code": "EA-PA-216",
@@ -5150,7 +5427,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-ME-176",
@@ -5169,7 +5447,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-PA-339",
@@ -5188,7 +5467,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PS-124",
@@ -5207,7 +5487,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-GN-0528",
@@ -5226,7 +5507,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0529",
@@ -5245,7 +5527,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-1004",
@@ -5264,7 +5547,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0530",
@@ -5283,7 +5567,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0531",
@@ -5302,7 +5587,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-1005",
@@ -5321,7 +5607,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-CM-0314",
@@ -5340,7 +5627,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0532",
@@ -5359,7 +5647,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0533",
@@ -5378,7 +5667,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0534",
@@ -5397,7 +5687,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0535",
@@ -5416,7 +5707,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0536",
@@ -5435,7 +5727,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0537",
@@ -5454,7 +5747,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0538",
@@ -5473,7 +5767,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0539",
@@ -5492,7 +5787,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0540",
@@ -5511,7 +5807,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0541",
@@ -5530,7 +5827,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0542",
@@ -5549,7 +5847,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0543",
@@ -5568,7 +5867,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0544",
@@ -5587,7 +5887,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0545",
@@ -5606,7 +5907,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0546",
@@ -5625,7 +5927,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0547",
@@ -5644,7 +5947,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0548",
@@ -5663,7 +5967,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0549",
@@ -5682,7 +5987,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0550",
@@ -5701,7 +6007,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0551",
@@ -5720,7 +6027,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0552",
@@ -5739,7 +6047,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0553",
@@ -5758,7 +6067,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0554",
@@ -5777,7 +6087,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0555",
@@ -5796,7 +6107,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0556",
@@ -5815,7 +6127,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0557",
@@ -5834,7 +6147,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-0558",
@@ -5853,7 +6167,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-CM-0627",
@@ -5872,7 +6187,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0559",
@@ -5891,7 +6207,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-0560",
@@ -5910,7 +6227,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0561",
@@ -5929,7 +6247,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0562",
@@ -5948,7 +6267,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0563",
@@ -5967,7 +6287,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0564",
@@ -5986,7 +6307,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-1006",
@@ -6005,7 +6327,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0565",
@@ -6024,7 +6347,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-1007",
@@ -6043,7 +6367,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0566",
@@ -6062,7 +6387,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-ME-177",
@@ -6081,7 +6407,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0567",
@@ -6100,7 +6427,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 9
         },
         {
             "code": "EA-GN-0568",
@@ -6119,7 +6447,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0569",
@@ -6138,7 +6467,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-CM-0628",
@@ -6157,7 +6487,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0570",
@@ -6176,7 +6507,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 9
         },
         {
             "code": "EA-GN-0571",
@@ -6195,7 +6527,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 11
         },
         {
             "code": "EA-GN-0572",
@@ -6214,7 +6547,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-1008",
@@ -6233,7 +6567,8 @@ export async function seedKanbans3() {
             "max_quantity": 28,
             "order_point": 9,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 22
         },
         {
             "code": "EA-GN-0573",
@@ -6252,7 +6587,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0574",
@@ -6271,7 +6607,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-0575",
@@ -6290,7 +6627,8 @@ export async function seedKanbans3() {
             "max_quantity": 22,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-0576",
@@ -6309,7 +6647,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-1009",
@@ -6328,7 +6667,8 @@ export async function seedKanbans3() {
             "max_quantity": 42,
             "order_point": 14,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 30
         },
         {
             "code": "EA-GN-0577",
@@ -6347,7 +6687,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0578",
@@ -6366,7 +6707,8 @@ export async function seedKanbans3() {
             "max_quantity": 22,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 16
         },
         {
             "code": "EA-GN-0579",
@@ -6385,7 +6727,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 32
         },
         {
             "code": "EA-GN-1010",
@@ -6404,7 +6747,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 9
         },
         {
             "code": "EA-MA-0383",
@@ -6423,7 +6767,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 20
         },
         {
             "code": "EA-GN-0580",
@@ -6442,7 +6787,8 @@ export async function seedKanbans3() {
             "max_quantity": 22,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-GN-0581",
@@ -6461,7 +6807,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-1011",
@@ -6480,7 +6827,8 @@ export async function seedKanbans3() {
             "max_quantity": 42,
             "order_point": 14,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0582",
@@ -6499,7 +6847,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-0583",
@@ -6518,7 +6867,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0584",
@@ -6537,7 +6887,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-1012",
@@ -6556,7 +6907,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-1013",
@@ -6575,7 +6927,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0585",
@@ -6594,7 +6947,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0586",
@@ -6613,7 +6967,8 @@ export async function seedKanbans3() {
             "max_quantity": 33,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0587",
@@ -6632,7 +6987,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-1014",
@@ -6651,7 +7007,8 @@ export async function seedKanbans3() {
             "max_quantity": 33,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0588",
@@ -6670,7 +7027,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0589",
@@ -6689,7 +7047,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0590",
@@ -6708,7 +7067,8 @@ export async function seedKanbans3() {
             "max_quantity": 49,
             "order_point": 16,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 9
         },
         {
             "code": "EA-GN-0591",
@@ -6727,7 +7087,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0592",
@@ -6746,7 +7107,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 11
         },
         {
             "code": "EA-GN-0593",
@@ -6765,7 +7127,8 @@ export async function seedKanbans3() {
             "max_quantity": 33,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 27
         },
         {
             "code": "EA-GN-0594",
@@ -6784,7 +7147,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0595",
@@ -6803,7 +7167,8 @@ export async function seedKanbans3() {
             "max_quantity": 33,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0596",
@@ -6822,7 +7187,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 33
         },
         {
             "code": "EA-GN-0597",
@@ -6841,7 +7207,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0598",
@@ -6860,7 +7227,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 11
         },
         {
             "code": "EA-GN-0599",
@@ -6879,7 +7247,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-CM-0629",
@@ -6898,7 +7267,8 @@ export async function seedKanbans3() {
             "max_quantity": 48,
             "order_point": 16,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 36
         },
         {
             "code": "EA-GN-0600",
@@ -6917,7 +7287,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 24
         },
         {
             "code": "EA-GN-0601",
@@ -6936,7 +7307,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-GN-1015",
@@ -6955,7 +7327,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 22
         },
         {
             "code": "EA-GN-0602",
@@ -6974,7 +7347,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0603",
@@ -6993,7 +7367,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0604",
@@ -7012,7 +7387,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0605",
@@ -7031,7 +7407,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 25
         },
         {
             "code": "EA-GN-0606",
@@ -7050,7 +7427,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-1016",
@@ -7069,7 +7447,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-CM-0315",
@@ -7088,7 +7467,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0607",
@@ -7107,7 +7487,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0608",
@@ -7126,7 +7507,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-1017",
@@ -7145,7 +7527,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 29
         },
         {
             "code": "EA-GN-0609",
@@ -7164,7 +7547,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 16
         },
         {
             "code": "EA-GN-0610",
@@ -7183,7 +7567,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-1018",
@@ -7202,7 +7587,8 @@ export async function seedKanbans3() {
             "max_quantity": 12,
             "order_point": 4,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0611",
@@ -7221,7 +7607,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0612",
@@ -7240,7 +7627,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 26
         },
         {
             "code": "EA-GN-0613",
@@ -7259,7 +7647,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0614",
@@ -7278,7 +7667,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0615",
@@ -7297,7 +7687,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 51
         },
         {
             "code": "EA-GN-0616",
@@ -7316,7 +7707,8 @@ export async function seedKanbans3() {
             "max_quantity": 13,
             "order_point": 4,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-HT-186",
@@ -7335,7 +7727,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 180
         },
         {
             "code": "EA-GN-0617",
@@ -7354,7 +7747,8 @@ export async function seedKanbans3() {
             "max_quantity": 21,
             "order_point": 7,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-GN-0618",
@@ -7373,7 +7767,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 34
         },
         {
             "code": "EA-GN-0619",
@@ -7392,7 +7787,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0620",
@@ -7411,7 +7807,8 @@ export async function seedKanbans3() {
             "max_quantity": 13,
             "order_point": 4,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 49
         },
         {
             "code": "EA-GN-0621",
@@ -7430,7 +7827,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-1019",
@@ -7449,7 +7847,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0622",
@@ -7468,7 +7867,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 24
         },
         {
             "code": "EA-GN-0623",
@@ -7487,7 +7887,8 @@ export async function seedKanbans3() {
             "max_quantity": 34,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 19
         },
         {
             "code": "EA-GN-0624",
@@ -7506,7 +7907,8 @@ export async function seedKanbans3() {
             "max_quantity": 13,
             "order_point": 4,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-1020",
@@ -7525,7 +7927,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 19
         },
         {
             "code": "EA-HT-187",
@@ -7544,7 +7947,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 16
         },
         {
             "code": "EA-GN-0625",
@@ -7563,7 +7967,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "D"
+            "rank": "D",
+            "balance": 2
         },
         {
             "code": "EA-GN-1021",
@@ -7582,7 +7987,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0626",
@@ -7601,7 +8007,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0627",
@@ -7620,7 +8027,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-0628",
@@ -7639,7 +8047,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0629",
@@ -7658,7 +8067,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0630",
@@ -7677,7 +8087,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0631",
@@ -7696,7 +8107,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0632",
@@ -7715,7 +8127,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0633",
@@ -7734,7 +8147,8 @@ export async function seedKanbans3() {
             "max_quantity": 15,
             "order_point": 5,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 21
         },
         {
             "code": "EA-ME-178",
@@ -7753,7 +8167,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 240,
-            "rank": "S"
+            "rank": "S",
+            "balance": 0
         },
         {
             "code": "EA-ME-179",
@@ -7772,7 +8187,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "S"
+            "rank": "S",
+            "balance": 4
         },
         {
             "code": "EA-ME-180",
@@ -7791,7 +8207,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 5
         },
         {
             "code": "EA-HT-188",
@@ -7810,7 +8227,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0630",
@@ -7829,7 +8247,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0631",
@@ -7848,7 +8267,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0632",
@@ -7867,7 +8287,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 372,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0633",
@@ -7886,7 +8307,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0634",
@@ -7905,7 +8327,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-217",
@@ -7923,7 +8346,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-PA-218",
@@ -7942,7 +8366,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0635",
@@ -7961,7 +8386,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-HT-189",
@@ -7980,7 +8406,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0636",
@@ -7999,7 +8426,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0637",
@@ -8018,7 +8446,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0638",
@@ -8037,7 +8466,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0639",
@@ -8056,7 +8486,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0640",
@@ -8075,7 +8506,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0641",
@@ -8094,7 +8526,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0642",
@@ -8113,7 +8546,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0643",
@@ -8132,7 +8566,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0644",
@@ -8151,7 +8586,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0645",
@@ -8170,7 +8606,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0646",
@@ -8189,7 +8626,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0647",
@@ -8208,7 +8646,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0648",
@@ -8227,7 +8666,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0649",
@@ -8246,7 +8686,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-219",
@@ -8265,7 +8706,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-220",
@@ -8284,7 +8726,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0650",
@@ -8303,7 +8746,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-CM-0651",
@@ -8322,7 +8766,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-HT-190",
@@ -8341,7 +8786,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0652",
@@ -8360,7 +8806,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0653",
@@ -8379,7 +8826,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0654",
@@ -8398,7 +8846,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0655",
@@ -8417,7 +8866,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0656",
@@ -8436,7 +8886,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0657",
@@ -8455,7 +8906,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0658",
@@ -8474,7 +8926,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0659",
@@ -8493,7 +8946,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0660",
@@ -8512,7 +8966,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0661",
@@ -8531,7 +8986,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0662",
@@ -8550,7 +9006,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0663",
@@ -8569,7 +9026,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0664",
@@ -8588,7 +9046,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0665",
@@ -8607,7 +9066,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-181",
@@ -8626,7 +9086,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0666",
@@ -8645,7 +9106,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0667",
@@ -8664,7 +9126,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0668",
@@ -8683,7 +9146,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0669",
@@ -8702,7 +9166,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0670",
@@ -8721,7 +9186,8 @@ export async function seedKanbans3() {
             "max_quantity": 8,
             "order_point": 3,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-CM-0671",
@@ -8740,7 +9206,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0672",
@@ -8759,7 +9226,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 7
         },
         {
             "code": "EA-CM-0673",
@@ -8778,7 +9246,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0674",
@@ -8797,7 +9266,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0675",
@@ -8816,7 +9286,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0676",
@@ -8835,7 +9306,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0677",
@@ -8854,7 +9326,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0678",
@@ -8873,7 +9346,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0679",
@@ -8892,7 +9366,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0680",
@@ -8911,7 +9386,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0681",
@@ -8930,7 +9406,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0682",
@@ -8949,7 +9426,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0683",
@@ -8968,7 +9446,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0684",
@@ -8987,7 +9466,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0685",
@@ -9006,7 +9486,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0686",
@@ -9025,7 +9506,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0687",
@@ -9044,7 +9526,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0688",
@@ -9063,7 +9546,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0689",
@@ -9082,7 +9566,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0690",
@@ -9101,7 +9586,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-CM-0691",
@@ -9120,7 +9606,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0692",
@@ -9139,7 +9626,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-CM-0693",
@@ -9158,7 +9646,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0694",
@@ -9177,7 +9666,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0695",
@@ -9196,7 +9686,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-CM-0696",
@@ -9215,7 +9706,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-ME-182",
@@ -9234,7 +9726,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 11
         },
         {
             "code": "EA-CM-0697",
@@ -9253,7 +9746,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0698",
@@ -9272,7 +9766,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0699",
@@ -9291,7 +9786,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0700",
@@ -9310,7 +9806,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0701",
@@ -9329,7 +9826,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0702",
@@ -9348,7 +9846,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0703",
@@ -9367,7 +9866,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0704",
@@ -9386,7 +9886,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-ME-183",
@@ -9405,7 +9906,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0705",
@@ -9424,7 +9926,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-CM-0706",
@@ -9443,7 +9946,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-GN-0634",
@@ -9462,7 +9966,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0707",
@@ -9481,7 +9986,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0708",
@@ -9500,7 +10006,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0709",
@@ -9519,7 +10026,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0710",
@@ -9538,7 +10046,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0711",
@@ -9557,7 +10066,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0316",
@@ -9576,7 +10086,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0712",
@@ -9595,7 +10106,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0713",
@@ -9614,7 +10126,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-GN-0635",
@@ -9633,7 +10146,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0636",
@@ -9652,7 +10166,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0637",
@@ -9671,7 +10186,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-CM-0714",
@@ -9690,7 +10206,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-CM-0715",
@@ -9709,7 +10226,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 5
         },
         {
             "code": "EA-CM-0716",
@@ -9728,7 +10246,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0717",
@@ -9747,7 +10266,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0718",
@@ -9766,7 +10286,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0719",
@@ -9785,7 +10306,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-CM-0720",
@@ -9804,7 +10326,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-CM-0721",
@@ -9823,7 +10346,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-CM-0722",
@@ -9842,7 +10366,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-CM-0723",
@@ -9861,13 +10386,15 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-CM-0724",
             "area": "LP",
             "machine": "WO",
-            "rack": "S1-02-007"
+            "rack": "S1-02-007",
+            "balance": 0
         },
         {
             "code": "EA-CM-0725",
@@ -9886,7 +10413,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0726",
@@ -9905,7 +10433,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0727",
@@ -9924,7 +10453,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-CM-0728",
@@ -9943,7 +10473,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0729",
@@ -9962,7 +10493,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 10
         },
         {
             "code": "EA-CM-0730",
@@ -9981,7 +10513,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-CM-0731",
@@ -10000,7 +10533,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0732",
@@ -10019,7 +10553,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-CM-0733",
@@ -10038,7 +10573,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0734",
@@ -10057,7 +10593,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0735",
@@ -10076,7 +10613,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0736",
@@ -10095,7 +10633,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0737",
@@ -10114,7 +10653,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-MA-0384",
@@ -10133,7 +10673,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 12
         },
         {
             "code": "EA-CM-0738",
@@ -10152,7 +10693,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 7
         },
         {
             "code": "EA-CM-0739",
@@ -10171,7 +10713,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0740",
@@ -10190,7 +10733,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0741",
@@ -10209,7 +10753,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0742",
@@ -10228,7 +10773,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0743",
@@ -10247,7 +10793,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0744",
@@ -10266,7 +10813,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0745",
@@ -10285,7 +10833,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0746",
@@ -10304,7 +10853,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0747",
@@ -10323,7 +10873,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0748",
@@ -10342,7 +10893,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0749",
@@ -10361,7 +10913,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0750",
@@ -10380,7 +10933,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0751",
@@ -10399,7 +10953,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 5
         },
         {
             "code": "EA-CM-0752",
@@ -10418,7 +10973,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0753",
@@ -10437,7 +10993,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 4,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-CM-0754",
@@ -10456,7 +11013,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0755",
@@ -10475,7 +11033,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0756",
@@ -10494,7 +11053,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0757",
@@ -10513,7 +11073,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 4
         },
         {
             "code": "EA-CM-0758",
@@ -10532,7 +11093,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 0
         },
         {
             "code": "EA-CM-0759",
@@ -10551,7 +11113,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-ME-184",
@@ -10570,7 +11133,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-CM-0760",
@@ -10589,7 +11153,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0761",
@@ -10608,7 +11173,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0762",
@@ -10627,7 +11193,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0763",
@@ -10646,7 +11213,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0764",
@@ -10665,7 +11233,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0765",
@@ -10684,7 +11253,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0766",
@@ -10703,7 +11273,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0767",
@@ -10722,7 +11293,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0768",
@@ -10741,7 +11313,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0769",
@@ -10760,7 +11333,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0770",
@@ -10779,7 +11353,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0771",
@@ -10798,7 +11373,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0772",
@@ -10817,7 +11393,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-CM-0773",
@@ -10836,7 +11413,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 71
         },
         {
             "code": "EA-CM-0774",
@@ -10855,7 +11433,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 14
         },
         {
             "code": "EA-CM-0775",
@@ -10874,7 +11453,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0776",
@@ -10893,7 +11473,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0777",
@@ -10912,7 +11493,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0778",
@@ -10931,7 +11513,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0779",
@@ -10950,7 +11533,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0780",
@@ -10969,7 +11553,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 8
         },
         {
             "code": "EA-CM-0781",
@@ -10988,7 +11573,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0782",
@@ -11007,7 +11593,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 279,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-221",
@@ -11026,7 +11613,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 8
         },
         {
             "code": "EA-PA-222",
@@ -11045,7 +11633,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-223",
@@ -11064,7 +11653,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0783",
@@ -11083,7 +11673,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0784",
@@ -11102,7 +11693,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PS-125",
@@ -11121,7 +11713,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PA-224",
@@ -11140,7 +11733,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-CM-0785",
@@ -11159,7 +11753,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-225",
@@ -11178,7 +11773,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PA-226",
@@ -11197,7 +11793,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PA-227",
@@ -11216,7 +11813,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0786",
@@ -11235,7 +11833,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-HT-191",
@@ -11254,7 +11853,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-228",
@@ -11273,7 +11873,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0787",
@@ -11292,7 +11893,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-PA-229",
@@ -11311,7 +11913,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PS-126",
@@ -11330,7 +11933,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PS-127",
@@ -11349,7 +11953,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0317",
@@ -11368,7 +11973,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-PA-230",
@@ -11387,7 +11993,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-UT-090",
@@ -11406,7 +12013,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-CM-0788",
@@ -11424,7 +12032,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0318",
@@ -11443,7 +12052,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-231",
@@ -11462,7 +12072,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0385",
@@ -11481,7 +12092,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-232",
@@ -11500,7 +12112,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-ME-185",
@@ -11519,7 +12132,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-CM-0789",
@@ -11538,7 +12152,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-MA-0386",
@@ -11557,7 +12172,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-186",
@@ -11576,7 +12192,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-ME-187",
@@ -11595,7 +12212,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-MA-0387",
@@ -11614,7 +12232,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-188",
@@ -11633,7 +12252,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-HT-192",
@@ -11652,7 +12272,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-190",
@@ -11671,7 +12292,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 0
         },
         {
             "code": "EA-ME-191",
@@ -11690,7 +12312,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 3
         },
         {
             "code": "EA-ME-192",
@@ -11709,7 +12332,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-ME-193",
@@ -11728,7 +12352,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-GN-0638",
@@ -11747,7 +12372,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 8
         },
         {
             "code": "EA-UT-091",
@@ -11766,7 +12392,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0388",
@@ -11785,7 +12412,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0790",
@@ -11804,7 +12432,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-CM-0791",
@@ -11823,7 +12452,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0792",
@@ -11842,7 +12472,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-194",
@@ -11861,7 +12492,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-195",
@@ -11880,7 +12512,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0793",
@@ -11899,7 +12532,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-HT-193",
@@ -11918,7 +12552,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-196",
@@ -11937,7 +12572,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PA-233",
@@ -11956,7 +12592,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-CM-0794",
@@ -11975,7 +12612,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0795",
@@ -11994,7 +12632,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0796",
@@ -12013,7 +12652,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-CM-0797",
@@ -12032,7 +12672,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 12
         },
         {
             "code": "EA-MA-0389",
@@ -12051,7 +12692,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-MA-0390",
@@ -12070,7 +12712,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-MA-0391",
@@ -12089,7 +12732,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 6
         },
         {
             "code": "EA-CM-0319",
@@ -12108,7 +12752,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0798",
@@ -12127,7 +12772,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0799",
@@ -12146,7 +12792,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0800",
@@ -12165,7 +12812,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0801",
@@ -12184,7 +12832,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0802",
@@ -12203,7 +12852,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0392",
@@ -12222,7 +12872,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0320",
@@ -12241,7 +12892,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-198",
@@ -12260,7 +12912,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-UT-092",
@@ -12279,7 +12932,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0639",
@@ -12297,7 +12951,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 5
         },
         {
             "code": "EA-HT-194",
@@ -12316,7 +12971,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PS-128",
@@ -12335,7 +12991,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0640",
@@ -12354,7 +13011,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-GN-0641",
@@ -12373,7 +13031,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-MA-0393",
@@ -12392,7 +13051,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-234",
@@ -12411,7 +13071,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0803",
@@ -12430,7 +13091,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0321",
@@ -12449,7 +13111,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-235",
@@ -12468,7 +13131,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-ME-199",
@@ -12487,7 +13151,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-ME-200",
@@ -12506,7 +13171,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0322",
@@ -12525,7 +13191,8 @@ export async function seedKanbans3() {
             "max_quantity": 46,
             "order_point": 15,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 54
         },
         {
             "code": "EA-MA-0394",
@@ -12544,7 +13211,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-CM-0323",
@@ -12563,7 +13231,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0804",
@@ -12582,7 +13251,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0805",
@@ -12601,7 +13271,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-201",
@@ -12620,7 +13291,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-GN-0642",
@@ -12639,7 +13311,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 8
         },
         {
             "code": "EA-CM-0324",
@@ -12658,7 +13331,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-CM-0806",
@@ -12677,7 +13351,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-UT-093",
@@ -12696,7 +13371,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-PS-129",
@@ -12715,7 +13391,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-UT-094",
@@ -12734,7 +13411,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-PA-236",
@@ -12753,7 +13431,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0643",
@@ -12772,7 +13451,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0644",
@@ -12791,7 +13471,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0395",
@@ -12810,7 +13491,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0807",
@@ -12829,7 +13511,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-HT-195",
@@ -12848,7 +13531,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-237",
@@ -12867,7 +13551,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-PA-238",
@@ -12886,7 +13571,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PA-239",
@@ -12905,7 +13591,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PA-240",
@@ -12924,7 +13611,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-PA-241",
@@ -12943,7 +13631,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0396",
@@ -12962,7 +13651,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-PS-130",
@@ -12981,7 +13671,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-MA-0397",
@@ -13000,7 +13691,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0398",
@@ -13019,7 +13711,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0399",
@@ -13038,7 +13731,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0400",
@@ -13057,7 +13751,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0401",
@@ -13076,7 +13771,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0402",
@@ -13095,7 +13791,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0403",
@@ -13114,7 +13811,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0325",
@@ -13133,7 +13831,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0326",
@@ -13152,7 +13851,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0327",
@@ -13171,7 +13871,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0328",
@@ -13190,7 +13891,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-CM-0329",
@@ -13209,7 +13911,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0330",
@@ -13228,7 +13931,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0331",
@@ -13247,7 +13951,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-CM-0332",
@@ -13266,7 +13971,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-ME-202",
@@ -13285,7 +13991,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-PA-357",
@@ -13301,7 +14008,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 9
         },
         {
             "code": "EA-GN-0645",
@@ -13320,7 +14028,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-CM-0333",
@@ -13339,7 +14048,8 @@ export async function seedKanbans3() {
             "max_quantity": 31,
             "order_point": 10,
             "lead_time": 45,
-            "rank": "C"
+            "rank": "C",
+            "balance": 4
         },
         {
             "code": "EA-PA-242",
@@ -13358,7 +14068,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0404",
@@ -13377,7 +14088,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 10
         },
         {
             "code": "EA-CM-0334",
@@ -13396,7 +14108,8 @@ export async function seedKanbans3() {
             "max_quantity": 22,
             "order_point": 7,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 25
         },
         {
             "code": "EA-PA-243",
@@ -13415,7 +14128,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0335",
@@ -13434,7 +14148,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-CM-0336",
@@ -13453,7 +14168,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-MA-0405",
@@ -13472,7 +14188,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0406",
@@ -13491,7 +14208,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0407",
@@ -13510,7 +14228,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0408",
@@ -13529,7 +14248,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0409",
@@ -13548,7 +14268,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 14
         },
         {
             "code": "EA-MA-0410",
@@ -13567,7 +14288,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 14
         },
         {
             "code": "EA-MA-0411",
@@ -13586,7 +14308,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 7
         },
         {
             "code": "EA-CM-0337",
@@ -13605,7 +14328,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-PA-244",
@@ -13624,7 +14348,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-ME-203",
@@ -13643,7 +14368,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-204",
@@ -13662,7 +14388,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0808",
@@ -13681,7 +14408,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-245",
@@ -13700,7 +14428,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-ME-205",
@@ -13719,7 +14448,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-MA-0412",
@@ -13738,7 +14468,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-ME-206",
@@ -13757,7 +14488,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-246",
@@ -13776,7 +14508,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-UT-095",
@@ -13795,7 +14528,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0809",
@@ -13814,7 +14548,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0810",
@@ -13833,7 +14568,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0811",
@@ -13852,7 +14588,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PS-131",
@@ -13871,7 +14608,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0413",
@@ -13890,7 +14628,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0414",
@@ -13909,7 +14648,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0415",
@@ -13928,7 +14668,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0416",
@@ -13947,7 +14688,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0812",
@@ -13966,7 +14708,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0417",
@@ -13985,7 +14728,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0418",
@@ -14004,7 +14748,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 20
         },
         {
             "code": "EA-MA-0419",
@@ -14023,7 +14768,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-PA-247",
@@ -14042,7 +14788,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0420",
@@ -14061,7 +14808,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-MA-0421",
@@ -14080,7 +14828,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 3
         },
         {
             "code": "EA-MA-0422",
@@ -14099,7 +14848,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 4
         },
         {
             "code": "EA-MA-0423",
@@ -14118,7 +14868,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 12
         },
         {
             "code": "EA-CM-0338",
@@ -14137,7 +14888,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 9
         },
         {
             "code": "EA-CM-0339",
@@ -14156,7 +14908,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 8
         },
         {
             "code": "EA-ME-207",
@@ -14175,7 +14928,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0340",
@@ -14194,7 +14948,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-PA-248",
@@ -14213,7 +14968,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0341",
@@ -14232,7 +14988,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-249",
@@ -14251,7 +15008,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0646",
@@ -14270,7 +15028,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0813",
@@ -14288,7 +15047,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-GN-0647",
@@ -14306,7 +15066,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 403
+            "lead_time": 403,
+            "balance": 1
         },
         {
             "code": "EA-CM-0814",
@@ -14324,7 +15085,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0815",
@@ -14342,7 +15104,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0342",
@@ -14361,7 +15124,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0817",
@@ -14379,7 +15143,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-CM-0818",
@@ -14397,7 +15162,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0819",
@@ -14415,7 +15181,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-CM-1042",
@@ -14431,7 +15198,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 120
+            "lead_time": 120,
+            "balance": 4
         },
         {
             "code": "EA-CM-0820",
@@ -14449,7 +15217,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-UT-096",
@@ -14467,7 +15236,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-MA-0424",
@@ -14485,7 +15255,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-MA-0425",
@@ -14504,7 +15275,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 6
         },
         {
             "code": "EA-CM-0821",
@@ -14522,7 +15294,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 297
+            "lead_time": 297,
+            "balance": 2
         },
         {
             "code": "EA-CM-0822",
@@ -14540,7 +15313,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 403
+            "lead_time": 403,
+            "balance": 1
         },
         {
             "code": "EA-CM-0823",
@@ -14558,7 +15332,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-GN-0648",
@@ -14576,7 +15351,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 8
         },
         {
             "code": "EA-GN-0649",
@@ -14594,7 +15370,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0824",
@@ -14612,7 +15389,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0825",
@@ -14630,7 +15408,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-CM-0826",
@@ -14648,7 +15427,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0827",
@@ -14666,7 +15446,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-CM-0828",
@@ -14684,7 +15465,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0829",
@@ -14702,7 +15484,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-CM-0830",
@@ -14720,7 +15503,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-CM-0831",
@@ -14738,7 +15522,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-CM-0832",
@@ -14756,7 +15541,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-CM-0833",
@@ -14774,7 +15560,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0834",
@@ -14792,7 +15579,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-CM-0835",
@@ -14810,7 +15598,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-CM-0836",
@@ -14828,7 +15617,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 4
         },
         {
             "code": "EA-CM-0837",
@@ -14846,7 +15636,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 403
+            "lead_time": 403,
+            "balance": 1
         },
         {
             "code": "EA-CM-0838",
@@ -14864,7 +15655,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0839",
@@ -14882,7 +15674,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-CM-0840",
@@ -14900,7 +15693,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 180
+            "lead_time": 180,
+            "balance": 1
         },
         {
             "code": "EA-HT-196",
@@ -14918,7 +15712,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 4
         },
         {
             "code": "EA-GN-0650",
@@ -14936,7 +15731,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-GN-0651",
@@ -14954,7 +15750,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 4
         },
         {
             "code": "EA-GN-0652",
@@ -14972,7 +15769,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 5
         },
         {
             "code": "EA-GN-0653",
@@ -14990,7 +15788,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-GN-0654",
@@ -15008,7 +15807,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 4
         },
         {
             "code": "EA-GN-0655",
@@ -15026,7 +15826,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 9
         },
         {
             "code": "EA-UT-097",
@@ -15045,7 +15846,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-GN-0656",
@@ -15063,7 +15865,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-GN-0657",
@@ -15082,7 +15885,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0841",
@@ -15101,7 +15905,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-MA-0426",
@@ -15120,7 +15925,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-CM-0842",
@@ -15139,7 +15945,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 403,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-PA-250",
@@ -15158,7 +15965,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0843",
@@ -15177,7 +15985,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-251",
@@ -15196,7 +16005,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-HT-197",
@@ -15215,7 +16025,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0844",
@@ -15234,7 +16045,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 403,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0343",
@@ -15253,7 +16065,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0845",
@@ -15271,7 +16084,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0846",
@@ -15289,7 +16103,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-CM-0344",
@@ -15307,7 +16122,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-PA-252",
@@ -15326,7 +16142,8 @@ export async function seedKanbans3() {
             "max_quantity": 18,
             "order_point": 6,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PS-132",
@@ -15345,7 +16162,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-PS-133",
@@ -15364,7 +16182,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0345",
@@ -15382,7 +16201,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 403
+            "lead_time": 403,
+            "balance": 1
         },
         {
             "code": "EA-CM-0847",
@@ -15400,7 +16220,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0848",
@@ -15418,7 +16239,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0849",
@@ -15436,7 +16258,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-CM-0850",
@@ -15454,7 +16277,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-ME-208",
@@ -15473,7 +16297,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 3
         },
         {
             "code": "EA-MA-0427",
@@ -15491,7 +16316,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-MA-0428",
@@ -15509,7 +16335,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-CM-0346",
@@ -15528,7 +16355,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-ME-209",
@@ -15547,7 +16375,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-MA-0429",
@@ -15565,7 +16394,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-MA-0430",
@@ -15583,7 +16413,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 3
         },
         {
             "code": "EA-MA-0431",
@@ -15601,7 +16432,8 @@ export async function seedKanbans3() {
             "min_quantity": 7,
             "max_quantity": 10,
             "order_point": 3,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-MA-0432",
@@ -15619,7 +16451,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 4
         },
         {
             "code": "EA-CM-0851",
@@ -15637,7 +16470,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-GN-0658",
@@ -15655,7 +16489,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-HT-198",
@@ -15673,7 +16508,8 @@ export async function seedKanbans3() {
             "min_quantity": 9,
             "max_quantity": 13,
             "order_point": 4,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 0
         },
         {
             "code": "EA-MA-0433",
@@ -15691,7 +16527,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 0
         },
         {
             "code": "EA-HT-199",
@@ -15709,7 +16546,8 @@ export async function seedKanbans3() {
             "min_quantity": 6,
             "max_quantity": 9,
             "order_point": 3,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 9
         },
         {
             "code": "EA-MA-0434",
@@ -15727,7 +16565,8 @@ export async function seedKanbans3() {
             "min_quantity": 4,
             "max_quantity": 6,
             "order_point": 2,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-HT-200",
@@ -15746,7 +16585,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-ME-210",
@@ -15764,7 +16604,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-PA-253",
@@ -15782,7 +16623,8 @@ export async function seedKanbans3() {
             "min_quantity": 12,
             "max_quantity": 18,
             "order_point": 6,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-GN-0659",
@@ -15800,7 +16642,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-HT-201",
@@ -15818,7 +16661,8 @@ export async function seedKanbans3() {
             "min_quantity": 5,
             "max_quantity": 7,
             "order_point": 2,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-GN-0660",
@@ -15836,7 +16680,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 3
         },
         {
             "code": "EA-GN-0661",
@@ -15855,7 +16700,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-PS-134",
@@ -15873,7 +16719,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 5
         },
         {
             "code": "EA-PS-135",
@@ -15891,7 +16738,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-GN-0662",
@@ -15909,7 +16757,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 2
         },
         {
             "code": "EA-GN-0663",
@@ -15927,7 +16776,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 1
         },
         {
             "code": "EA-HT-202",
@@ -15945,7 +16795,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 1
         },
         {
             "code": "EA-CM-0347",
@@ -15964,7 +16815,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-UT-098",
@@ -15983,7 +16835,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-HT-203",
@@ -16002,7 +16855,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-ME-211",
@@ -16021,7 +16875,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-PA-254",
@@ -16040,7 +16895,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-HT-204",
@@ -16059,7 +16915,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 90,
-            "rank": "B"
+            "rank": "B",
+            "balance": 0
         },
         {
             "code": "EA-ME-212",
@@ -16076,7 +16933,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-GN-0664",
@@ -16094,7 +16952,8 @@ export async function seedKanbans3() {
             "min_quantity": 3,
             "max_quantity": 4,
             "order_point": 1,
-            "lead_time": 75
+            "lead_time": 75,
+            "balance": 5
         },
         {
             "code": "EA-ME-213",
@@ -16113,7 +16972,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-ME-214",
@@ -16132,7 +16992,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-GN-0665",
@@ -16150,7 +17011,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 2
         },
         {
             "code": "EA-GN-0666",
@@ -16169,7 +17031,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "D"
+            "rank": "D",
+            "balance": 6
         },
         {
             "code": "EA-GN-0667",
@@ -16188,7 +17051,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "D"
+            "rank": "D",
+            "balance": 7
         },
         {
             "code": "EA-GN-0668",
@@ -16207,7 +17071,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "D"
+            "rank": "D",
+            "balance": 4
         },
         {
             "code": "EA-UT-099",
@@ -16226,7 +17091,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-HT-205",
@@ -16245,7 +17111,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0348",
@@ -16264,7 +17131,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 90,
-            "rank": "S"
+            "rank": "S",
+            "balance": 1
         },
         {
             "code": "EA-CM-0852",
@@ -16283,7 +17151,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0853",
@@ -16302,7 +17171,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0854",
@@ -16321,7 +17191,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0855",
@@ -16340,7 +17211,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0856",
@@ -16359,7 +17231,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0435",
@@ -16378,7 +17251,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 0,
             "lead_time": 75,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0436",
@@ -16397,7 +17271,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0857",
@@ -16416,7 +17291,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-CM-0858",
@@ -16435,7 +17311,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0859",
@@ -16454,7 +17331,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-CM-0860",
@@ -16473,7 +17351,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-GN-0669",
@@ -16492,7 +17371,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0861",
@@ -16511,7 +17391,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0862",
@@ -16530,7 +17411,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0863",
@@ -16549,7 +17431,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0864",
@@ -16568,7 +17451,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0974",
@@ -16587,7 +17471,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PS-165",
@@ -16603,7 +17488,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 60
+            "lead_time": 60,
+            "balance": 1
         },
         {
             "code": "EA-CM-0865",
@@ -16622,7 +17508,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 120,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0866",
@@ -16641,7 +17528,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0437",
@@ -16660,7 +17548,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0438",
@@ -16679,7 +17568,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0439",
@@ -16698,7 +17588,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-CM-0867",
@@ -16717,7 +17608,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-GN-0670",
@@ -16736,7 +17628,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PA-340",
@@ -16755,7 +17648,8 @@ export async function seedKanbans3() {
             "max_quantity": 1,
             "order_point": 1,
             "lead_time": 160,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0590",
@@ -16774,7 +17668,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-255",
@@ -16793,7 +17688,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-PA-256",
@@ -16812,7 +17708,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-CM-0868",
@@ -16831,7 +17728,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0440",
@@ -16849,7 +17747,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 1
         },
         {
             "code": "EA-MA-0441",
@@ -16867,7 +17766,8 @@ export async function seedKanbans3() {
             "min_quantity": 2,
             "max_quantity": 3,
             "order_point": 1,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 2
         },
         {
             "code": "EA-PA-257",
@@ -16886,7 +17786,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0671",
@@ -16905,7 +17806,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0869",
@@ -16924,7 +17826,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 1
         },
         {
             "code": "EA-CM-0870",
@@ -16943,7 +17846,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 5
         },
         {
             "code": "EA-CM-0871",
@@ -16962,7 +17866,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-MA-0442",
@@ -16981,7 +17886,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-PA-258",
@@ -17000,7 +17906,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 180,
-            "rank": "S"
+            "rank": "S",
+            "balance": 2
         },
         {
             "code": "EA-CM-0872",
@@ -17019,7 +17926,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-MA-0615",
@@ -17035,7 +17943,8 @@ export async function seedKanbans3() {
             "min_quantity": 1,
             "max_quantity": 1,
             "order_point": 0,
-            "lead_time": 45
+            "lead_time": 45,
+            "balance": 4
         },
         {
             "code": "EA-GN-0672",
@@ -17054,7 +17963,8 @@ export async function seedKanbans3() {
             "max_quantity": 700,
             "order_point": 200,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0673",
@@ -17073,7 +17983,8 @@ export async function seedKanbans3() {
             "max_quantity": 64,
             "order_point": 21,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 400
         },
         {
             "code": "EA-GN-0674",
@@ -17092,7 +18003,8 @@ export async function seedKanbans3() {
             "max_quantity": 55,
             "order_point": 18,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0675",
@@ -17111,7 +18023,8 @@ export async function seedKanbans3() {
             "max_quantity": 69,
             "order_point": 23,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 150
         },
         {
             "code": "EA-GN-0676",
@@ -17130,7 +18043,8 @@ export async function seedKanbans3() {
             "max_quantity": 96,
             "order_point": 32,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0677",
@@ -17149,7 +18063,8 @@ export async function seedKanbans3() {
             "max_quantity": 37,
             "order_point": 12,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0678",
@@ -17168,7 +18083,8 @@ export async function seedKanbans3() {
             "max_quantity": 79,
             "order_point": 26,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0679",
@@ -17187,7 +18103,8 @@ export async function seedKanbans3() {
             "max_quantity": 33,
             "order_point": 11,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0680",
@@ -17206,7 +18123,8 @@ export async function seedKanbans3() {
             "max_quantity": 40,
             "order_point": 13,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 225
         },
         {
             "code": "EA-GN-0681",
@@ -17225,7 +18143,8 @@ export async function seedKanbans3() {
             "max_quantity": 40,
             "order_point": 13,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0682",
@@ -17244,7 +18163,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0683",
@@ -17263,7 +18183,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 250
         },
         {
             "code": "EA-GN-0684",
@@ -17282,7 +18203,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-GN-0685",
@@ -17301,7 +18223,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0686",
@@ -17320,7 +18243,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0687",
@@ -17339,7 +18263,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0688",
@@ -17358,7 +18283,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0689",
@@ -17377,7 +18303,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0690",
@@ -17396,7 +18323,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0691",
@@ -17415,7 +18343,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 21
         },
         {
             "code": "EA-GN-0692",
@@ -17434,7 +18363,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 17
         },
         {
             "code": "EA-GN-0693",
@@ -17453,7 +18383,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 29
         },
         {
             "code": "EA-GN-0694",
@@ -17472,7 +18403,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 29
         },
         {
             "code": "EA-GN-0695",
@@ -17491,7 +18423,8 @@ export async function seedKanbans3() {
             "max_quantity": 28,
             "order_point": 9,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0696",
@@ -17510,7 +18443,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0697",
@@ -17529,7 +18463,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0698",
@@ -17548,7 +18483,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0699",
@@ -17567,7 +18503,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-0700",
@@ -17586,7 +18523,8 @@ export async function seedKanbans3() {
             "max_quantity": 12,
             "order_point": 4,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0701",
@@ -17605,7 +18543,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 6
         },
         {
             "code": "EA-CM-0873",
@@ -17624,7 +18563,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 0
         },
         {
             "code": "EA-PA-259",
@@ -17643,7 +18583,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "B"
+            "rank": "B",
+            "balance": 4
         },
         {
             "code": "EA-MA-0443",
@@ -17662,7 +18603,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0444",
@@ -17681,7 +18623,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-GN-0702",
@@ -17700,7 +18643,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0703",
@@ -17719,7 +18663,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 68
         },
         {
             "code": "EA-GN-0704",
@@ -17738,7 +18683,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 39
         },
         {
             "code": "EA-GN-0705",
@@ -17757,7 +18703,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 13
         },
         {
             "code": "EA-GN-0706",
@@ -17776,7 +18723,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 16
         },
         {
             "code": "EA-GN-0707",
@@ -17795,7 +18743,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 14
         },
         {
             "code": "EA-GN-0708",
@@ -17814,7 +18763,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 16
         },
         {
             "code": "EA-GN-0709",
@@ -17833,7 +18783,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0710",
@@ -17852,7 +18803,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 7
         },
         {
             "code": "EA-GN-0711",
@@ -17871,7 +18823,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0712",
@@ -17890,7 +18843,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 5
         },
         {
             "code": "EA-GN-0713",
@@ -17909,7 +18863,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 12
         },
         {
             "code": "EA-GN-0714",
@@ -17928,7 +18883,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 1
         },
         {
             "code": "EA-GN-0715",
@@ -17947,7 +18903,8 @@ export async function seedKanbans3() {
             "max_quantity": 500,
             "order_point": 200,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0716",
@@ -17966,7 +18923,8 @@ export async function seedKanbans3() {
             "max_quantity": 211,
             "order_point": 70,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 200
         },
         {
             "code": "EA-GN-0717",
@@ -17985,7 +18943,8 @@ export async function seedKanbans3() {
             "max_quantity": 40,
             "order_point": 13,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 120
         },
         {
             "code": "EA-GN-0718",
@@ -18004,7 +18963,8 @@ export async function seedKanbans3() {
             "max_quantity": 67,
             "order_point": 22,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0719",
@@ -18023,7 +18983,8 @@ export async function seedKanbans3() {
             "max_quantity": 97,
             "order_point": 32,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 300
         },
         {
             "code": "EA-GN-0720",
@@ -18042,7 +19003,8 @@ export async function seedKanbans3() {
             "max_quantity": 75,
             "order_point": 25,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 180
         },
         {
             "code": "EA-PS-136",
@@ -18061,7 +19023,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 75,
-            "rank": "B"
+            "rank": "B",
+            "balance": 2
         },
         {
             "code": "EA-GN-0721",
@@ -18080,7 +19043,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 18
         },
         {
             "code": "EA-GN-0722",
@@ -18099,7 +19063,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 17
         },
         {
             "code": "EA-CM-0349",
@@ -18118,7 +19083,8 @@ export async function seedKanbans3() {
             "max_quantity": 16,
             "order_point": 5,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 20
         },
         {
             "code": "EA-MA-0445",
@@ -18137,7 +19103,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 1
         },
         {
             "code": "EA-MA-0446",
@@ -18156,7 +19123,8 @@ export async function seedKanbans3() {
             "max_quantity": 3,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "A"
+            "rank": "A",
+            "balance": 2
         },
         {
             "code": "EA-GN-0723",
@@ -18175,7 +19143,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0724",
@@ -18194,7 +19163,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 19
         },
         {
             "code": "EA-GN-0725",
@@ -18213,7 +19183,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 18
         },
         {
             "code": "EA-GN-0726",
@@ -18232,7 +19203,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 22
         },
         {
             "code": "EA-GN-0727",
@@ -18251,7 +19223,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0728",
@@ -18270,7 +19243,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 10
         },
         {
             "code": "EA-GN-0729",
@@ -18289,7 +19263,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 22
         },
         {
             "code": "EA-GN-0730",
@@ -18308,7 +19283,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 35
         },
         {
             "code": "EA-GN-0731",
@@ -18327,7 +19303,8 @@ export async function seedKanbans3() {
             "max_quantity": 10,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 35
         },
         {
             "code": "EA-GN-0732",
@@ -18346,7 +19323,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0733",
@@ -18365,7 +19343,8 @@ export async function seedKanbans3() {
             "max_quantity": 9,
             "order_point": 3,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 37
         },
         {
             "code": "EA-GN-0734",
@@ -18384,7 +19363,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 24
         },
         {
             "code": "EA-GN-0735",
@@ -18403,7 +19383,8 @@ export async function seedKanbans3() {
             "max_quantity": 75,
             "order_point": 25,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 60
         },
         {
             "code": "EA-GN-0736",
@@ -18422,7 +19403,8 @@ export async function seedKanbans3() {
             "max_quantity": 102,
             "order_point": 34,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 60
         },
         {
             "code": "EA-GN-0737",
@@ -18441,7 +19423,8 @@ export async function seedKanbans3() {
             "max_quantity": 27,
             "order_point": 9,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 3
         },
         {
             "code": "EA-GN-0738",
@@ -18460,7 +19443,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 15
         },
         {
             "code": "EA-GN-0739",
@@ -18479,7 +19463,8 @@ export async function seedKanbans3() {
             "max_quantity": 25,
             "order_point": 8,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 21
         },
         {
             "code": "EA-GN-0740",
@@ -18498,7 +19483,8 @@ export async function seedKanbans3() {
             "max_quantity": 19,
             "order_point": 6,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 50
         },
         {
             "code": "EA-GN-0741",
@@ -18517,7 +19503,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 19
         },
         {
             "code": "EA-CM-0350",
@@ -18536,7 +19523,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-CM-0351",
@@ -18555,7 +19543,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 60,
-            "rank": "B"
+            "rank": "B",
+            "balance": 12
         },
         {
             "code": "EA-GN-0742",
@@ -18574,7 +19563,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 9
         },
         {
             "code": "EA-GN-0743",
@@ -18593,7 +19583,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 45,
-            "rank": "B"
+            "rank": "B",
+            "balance": 6
         },
         {
             "code": "EA-CM-0352",
@@ -18612,7 +19603,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 60,
-            "rank": "C"
+            "rank": "C",
+            "balance": 2
         },
         {
             "code": "EA-GN-0744",
@@ -18631,7 +19623,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 19
         },
         {
             "code": "EA-GN-0745",
@@ -18650,7 +19643,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 0
         },
         {
             "code": "EA-GN-0746",
@@ -18669,7 +19663,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 31
         },
         {
             "code": "EA-GN-0747",
@@ -18688,7 +19683,8 @@ export async function seedKanbans3() {
             "max_quantity": 6,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 26
         },
         {
             "code": "EA-GN-0748",
@@ -18707,7 +19703,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 21
         },
         {
             "code": "EA-GN-0749",
@@ -18726,7 +19723,8 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 46
         },
         {
             "code": "EA-GN-0750",
@@ -18745,7 +19743,8 @@ export async function seedKanbans3() {
             "max_quantity": 4,
             "order_point": 1,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 11
         },
         {
             "code": "EA-GN-0751",
@@ -18764,10 +19763,10 @@ export async function seedKanbans3() {
             "max_quantity": 7,
             "order_point": 2,
             "lead_time": 30,
-            "rank": "C"
+            "rank": "C",
+            "balance": 44
         }
     ]
-
     const parseNumber = (val: string | number | undefined): number | null =>
         val && val !== "-" ? Number(val) : null;
 
@@ -18813,6 +19812,7 @@ export async function seedKanbans3() {
                     rack_id: rack?.id,
                     machine_area_id: machineArea?.id ?? null,
                     machine_id: machine?.id ?? null,
+                    balance: data.balance,
                     supplier: supplier
                         ? {
                             connect: [{ id: supplier.id }],

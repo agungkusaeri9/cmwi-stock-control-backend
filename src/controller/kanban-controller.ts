@@ -44,6 +44,7 @@ export class KanbanController {
                 machine_area_id: isNaN(Number(req.query.machine_area_id)) ? undefined : Number(req.query.machine_area_id),
                 stock_status: req.query.stock_status as string,
                 completed_status: req.query.completed_status as string,
+                js_balance_status: req.query.js_balance_status as string
             };
 
 

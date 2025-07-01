@@ -60,5 +60,6 @@ export class KanbanValidation {
         machine_id: z.number().min(0).positive().optional(),
         stock_status: z.string().optional(),
         completed_status: z.string().optional(),
+        js_balance_status: z.string().optional()
     })
 }

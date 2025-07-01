@@ -123,6 +123,7 @@ export type SearchKanbanRequest = {
     machine_id?: number;
     stock_status?: string;
     completed_status?: string;
+    js_balance_status?: string;
 }
 
 export function toKanbanResponse(Kanban: any): KanbanResponse {

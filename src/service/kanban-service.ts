@@ -8,6 +8,7 @@ import { Pageable } from "../model/page";
 import xlsx from 'xlsx';
 import { Workbook, BorderStyle } from "exceljs"
 import path from 'path';
+import { equal, notEqual } from "assert";
 
 
 
@@ -529,6 +530,24 @@ export class KanbanService {
                 });
             }
 
+        }
+
+
+        if (searchRequest.js_balance_status) {
+
+            if (searchRequest.js_balance_status.toLocaleLowerCase() === "balance") {
+                filters.push({
+                    balance: {
+                        equal: prismaClient.kanban.fields.js_ending_quantity
+                    }
+                });
+            } else if (searchRequest.js_balance_status.toLocaleLowerCase() === "unbalance") {
+                filters.push({
+                    balance: {
+                        notEqual: prismaClient.kanban.fields.js_ending_quantity
+                    }
+                });
+            }
         }
 
         if (searchRequest.stock_status) {
