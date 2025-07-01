@@ -534,21 +534,25 @@ export class KanbanService {
 
 
         if (searchRequest.js_balance_status) {
+            const status = searchRequest.js_balance_status.trim().toLowerCase();
 
-            if (searchRequest.js_balance_status.toLocaleLowerCase() === "balance") {
+            if (status === 'balance') {
                 filters.push({
                     balance: {
-                        equal: prismaClient.kanban.fields.js_ending_quantity
-                    }
+                        equals: prismaClient.kanban.fields.js_ending_quantity, // sama persis
+                    },
                 });
-            } else if (searchRequest.js_balance_status.toLocaleLowerCase() === "unbalance") {
+            } else if (status === 'unbalance') {
                 filters.push({
-                    balance: {
-                        notEqual: prismaClient.kanban.fields.js_ending_quantity
-                    }
+                    NOT: {
+                        balance: {
+                            equals: prismaClient.kanban.fields.js_ending_quantity,
+                        },
+                    },
                 });
             }
         }
+
 
         if (searchRequest.stock_status) {
             if (searchRequest.stock_status.toLocaleLowerCase() === "overstock") {
