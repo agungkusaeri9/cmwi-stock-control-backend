@@ -49,10 +49,10 @@ const startWatcher = () => {
             logger.info(`🟢 File added: ${normalizedPath}`);
 
             const fileTypes = [
-                { type: "PO", folderPath: purchaseOrderFolderPath, regex: /^PO_\d{8}$/, service: PurchaseOrderService },
-                { type: "PR", folderPath: purchaseRequestFolderPath, regex: /^PR_\d{8}$/, service: PurchaseRequestService },
-                { type: "RR", folderPath: receivingReportFolderPath, regex: /^RR_\d{8}$/, service: ReceivingReportService },
-                { type: "JS", folderPath: jsFolderPath, regex: /^JS_\d{8}$/, service: JsService },
+                { type: "PO", folderPath: purchaseOrderFolderPath, regex: /^PO_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: PurchaseOrderService },
+                { type: "PR", folderPath: purchaseRequestFolderPath, regex: /^PR_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: PurchaseRequestService },
+                { type: "RR", folderPath: receivingReportFolderPath, regex: /^RR_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: ReceivingReportService },
+                { type: "JS", folderPath: jsFolderPath, regex: /^JS_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: JsService },
                 { type: "KM", folderPath: kanbanMasterFolderPath, regex: /^KM_\d{2}\d{2}\d{4}_(?:[1-9]|[1-9]\d{1,2}|1000)$/, service: KanbanService },
             ];
 

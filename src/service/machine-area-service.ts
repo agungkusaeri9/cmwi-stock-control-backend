@@ -109,6 +109,9 @@ export class MachineAreaService {
             prismaClient.machineArea.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                orderBy: {
+                    name: "asc"
+                }
             }),
             prismaClient.machineArea.count({
                 where: whereClause,

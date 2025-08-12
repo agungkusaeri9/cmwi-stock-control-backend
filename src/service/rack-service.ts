@@ -106,6 +106,9 @@ export class RackService {
             prismaClient.rack.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                orderBy: {
+                    code: "asc"
+                }
             }),
             prismaClient.rack.count({
                 where: whereClause,

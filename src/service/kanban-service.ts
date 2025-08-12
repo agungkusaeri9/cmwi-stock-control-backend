@@ -481,7 +481,8 @@ export class KanbanService {
                 OR: [
                     { code: { contains: keyword } },
                     { description: { contains: keyword } },
-                    { specification: { contains: keyword } }
+                    { specification: { contains: keyword } },
+                    { rack: { code: { contains: keyword } } }
                 ]
             });
         }

@@ -3,7 +3,7 @@ import { z, ZodType } from "zod";
 
 const JsSchema = z.object({
     code: z.string().min(1).max(100),
-    js_ending_quantity: z.number().min(0).positive(),
+    js_ending_quantity: z.number().min(0),
 });
 
 

@@ -99,6 +99,12 @@ export class PurchaseRequestService {
         const parseNumber = (val: string | undefined): number | null =>
             val && val !== "-" ? Number(val) : null;
 
+        const parseInteger = (val: string | undefined): number | null => {
+            if (!val || val === '-') return null;          // undefined, string kosong, atau tanda minus saja
+            const n = parseInt(val, 10);                  // buang desimal
+            return Number.isNaN(n) ? null : n;            // NaN -> null
+        };
+
         const parseString = (val: string | undefined): string | null =>
             val && val !== "-" ? val.toString() : null;
 
@@ -132,7 +138,7 @@ export class PurchaseRequestService {
                 description_of_goods: parseString(entry["Description of Goods"]),
                 specification: parseString(entry.Specification),
                 part: parseString(entry.Part),
-                quantity: parseNumber(entry.Quantity),
+                quantity: parseInteger(entry.Quantity),
                 unit: parseString(entry.Unit),
                 est_unit_price: parseNumber(entry["Est. Unit Price"]),
                 est_amount: parseNumber(entry["Est. Amount"]),

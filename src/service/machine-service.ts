@@ -106,6 +106,9 @@ export class MachineService {
             prismaClient.machine.findMany({
                 where: whereClause,
                 ...(searchRequest.paginate ? { take: limit, skip } : {}),
+                orderBy: {
+                    code: "asc"
+                }
             }),
             prismaClient.machine.count({
                 where: whereClause,

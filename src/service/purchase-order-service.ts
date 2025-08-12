@@ -106,6 +106,12 @@ export class PurchaseOrderService {
         const parseDate = (val: string | undefined): Date | null =>
             val && val !== "-" ? convertShortDate(val) : null;
 
+        const parseInteger = (val: string | undefined): number | null => {
+            if (!val || val === '-') return null;          // undefined, string kosong, atau tanda minus saja
+            const n = parseInt(val, 10);                  // buang desimal
+            return Number.isNaN(n) ? null : n;            // NaN -> null
+        };
+
         // ⬇️ NEW: Handle Supplier - Get/Create and map supplier_id
         const supplierNames = Array.from(new Set(
             purchaseOrders
@@ -162,7 +168,7 @@ export class PurchaseOrderService {
                 kanban_code: parseString(entry["Product Code"]),
                 description: parseString(entry.Description),
                 specification: parseString(entry.specification),
-                quantity: parseNumber(entry.Quantity),
+                quantity: parseInteger(entry.Quantity),
                 unit: parseString(entry.Unit),
                 status: parseString(entry.Status),
                 remark: parseString(entry.Remark),

@@ -55,7 +55,7 @@ export class JsService {
                 continue;
             };
 
-            if (Number(data[i][7]) === 0 || data[i][7] === undefined || data[i][7] === null) {
+            if (data[i][7] === undefined || data[i][7] === null) {
                 continue;
             };
 
