@@ -680,7 +680,7 @@ export class KanbanService {
 
     const skip = (page - 1) * limit;
 
-    const [kanbans, total] = await Promise.all([
+    const [kanbans, total, stockOutSums] = await Promise.all([
       prismaClient.kanban.findMany({
         where: whereClause,
         ...(searchRequest.paginate ? { take: limit, skip } : {}),
@@ -695,7 +695,24 @@ export class KanbanService {
       prismaClient.kanban.count({
         where: whereClause,
       }),
+      prismaClient.stockOut.groupBy({
+        by: ["kanban_code"],
+        _sum: { quantity: true },
+      }),
     ]);
+
+    // Gabungkan hasilnya ke kanban
+    const stockOutMap = stockOutSums.reduce((acc, item) => {
+      if (item.kanban_code !== null) {
+        acc[item.kanban_code] = item._sum.quantity || 0;
+      }
+      return acc;
+    }, {} as Record<string, number>);
+
+    const result = kanbans.map((k) => ({
+      ...k,
+      total_stock_out_quantity: stockOutMap[k.code] || 0,
+    }));
 
     const pagination = searchRequest.paginate
       ? {
@@ -707,7 +724,7 @@ export class KanbanService {
       : undefined;
 
     return {
-      data: kanbans.map(toKanbanResponse),
+      data: result.map(toKanbanResponse),
       ...(pagination ? { pagination } : {}),
     };
   }
