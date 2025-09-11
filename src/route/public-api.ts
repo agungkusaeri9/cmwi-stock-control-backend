@@ -53,6 +53,10 @@ publicRouter.get("/api/machines/:id", MachineController.show);
 // Sub Machine
 publicRouter.get("/api/sub-machines", SubMachineController.get);
 publicRouter.get("/api/sub-machines/:id", SubMachineController.show);
+publicRouter.get(
+  "/api/machines/:machine_id/sub-machines",
+  SubMachineController.getByMachineId
+);
 
 // Operator
 publicRouter.get("/api/operators", OperatorController.get);

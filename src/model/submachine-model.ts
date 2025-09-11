@@ -21,6 +21,7 @@ export type SearchSubMachineRequest = {
   page: number;
   limit: number;
   paginate?: boolean;
+  machine_id?: number;
 };
 
 export function toSubMachineResponse(rack: any): SubMachineResponse {

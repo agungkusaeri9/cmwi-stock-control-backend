@@ -16,5 +16,6 @@ export class SubMachineValidation {
     page: z.number().min(1).positive().optional(),
     limit: z.number().min(1).positive().optional(),
     paginate: z.boolean().optional(),
+    machine_id: z.number().min(1).positive().optional(),
   });
 }

@@ -111,6 +111,12 @@ export class SubMachineService {
       });
     }
 
+    if (searchRequest.machine_id) {
+      filters.push({
+        machine_id: searchRequest.machine_id,
+      });
+    }
+
     const whereClause = filters.length > 0 ? { AND: filters } : {};
 
     // Default pagination values if not provided
@@ -191,5 +197,24 @@ export class SubMachineService {
         id: id,
       },
     });
+  }
+
+  static async getByMachineId(
+    machine_id: number
+  ): Promise<SubMachineResponse[]> {
+    if (isNaN(machine_id)) {
+      throw new ResponseError(400, "Invalid machine_id");
+    }
+
+    const machines = await prismaClient.subMachine.findMany({
+      where: {
+        machine_id: machine_id,
+      },
+      include: {
+        machine: true,
+      },
+    });
+
+    return machines.map(toSubMachineResponse);
   }
 }

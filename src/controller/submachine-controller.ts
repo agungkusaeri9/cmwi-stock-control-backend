@@ -40,6 +40,9 @@ export class SubMachineController {
         page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
         limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
         paginate: req.query.paginate === "true",
+        machine_id: req.query.machine_id
+          ? Number(req.query.machine_id)
+          : undefined,
       };
 
       const response = await SubMachineService.get(request);
@@ -72,6 +75,16 @@ export class SubMachineController {
       await SubMachineService.remove(id);
 
       sendSuccess(res, 200, "Remove subMachine success");
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async getByMachineId(req: Request, res: Response, next: NextFunction) {
+    try {
+      const machine_id: number = Number(req.params.machine_id);
+      const response = await SubMachineService.getByMachineId(machine_id);
+      sendSuccess(res, 200, "Get subMachines by machine ID success", response);
     } catch (e) {
       next(e);
     }
