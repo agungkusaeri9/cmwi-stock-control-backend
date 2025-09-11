@@ -20,16 +20,6 @@ export class RequesterService {
       request
     );
 
-    const isNikExist = await prismaClient.requester.findFirst({
-      where: {
-        nik: createRequest.nik,
-      },
-    });
-
-    if (isNikExist) {
-      throw new ResponseError(400, "Nik already exists");
-    }
-
     const isGroupExist = await prismaClient.group.findUnique({
       where: {
         id: createRequest.group_id ?? undefined,
@@ -73,19 +63,6 @@ export class RequesterService {
       request
     );
 
-    const isNikExist = await prismaClient.requester.findFirst({
-      where: {
-        nik: updateRequest.nik,
-        NOT: {
-          id: id,
-        },
-      },
-    });
-
-    if (isNikExist) {
-      throw new ResponseError(400, "Nik already exists");
-    }
-
     const isGroupExist = await prismaClient.group.findUnique({
       where: {
         id: updateRequest.group_id ?? undefined,
@@ -122,11 +99,6 @@ export class RequesterService {
     if (searchRequest.keyword) {
       filters.push({
         OR: [
-          {
-            nik: {
-              contains: searchRequest.keyword,
-            },
-          },
           {
             name: {
               contains: searchRequest.keyword,
