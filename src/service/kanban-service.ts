@@ -16,7 +16,7 @@ import { Pageable } from "../model/page";
 import xlsx from "xlsx";
 import { Workbook, BorderStyle } from "exceljs";
 import path from "path";
-import { equal, notEqual } from "assert";
+import { startOfMonth, endOfMonth } from "date-fns";
 
 export class KanbanService {
   static async createFromRequest(
@@ -680,6 +680,9 @@ export class KanbanService {
 
     const skip = (page - 1) * limit;
 
+    const start = startOfMonth(new Date());
+    const end = endOfMonth(new Date());
+
     const [kanbans, total, stockOutSums] = await Promise.all([
       prismaClient.kanban.findMany({
         where: whereClause,
@@ -698,6 +701,12 @@ export class KanbanService {
       prismaClient.stockOut.groupBy({
         by: ["kanban_code"],
         _sum: { quantity: true },
+        where: {
+          created_at: {
+            gte: start,
+            lte: end,
+          },
+        },
       }),
     ]);
 

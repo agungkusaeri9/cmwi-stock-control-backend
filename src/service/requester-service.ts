@@ -1,26 +1,26 @@
 import {
-  OperatorResponse,
-  CreateOperatorRequest,
-  UpdateOperatorRequest,
-  toOperatorResponse,
-  SearchOperatorRequest,
-} from "../model/operator-model";
+  RequesterResponse,
+  CreateRequesterRequest,
+  UpdateRequesterRequest,
+  toRequesterResponse,
+  SearchRequesterRequest,
+} from "../model/requester-model";
 import { Validation } from "../validation/validation";
-import { OperatorValidation } from "../validation/operator-validation";
+import { RequesterValidation } from "../validation/requester-validation";
 import { prismaClient } from "../application/database";
 import { ResponseError } from "../error/response-error";
 import { Pageable } from "../model/page";
 
-export class OperatorService {
+export class RequesterService {
   static async create(
-    request: CreateOperatorRequest
-  ): Promise<OperatorResponse> {
+    request: CreateRequesterRequest
+  ): Promise<RequesterResponse> {
     const createRequest = Validation.validate(
-      OperatorValidation.CREATE,
+      RequesterValidation.CREATE,
       request
     );
 
-    const isNikExist = await prismaClient.operator.findFirst({
+    const isNikExist = await prismaClient.requester.findFirst({
       where: {
         nik: createRequest.nik,
       },
@@ -30,37 +30,50 @@ export class OperatorService {
       throw new ResponseError(400, "Nik already exists");
     }
 
-    const operator = await prismaClient.operator.create({
-      data: createRequest,
+    const isGroupExist = await prismaClient.group.findUnique({
+      where: {
+        id: createRequest.group_id ?? undefined,
+      },
     });
 
-    return toOperatorResponse(operator);
+    if (!isGroupExist) {
+      throw new ResponseError(404, "Group not found");
+    }
+
+    const requester = await prismaClient.requester.create({
+      data: createRequest,
+      include: {
+        group: true,
+      },
+    });
+
+    return toRequesterResponse(requester);
   }
 
   static async update(
     id: number,
-    request: UpdateOperatorRequest
-  ): Promise<OperatorResponse> {
+    request: UpdateRequesterRequest
+  ): Promise<RequesterResponse> {
     if (isNaN(id)) {
       throw new ResponseError(400, "Invalid id");
     }
 
-    const idISValid = await prismaClient.operator.findUnique({
+    const idISValid = await prismaClient.requester.findUnique({
       where: {
         id: id,
       },
     });
 
     if (!idISValid) {
-      throw new ResponseError(404, "Operator not found");
+      throw new ResponseError(404, "Requester not found");
     }
 
     const updateRequest = Validation.validate(
-      OperatorValidation.UPDATE,
+      RequesterValidation.UPDATE,
       request
     );
 
-    const isNikExist = await prismaClient.operator.findFirst({
+    const isNikExist = await prismaClient.requester.findFirst({
       where: {
         nik: updateRequest.nik,
         NOT: {
@@ -73,21 +86,34 @@ export class OperatorService {
       throw new ResponseError(400, "Nik already exists");
     }
 
-    const operator = await prismaClient.operator.update({
+    const isGroupExist = await prismaClient.group.findUnique({
+      where: {
+        id: updateRequest.group_id ?? undefined,
+      },
+    });
+
+    if (!isGroupExist) {
+      throw new ResponseError(404, "Group not found");
+    }
+
+    const requester = await prismaClient.requester.update({
       where: {
         id: id,
       },
       data: updateRequest,
+      include: {
+        group: true,
+      },
     });
 
-    return toOperatorResponse(operator);
+    return toRequesterResponse(requester);
   }
 
   static async get(
-    request: SearchOperatorRequest
-  ): Promise<Pageable<OperatorResponse>> {
+    request: SearchRequesterRequest
+  ): Promise<Pageable<RequesterResponse>> {
     const searchRequest = Validation.validate(
-      OperatorValidation.SEARCH,
+      RequesterValidation.SEARCH,
       request
     );
 
@@ -118,12 +144,15 @@ export class OperatorService {
 
     const skip = (page - 1) * limit;
 
-    const [operators, total] = await Promise.all([
-      prismaClient.operator.findMany({
+    const [requesters, total] = await Promise.all([
+      prismaClient.requester.findMany({
         where: whereClause,
         ...(searchRequest.paginate ? { take: limit, skip } : {}),
+        include: {
+          group: true,
+        },
       }),
-      prismaClient.operator.count({
+      prismaClient.requester.count({
         where: whereClause,
       }),
     ]);
@@ -138,7 +167,7 @@ export class OperatorService {
       : undefined;
 
     return {
-      data: operators.map(toOperatorResponse),
+      data: requesters.map(toRequesterResponse),
       ...(pagination ? { pagination } : {}),
     };
   }
@@ -148,17 +177,20 @@ export class OperatorService {
       throw new ResponseError(400, "Invalid id");
     }
 
-    const operator = await prismaClient.operator.findUnique({
+    const requester = await prismaClient.requester.findUnique({
       where: {
         id: id,
       },
+      include: {
+        group: true,
+      },
     });
 
-    if (!operator) {
-      throw new ResponseError(404, "Operator not found");
+    if (!requester) {
+      throw new ResponseError(404, "Requester not found");
     }
 
-    return toOperatorResponse(operator);
+    return toRequesterResponse(requester);
   }
 
   static async remove(id: number) {
@@ -166,17 +198,17 @@ export class OperatorService {
       throw new ResponseError(400, "Invalid id");
     }
 
-    const idISValid = await prismaClient.operator.findUnique({
+    const idISValid = await prismaClient.requester.findUnique({
       where: {
         id: id,
       },
     });
 
     if (!idISValid) {
-      throw new ResponseError(404, "Operator not found");
+      throw new ResponseError(404, "Requester not found");
     }
 
-    await prismaClient.operator.delete({
+    await prismaClient.requester.delete({
       where: {
         id: id,
       },
