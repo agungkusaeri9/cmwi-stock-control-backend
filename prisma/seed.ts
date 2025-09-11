@@ -1,8 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import bcrypt from "bcryptjs";
+import { seedGroups } from "./seeders/group-seeder";
+import { seedSubMachines } from "./seeders/submachine-seeder";
 // import { seedAreas } from "./seeders/area-seeder";
-// import { seedMachines } from "./seeders/machine-seeder";
 // import { seedRacks } from "./seeders/rack-seeder";
 // import { seedKanbans1 } from "./seeders/kanban-1-seeder";
 // import { seedKanbans2 } from "./seeders/kanban-2-seeder";
@@ -10,6 +11,7 @@ import bcrypt from "bcryptjs";
 // import { seedKanbans4 } from "./seeders/kanban-4-seeder";
 // import { seedSuppliers } from "./seeders/supplier-seeder";
 // import { seedMakers } from "./seeders/maker-seeder";
+// import { seedMachines } from "./seeders/machine-seeder";
 
 async function main() {
   await prisma.user.upsert({
@@ -65,15 +67,17 @@ async function main() {
     });
   }
 
+  await seedGroups();
+  await seedSubMachines();
   // await seedSuppliers();
   // await seedMakers();
   // await seedAreas();
-  // await seedMachines();
   // await seedRacks();
   // await seedKanbans1();
   // await seedKanbans2();
   // await seedKanbans3();
   // await seedKanbans4();
+  // await seedMachines();
 }
 
 main()

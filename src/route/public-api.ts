@@ -65,6 +65,10 @@ publicRouter.get("/api/operators/:id", OperatorController.show);
 // Requester
 publicRouter.get("/api/requesters", RequesterController.get);
 publicRouter.get("/api/requesters/:id", RequesterController.show);
+publicRouter.get(
+  "/api/groups/:groupId/requesters",
+  RequesterController.getByGroupId
+);
 
 // Group
 publicRouter.get("/api/groups", GroupController.get);

@@ -21,6 +21,7 @@ export type SearchRequesterRequest = {
   page: number;
   limit: number;
   paginate?: boolean;
+  group_id?: number;
 };
 
 export function toRequesterResponse(requester: any): RequesterResponse {

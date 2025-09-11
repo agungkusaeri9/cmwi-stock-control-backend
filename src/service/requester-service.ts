@@ -108,6 +108,12 @@ export class RequesterService {
       });
     }
 
+    if (searchRequest.group_id) {
+      filters.push({
+        group_id: searchRequest.group_id,
+      });
+    }
+
     const whereClause = filters.length > 0 ? { AND: filters } : {};
 
     // Default pagination values if not provided
@@ -185,5 +191,22 @@ export class RequesterService {
         id: id,
       },
     });
+  }
+
+  static async getByGroupId(group_id: number): Promise<RequesterResponse[]> {
+    if (isNaN(group_id)) {
+      throw new ResponseError(400, "Invalid group_id");
+    }
+
+    const requesters = await prismaClient.requester.findMany({
+      where: {
+        group_id: group_id,
+      },
+      include: {
+        group: true,
+      },
+    });
+
+    return requesters.map(toRequesterResponse);
   }
 }

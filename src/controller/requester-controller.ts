@@ -40,6 +40,7 @@ export class RequesterController {
         page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
         limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
         paginate: req.query.paginate === "true",
+        group_id: req.query.group_id ? Number(req.query.group_id) : undefined,
       };
 
       const response = await RequesterService.get(request);
@@ -72,6 +73,16 @@ export class RequesterController {
       await RequesterService.remove(id);
 
       sendSuccess(res, 200, "Remove requester success");
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async getByGroupId(req: Request, res: Response, next: NextFunction) {
+    try {
+      const groupId: number = Number(req.params.groupId);
+      const response = await RequesterService.getByGroupId(groupId);
+      sendSuccess(res, 200, "Get requester by group id success", response);
     } catch (e) {
       next(e);
     }
