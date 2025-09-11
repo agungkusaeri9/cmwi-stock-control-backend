@@ -11,6 +11,7 @@ import { MachineController } from "../controller/machine-controller";
 import { StockOutController } from "../controller/stock-out-controller";
 import { GroupController } from "../controller/group-controller";
 import { RequesterController } from "../controller/requester-controller";
+import { SubMachineController } from "../controller/submachine-controller";
 
 export const apiRouter = express.Router();
 apiRouter.use(authMiddleware);
@@ -70,3 +71,8 @@ apiRouter.delete("/api/makers/:id", MakerController.remove);
 apiRouter.post("/api/machines", MachineController.create);
 apiRouter.put("/api/machines/:id", MachineController.update);
 apiRouter.delete("/api/machines/:id", MachineController.remove);
+
+// Sub Machine
+apiRouter.post("/api/sub-machines", SubMachineController.create);
+apiRouter.put("/api/sub-machines/:id", SubMachineController.update);
+apiRouter.delete("/api/sub-machines/:id", SubMachineController.remove);

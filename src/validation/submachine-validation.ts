@@ -1,18 +1,14 @@
 import { z, ZodType } from "zod";
 
-export class OperatorValidation {
+export class SubMachineValidation {
   static readonly CREATE: ZodType = z.object({
-    nik: z.string().min(1).max(100),
-    name: z.string().min(1).max(100),
-    username: z.string().min(1).max(100),
-    password: z.string().min(6).max(100),
+    code: z.string().min(1).max(100),
+    machine_id: z.number().min(1).positive(),
   });
 
   static readonly UPDATE: ZodType = z.object({
-    nik: z.string().min(1).max(100),
-    name: z.string().min(1).max(100),
-    username: z.string().min(1).max(100),
-    password: z.string().min(6).max(100).optional(),
+    code: z.string().min(1).max(100),
+    machine_id: z.number().min(1).positive(),
   });
 
   static readonly SEARCH: ZodType = z.object({

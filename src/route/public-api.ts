@@ -15,6 +15,7 @@ import { ReminderController } from "../controller/reminder-controller";
 import { MainController } from "../controller/main-controller";
 import { GroupController } from "../controller/group-controller";
 import { RequesterController } from "../controller/requester-controller";
+import { SubMachineController } from "../controller/submachine-controller";
 
 export const publicRouter = express.Router();
 publicRouter.post("/api/auth/login", UserController.login);
@@ -48,6 +49,10 @@ publicRouter.get("/api/machine-areas/:id", MachineAreaController.show);
 // Machine
 publicRouter.get("/api/machines", MachineController.get);
 publicRouter.get("/api/machines/:id", MachineController.show);
+
+// Sub Machine
+publicRouter.get("/api/sub-machines", SubMachineController.get);
+publicRouter.get("/api/sub-machines/:id", SubMachineController.show);
 
 // Operator
 publicRouter.get("/api/operators", OperatorController.get);
