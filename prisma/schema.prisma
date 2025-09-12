@@ -73,6 +73,8 @@ model Requester {
   group Group? @relation(fields: [group_id], references: [id], onDelete: SetNull)
   group_id Int?
 
+  stock_out StockOut[]
+
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
@@ -224,6 +226,8 @@ model SubMachine {
   code       String   @unique @db.VarChar(100)
   machine    Machine? @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id Int?
+  
+  stock_out  StockOut[]
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -293,8 +297,12 @@ model StockOut {
   kanban_code     String?
   operator        Operator?    @relation(fields: [operator_id], references: [id], onDelete: SetNull)
   operator_id     Int?
+  requester       Requester?   @relation(fields: [requester_id], references: [id], onDelete: SetNull)
+  requester_id    Int?
   machine         Machine?     @relation(fields: [machine_id], references: [id], onDelete: SetNull)
   machine_id      Int?
+  sub_machine     SubMachine?  @relation(fields: [sub_machine_id], references: [id], onDelete: SetNull)
+  sub_machine_id  Int?
   machine_area    MachineArea? @relation(fields: [machine_area_id], references: [id], onDelete: SetNull)
   machine_area_id Int?
   quantity        Int

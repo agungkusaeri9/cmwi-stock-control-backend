@@ -1,24 +1,26 @@
 import { User } from "@prisma/client";
 
 export type UserResponse = {
-    username: string;
-    name: string;
-    token?: string;
-}
+  username: string;
+  name: string;
+  operatorId: number | null;
+  token?: string;
+};
 
 export type LoginUserRequest = {
-    username: string;
-    password: string;
-}
+  username: string;
+  password: string;
+};
 
 export type UpdateUserRequest = {
-    name?: string;
-    password?: string;
-}
+  name?: string;
+  password?: string;
+};
 
-export function toUserResponse(user: User): UserResponse {
-    return {
-        name: user.name,
-        username: user.username
-    }
+export function toUserResponse(user: any): UserResponse {
+  return {
+    name: user.name,
+    username: user.username,
+    operatorId: user.operator?.id || null,
+  };
 }

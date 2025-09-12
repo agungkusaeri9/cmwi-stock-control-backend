@@ -12,6 +12,7 @@ import { StockOutController } from "../controller/stock-out-controller";
 import { GroupController } from "../controller/group-controller";
 import { RequesterController } from "../controller/requester-controller";
 import { SubMachineController } from "../controller/submachine-controller";
+import { StockInController } from "../controller/stock-in-controller";
 
 export const apiRouter = express.Router();
 apiRouter.use(authMiddleware);
@@ -37,6 +38,7 @@ apiRouter.delete("/api/groups/:id", GroupController.remove);
 
 // Stock Out
 apiRouter.patch("/api/stock-outs/:id", StockOutController.update);
+apiRouter.post("/api/stock-outs", StockOutController.create);
 
 // Machine Area
 apiRouter.post("/api/machine-areas", MachineAreaController.create);
@@ -76,3 +78,6 @@ apiRouter.delete("/api/machines/:id", MachineController.remove);
 apiRouter.post("/api/sub-machines", SubMachineController.create);
 apiRouter.put("/api/sub-machines/:id", SubMachineController.update);
 apiRouter.delete("/api/sub-machines/:id", SubMachineController.remove);
+
+// Stock In
+apiRouter.post("/api/stock-ins", StockInController.create);

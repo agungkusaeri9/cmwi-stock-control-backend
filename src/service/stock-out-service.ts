@@ -7,7 +7,6 @@ import {
 } from "../model/stock-out-model";
 import { Validation } from "../validation/validation";
 import { StockOutValidation } from "../validation/stock-out-validation";
-import { StockOut } from "@prisma/client";
 import { prismaClient } from "../application/database";
 import { logger } from "../application/logging";
 import { ResponseError } from "../error/response-error";
@@ -58,18 +57,36 @@ export class StockOutService {
         },
       });
 
+      const subMachine = await prisma.subMachine.findUnique({
+        where: { id: createRequest.sub_machine_id },
+      });
+
+      if (!subMachine) {
+        throw new ResponseError(404, "Sub Machine not found");
+      }
+
+      const machineArea = await prisma.machineArea.findUnique({
+        where: { id: createRequest.machine_area_id },
+      });
+
+      if (!machineArea) {
+        throw new ResponseError(404, "Machine Area not found");
+      }
+
       // Create stock out record
       const stockOut = await prisma.stockOut.create({
         data: {
           ...createRequest,
-          operator_id: createRequest.operator_id,
+          machine_id: subMachine.machine_id,
           balance_before: kanban.balance,
           balance_after: kanban.balance - createRequest.quantity,
         },
         include: {
           machine_area: true,
           machine: true,
+          sub_machine: true,
           operator: true,
+          requester: true,
           kanban: {
             include: {
               rack: true,
@@ -130,8 +147,10 @@ export class StockOutService {
         data: { ...updateRequest },
         include: {
           machine_area: true,
+          sub_machine: true,
           machine: true,
           operator: true,
+          requester: true,
           kanban: {
             include: {
               rack: true,
@@ -221,6 +240,12 @@ export class StockOutService {
       });
     }
 
+    if (searchRequest.sub_machine_id) {
+      filters.push({
+        sub_machine_id: searchRequest.sub_machine_id,
+      });
+    }
+
     if (searchRequest.machine_area_id) {
       filters.push({
         machine_area_id: searchRequest.machine_area_id,
@@ -266,8 +291,10 @@ export class StockOutService {
         ...(searchRequest.paginate ? { take: limit, skip } : {}),
         include: {
           machine_area: true,
+          sub_machine: true,
           machine: true,
           operator: true,
+          requester: true,
           kanban: {
             include: {
               rack: true,
@@ -307,7 +334,9 @@ export class StockOutService {
       include: {
         machine_area: true,
         machine: true,
+        sub_machine: true,
         operator: true,
+        requester: true,
         kanban: true,
         stock_out_change_log: true,
       },
