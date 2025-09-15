@@ -450,7 +450,7 @@ export class StockOutService {
       row.getCell(1).value = number++;
       row.getCell(2).value = 75;
       row.getCell(3).value = stock.kanban_code ?? "-";
-      row.getCell(4).value = stock.operator?.name ?? "-";
+      row.getCell(4).value = stock.requester?.name ?? "-";
       row.getCell(5).value = stock.machine_area?.name ?? "-";
       row.getCell(6).value = stock.sub_machine?.code
         ? stock.sub_machine.code
@@ -462,6 +462,7 @@ export class StockOutService {
       row.commit();
     }
 
+    await workbook.xlsx.writeFile(`StockOutExport_${Date.now()}.xlsx`);
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }
