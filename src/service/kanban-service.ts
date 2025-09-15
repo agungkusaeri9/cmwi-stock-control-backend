@@ -914,6 +914,7 @@ export class KanbanService {
       row.commit();
     }
 
+    await workbook.xlsx.writeFile("KanbanExport.xlsx");
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }

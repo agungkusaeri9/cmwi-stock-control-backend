@@ -111,7 +111,7 @@ export class KanbanController {
         "Content-Disposition",
         "attachment; filename=KanbanExport.xlsx"
       );
-      res.send(response);
+      res.end(response);
     } catch (e) {
       next(e);
     }
