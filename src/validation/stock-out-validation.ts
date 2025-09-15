@@ -22,6 +22,7 @@ export class StockOutValidation {
     start_date: z.coerce.date().nullable().optional(),
     end_date: z.coerce.date().nullable().optional(),
     machine_id: z.number().min(1).positive().optional(),
+    sub_machine_id: z.number().min(1).positive().optional(),
     machine_area_id: z.number().min(1).positive().optional(),
     operator_id: z.number().min(1).positive().optional(),
     requester_id: z.number().min(1).positive().optional(),
