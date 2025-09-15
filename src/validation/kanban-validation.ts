@@ -59,4 +59,8 @@ export class KanbanValidation {
     completed_status: z.string().optional(),
     js_balance_status: z.string().optional(),
   });
+
+  static readonly EXPORT: ZodType = z.object({
+    completed_status: z.string().optional(),
+  });
 }

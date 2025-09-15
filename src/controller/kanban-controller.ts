@@ -3,6 +3,7 @@ import {
   CreateKanbanRequest,
   UpdateKanbanRequest,
   SearchKanbanRequest,
+  ExportKanbanRequest,
 } from "../model/kanban-model";
 import { KanbanService } from "../service/kanban-service";
 import { sendSuccess } from "../helper/response-helper";
@@ -89,13 +90,18 @@ export class KanbanController {
     }
   }
 
-  static async exportUncompletedKanbanToExcel(
+  static async exportKanbanToExcel(
     req: Request,
     res: Response,
     next: NextFunction
   ) {
     try {
-      const response = await KanbanService.exportUncompletedKanbanToExcel();
+      const request: ExportKanbanRequest = {
+        completed_status: (req.query.completed_status as string) || "all",
+      };
+      const response = await KanbanService.exportKanbanToExcel(
+        request.completed_status
+      );
 
       res.setHeader(
         "Content-Type",
@@ -103,7 +109,7 @@ export class KanbanController {
       );
       res.setHeader(
         "Content-Disposition",
-        "attachment; filename=UncompletedKanbanExport.xlsx"
+        "attachment; filename=KanbanExport.xlsx"
       );
       res.send(response);
     } catch (e) {

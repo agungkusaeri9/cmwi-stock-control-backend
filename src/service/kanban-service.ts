@@ -803,27 +803,39 @@ export class KanbanService {
     });
   }
 
-  static async exportUncompletedKanbanToExcel(): Promise<any> {
-    const unCompletedKanbans = await prismaClient.kanban.findMany({
-      where: {
-        OR: [
-          { machine_area_id: null },
-          { machine_id: null },
-          { rack_id: null },
-          { maker_id: null },
-          { description: null },
-          { specification: null },
-          { currency: null },
-          { price: null },
-          { uom: null },
-          { safety_stock: null },
-          { order_point: null },
-          { min_quantity: null },
-          { max_quantity: null },
-          { lead_time: null },
-          { rank: null },
-        ],
-      },
+  static async exportKanbanToExcel(status: string): Promise<any> {
+    const uncompletedCondition = {
+      OR: [
+        { machine_area_id: null },
+        { machine_id: null },
+        { rack_id: null },
+        { maker_id: null },
+        { description: null },
+        { specification: null },
+        { currency: null },
+        { price: null },
+        { uom: null },
+        { safety_stock: null },
+        { order_point: null },
+        { min_quantity: null },
+        { max_quantity: null },
+        { lead_time: null },
+        { rank: null },
+      ],
+    };
+
+    let where: any = {};
+
+    if (status === "uncompleted") {
+      where = uncompletedCondition;
+    } else if (status === "completed") {
+      where = {
+        NOT: uncompletedCondition,
+      };
+    }
+
+    const kanbans = await prismaClient.kanban.findMany({
+      where,
       include: {
         rack: true,
         machine_area: true,
@@ -851,7 +863,7 @@ export class KanbanService {
 
     let rowIndex = 5;
 
-    for (const kanban of unCompletedKanbans) {
+    for (const kanban of kanbans) {
       const row = worksheet.getRow(rowIndex++);
 
       const cells = [
@@ -881,14 +893,18 @@ export class KanbanService {
 
         if (value === null || value === undefined || value === "") {
           cell.value = "";
-          cell.style = {
-            ...prevStyle,
-            fill: {
-              type: "pattern",
-              pattern: "solid",
-              fgColor: { argb: "FFFFFF00" }, // kuning (alpha FF)
-            },
-          };
+          if (status === "uncompleted" || status === "all") {
+            cell.style = {
+              ...prevStyle,
+              fill: {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFFFFF00" },
+              },
+            };
+          } else {
+            cell.style = prevStyle;
+          }
         } else {
           cell.value = value;
           cell.style = prevStyle;
@@ -897,7 +913,7 @@ export class KanbanService {
 
       row.commit();
     }
-    // await workbook.xlsx.writeFile(path.resolve(__dirname, "../../uncompleted_kanban_export.xlsx"))
+
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }

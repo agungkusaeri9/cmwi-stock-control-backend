@@ -123,6 +123,10 @@ export type SearchKanbanRequest = {
   js_balance_status?: string;
 };
 
+export type ExportKanbanRequest = {
+  completed_status: string;
+};
+
 export function toKanbanResponse(Kanban: any): KanbanResponse {
   return {
     id: Kanban.id,
