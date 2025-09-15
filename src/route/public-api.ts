@@ -39,10 +39,6 @@ publicRouter.get(
 // Kanban
 publicRouter.get("/api/kanbans", KanbanController.get);
 publicRouter.get("/api/kanbans/:id", KanbanController.show);
-publicRouter.get(
-  "/api/kanbans/export/excel",
-  KanbanController.exportKanbanToExcel
-);
 
 // Machine Area
 publicRouter.get("/api/machine-areas", MachineAreaController.get);

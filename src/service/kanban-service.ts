@@ -918,4 +918,230 @@ export class KanbanService {
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }
+
+  static async exportBalanceToExcel(
+    request: SearchKanbanRequest
+  ): Promise<any> {
+    const searchRequest = Validation.validate(KanbanValidation.SEARCH, request);
+
+    const filters: any[] = [];
+
+    if (searchRequest.keyword) {
+      const keyword = searchRequest.keyword.replace(/\\/g, "\\\\");
+      filters.push({
+        OR: [
+          { code: { contains: keyword } },
+          { description: { contains: keyword } },
+          { specification: { contains: keyword } },
+          { rack: { code: { contains: keyword } } },
+        ],
+      });
+    }
+
+    if (searchRequest.completed_status) {
+      if (searchRequest.completed_status.toLocaleLowerCase() === "completed") {
+        filters.push({
+          AND: [
+            { machine_area_id: { not: null } },
+            { machine_id: { not: null } },
+            { rack_id: { not: null } },
+            { maker_id: { not: null } },
+            { description: { not: null } },
+            { specification: { not: null } },
+            { currency: { not: null } },
+            { price: { not: null } },
+            { uom: { not: null } },
+            { safety_stock: { not: null } },
+            { order_point: { not: null } },
+            { min_quantity: { not: null } },
+            { max_quantity: { not: null } },
+            { lead_time: { not: null } },
+            { rank: { not: null } },
+          ],
+        });
+      } else if (
+        searchRequest.completed_status.toLocaleLowerCase() === "uncompleted"
+      ) {
+        filters.push({
+          OR: [
+            { machine_area_id: null },
+            { machine_id: null },
+            { rack_id: null },
+            { maker_id: null },
+            { description: null },
+            { specification: null },
+            { currency: null },
+            { price: null },
+            { uom: null },
+            { safety_stock: null },
+            { order_point: null },
+            { min_quantity: null },
+            { max_quantity: null },
+            { lead_time: null },
+            { rank: null },
+          ],
+        });
+      }
+    }
+
+    if (searchRequest.js_balance_status) {
+      const status = searchRequest.js_balance_status.trim().toLowerCase();
+
+      if (status === "balance") {
+        filters.push({
+          balance: {
+            equals: prismaClient.kanban.fields.js_ending_quantity, // sama persis
+          },
+        });
+      } else if (status === "unbalance") {
+        filters.push({
+          NOT: {
+            balance: {
+              equals: prismaClient.kanban.fields.js_ending_quantity,
+            },
+          },
+        });
+      }
+    }
+
+    if (searchRequest.stock_status) {
+      if (searchRequest.stock_status.toLocaleLowerCase() === "overstock") {
+        filters.push({
+          balance: {
+            gt: prismaClient.kanban.fields.max_quantity,
+          },
+        });
+      } else if (
+        searchRequest.stock_status.toLocaleLowerCase() === "understock"
+      ) {
+        filters.push({
+          balance: {
+            lt: prismaClient.kanban.fields.min_quantity,
+          },
+        });
+      } else if (searchRequest.stock_status.toLocaleLowerCase() === "normal") {
+        filters.push({
+          balance: {
+            gte: prismaClient.kanban.fields.min_quantity,
+            lte: prismaClient.kanban.fields.max_quantity,
+          },
+        });
+      }
+    }
+
+    if (searchRequest.rack_id) {
+      filters.push({
+        rack_id: searchRequest.rack_id,
+      });
+    }
+
+    if (searchRequest.machine_area_id) {
+      filters.push({
+        machine_area_id: searchRequest.machine_area_id,
+      });
+    }
+
+    if (searchRequest.machine_id) {
+      filters.push({
+        machine_id: searchRequest.machine_id,
+      });
+    }
+
+    const whereClause = filters.length > 0 ? { AND: filters } : {};
+
+    const start = startOfMonth(new Date());
+    const end = endOfMonth(new Date());
+
+    const [kanbans, stockOutSums] = await Promise.all([
+      prismaClient.kanban.findMany({
+        where: whereClause,
+        include: {
+          rack: true,
+          machine_area: true,
+          machine: true,
+          supplier: true,
+          maker: true,
+        },
+      }),
+      prismaClient.stockOut.groupBy({
+        by: ["kanban_code"],
+        _sum: { quantity: true },
+        where: {
+          created_at: {
+            gte: start,
+            lte: end,
+          },
+        },
+      }),
+    ]);
+
+    // Gabungkan hasilnya ke kanban
+    const stockOutMap = stockOutSums.reduce((acc, item) => {
+      if (item.kanban_code !== null) {
+        acc[item.kanban_code] = item._sum.quantity || 0;
+      }
+      return acc;
+    }, {} as Record<string, number>);
+
+    const result = kanbans.map((k) => ({
+      ...k,
+      total_stock_out_quantity: stockOutMap[k.code] || 0,
+    }));
+
+    const workbook = new Workbook();
+    const templatePath = path.resolve(
+      __dirname,
+      "../../template_file/BalanceExportTemplate.xlsx"
+    );
+
+    await workbook.xlsx.readFile(templatePath);
+    const worksheet = workbook.getWorksheet(1);
+    if (!worksheet) throw new Error("Worksheet tidak ditemukan.");
+
+    const blackBorder = {
+      top: { style: "thin" as BorderStyle, color: { argb: "FF000000" } },
+      left: { style: "thin" as BorderStyle, color: { argb: "FF000000" } },
+      bottom: { style: "thin" as BorderStyle, color: { argb: "FF000000" } },
+      right: { style: "thin" as BorderStyle, color: { argb: "FF000000" } },
+    };
+
+    let rowIndex = 8;
+
+    for (const kanban of result) {
+      const row = worksheet.getRow(rowIndex++);
+
+      const cells = [
+        kanban.code,
+        kanban.rack?.code || null,
+        kanban.description,
+        kanban.specification,
+        kanban.machine_area?.name || null,
+        kanban.machine?.code || null,
+        kanban.min_quantity,
+        kanban.max_quantity,
+        kanban.incoming_order_stock,
+        kanban.stock_in_quantity,
+        kanban.total_stock_out_quantity,
+        kanban.balance,
+        kanban.js_ending_quantity,
+        kanban.balance === kanban.js_ending_quantity ? "Balance" : "Unbalance",
+      ];
+
+      cells.forEach((value, index) => {
+        const cell = row.getCell(index + 1);
+
+        cell.border = blackBorder;
+        const prevStyle = { ...cell.style };
+
+        cell.value = value;
+        cell.style = prevStyle;
+      });
+
+      row.commit();
+    }
+
+    // await workbook.xlsx.writeFile("BalanceExport.xlsx");
+    const buffer = await workbook.xlsx.writeBuffer();
+    return buffer;
+  }
 }

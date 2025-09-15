@@ -116,4 +116,45 @@ export class KanbanController {
       next(e);
     }
   }
+
+  static async exportBalanceToExcel(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const request: SearchKanbanRequest = {
+        keyword: req.query.keyword as string,
+        page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
+        limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
+        paginate: req.query.paginate === "true",
+        rack_id: isNaN(Number(req.query.rack_id))
+          ? undefined
+          : Number(req.query.rack_id),
+        machine_id: isNaN(Number(req.query.machine_id))
+          ? undefined
+          : Number(req.query.machine_id),
+        machine_area_id: isNaN(Number(req.query.machine_area_id))
+          ? undefined
+          : Number(req.query.machine_area_id),
+        stock_status: req.query.stock_status as string,
+        completed_status: req.query.completed_status as string,
+        js_balance_status: req.query.js_balance_status as string,
+      };
+
+      const response = await KanbanService.exportBalanceToExcel(request);
+
+      res.setHeader(
+        "Content-Type",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      );
+      res.setHeader(
+        "Content-Disposition",
+        "attachment; filename=BalanceExport.xlsx"
+      );
+      res.end(response);
+    } catch (e) {
+      next(e);
+    }
+  }
 }

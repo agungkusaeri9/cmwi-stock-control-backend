@@ -54,6 +54,14 @@ apiRouter.delete("/api/racks/:id", RackController.remove);
 apiRouter.post("/api/kanbans", KanbanController.create);
 apiRouter.put("/api/kanbans/:id", KanbanController.update);
 apiRouter.delete("/api/kanbans/:id", KanbanController.remove);
+apiRouter.get(
+  "/api/kanbans/export/excel",
+  KanbanController.exportKanbanToExcel
+);
+apiRouter.get(
+  "/api/kanbans/export/excel/balance",
+  KanbanController.exportBalanceToExcel
+);
 
 // Supplier
 apiRouter.post("/api/suppliers", SupplierController.create);
