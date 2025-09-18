@@ -41,14 +41,19 @@ export class StockInService {
             stock_in_quantity: number;
             balance: number;
             incoming_order_stock: number;
+            deleted_at: Date;
           }>
-        >`SELECT id, stock_in_quantity, incoming_order_stock, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
+        >`SELECT id, stock_in_quantity, incoming_order_stock, balance, deleted_at FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
         if (kanbanRows.length === 0) {
           throw new ResponseError(404, "Kanban not found");
         }
 
         const kanbanData = kanbanRows[0];
+
+        if (kanbanData.deleted_at) {
+          throw new ResponseError(400, "Kanban is not found");
+        }
 
         if (kanbanData.stock_in_quantity <= 0) {
           throw new ResponseError(400, "Receiving report file is not uploaded");

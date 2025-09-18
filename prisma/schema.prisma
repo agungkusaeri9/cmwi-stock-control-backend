@@ -262,8 +262,11 @@ model Kanban {
   maker_id             Int?
   incoming_order_stock Int          @default(0)
 
+
   created_at              DateTime                @default(now())
   updated_at              DateTime                @updatedAt
+  deleted_at              DateTime?
+  reminded_at             DateTime? 
   stock_in                StockIn[]
   stock_out               StockOut[]
   receiving_report        ReceivingReport[]

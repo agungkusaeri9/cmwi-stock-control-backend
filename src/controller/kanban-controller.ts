@@ -52,6 +52,7 @@ export class KanbanController {
         stock_status: req.query.stock_status as string,
         completed_status: req.query.completed_status as string,
         js_balance_status: req.query.js_balance_status as string,
+        is_deleted: req.query.is_deleted === "true",
       };
 
       const response = await KanbanService.get(request);
@@ -153,6 +154,16 @@ export class KanbanController {
         "attachment; filename=BalanceExport.xlsx"
       );
       res.end(response);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async restoreKanban(req: Request, res: Response, next: NextFunction) {
+    try {
+      const id: number = Number(req.params.id);
+      await KanbanService.restoreKanban(id);
+      sendSuccess(res, 200, "Restore Kanban success");
     } catch (e) {
       next(e);
     }

@@ -672,6 +672,18 @@ export class KanbanService {
       });
     }
 
+    if (searchRequest.is_deleted) {
+      filters.push({
+        deleted_at: {
+          not: null,
+        },
+      });
+    } else {
+      filters.push({
+        deleted_at: null,
+      });
+    }
+
     const whereClause = filters.length > 0 ? { AND: filters } : {};
 
     // Default pagination values if not provided
@@ -778,6 +790,10 @@ export class KanbanService {
       throw new ResponseError(404, "Kanban not found");
     }
 
+    if (kanban.deleted_at) {
+      throw new ResponseError(404, "Kanban not found");
+    }
+
     return toKanbanResponse(kanban);
   }
 
@@ -786,19 +802,23 @@ export class KanbanService {
       throw new ResponseError(400, "Invalid id");
     }
 
-    const idISValid = await prismaClient.kanban.findUnique({
+    const kanbanISValid = await prismaClient.kanban.findUnique({
       where: {
         id: id,
+        deleted_at: null,
       },
     });
 
-    if (!idISValid) {
+    if (!kanbanISValid) {
       throw new ResponseError(404, "Kanban not found");
     }
 
-    await prismaClient.kanban.delete({
+    await prismaClient.kanban.update({
       where: {
         id: id,
+      },
+      data: {
+        deleted_at: new Date(),
       },
     });
   }
@@ -835,7 +855,10 @@ export class KanbanService {
     }
 
     const kanbans = await prismaClient.kanban.findMany({
-      where,
+      where: {
+        ...where,
+        deleted_at: null,
+      },
       include: {
         rack: true,
         machine_area: true,
@@ -1047,6 +1070,10 @@ export class KanbanService {
       });
     }
 
+    filters.push({
+      deleted_at: null,
+    });
+
     const whereClause = filters.length > 0 ? { AND: filters } : {};
 
     const start = startOfMonth(new Date());
@@ -1143,5 +1170,14 @@ export class KanbanService {
     // await workbook.xlsx.writeFile("BalanceExport.xlsx");
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
+  }
+
+  static async restoreKanban(id: number) {
+    return await prismaClient.kanban.update({
+      where: { id: id },
+      data: {
+        deleted_at: null,
+      },
+    });
   }
 }

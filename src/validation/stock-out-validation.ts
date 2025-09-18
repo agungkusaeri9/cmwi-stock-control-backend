@@ -6,9 +6,10 @@ export class StockOutValidation {
     quantity: z.number().min(1).positive(),
     sub_machine_id: z.number().min(1).positive(),
     machine_area_id: z.number().min(1).positive(),
-    operator_id: z.number().min(1).positive(),
     requester_id: z.number().min(1).positive(),
   });
+
+  static readonly CREATE_MANY: ZodType = z.array(this.CREATE);
 
   static readonly UPDATE: ZodType = z.object({
     quantity: z.number().min(0),

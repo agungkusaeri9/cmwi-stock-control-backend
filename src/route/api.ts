@@ -39,6 +39,7 @@ apiRouter.delete("/api/groups/:id", GroupController.remove);
 // Stock Out
 apiRouter.patch("/api/stock-outs/:id", StockOutController.update);
 apiRouter.post("/api/stock-outs", StockOutController.create);
+apiRouter.post("/api/stock-outs/multiples", StockOutController.createMany);
 
 // Machine Area
 apiRouter.post("/api/machine-areas", MachineAreaController.create);
@@ -62,6 +63,7 @@ apiRouter.get(
   "/api/kanbans/export/excel/balance",
   KanbanController.exportBalanceToExcel
 );
+apiRouter.patch("/api/kanbans/:id/restore", KanbanController.restoreKanban);
 
 // Supplier
 apiRouter.post("/api/suppliers", SupplierController.create);

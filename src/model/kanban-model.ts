@@ -121,6 +121,7 @@ export type SearchKanbanRequest = {
   stock_status?: string;
   completed_status?: string;
   js_balance_status?: string;
+  is_deleted?: boolean;
 };
 
 export type ExportKanbanRequest = {

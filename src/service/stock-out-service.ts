@@ -18,32 +18,40 @@ import { sendNotification } from "../application/websocket";
 
 export class StockOutService {
   static async create(
-    request: CreateStockOutRequest
+    request: CreateStockOutRequest,
+    operatorId?: number | null
   ): Promise<StockOutResponse> {
+    if (!operatorId) {
+      throw new ResponseError(401, "Unauthorized");
+    }
+
+    const isOperatorExist = await prismaClient.operator.findFirst({
+      where: { id: operatorId },
+    });
+
+    if (!isOperatorExist) {
+      throw new ResponseError(404, "Operator not found");
+    }
+
     const createRequest = Validation.validate(
       StockOutValidation.CREATE,
       request
     );
+
     return await prismaClient.$transaction(async (prisma) => {
-      const isOperatorExist = await prisma.operator.findFirst({
-        where: {
-          id: createRequest.operator_id,
-        },
-      });
-
-      if (!isOperatorExist) {
-        throw new ResponseError(404, "Operator not found");
-      }
-
       const kanbanRows = await prisma.$queryRaw<
-        Array<{ id: string; balance: number }>
-      >`SELECT id, balance FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
+        Array<{ id: string; balance: number; deleted_at: Date }>
+      >`SELECT id, balance, deleted_at FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
       if (kanbanRows.length === 0) {
         throw new ResponseError(404, "Kanban Code not found");
       }
 
       const kanban = kanbanRows[0];
+
+      if (kanban.deleted_at) {
+        throw new ResponseError(400, "Kanban is not found");
+      }
 
       if (kanban.balance < createRequest.quantity) {
         throw new ResponseError(400, "Kanban stock is not enough");
@@ -77,6 +85,7 @@ export class StockOutService {
       const stockOut = await prisma.stockOut.create({
         data: {
           ...createRequest,
+          operator_id: operatorId,
           machine_id: subMachine.machine_id,
           balance_before: kanban.balance,
           balance_after: kanban.balance - createRequest.quantity,
@@ -109,6 +118,107 @@ export class StockOutService {
 
       return toStockOutResponse(stockOut);
     });
+  }
+
+  static async createMany(
+    requests: CreateStockOutRequest[],
+    operatorId?: number | null
+  ): Promise<{ successMessages: string; errorMessages: string }> {
+    if (!operatorId) {
+      throw new ResponseError(401, "Unauthorized");
+    }
+
+    const isOperatorExist = await prismaClient.operator.findFirst({
+      where: { id: operatorId },
+    });
+
+    if (!isOperatorExist) {
+      throw new ResponseError(404, "Operator not found");
+    }
+
+    const createRequests = Validation.validate(
+      StockOutValidation.CREATE_MANY,
+      requests
+    );
+
+    const successKanbans: string[] = [];
+    const failedKanbans: string[] = [];
+
+    for (const req of createRequests) {
+      try {
+        // transaksi per item (partial success)
+        await prismaClient.$transaction(async (prisma) => {
+          const kanbanRows = await prisma.$queryRaw<
+            Array<{ id: string; balance: number }>
+          >`SELECT id, balance FROM kanbans WHERE code = ${req.kanban_code} FOR UPDATE`;
+
+          if (kanbanRows.length === 0) {
+            throw new Error("Kanban not found");
+          }
+
+          const kanban = kanbanRows[0];
+
+          if (kanban.balance < req.quantity) {
+            throw new Error("Stock is not enough");
+          }
+
+          const newKanban = await prisma.kanban.update({
+            where: { id: Number(kanban.id) },
+            data: {
+              balance: { decrement: req.quantity },
+            },
+          });
+
+          const subMachine = await prisma.subMachine.findUnique({
+            where: { id: req.sub_machine_id },
+          });
+          if (!subMachine) {
+            throw new Error("Sub Machine not found");
+          }
+
+          const machineArea = await prisma.machineArea.findUnique({
+            where: { id: req.machine_area_id },
+          });
+          if (!machineArea) {
+            throw new Error("Machine Area not found");
+          }
+
+          await prisma.stockOut.create({
+            data: {
+              ...req,
+              operator_id: operatorId,
+              machine_id: subMachine.machine_id,
+              balance_before: kanban.balance,
+              balance_after: kanban.balance - req.quantity,
+            },
+          });
+
+          if (
+            newKanban.min_quantity &&
+            newKanban.balance < newKanban.min_quantity
+          ) {
+            logger.info(
+              `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+            );
+            sendNotification(
+              `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+            );
+          }
+        });
+
+        successKanbans.push(req.kanban_code);
+      } catch (err) {
+        failedKanbans.push(`${req.kanban_code} (${(err as Error).message})`);
+      }
+    }
+
+    const successMessages =
+      successKanbans.length > 0 ? `${successKanbans.join(", ")}` : "";
+
+    const errorMessages =
+      failedKanbans.length > 0 ? `${failedKanbans.join(", ")}.` : "";
+
+    return { successMessages, errorMessages };
   }
 
   static async update(
@@ -240,19 +350,18 @@ export class StockOutService {
       });
     }
 
-    
     if (searchRequest.machine_area_id) {
       filters.push({
         machine_area_id: searchRequest.machine_area_id,
       });
     }
-    
+
     if (searchRequest.machine_id) {
       filters.push({
         machine_id: searchRequest.machine_id,
       });
     }
-    
+
     if (searchRequest.sub_machine_id) {
       filters.push({
         sub_machine_id: searchRequest.sub_machine_id,

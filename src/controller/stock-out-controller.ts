@@ -4,21 +4,59 @@ import {
   SearchStockOutRequest,
 } from "../model/stock-out-model";
 import { StockOutService } from "../service/stock-out-service";
-import { sendSuccess } from "../helper/response-helper";
+import { sendError, sendSuccess } from "../helper/response-helper";
 import { logger } from "../application/logging";
 import { UserRequest } from "../type/user-request";
 
 export class StockOutController {
   static async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
-      const request: CreateStockOutRequest = {
-        operator_id: req.operatorId,
-        ...req.body,
-      } as CreateStockOutRequest;
+      const request: CreateStockOutRequest = req.body as CreateStockOutRequest;
 
-      const response = await StockOutService.create(request);
+      const response = await StockOutService.create(request, req.operatorId);
       logger.info("Create stockOut success");
       sendSuccess(res, 200, "Create stockOut success", response);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async createMany(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const requests: CreateStockOutRequest[] =
+        req.body as CreateStockOutRequest[];
+
+      const { successMessages, errorMessages } =
+        await StockOutService.createMany(requests, req.operatorId);
+
+      // case 1: semua sukses
+      if (successMessages.length > 0 && errorMessages.length === 0) {
+        logger.info("All stockOut created successfully");
+        return sendSuccess(res, 200, "All stockOut created successfully", {
+          success: successMessages,
+        });
+      }
+
+      // case 2: semua gagal
+      if (successMessages.length === 0 && errorMessages.length > 0) {
+        logger.warn("All stockOut creation failed");
+        return sendError(res, 400, "All stockOut creation failed", {
+          errors: [errorMessages],
+        });
+      }
+
+      // case 3: sebagian berhasil, sebagian gagal
+      if (successMessages.length > 0 && errorMessages.length > 0) {
+        logger.warn("Some stockOut created, some failed");
+        return sendSuccess(res, 207, "Partial success in creating stockOut", {
+          success: successMessages,
+          errors: errorMessages,
+        });
+      }
+
+      // case fallback (misalnya tidak ada request dikirim)
+      logger.warn("No stockOut request processed");
+      return sendSuccess(res, 400, "No stockOut request processed", null);
     } catch (e) {
       next(e);
     }

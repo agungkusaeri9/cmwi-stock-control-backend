@@ -67,6 +67,11 @@ async function main() {
     });
   }
 
+  await prisma.$executeRaw`
+  UPDATE kanbans
+  SET reminded_at = updated_at
+`;
+
   await seedGroups();
   await seedSubMachines();
   // await seedSuppliers();
