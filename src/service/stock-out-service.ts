@@ -114,6 +114,12 @@ export class StockOutService {
         sendNotification(
           `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
         );
+        await prisma.kanban.update({
+          where: { id: Number(newKanban.id) },
+          data: {
+            reminded_at: new Date(),
+          },
+        });
       }
 
       return toStockOutResponse(stockOut);

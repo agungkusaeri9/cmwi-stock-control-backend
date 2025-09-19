@@ -112,12 +112,18 @@ export class ReceivingReportService {
         prismaClient.receivingReport.createMany({ data: validRequests })
       );
 
-      for (const item of validRequests) {
+      const grouped = validRequests.reduce((acc, item) => {
+        acc[item.kanban_code] =
+          (acc[item.kanban_code] || 0) + item.received_quantity;
+        return acc;
+      }, {} as Record<string, number>);
+
+      for (const [kanban_code, totalQuantity] of Object.entries(grouped)) {
         transactionQueries.push(
-          prismaClient.kanban.updateMany({
-            where: { code: item.kanban_code },
+          prismaClient.kanban.update({
+            where: { code: kanban_code },
             data: {
-              stock_in_quantity: { decrement: item.received_quantity },
+              stock_in_quantity: { increment: totalQuantity },
             },
           })
         );
