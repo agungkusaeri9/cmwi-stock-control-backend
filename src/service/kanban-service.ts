@@ -790,9 +790,9 @@ export class KanbanService {
       throw new ResponseError(404, "Kanban not found");
     }
 
-    if (kanban.deleted_at) {
-      throw new ResponseError(404, "Kanban not found");
-    }
+    // if (kanban.deleted_at) {
+    //   throw new ResponseError(404, "Kanban not found");
+    // }
 
     return toKanbanResponse(kanban);
   }
