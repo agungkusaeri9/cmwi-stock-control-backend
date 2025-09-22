@@ -498,6 +498,12 @@ export class StockOutService {
       });
     }
 
+    if (searchRequest.sub_machine_id) {
+      filters.push({
+        sub_machine_id: searchRequest.sub_machine_id,
+      });
+    }
+
     if (searchRequest.start_date) {
       filters.push({
         created_at: {
