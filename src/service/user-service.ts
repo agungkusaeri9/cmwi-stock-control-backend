@@ -43,10 +43,7 @@ export class UserService {
         userId: user.id,
         operatorId: user.operator?.id || null,
       },
-      JWT_SECRET_KEY,
-      {
-        expiresIn: "12h",
-      }
+      JWT_SECRET_KEY
     );
 
     const response = toUserResponse(user);

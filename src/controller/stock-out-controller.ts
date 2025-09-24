@@ -145,6 +145,9 @@ export class StockOutController {
         machine_id: isNaN(Number(req.query.machine_id))
           ? undefined
           : Number(req.query.machine_id),
+        sub_machine_id: isNaN(Number(req.query.sub_machine_id))
+          ? undefined
+          : Number(req.query.sub_machine_id),
         machine_area_id: isNaN(Number(req.query.machine_area_id))
           ? undefined
           : Number(req.query.machine_area_id),
