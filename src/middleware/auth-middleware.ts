@@ -30,11 +30,13 @@ export const authMiddleware = async (
       decoded !== null &&
       "username" in decoded &&
       "userId" in decoded &&
-      "operatorId" in decoded
+      "operatorId" in decoded &&
+      "role" in decoded
     ) {
       req.username = decoded.username;
       req.userId = decoded.userId;
       req.operatorId = decoded.operatorId;
+      req.role = decoded.role;
       return next();
     }
 

@@ -41,6 +41,7 @@ export class UserService {
       {
         username: user.username,
         userId: user.id,
+        role: user.role,
         operatorId: user.operator?.id || null,
       },
       JWT_SECRET_KEY

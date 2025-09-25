@@ -4,5 +4,6 @@ import { User } from "@prisma/client";
 export interface UserRequest extends Request {
   username?: string | undefined;
   userId?: number | undefined;
+  role?: string | undefined;
   operatorId?: number | null | undefined;
 }
