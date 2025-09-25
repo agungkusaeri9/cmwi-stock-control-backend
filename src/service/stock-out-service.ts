@@ -40,8 +40,15 @@ export class StockOutService {
 
     return await prismaClient.$transaction(async (prisma) => {
       const kanbanRows = await prisma.$queryRaw<
-        Array<{ id: string; balance: number; deleted_at: Date }>
-      >`SELECT id, balance, deleted_at FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
+        Array<{
+          id: string;
+          code: string;
+          balance: number;
+          min_quantity: number;
+          uom: string;
+          deleted_at: Date;
+        }>
+      >`SELECT id, code, balance, min_quantity, uom, deleted_at FROM kanbans WHERE code = ${createRequest.kanban_code} FOR UPDATE`;
 
       if (kanbanRows.length === 0) {
         throw new ResponseError(404, "Kanban Code not found");
@@ -58,12 +65,7 @@ export class StockOutService {
       }
 
       // Update kanban balance
-      const newKanban = await prisma.kanban.update({
-        where: { id: Number(kanban.id) },
-        data: {
-          balance: { decrement: createRequest.quantity },
-        },
-      });
+      const updatedBalance = kanban.balance - createRequest.quantity;
 
       const subMachine = await prisma.subMachine.findUnique({
         where: { id: createRequest.sub_machine_id },
@@ -104,20 +106,25 @@ export class StockOutService {
         },
       });
 
-      if (
-        newKanban.min_quantity &&
-        newKanban.balance < newKanban.min_quantity
-      ) {
+      if (kanban.min_quantity && updatedBalance < kanban.min_quantity) {
         logger.info(
-          `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+          `Kanban ${kanban.code} stock is less than ${kanban.min_quantity} ${kanban.uom}`
         );
         sendNotification(
-          `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+          `Kanban ${kanban.code} stock is less than ${kanban.min_quantity} ${kanban.uom}`
         );
         await prisma.kanban.update({
-          where: { id: Number(newKanban.id) },
+          where: { id: Number(kanban.id) },
           data: {
+            balance: updatedBalance,
             reminded_at: new Date(),
+          },
+        });
+      } else {
+        await prisma.kanban.update({
+          where: { id: Number(kanban.id) },
+          data: {
+            balance: updatedBalance,
           },
         });
       }
@@ -155,8 +162,15 @@ export class StockOutService {
         // transaksi per item (partial success)
         await prismaClient.$transaction(async (prisma) => {
           const kanbanRows = await prisma.$queryRaw<
-            Array<{ id: string; balance: number }>
-          >`SELECT id, balance FROM kanbans WHERE code = ${req.kanban_code} FOR UPDATE`;
+            Array<{
+              id: string;
+              code: string;
+              balance: number;
+              min_quantity: number;
+              uom: string;
+              deleted_at: Date;
+            }>
+          >`SELECT id, code, balance, min_quantity, uom, deleted_at FROM kanbans WHERE code = ${req.kanban_code} FOR UPDATE`;
 
           if (kanbanRows.length === 0) {
             throw new Error("Kanban not found");
@@ -164,16 +178,15 @@ export class StockOutService {
 
           const kanban = kanbanRows[0];
 
+          if (kanban.deleted_at) {
+            throw new Error("Kanban is not found");
+          }
+
           if (kanban.balance < req.quantity) {
             throw new Error("Stock is not enough");
           }
 
-          const newKanban = await prisma.kanban.update({
-            where: { id: Number(kanban.id) },
-            data: {
-              balance: { decrement: req.quantity },
-            },
-          });
+          const updatedBalance = kanban.balance - req.quantity;
 
           const subMachine = await prisma.subMachine.findUnique({
             where: { id: req.sub_machine_id },
@@ -199,16 +212,27 @@ export class StockOutService {
             },
           });
 
-          if (
-            newKanban.min_quantity &&
-            newKanban.balance < newKanban.min_quantity
-          ) {
+          if (kanban.min_quantity && updatedBalance < kanban.min_quantity) {
             logger.info(
-              `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+              `Kanban ${kanban.code} stock is less than ${kanban.min_quantity} ${kanban.uom}`
             );
             sendNotification(
-              `Kanban ${newKanban.code} stock is less than ${newKanban.min_quantity} ${newKanban.uom}`
+              `Kanban ${kanban.code} stock is less than ${kanban.min_quantity} ${kanban.uom}`
             );
+            await prisma.kanban.update({
+              where: { id: Number(kanban.id) },
+              data: {
+                balance: updatedBalance,
+                reminded_at: new Date(),
+              },
+            });
+          } else {
+            await prisma.kanban.update({
+              where: { id: Number(kanban.id) },
+              data: {
+                balance: updatedBalance,
+              },
+            });
           }
         });
 
@@ -529,9 +553,14 @@ export class StockOutService {
       include: {
         machine_area: true,
         sub_machine: true,
-        requester: true,
         machine: true,
         operator: true,
+        requester: true,
+        kanban: {
+          include: {
+            rack: true,
+          },
+        },
       },
     });
 
@@ -564,27 +593,27 @@ export class StockOutService {
     row5.commit();
 
     let rowIndex = 8;
-    let number = 1;
 
     for (const stock of stockOuts) {
       const row = worksheet.getRow(rowIndex++);
 
-      row.getCell(1).value = number++;
-      row.getCell(2).value = 75;
-      row.getCell(3).value = stock.kanban_code ?? "-";
-      row.getCell(4).value = stock.requester?.name ?? "-";
-      row.getCell(5).value = stock.machine_area?.name ?? "-";
-      row.getCell(6).value = stock.sub_machine?.code
+      row.getCell(1).value = convertToReadableDate(stock.created_at.toString());
+      row.getCell(2).value = stock.kanban_code ?? "-";
+      row.getCell(3).value = stock.kanban?.rack?.code ?? "-";
+      row.getCell(4).value = stock.kanban?.description;
+      row.getCell(5).value = stock.kanban?.specification;
+      row.getCell(6).value = stock.machine_area?.name ?? "-";
+      row.getCell(7).value = stock.sub_machine?.code
         ? stock.sub_machine.code
         : stock.machine?.code ?? "-";
-      row.getCell(7).value = stock.quantity;
+      row.getCell(8).value = stock.quantity;
+      row.getCell(9).value = stock.requester?.name ?? "-";
 
       // Human-readable date format
-      row.getCell(8).value = convertToReadableDate(stock.created_at.toString());
       row.commit();
     }
 
-    await workbook.xlsx.writeFile(`StockOutExport_${Date.now()}.xlsx`);
+    // await workbook.xlsx.writeFile(`StockOutExport_${Date.now()}.xlsx`);
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }

@@ -267,8 +267,12 @@ export class StockInService {
     const stockIns = await prismaClient.stockIn.findMany({
       where: whereClause,
       include: {
-        kanban: true,
         operator: true,
+        kanban: {
+          include: {
+            rack: true,
+          },
+        },
       },
     });
 
@@ -301,22 +305,22 @@ export class StockInService {
     row5.commit();
 
     let rowIndex = 8;
-    let number = 1;
 
     for (const stock of stockIns) {
       const row = worksheet.getRow(rowIndex++);
 
-      row.getCell(1).value = number++;
-      row.getCell(2).value = 75;
-      row.getCell(3).value = stock.kanban_code ?? "-";
-      row.getCell(4).value = stock.operator?.name ?? "-";
-      row.getCell(5).value = stock.quantity;
+      row.getCell(1).value = convertToReadableDate(stock.created_at.toString());
+      row.getCell(2).value = stock.kanban_code ?? "-";
+      row.getCell(3).value = stock.kanban?.rack?.code ?? "-";
+      row.getCell(4).value = stock.kanban?.description ?? "-";
+      row.getCell(5).value = stock.kanban?.specification ?? "-";
+      row.getCell(6).value = stock.quantity;
+      row.getCell(7).value = stock.operator?.name ?? "-";
 
-      // Human-readable date format
-      row.getCell(6).value = convertToReadableDate(stock.created_at.toString());
       row.commit();
     }
 
+    await workbook.xlsx.writeFile(`StockInExport_${Date.now()}.xlsx`);
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }

@@ -18,62 +18,64 @@ async function main() {
     where: { username: "admin" },
     update: {
       name: "Admin",
+      role: "admin",
       password: await bcrypt.hash("admin", 10),
     },
     create: {
       username: "admin",
       name: "Admin",
+      role: "admin",
       password: await bcrypt.hash("admin", 10),
     },
   });
 
-  const operators = [
-    { nik: "1808611", name: "Fahmi" },
-    { nik: "1910802", name: "Muchlis" },
-    { nik: "1804573", name: "Fauzi" },
-    { nik: "1711539", name: "Agung" },
-  ];
+  //   const operators = [
+  //     { nik: "1808611", name: "Fahmi" },
+  //     { nik: "1910802", name: "Muchlis" },
+  //     { nik: "1804573", name: "Fauzi" },
+  //     { nik: "1711539", name: "Agung" },
+  //   ];
 
-  for (const op of operators) {
-    const username = op.name.toLowerCase();
-    const password = await bcrypt.hash(username, 10);
+  //   for (const op of operators) {
+  //     const username = op.name.toLowerCase();
+  //     const password = await bcrypt.hash(username, 10);
 
-    // upsert user dulu
-    const user = await prisma.user.upsert({
-      where: { username },
-      update: {
-        name: op.name,
-        password,
-      },
-      create: {
-        username,
-        name: op.name,
-        password,
-      },
-    });
+  //     // upsert user dulu
+  //     const user = await prisma.user.upsert({
+  //       where: { username },
+  //       update: {
+  //         name: op.name,
+  //         password,
+  //       },
+  //       create: {
+  //         username,
+  //         name: op.name,
+  //         password,
+  //       },
+  //     });
 
-    // upsert operator, kaitkan dengan user_id
-    await prisma.operator.upsert({
-      where: { nik: op.nik },
-      update: {
-        name: op.name,
-        user_id: user.id,
-      },
-      create: {
-        nik: op.nik,
-        name: op.name,
-        user_id: user.id,
-      },
-    });
-  }
+  //     // upsert operator, kaitkan dengan user_id
+  //     await prisma.operator.upsert({
+  //       where: { nik: op.nik },
+  //       update: {
+  //         name: op.name,
+  //         user_id: user.id,
+  //       },
+  //       create: {
+  //         nik: op.nik,
+  //         name: op.name,
+  //         user_id: user.id,
+  //       },
+  //     });
+  //   }
 
-  await prisma.$executeRaw`
-  UPDATE kanbans
-  SET reminded_at = updated_at
-`;
+  //   await prisma.$executeRaw`
+  //   UPDATE kanbans
+  //   SET reminded_at = updated_at
+  // `;
 
-  await seedGroups();
-  await seedSubMachines();
+  //   await seedGroups();
+  //   await seedSubMachines();
   // await seedSuppliers();
   // await seedMakers();
   // await seedAreas();

@@ -20,9 +20,11 @@ export class MachineService {
       request
     );
 
+    const validCodeRequest = createRequest.code.trim().replace(/\s+/g, " ");
+
     const isCodeExist = await prismaClient.machine.findFirst({
       where: {
-        code: createRequest.code,
+        code: validCodeRequest,
       },
     });
 
@@ -31,7 +33,9 @@ export class MachineService {
     }
 
     const machine = await prismaClient.machine.create({
-      data: createRequest,
+      data: {
+        code: validCodeRequest,
+      },
     });
 
     return toMachineResponse(machine);
@@ -60,9 +64,13 @@ export class MachineService {
       request
     );
 
+    const validCodeRequest = (updateRequest.code ?? "")
+      .trim()
+      .replace(/\s+/g, " ");
+
     const isCodeExist = await prismaClient.machine.findFirst({
       where: {
-        code: updateRequest.code,
+        code: validCodeRequest,
         NOT: {
           id: id,
         },
@@ -77,7 +85,9 @@ export class MachineService {
       where: {
         id: id,
       },
-      data: updateRequest,
+      data: {
+        code: validCodeRequest,
+      },
     });
 
     return toMachineResponse(machine);

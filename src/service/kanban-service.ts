@@ -146,17 +146,23 @@ export class KanbanService {
       return prefix === "EA";
     };
 
+    function cleanValue(value: any): string | null {
+      if (
+        value === "" ||
+        value === null ||
+        value === undefined ||
+        value === "-"
+      ) {
+        return null;
+      }
+      const str = parseString(value);
+      return str ? str.trim().replace(/\s+/g, " ") : null;
+    }
+
     const makerNames = Array.from(
       new Set(
         kanbans
-          .map((entry) =>
-            entry.MAKER === "" ||
-            entry.MAKER === null ||
-            entry.MAKER === undefined ||
-            entry.MAKER === "-"
-              ? null
-              : parseString(entry.MAKER)
-          )
+          .map((entry) => cleanValue(entry.MAKER))
           .filter((s): s is string => !!s)
       )
     );
@@ -191,14 +197,7 @@ export class KanbanService {
     const areaNames = Array.from(
       new Set(
         kanbans
-          .map((entry) =>
-            entry.AREA === "" ||
-            entry.AREA === null ||
-            entry.AREA === undefined ||
-            entry.AREA === "-"
-              ? null
-              : parseString(entry.AREA)
-          )
+          .map((entry) => cleanValue(entry.AREA))
           .filter((s): s is string => !!s)
       )
     );
@@ -231,14 +230,7 @@ export class KanbanService {
     const machineNames = Array.from(
       new Set(
         kanbans
-          .map((entry) =>
-            entry.MESIN === "" ||
-            entry.MESIN === null ||
-            entry.MESIN === undefined ||
-            entry.MESIN === "-"
-              ? null
-              : parseString(entry.MESIN)
-          )
+          .map((entry) => cleanValue(entry.MESIN))
           .filter((s): s is string => !!s)
       )
     );
@@ -275,14 +267,7 @@ export class KanbanService {
     const rackNames = Array.from(
       new Set(
         kanbans
-          .map((entry) =>
-            entry["CODE RACK"] === "" ||
-            entry["CODE RACK"] === null ||
-            entry["CODE RACK"] === undefined ||
-            entry["CODE RACK"] === "-"
-              ? null
-              : parseString(entry["CODE RACK"])
-          )
+          .map((entry) => cleanValue(entry["CODE RACK"]))
           .filter((s): s is string => !!s)
       )
     );

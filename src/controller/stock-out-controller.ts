@@ -32,16 +32,14 @@ export class StockOutController {
       // case 1: semua sukses
       if (successMessages.length > 0 && errorMessages.length === 0) {
         logger.info("All stockOut created successfully");
-        return sendSuccess(res, 200, "All stockOut created successfully", {
-          success: successMessages,
-        });
+        return sendSuccess(res, 200, "All stockOut created successfully");
       }
 
       // case 2: semua gagal
       if (successMessages.length === 0 && errorMessages.length > 0) {
         logger.warn("All stockOut creation failed");
-        return sendError(res, 400, "All stockOut creation failed", {
-          errors: [errorMessages],
+        return sendSuccess(res, 400, "All stockOut creation failed", {
+          errors: errorMessages,
         });
       }
 
