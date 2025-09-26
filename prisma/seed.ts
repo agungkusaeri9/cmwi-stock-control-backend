@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import bcrypt from "bcryptjs";
 import { seedGroups } from "./seeders/group-seeder";
-import { seedSubMachines } from "./seeders/submachine-seeder";
+// import { seedSubMachines } from "./seeders/submachine-seeder";
 // import { seedAreas } from "./seeders/area-seeder";
 // import { seedRacks } from "./seeders/rack-seeder";
 // import { seedKanbans1 } from "./seeders/kanban-1-seeder";
@@ -73,8 +73,8 @@ async function main() {
   //   UPDATE kanbans
   //   SET reminded_at = updated_at
   // `;
-
-  //   await seedGroups();
+  await prisma.group.deleteMany();
+  await seedGroups();
   //   await seedSubMachines();
   // await seedSuppliers();
   // await seedMakers();
