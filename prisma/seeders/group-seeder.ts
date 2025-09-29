@@ -3,10 +3,10 @@ const prisma = new PrismaClient();
 
 export async function seedGroups() {
   const groupsData = [
-    { id: 1, name: "A", description: "Grup A" },
-    { id: 2, name: "B", description: "Grup B" },
-    { id: 3, name: "C", description: "Grup C" },
-    { id: 4, name: "NS", description: "Grup NS" },
+    { id: 4, name: "A", description: "Grup A" },
+    { id: 1, name: "B", description: "Grup B" },
+    { id: 2, name: "C", description: "Grup C" },
+    { id: 3, name: "NS", description: "Grup NS" },
     { id: 5, name: "Others Dept", description: "Departemen Lain" },
   ];
 
