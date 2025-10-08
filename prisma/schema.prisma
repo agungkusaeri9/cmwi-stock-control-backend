@@ -367,3 +367,14 @@ model StockOutChangeLog {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
+
+model ManualPurchaseOrder {
+  id                Int      @id @default(autoincrement())
+  po_number         String   @unique @db.VarChar(100)
+  date              DateTime
+  quantity          Int
+  remark            String?  @db.Text
+
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+}
