@@ -14,6 +14,7 @@ import { RequesterController } from "../controller/requester-controller";
 import { SubMachineController } from "../controller/submachine-controller";
 import { StockInController } from "../controller/stock-in-controller";
 import { roleMiddleware } from "../middleware/role-middleware";
+import { ManualPurchaseOrderController } from "../controller/manual-purchase-order-controller";
 
 export const adminRouter = express.Router();
 adminRouter.use(authMiddleware);
@@ -80,3 +81,5 @@ adminRouter.delete("/api/sub-machines/:id", SubMachineController.remove);
 
 // Stock Out
 adminRouter.patch("/api/stock-outs/:id", StockOutController.update);
+// Manual Purchase Order
+adminRouter.post("/api/manual-purchase-orders", ManualPurchaseOrderController.create);

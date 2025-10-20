@@ -277,6 +277,7 @@ model Kanban {
   StockOrderKanban        StockOrderKanban[]
 
   @@map("kanbans")
+  ManualPurchaseOrder ManualPurchaseOrder[]
 }
 
 model StockIn {
@@ -370,7 +371,10 @@ model StockOutChangeLog {
 
 model ManualPurchaseOrder {
   id                Int      @id @default(autoincrement())
-  po_number         String   @unique @db.VarChar(100)
+  po_number         String   @db.VarChar(100)
+  pr_number         String   @db.VarChar(100)
+  kanban            Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code       String?
   date              DateTime
   quantity          Int
   remark            String?  @db.Text
