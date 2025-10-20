@@ -50,6 +50,9 @@ export class ManualPurchaseOrderService {
           quantity: createRequest.quantity,
           remark: createRequest.remark ?? null,
         },
+        include: {
+          kanban: true,
+        },
       });
 
       return created;
@@ -117,6 +120,7 @@ export class ManualPurchaseOrderService {
         where: whereClause,
         orderBy: { created_at: "desc" },
         ...(searchRequest.paginate ? { take: limit, skip } : {}),
+        include: { kanban: true },
       }),
       prismaClient.manualPurchaseOrder.count({ where: whereClause }),
     ]);
@@ -143,6 +147,7 @@ export class ManualPurchaseOrderService {
 
     const mpo = await prismaClient.manualPurchaseOrder.findUnique({
       where: { id },
+      include: { kanban: true },
     });
 
     if (!mpo) {
