@@ -41,7 +41,6 @@ publicRouter.get(
 publicRouter.get("/api/kanbans", KanbanController.get);
 publicRouter.get("/api/kanbans/:id", KanbanController.show);
 
-// Machine Area
 publicRouter.get("/api/machine-areas", MachineAreaController.get);
 publicRouter.get("/api/machine-areas/:id", MachineAreaController.show);
 
@@ -92,8 +91,14 @@ publicRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
 // Purchase Order
 publicRouter.get("/api/purchase-orders", PurchaseOrderController.get);
 publicRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
-publicRouter.get("/api/manual-purchase-orders", ManualPurchaseOrderController.get);
-publicRouter.get("/api/manual-purchase-orders/:id", ManualPurchaseOrderController.show);
+publicRouter.get(
+  "/api/manual-purchase-orders",
+  ManualPurchaseOrderController.get
+);
+publicRouter.get(
+  "/api/manual-purchase-orders/:id",
+  ManualPurchaseOrderController.show
+);
 
 // Reminder
 publicRouter.get("/api/reminders", ReminderController.get);

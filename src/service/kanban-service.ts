@@ -60,15 +60,30 @@ export class KanbanService {
       }
     }
 
-    const Kanban = await prismaClient.kanban.create({
-      data: createRequest,
-      include: {
-        rack: true,
-        machine_area: true,
-        machine: true,
-        supplier: true,
-        maker: true,
-      },
+    const Kanban = await prismaClient.$transaction(async (tx) => {
+      // 1️⃣ Buat parent dulu
+      const kanbanParent = await tx.kanbanParent.create({
+        data: {
+          original_code: createRequest.code,
+        },
+      });
+
+      // 2️⃣ Buat kanban yang berelasi dengan parent di atas
+      const kanban = await tx.kanban.create({
+        data: {
+          ...createRequest,
+          kanban_parent_id: kanbanParent.id,
+        },
+        include: {
+          rack: true,
+          machine_area: true,
+          machine: true,
+          supplier: true,
+          maker: true,
+        },
+      });
+
+      return kanban;
     });
 
     return toKanbanResponse(Kanban);

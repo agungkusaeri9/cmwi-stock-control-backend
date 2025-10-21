@@ -12,9 +12,9 @@ import { StockOutController } from "../controller/stock-out-controller";
 import { GroupController } from "../controller/group-controller";
 import { RequesterController } from "../controller/requester-controller";
 import { SubMachineController } from "../controller/submachine-controller";
-import { StockInController } from "../controller/stock-in-controller";
 import { roleMiddleware } from "../middleware/role-middleware";
 import { ManualPurchaseOrderController } from "../controller/manual-purchase-order-controller";
+import { KanbanStaggingController } from "../controller/kanban-stagging-controller";
 
 export const adminRouter = express.Router();
 adminRouter.use(authMiddleware);
@@ -82,4 +82,18 @@ adminRouter.delete("/api/sub-machines/:id", SubMachineController.remove);
 // Stock Out
 adminRouter.patch("/api/stock-outs/:id", StockOutController.update);
 // Manual Purchase Order
-adminRouter.post("/api/manual-purchase-orders", ManualPurchaseOrderController.create);
+adminRouter.post(
+  "/api/manual-purchase-orders",
+  ManualPurchaseOrderController.create
+);
+
+//Kanban Stagging
+adminRouter.get("/api/kanban-staggings", KanbanStaggingController.get);
+adminRouter.post(
+  "/api/kanban-staggings/assign-to-parent",
+  KanbanStaggingController.assignToParent
+);
+adminRouter.post(
+  "/api/kanban-staggings/forward-to-master",
+  KanbanStaggingController.forwardToMaster
+);
