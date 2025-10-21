@@ -89,6 +89,7 @@ adminRouter.post(
 
 //Kanban Stagging
 adminRouter.get("/api/kanban-staggings", KanbanStaggingController.get);
+adminRouter.get("/api/kanban-staggings/:id", KanbanStaggingController.show);
 adminRouter.post(
   "/api/kanban-staggings/assign-to-parent",
   KanbanStaggingController.assignToParent

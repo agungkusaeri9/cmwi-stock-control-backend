@@ -7,23 +7,38 @@ import {
 } from "../model/kanban-stagging-model";
 
 export class KanbanStaggingController {
-  static async get(req: Request, res: Response) {
-    const { keyword, page, limit, paginate, start_date, end_date } = req.query;
-    const response = await KanbanStaggingService.get({
-      keyword: keyword as string | undefined,
-      page: isNaN(Number(page)) ? 1 : Number(page),
-      limit: isNaN(Number(limit)) ? 10 : Number(limit),
-      paginate: paginate ? paginate === "true" : undefined,
-      start_date: start_date ? new Date(String(start_date)) : undefined,
-      end_date: end_date ? new Date(String(end_date)) : undefined,
-    });
-    sendSuccess(
-      res,
-      200,
-      "Get Kanban success",
-      response.data,
-      response.pagination
-    );
+  static async get(req: Request, res: Response, next: Function) {
+    try {
+      const { keyword, page, limit, paginate, start_date, end_date } =
+        req.query;
+      const response = await KanbanStaggingService.get({
+        keyword: keyword as string | undefined,
+        page: isNaN(Number(page)) ? 1 : Number(page),
+        limit: isNaN(Number(limit)) ? 10 : Number(limit),
+        paginate: paginate ? paginate === "true" : undefined,
+        start_date: start_date ? new Date(String(start_date)) : undefined,
+        end_date: end_date ? new Date(String(end_date)) : undefined,
+      });
+      sendSuccess(
+        res,
+        200,
+        "Get Kanban success",
+        response.data,
+        response.pagination
+      );
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async show(req: Request, res: Response, next: Function) {
+    try {
+      const { id } = req.params;
+      const result = await KanbanStaggingService.show(Number(id));
+      sendSuccess(res, 200, "Get Kanban success", result);
+    } catch (e) {
+      next(e);
+    }
   }
 
   static async assignToParent(req: Request, res: Response) {
@@ -36,10 +51,14 @@ export class KanbanStaggingController {
     sendSuccess(res, 200, "Successfully assign to parent", result);
   }
 
-  static async forwardToMaster(req: Request, res: Response) {
-    const result = await KanbanStaggingService.forwardToMaster(
-      req.body as ForwardToMasterRequest
-    );
-    sendSuccess(res, 200, "Successfully forward to master", result);
+  static async forwardToMaster(req: Request, res: Response, next: Function) {
+    try {
+      const result = await KanbanStaggingService.forwardToMaster(
+        req.body as ForwardToMasterRequest
+      );
+      sendSuccess(res, 200, "Successfully forward to master", result);
+    } catch (e) {
+      next(e);
+    }
   }
 }

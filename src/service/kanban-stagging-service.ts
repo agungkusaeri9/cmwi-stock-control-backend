@@ -73,6 +73,17 @@ export class KanbanStaggingService {
     };
   }
 
+  static async show(id: number): Promise<KanbanStaggingResponse> {
+    const item = await prismaClient.kanbanStagging.findUnique({
+      where: { id },
+    });
+    if (!item) {
+      throw new ResponseError(404, "Kanban staging not found");
+    }
+
+    return toKanbanStaggingResponse(item);
+  }
+
   static async assignToParent(
     request: AssignToParentRequest
   ): Promise<KanbanResponse> {
