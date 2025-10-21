@@ -11,12 +11,12 @@ export class KanbanStaggingValidation {
   });
 
   static readonly ASSIGN_TO_PARENT = z.object({
-    kanban_stagging_id: z.string().min(1),
+    kanban_stagging_id: z.number(),
     parent_kanban_code: z.string().min(1),
   });
 
   static readonly FORWARD_TO_MASTER = z.object({
-    kanban_stagging_id: z.string().min(1),
+    kanban_stagging_id: z.number(),
     code: z.string().min(1),
     description: z.string().min(1),
     specification: z.string().nullish(),
