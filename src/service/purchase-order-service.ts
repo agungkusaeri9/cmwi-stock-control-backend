@@ -314,6 +314,61 @@ export class PurchaseOrderService {
           });
         }
 
+        const missingKanbanPoCodes = missingKanban
+          .filter((item) => item.po_number)
+          .map((item) => item.po_number!);
+
+        const missingKanbanPoCodesSet = new Set(missingKanbanPoCodes);
+
+        const missingOrderRequest = validatedRequest.filter((item) => {
+          const poNumber = item.po_number;
+          return poNumber && missingKanbanPoCodesSet.has(poNumber);
+        });
+
+        await Promise.all(
+          missingOrderRequest.map((item) => {
+            return prismaClient.purchaseOrderStagging.upsert({
+              where: {
+                po_number: item.po_number,
+              },
+              update: {
+                department: item.department,
+                supplier_id: item.supplier_id,
+                po_date: item.po_date,
+                pr_date: item.pr_date,
+              },
+              create: {
+                po_number: item.po_number,
+                department: item.department,
+                supplier_id: item.supplier_id,
+                po_date: item.po_date,
+                pr_date: item.pr_date,
+              },
+            });
+          })
+        );
+
+        await prismaClient.purchaseOrderDetailStagging.deleteMany({
+          where: {
+            po_number: { in: missingKanbanPoCodes },
+          },
+        });
+
+        await prismaClient.purchaseOrderDetailStagging.createMany({
+          data: missingKanban.map((item) => ({
+            kanban_code: item.kanban_code,
+            po_number: item.po_number,
+            pr_number: item.pr_number,
+            pr_requested: item.pr_requested,
+            description: item.description,
+            specification: item.specification,
+            quantity: item.quantity,
+            unit: item.unit,
+            remark: item.remark,
+            status: item.status,
+          })),
+        });
+
         // Join missingKanban dengan header PO dan simpan ke purchase_order_stagging
         // const headerByPONumber = new Map(
         //   validatedRequest.map((po) => [po.po_number, po])

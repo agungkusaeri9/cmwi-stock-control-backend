@@ -427,6 +427,8 @@ model PurchaseOrderStagging {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
+  is_active Boolean? @default(true)
+
   @@map("purchase_order_staggings")
 }
 

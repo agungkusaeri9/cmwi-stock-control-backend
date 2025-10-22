@@ -180,18 +180,80 @@ export class KanbanStaggingService {
         data: { is_active: false },
       });
 
-      // const poStagings = await tx.purchaseOrderStagging.findMany({
-      //   where: { kanban_code: staging.kanban_code },
-      // });
+      const poDetailStaggings = await tx.purchaseOrderDetailStagging.findMany({
+        where: { kanban_code: staging.kanban_code, is_active: true },
+      });
 
-      // if (poStagings.length > 0) {
-      //   const uniquePoNumbers = poStagings.map((s) => s.po_number).filter((v, i, a) => a.indexOf(v) === i);
-      // }
+      if (poDetailStaggings.length > 0) {
+        const uniquePoNumbers = poDetailStaggings
+          .map((s) => s.po_number)
+          .filter((v, i, a) => a.indexOf(v) === i);
 
-      // await tx.purchaseOrderStagging.updateMany({
-      //   where: { id: { in: poStagings.map((s) => s.id) } },
-      //   data: { is_active: false },
-      // });
+        const existingPo = await tx.purchaseOrder.findMany({
+          where: {
+            po_number: {
+              in: uniquePoNumbers,
+            },
+          },
+        });
+
+        const existingPoNumbers = existingPo.map((p) => p.po_number);
+
+        const poStaggings = await tx.purchaseOrderStagging.findMany({
+          where: {
+            po_number: {
+              in: uniquePoNumbers,
+            },
+          },
+        });
+
+        const poToCreate = poStaggings.filter(
+          (s) => !existingPoNumbers.includes(s.po_number)
+        );
+
+        await tx.purchaseOrder.createMany({
+          data: poToCreate.map((s) => ({
+            po_number: s.po_number,
+            department: s.department,
+            supplier_id: s.supplier_id,
+            po_date: s.po_date,
+            pr_date: s.pr_date,
+          })),
+        });
+
+        await tx.purchaseOrderDetail.createMany({
+          data: poDetailStaggings.map((s) => ({
+            po_number: s.po_number,
+            pr_number: s.pr_number,
+            pr_requested: s.pr_requested,
+            kanban_code: newKanban.code,
+            description: s.description,
+            specification: s.specification,
+            quantity: s.quantity,
+            unit: s.unit,
+            remark: s.remark,
+            status: s.status,
+          })),
+        });
+
+        await tx.stockOrderKanban.createMany({
+          data: poDetailStaggings.map((s) => ({
+            po_number: s.po_number,
+            kanban_code: newKanban.code,
+            last_stock: s.quantity ?? 0,
+          })),
+        });
+
+        await tx.purchaseOrderStagging.updateMany({
+          where: { id: { in: poStaggings.map((s) => s.id) } },
+          data: { is_active: false },
+        });
+
+        await tx.purchaseOrderDetailStagging.updateMany({
+          where: { id: { in: poDetailStaggings.map((s) => s.id) } },
+          data: { is_active: false },
+        });
+      }
 
       return toKanbanResponse(newKanban);
     });
@@ -273,10 +335,85 @@ export class KanbanStaggingService {
         },
       });
 
-      await tx.kanbanStagging.update({
+      const staging = await tx.kanbanStagging.update({
         where: { id: forwardRequest.kanban_stagging_id },
         data: { is_active: false },
       });
+
+      const poDetailStaggings = await tx.purchaseOrderDetailStagging.findMany({
+        where: { kanban_code: staging.kanban_code, is_active: true },
+      });
+
+      if (poDetailStaggings.length > 0) {
+        const uniquePoNumbers = poDetailStaggings
+          .map((s) => s.po_number)
+          .filter((v, i, a) => a.indexOf(v) === i);
+
+        const existingPo = await tx.purchaseOrder.findMany({
+          where: {
+            po_number: {
+              in: uniquePoNumbers,
+            },
+          },
+        });
+
+        const existingPoNumbers = existingPo.map((p) => p.po_number);
+
+        const poStaggings = await tx.purchaseOrderStagging.findMany({
+          where: {
+            po_number: {
+              in: uniquePoNumbers,
+            },
+          },
+        });
+
+        const poToCreate = poStaggings.filter(
+          (s) => !existingPoNumbers.includes(s.po_number)
+        );
+
+        await tx.purchaseOrder.createMany({
+          data: poToCreate.map((s) => ({
+            po_number: s.po_number,
+            department: s.department,
+            supplier_id: s.supplier_id,
+            po_date: s.po_date,
+            pr_date: s.pr_date,
+          })),
+        });
+
+        await tx.purchaseOrderDetail.createMany({
+          data: poDetailStaggings.map((s) => ({
+            po_number: s.po_number,
+            pr_number: s.pr_number,
+            pr_requested: s.pr_requested,
+            kanban_code: newKanban.code,
+            description: s.description,
+            specification: s.specification,
+            quantity: s.quantity,
+            unit: s.unit,
+            remark: s.remark,
+            status: s.status,
+          })),
+        });
+
+        await tx.stockOrderKanban.createMany({
+          data: poDetailStaggings.map((s) => ({
+            po_number: s.po_number,
+            kanban_code: newKanban.code,
+            last_stock: s.quantity ?? 0,
+          })),
+        });
+
+        await tx.purchaseOrderStagging.updateMany({
+          where: { id: { in: poStaggings.map((s) => s.id) } },
+          data: { is_active: false },
+        });
+
+        await tx.purchaseOrderDetailStagging.updateMany({
+          where: { id: { in: poDetailStaggings.map((s) => s.id) } },
+          data: { is_active: false },
+        });
+      }
 
       return toKanbanResponse(newKanban);
     });
