@@ -741,8 +741,6 @@ export class KanbanService {
       total_stock_out_quantity: stockOutMap[k.code] || 0,
     }));
 
-    console.log(result);
-
     const pagination = searchRequest.paginate
       ? {
           curr_page: page,
