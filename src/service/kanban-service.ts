@@ -705,6 +705,11 @@ export class KanbanService {
           machine: true,
           supplier: true,
           maker: true,
+          kanban_parent: {
+            include: {
+              Kanban: true,
+            },
+          },
         },
       }),
       prismaClient.kanban.count({
@@ -732,8 +737,11 @@ export class KanbanService {
 
     const result = kanbans.map((k) => ({
       ...k,
+      same_kanban_parents: k.kanban_parent?.Kanban.map((kp) => kp.code) || [],
       total_stock_out_quantity: stockOutMap[k.code] || 0,
     }));
+
+    console.log(result);
 
     const pagination = searchRequest.paginate
       ? {
@@ -794,7 +802,19 @@ export class KanbanService {
     //   throw new ResponseError(404, "Kanban not found");
     // }
 
-    return toKanbanResponse(kanban);
+    const kanbanResponse = toKanbanResponse(kanban);
+    kanbanResponse.same_kanban_parents = await prismaClient.kanban
+      .findMany({
+        where: {
+          kanban_parent_id: kanban.kanban_parent_id,
+        },
+        select: {
+          code: true,
+        },
+      })
+      .then((kanbans) => kanbans.map((k) => k.code));
+
+    return kanbanResponse;
   }
 
   static async remove(id: number) {
