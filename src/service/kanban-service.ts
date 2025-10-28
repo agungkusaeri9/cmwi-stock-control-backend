@@ -737,7 +737,12 @@ export class KanbanService {
 
     const result = kanbans.map((k) => ({
       ...k,
-      same_kanban_parents: k.kanban_parent?.Kanban.map((kp) => kp.code) || [],
+      same_kanban_parents:
+        k.kanban_parent?.Kanban.map((kp) => ({
+          code: kp.code,
+          specification: kp.specification,
+          description: kp.description,
+        })) || [],
       total_stock_out_quantity: stockOutMap[k.code] || 0,
     }));
 
@@ -801,16 +806,16 @@ export class KanbanService {
     // }
 
     const kanbanResponse = toKanbanResponse(kanban);
-    kanbanResponse.same_kanban_parents = await prismaClient.kanban
-      .findMany({
-        where: {
-          kanban_parent_id: kanban.kanban_parent_id,
-        },
-        select: {
-          code: true,
-        },
-      })
-      .then((kanbans) => kanbans.map((k) => k.code));
+    kanbanResponse.same_kanban_parents = await prismaClient.kanban.findMany({
+      where: {
+        kanban_parent_id: kanban.kanban_parent_id,
+      },
+      select: {
+        code: true,
+        description: true,
+        specification: true,
+      },
+    });
 
     return kanbanResponse;
   }
