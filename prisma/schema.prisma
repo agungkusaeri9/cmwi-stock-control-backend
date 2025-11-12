@@ -103,6 +103,7 @@ model Supplier {
   PurchaseOrder PurchaseOrder[]
 
   @@map("suppliers")
+  PurchaseOrderStagging PurchaseOrderStagging[]
 }
 
 model Maker {
@@ -262,8 +263,14 @@ model Kanban {
   maker                Maker?       @relation(fields: [maker_id], references: [id], onDelete: SetNull)
   maker_id             Int?
   incoming_order_stock Int          @default(0)
+  is_active            Boolean      @default(true)
 
 
+  kanban_parent KanbanParent? @relation(fields: [kanban_parent_id], references: [id], onDelete: SetNull)
+  kanban_parent_id Int?
+
+  
+  
   created_at              DateTime                @default(now())
   updated_at              DateTime                @updatedAt
   deleted_at              DateTime?
@@ -277,6 +284,7 @@ model Kanban {
   StockOrderKanban        StockOrderKanban[]
 
   @@map("kanbans")
+  ManualPurchaseOrder ManualPurchaseOrder[]
 }
 
 model StockIn {
@@ -366,4 +374,85 @@ model StockOutChangeLog {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+}
+
+model ManualPurchaseOrder {
+  id                Int      @id @default(autoincrement())
+  po_number         String   @db.VarChar(100)
+  pr_number         String   @db.VarChar(100)
+  kanban            Kanban?      @relation(fields: [kanban_code], references: [code], onDelete: SetNull)
+  kanban_code       String?
+  date              DateTime
+  quantity          Int
+  remark            String?  @db.Text
+
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+}
+
+model KanbanParent {
+  id                Int      @id @default(autoincrement())
+  original_code     String   @db.VarChar(100)
+
+  Kanban Kanban[]
+}
+
+model KanbanStagging {
+  id                  Int      @id @default(autoincrement())
+  kanban_code         String   @unique @db.VarChar(100)
+  description         String?  @db.Text
+  incoming_order_stock Int     @default(0)
+  is_active           Boolean  @default(true)
+
+  // Relation
+  purchase_order_details PurchaseOrderDetailStagging[]
+
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
+}
+
+model PurchaseOrderStagging {
+  id          Int       @id @default(autoincrement())
+  department  String?
+  supplier_id Int?
+  supplier    Supplier? @relation(fields: [supplier_id], references: [id], onDelete: SetNull)
+
+  po_number   String    @unique
+  po_date     DateTime?
+  pr_date     DateTime?
+
+  // Relation
+  purchase_order_detail PurchaseOrderDetailStagging[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  is_active Boolean? @default(true)
+
+  @@map("purchase_order_staggings")
+}
+
+model PurchaseOrderDetailStagging {
+  id             Int       @id @default(autoincrement())
+
+  po_number      String
+  purchase_order PurchaseOrderStagging @relation(fields: [po_number], references: [po_number], onDelete: Cascade)
+
+  pr_number      String?
+  pr_requested   String?
+  kanban_code    String?
+  kanban         KanbanStagging? @relation(fields: [kanban_code], references: [kanban_code], onDelete: SetNull)
+
+  description    String?  @db.Text
+  specification  String?  @db.Text
+  quantity       Int?
+  unit           String?
+  remark         String?
+  status         String?
+  is_active      Boolean? @default(true)
+
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  @@map("purchase_order_detail_staggings")
 }

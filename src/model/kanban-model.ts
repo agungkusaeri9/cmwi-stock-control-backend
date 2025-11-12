@@ -26,6 +26,11 @@ export type KanbanResponse = {
   incoming_order_stock: number | null;
   is_completed: boolean;
   total_stock_out_quantity: number | null;
+  same_kanban_parents?: {
+    code: string;
+    description: string | null;
+    specification: string | null;
+  }[];
 };
 
 export type KanbanRawEntry = {
@@ -178,5 +183,6 @@ export function toKanbanResponse(Kanban: any): KanbanResponse {
       Kanban.maker_id == null
         ? false
         : true,
+    same_kanban_parents: Kanban.same_kanban_parents || [],
   };
 }

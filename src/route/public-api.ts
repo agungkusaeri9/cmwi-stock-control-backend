@@ -16,6 +16,7 @@ import { MainController } from "../controller/main-controller";
 import { GroupController } from "../controller/group-controller";
 import { RequesterController } from "../controller/requester-controller";
 import { SubMachineController } from "../controller/submachine-controller";
+import { ManualPurchaseOrderController } from "../controller/manual-purchase-order-controller";
 
 export const publicRouter = express.Router();
 publicRouter.post("/api/auth/login", UserController.login);
@@ -40,7 +41,6 @@ publicRouter.get(
 publicRouter.get("/api/kanbans", KanbanController.get);
 publicRouter.get("/api/kanbans/:id", KanbanController.show);
 
-// Machine Area
 publicRouter.get("/api/machine-areas", MachineAreaController.get);
 publicRouter.get("/api/machine-areas/:id", MachineAreaController.show);
 
@@ -91,6 +91,14 @@ publicRouter.get("/api/purchase-requests/:id", PurchaseRequestController.show);
 // Purchase Order
 publicRouter.get("/api/purchase-orders", PurchaseOrderController.get);
 publicRouter.get("/api/purchase-orders/:id", PurchaseOrderController.show);
+publicRouter.get(
+  "/api/manual-purchase-orders",
+  ManualPurchaseOrderController.get
+);
+publicRouter.get(
+  "/api/manual-purchase-orders/:id",
+  ManualPurchaseOrderController.show
+);
 
 // Reminder
 publicRouter.get("/api/reminders", ReminderController.get);

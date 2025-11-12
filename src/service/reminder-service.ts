@@ -38,6 +38,10 @@ export class ReminderService {
       deleted_at: null,
     });
 
+    filters.push({
+      is_active: true,
+    });
+
     const whereClause = filters.length > 0 ? { AND: filters } : {};
 
     const page = searchRequest.page || 1;

@@ -60,15 +60,30 @@ export class KanbanService {
       }
     }
 
-    const Kanban = await prismaClient.kanban.create({
-      data: createRequest,
-      include: {
-        rack: true,
-        machine_area: true,
-        machine: true,
-        supplier: true,
-        maker: true,
-      },
+    const Kanban = await prismaClient.$transaction(async (tx) => {
+      // 1️⃣ Buat parent dulu
+      const kanbanParent = await tx.kanbanParent.create({
+        data: {
+          original_code: createRequest.code,
+        },
+      });
+
+      // 2️⃣ Buat kanban yang berelasi dengan parent di atas
+      const kanban = await tx.kanban.create({
+        data: {
+          ...createRequest,
+          kanban_parent_id: kanbanParent.id,
+        },
+        include: {
+          rack: true,
+          machine_area: true,
+          machine: true,
+          supplier: true,
+          maker: true,
+        },
+      });
+
+      return kanban;
     });
 
     return toKanbanResponse(Kanban);
@@ -690,6 +705,11 @@ export class KanbanService {
           machine: true,
           supplier: true,
           maker: true,
+          kanban_parent: {
+            include: {
+              Kanban: true,
+            },
+          },
         },
       }),
       prismaClient.kanban.count({
@@ -717,6 +737,12 @@ export class KanbanService {
 
     const result = kanbans.map((k) => ({
       ...k,
+      same_kanban_parents:
+        k.kanban_parent?.Kanban.map((kp) => ({
+          code: kp.code,
+          specification: kp.specification,
+          description: kp.description,
+        })) || [],
       total_stock_out_quantity: stockOutMap[k.code] || 0,
     }));
 
@@ -779,7 +805,19 @@ export class KanbanService {
     //   throw new ResponseError(404, "Kanban not found");
     // }
 
-    return toKanbanResponse(kanban);
+    const kanbanResponse = toKanbanResponse(kanban);
+    kanbanResponse.same_kanban_parents = await prismaClient.kanban.findMany({
+      where: {
+        kanban_parent_id: kanban.kanban_parent_id,
+      },
+      select: {
+        code: true,
+        description: true,
+        specification: true,
+      },
+    });
+
+    return kanbanResponse;
   }
 
   static async remove(id: number) {

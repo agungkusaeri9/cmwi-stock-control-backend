@@ -239,9 +239,12 @@ export class PurchaseOrderService {
           detail.pr_number && !invalidPRNumbers.includes(detail.pr_number)
       );
 
-      const kanbanCodes = filteredDetailRequest
-        .map((item) => item.kanban_code)
-        .filter(Boolean) as string[];
+      const kanbanData = filteredDetailRequest.filter(
+        (item): item is { kanban_code: string } & typeof item =>
+          typeof item.kanban_code === "string" && item.kanban_code.trim() !== ""
+      );
+
+      const kanbanCodes = kanbanData.map((item) => item.kanban_code);
 
       const existingKanban = await prismaClient.kanban.findMany({
         where: { code: { in: kanbanCodes } },
@@ -250,16 +253,186 @@ export class PurchaseOrderService {
 
       const existingKanbanCodes = new Set(existingKanban.map((e) => e.code));
 
-      const missingKanbanCodes = kanbanCodes.filter(
-        (code) => !existingKanbanCodes.has(code)
+      // Filter kanban yang belum ada di DB
+      const missingKanban = kanbanData.filter(
+        (item) => !existingKanbanCodes.has(item.kanban_code)
       );
 
-      if (missingKanbanCodes.length > 0) {
+      if (missingKanban.length > 0) {
         logger.error(
-          `Some kanban codes in file ${filePath} do not exist in database: ${missingKanbanCodes.join(
-            ", "
-          )}`
+          `Some kanban codes in file ${filePath} do not exist in database: ${missingKanban
+            .map((m) => m.kanban_code)
+            .join(", ")}`
         );
+
+        // Simpan ke tabel kanban_stagging dengan cek duplikasi terlebih dahulu
+        const missingCodes = missingKanban.map((item) => item.kanban_code);
+
+        const existingStaggings = await prismaClient.kanbanStagging.findMany({
+          where: { kanban_code: { in: missingCodes } },
+          select: { kanban_code: true },
+        });
+        const existingCodesSet = new Set(
+          existingStaggings.map((e) => e.kanban_code)
+        );
+
+        // Kelompokkan quantity untuk kanban_code yang sudah ada agar increment sekali per kode
+        const toUpdateMap = missingKanban.reduce((map, item) => {
+          const code = item.kanban_code!;
+          if (!existingCodesSet.has(code)) return map;
+          const qty = item.status === "On Order" ? item.quantity || 0 : 0;
+          map.set(code, (map.get(code) || 0) + qty);
+          return map;
+        }, new Map<string, number>());
+
+        // Increment incoming_order_stock untuk yang sudah ada
+        if (toUpdateMap.size > 0) {
+          await Promise.all(
+            Array.from(toUpdateMap.entries()).map(([code, qty]) =>
+              prismaClient.kanbanStagging.updateMany({
+                where: { kanban_code: code },
+                data: {
+                  incoming_order_stock: { increment: qty },
+                },
+              })
+            )
+          );
+        }
+
+        // Buat baru untuk yang belum ada
+        const toCreate = missingKanban.filter(
+          (item) => !existingCodesSet.has(item.kanban_code!)
+        );
+        if (toCreate.length > 0) {
+          await prismaClient.kanbanStagging.createMany({
+            data: toCreate.map((item) => ({
+              kanban_code: item.kanban_code!,
+              description: item.description,
+              incoming_order_stock:
+                item.status === "On Order" ? item.quantity || 0 : 0,
+            })),
+          });
+        }
+
+        const missingKanbanPoCodes = missingKanban
+          .filter((item) => item.po_number)
+          .map((item) => item.po_number!);
+
+        const missingKanbanPoCodesSet = new Set(missingKanbanPoCodes);
+
+        const missingOrderRequest = validatedRequest.filter((item) => {
+          const poNumber = item.po_number;
+          return poNumber && missingKanbanPoCodesSet.has(poNumber);
+        });
+
+        await Promise.all(
+          missingOrderRequest.map((item) => {
+            return prismaClient.purchaseOrderStagging.upsert({
+              where: {
+                po_number: item.po_number,
+              },
+              update: {
+                department: item.department,
+                supplier_id: item.supplier_id,
+                po_date: item.po_date,
+                pr_date: item.pr_date,
+              },
+              create: {
+                po_number: item.po_number,
+                department: item.department,
+                supplier_id: item.supplier_id,
+                po_date: item.po_date,
+                pr_date: item.pr_date,
+              },
+            });
+          })
+        );
+
+        await prismaClient.purchaseOrderDetailStagging.deleteMany({
+          where: {
+            po_number: { in: missingKanbanPoCodes },
+          },
+        });
+
+        await prismaClient.purchaseOrderDetailStagging.createMany({
+          data: missingKanban.map((item) => ({
+            kanban_code: item.kanban_code,
+            po_number: item.po_number,
+            pr_number: item.pr_number,
+            pr_requested: item.pr_requested,
+            description: item.description,
+            specification: item.specification,
+            quantity: item.quantity,
+            unit: item.unit,
+            remark: item.remark,
+            status: item.status,
+          })),
+        });
+
+        // Join missingKanban dengan header PO dan simpan ke purchase_order_stagging
+        // const headerByPONumber = new Map(
+        //   validatedRequest.map((po) => [po.po_number, po])
+        // );
+
+        // await prismaClient.purchaseOrderStagging.deleteMany({
+        //   where: {
+        //     kanban_code: { in: missingCodes },
+        //   },
+        // });
+
+        // const poStaggingData = missingKanban.reduce((acc, item) => {
+        //   const header = headerByPONumber.get(item.po_number!);
+        //   if (!header) return acc;
+
+        //   const data: any = {
+        //     supplier_id: header.supplier_id!,
+        //     po_number: header.po_number,
+        //     kanban_code: item.kanban_code!,
+        //   };
+
+        //   if (header.department !== null && header.department !== undefined) {
+        //     data.department = header.department;
+        //   }
+        //   if (header.po_date) {
+        //     data.po_date = header.po_date;
+        //   }
+        //   if (header.pr_date) {
+        //     data.pr_date = header.pr_date;
+        //   }
+        //   if (item.pr_number) {
+        //     data.pr_number = item.pr_number;
+        //   }
+        //   if (item.pr_requested) {
+        //     data.pr_requested = item.pr_requested;
+        //   }
+        //   if (item.description) {
+        //     data.description = item.description;
+        //   }
+        //   if (item.specification) {
+        //     data.specification = item.specification;
+        //   }
+        //   if (typeof item.quantity === "number") {
+        //     data.quantity = item.quantity;
+        //   }
+        //   if (item.unit) {
+        //     data.unit = item.unit;
+        //   }
+        //   if (item.remark) {
+        //     data.remark = item.remark;
+        //   }
+        //   if (item.status) {
+        //     data.status = item.status;
+        //   }
+
+        //   acc.push(data);
+        //   return acc;
+        // }, [] as any[]);
+
+        // if (poStaggingData.length > 0) {
+        //   await prismaClient.purchaseOrderStagging.createMany({
+        //     data: poStaggingData,
+        //   });
+        // }
       }
 
       filteredDetailRequest = filteredDetailRequest.filter(

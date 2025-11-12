@@ -177,6 +177,12 @@ export class PurchaseRequestService {
           (item.kanban_code === null || isValidProductCode(item.kanban_code))
       );
 
+      if (createRequestDetail.length === 0) {
+        const msg = `All kanban codes in file ${filePath} do not exist in database or are invalid.`;
+        logger.error(msg);
+        throw new Error(msg);
+      }
+
       const kanbanCodes = createRequestDetail
         .map((item) => item.kanban_code)
         .filter((code): code is string => Boolean(code));
@@ -189,39 +195,41 @@ export class PurchaseRequestService {
 
       const existingKanbanCodes = new Set(existingKanban.map((k) => k.code));
 
-      // Deteksi dan buat kanban yang tidak ada
+      // Deteksi kanban yang belum ada
       const missingKanban = createRequestDetail.filter(
         (item) => item.kanban_code && !existingKanbanCodes.has(item.kanban_code)
       );
 
       if (missingKanban.length > 0) {
-        const newKanbans = missingKanban.map((item) => ({
-          code: item.kanban_code!,
-          description: item.description_of_goods!,
-          specification: item.specification!,
-          uom: item.unit!,
-          price: item.est_unit_price!,
-          currency: item.currency!,
-        }));
-
         await prismaClient.$transaction(async (tx) => {
-          await tx.kanban.createMany({
-            data: newKanbans,
-            skipDuplicates: true,
-          });
+          for (const item of missingKanban) {
+            // 1️⃣ Buat kanbanParent terlebih dahulu
+            const kanbanParent = await tx.kanbanParent.create({
+              data: {
+                original_code: item.kanban_code!,
+              },
+            });
+
+            // 2️⃣ Buat kanban yang terhubung ke parent tersebut
+            await tx.kanban.create({
+              data: {
+                code: item.kanban_code!,
+                description: item.description_of_goods!,
+                specification: item.specification!,
+                uom: item.unit!,
+                price: item.est_unit_price!,
+                currency: item.currency!,
+                kanban_parent_id: kanbanParent.id,
+              },
+            });
+          }
         });
 
         logger.info(
-          `Created kanban codes from ${filePath}: ${missingKanban
+          `Created missing kanban (and parents) from ${filePath}: ${missingKanban
             .map((i) => i.kanban_code)
             .join(", ")}`
         );
-      }
-
-      if (createRequestDetail.length === 0) {
-        const msg = `All kanban codes in file ${filePath} do not exist in database`;
-        logger.error(msg);
-        throw new Error(msg);
       }
 
       // Cek apakah PR number sudah ada

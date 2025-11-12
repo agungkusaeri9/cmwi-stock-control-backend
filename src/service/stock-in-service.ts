@@ -320,7 +320,7 @@ export class StockInService {
       row.commit();
     }
 
-    await workbook.xlsx.writeFile(`StockInExport_${Date.now()}.xlsx`);
+    // await workbook.xlsx.writeFile(`StockInExport_${Date.now()}.xlsx`);
     const buffer = await workbook.xlsx.writeBuffer();
     return buffer;
   }
