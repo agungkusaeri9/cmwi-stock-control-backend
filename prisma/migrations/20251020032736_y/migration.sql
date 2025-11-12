@@ -1,5 +1,5 @@
 -- DropIndex
-DROP INDEX `ManualPurchaseOrder_po_number_key` ON `ManualPurchaseOrder`;
+DROP INDEX `ManualPurchaseOrder_po_number_key` ON `manualpurchaseorder`;
 
 -- AlterTable
 ALTER TABLE `manualpurchaseorder` ADD COLUMN `kanban_code` VARCHAR(191) NULL;
