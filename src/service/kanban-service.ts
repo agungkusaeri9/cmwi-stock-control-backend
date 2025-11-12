@@ -806,16 +806,18 @@ export class KanbanService {
     // }
 
     const kanbanResponse = toKanbanResponse(kanban);
-    kanbanResponse.same_kanban_parents = await prismaClient.kanban.findMany({
-      where: {
-        kanban_parent_id: kanban.kanban_parent_id,
-      },
-      select: {
-        code: true,
-        description: true,
-        specification: true,
-      },
-    });
+    if (kanban.kanban_parent_id) {
+      kanbanResponse.same_kanban_parents = await prismaClient.kanban.findMany({
+        where: {
+          kanban_parent_id: kanban.kanban_parent_id,
+        },
+        select: {
+          code: true,
+          description: true,
+          specification: true,
+        },
+      });
+    }
 
     return kanbanResponse;
   }
