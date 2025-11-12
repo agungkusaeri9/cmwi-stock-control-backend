@@ -24,7 +24,7 @@ export class ManualPurchaseOrderController {
         keyword: req.query.keyword as string,
         po_number: req.query.po_number as string,
         pr_number: req.query.pr_number as string,
-        kanban_code: req.query.kanban_code as string,
+        kanban: req.query.kanban as string,
         page: isNaN(Number(req.query.page)) ? 1 : Number(req.query.page),
         limit: isNaN(Number(req.query.limit)) ? 10 : Number(req.query.limit),
         paginate: req.query.paginate === "true",

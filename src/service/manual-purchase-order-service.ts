@@ -88,9 +88,31 @@ export class ManualPurchaseOrderService {
       filters.push({ po_number: { contains: po } });
     }
 
-    if (searchRequest.kanban_code) {
-      const kc = searchRequest.kanban_code.replace(/\\/g, "\\\\");
-      filters.push({ kanban_code: { contains: kc } });
+    if (searchRequest.kanban) {
+      const kc = searchRequest.kanban.replace(/\\/g, "\\\\");
+      filters.push({
+        OR: [
+          {
+            kanban_code: {
+              contains: kc,
+            },
+          },
+          {
+            kanban: {
+              specification: {
+                contains: kc,
+              },
+            },
+          },
+          {
+            kanban: {
+              description: {
+                contains: kc,
+              },
+            },
+          },
+        ],
+      });
     }
 
     if (searchRequest.start_date) {

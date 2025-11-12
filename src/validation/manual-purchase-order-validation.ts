@@ -14,7 +14,7 @@ export class ManualPurchaseOrderValidation {
     keyword: z.string().optional(),
     po_number: z.string().optional(),
     pr_number: z.string().optional(),
-    kanban_code: z.string().optional(),
+    kanban: z.string().optional(),
     page: z.number().min(1).positive().optional(),
     limit: z.number().min(1).positive().optional(),
     paginate: z.boolean().optional(),

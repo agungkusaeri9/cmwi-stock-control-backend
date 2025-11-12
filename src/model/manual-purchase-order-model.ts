@@ -25,7 +25,7 @@ export type SearchManualPurchaseOrderRequest = {
   keyword?: string;
   po_number?: string;
   pr_number?: string;
-  kanban_code?: string;
+  kanban?: string;
   page: number;
   limit: number;
   paginate?: boolean;
