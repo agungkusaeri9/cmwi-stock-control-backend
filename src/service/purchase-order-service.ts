@@ -866,6 +866,8 @@ export class PurchaseOrderService {
       };
     });
 
-    return toPurchaseOrderResponse(detailMapped);
+    PurchaseOrder.purchase_order_detail = detailMapped;
+
+    return toPurchaseOrderResponse(PurchaseOrder);
   }
 }
