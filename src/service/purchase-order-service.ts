@@ -859,6 +859,13 @@ export class PurchaseOrderService {
       throw new ResponseError(404, "PurchaseOrder not found");
     }
 
-    return toPurchaseOrderResponse(PurchaseOrder);
+    const detailMapped = PurchaseOrder.purchase_order_detail.map((detail) => {
+      return {
+        ...detail,
+        status: detail.is_active ? detail.status : "Closed",
+      };
+    });
+
+    return toPurchaseOrderResponse(detailMapped);
   }
 }
