@@ -57,6 +57,15 @@ export class JsService {
         continue;
       }
 
+      if (data[i][7] < 0) {
+        logger.error(
+          `Invalid ending quantity in row ${i + 1} code ${data[i][1]}: ${
+            data[i][7]
+          }`
+        );
+        continue;
+      }
+
       jss.push({
         code: data[i][1],
         js_ending_quantity: Number(data[i][7]) || 0,
