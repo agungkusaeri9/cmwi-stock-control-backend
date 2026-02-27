@@ -11,19 +11,20 @@ import { SHARED_FOLDER_PATH } from "./config";
 import { prismaClient } from "./database";
 import fileQueue from "./file-queue";
 import { PurchaseRequestOtherDepartmentService } from "../service/purchase-request-other-department-service";
+import { sendNotification } from "../application/websocket";
 
 const purchaseRequestFolderPath = path.join(
   SHARED_FOLDER_PATH,
-  "purchase-request"
+  "purchase-request",
 );
 const purchaseRequestOtherDepartmentFolderPath = path.join(
   SHARED_FOLDER_PATH,
-  "purchase-request-other-department"
+  "purchase-request-other-department",
 );
 const purchaseOrderFolderPath = path.join(SHARED_FOLDER_PATH, "purchase-order");
 const receivingReportFolderPath = path.join(
   SHARED_FOLDER_PATH,
-  "receiving-report"
+  "receiving-report",
 );
 const jsFolderPath = path.join(SHARED_FOLDER_PATH, "js-ending-quantity");
 const kanbanMasterFolderPath = path.join(SHARED_FOLDER_PATH, "kanban-master");
@@ -49,7 +50,7 @@ const startWatcher = () => {
         pollInterval: 100,
       },
       ignorePermissionErrors: true,
-    }
+    },
   );
 
   (watcher as any)
@@ -110,23 +111,30 @@ const startWatcher = () => {
 
         if (!matched) {
           logger.warn(`⚠️ File ${fileName} not in PO/PR/PR_OD/RR/JS/KM folder`);
+          sendNotification(
+            `⚠️ File ${fileName} not in PO/PR/PR_OD/RR/JS/KM folder`,
+          );
           return;
         }
 
         const { type, regex, service } = matched;
         if (!regex.test(fileName)) {
           logger.warn(`⚠️ File name ${type} does not match: ${fileName}`);
+          sendNotification(`⚠️ File name ${type} does not match: ${fileName}`);
           return;
         }
 
         try {
           const alreadyExist = await ProcessedFileService.isAlreadyExist(
             fileName,
-            type
+            type,
           );
           if (alreadyExist) {
             logger.warn(
-              `⚠️ File ${fileName} with type ${type} already processed`
+              `⚠️ File ${fileName} with type ${type} already processed`,
+            );
+            sendNotification(
+              `⚠️ File ${fileName} with type ${type} already processed`,
             );
             return;
           }
@@ -138,13 +146,19 @@ const startWatcher = () => {
                 data: { file_name: fileName, type: type },
               });
             },
-            { timeout: 60000 }
+            { timeout: 60000 },
           );
 
           logger.info(`✅ File ${type} successfully processed: ${fileName}`);
+          sendNotification(
+            `✅ File ${type} successfully processed: ${fileName}`,
+          );
         } catch (error: any) {
           logger.error(
-            `❌ Failed to process file ${normalizedPath}: ${error.message}`
+            `❌ Failed to process file ${normalizedPath}: ${error.message}`,
+          );
+          sendNotification(
+            `❌ Failed to process file ${normalizedPath}: ${error.message}`,
           );
         }
       });
@@ -158,6 +172,7 @@ const startWatcher = () => {
     })
     .on("error", async (error: Error) => {
       logger.error(`❌ Error: ${error}`);
+      sendNotification(`❌ Error: ${error}`);
     });
 };
 
