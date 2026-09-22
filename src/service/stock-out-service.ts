@@ -407,9 +407,11 @@ export class StockOutService {
     }
 
     if (searchRequest.end_date) {
+      const endDate = new Date(searchRequest.end_date);
+      endDate.setHours(23, 59, 59, 999);
       filters.push({
         created_at: {
-          lte: searchRequest.end_date,
+          lte: endDate,
         },
       });
     }
@@ -504,6 +506,20 @@ export class StockOutService {
           {
             kanban_code: {
               contains: keyword,
+            },
+          },
+          {
+            kanban: {
+              specification: {
+                contains: keyword,
+              },
+            },
+          },
+          {
+            kanban: {
+              description: {
+                contains: keyword,
+              },
             },
           },
         ],
