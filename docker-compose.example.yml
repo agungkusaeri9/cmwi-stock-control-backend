@@ -3,14 +3,14 @@ version: "3.9"
 services:
   backend:
     build: .
-    container_name: cmwi-backend
+    container_name: app-backend
     ports:
       - "${APP_PORT:-3210}:3210"
     env_file:
       - .env
     environment:
       - APP_PORT=3210
-      - DATABASE_URL=mysql://root:root_password@mysql-server-cmwi:3306/cmwi_db
+      - DATABASE_URL=mysql://${DB_USER:-root}:${DB_PASSWORD:-password}@${DB_HOST:-mysql-server}:${DB_PORT:-3306}/${DB_NAME:-database_name}
     networks:
       - cmwi-network
     restart: unless-stopped
