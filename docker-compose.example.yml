@@ -11,6 +11,9 @@ services:
     environment:
       - APP_PORT=3000
       - DATABASE_URL=mysql://${DB_USER:-root}:${DB_PASSWORD:-password}@${DB_HOST:-mysql-server}:${DB_PORT:-3306}/${DB_NAME:-database_name}
+    volumes:
+      - ./watched-folder:/app/watched-folder
+      - ./logging:/app/logging
     networks:
       - cmwi-network
     restart: unless-stopped

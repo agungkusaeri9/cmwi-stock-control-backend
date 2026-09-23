@@ -42,18 +42,18 @@ export class PurchaseOrderService {
     ];
 
     const missingHeaders: string[] = importantHeaders.filter(
-      (h) => !headers.includes(h)
+      (h) => !headers.includes(h),
     );
     if (missingHeaders.length > 0) {
       logger.error(
         `Missing important headers in file ${filePath}: ${missingHeaders.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
       throw new Error(
         `Missing important headers in file ${filePath}: ${missingHeaders.join(
-          ", "
-        )}`
+          ", ",
+        )}`,
       );
     }
 
@@ -61,7 +61,7 @@ export class PurchaseOrderService {
     const purchaseOrderDetails: PurchaseOrderDetailRawEntry[] = [];
 
     for (let i = 6; i < data.length - 1; i++) {
-      if (data[i].length === 0) continue;
+      if (!data[i] || data[i].length === 0) continue;
 
       const purchaseOrderTemp: PurchaseOrderRawEntry = {};
       const purchaseOrderDetailTemp: PurchaseOrderDetailRawEntry = {};
@@ -72,43 +72,62 @@ export class PurchaseOrderService {
       }
 
       const isDescriptionOnly: boolean =
-        data[i].filter(Boolean).length === 1 &&
-        Boolean(purchaseOrderDetailTemp["Description"]);
+        data[i].filter(
+          (cell: any) => cell !== null && cell !== undefined && cell !== "",
+        ).length === 1 && Boolean(purchaseOrderDetailTemp["Description"]);
 
       if (isDescriptionOnly && purchaseOrderDetails.length > 0) {
-        purchaseOrderDetails[purchaseOrderDetails.length - 1][
-          "Description"
-        ] += ` ${purchaseOrderDetailTemp["Description"]}`;
+        purchaseOrderDetails[purchaseOrderDetails.length - 1]["Description"] +=
+          ` ${purchaseOrderDetailTemp["Description"]}`;
         continue;
       }
 
-      const isContinuationRow: boolean = importantHeaders.every(
-        (header) => !purchaseOrderTemp[header]
+      const hasPoHeader: boolean = Boolean(
+        purchaseOrderTemp["PO No."] || purchaseOrderTemp["Supplier"],
       );
 
-      if (isContinuationRow && purchaseOrders.length > 0) {
-        purchaseOrderDetailTemp["PO No."] =
-          purchaseOrders[purchaseOrders.length - 1]["PO No."];
+      if (hasPoHeader) {
+        const poNo = purchaseOrderTemp["PO No."];
+        const poAlreadyExist =
+          poNo && purchaseOrders.some((po) => po["PO No."] === poNo);
+        if (!poAlreadyExist) {
+          purchaseOrders.push(purchaseOrderTemp);
+        }
+      }
+
+      const hasPoDetail: boolean = Boolean(
+        purchaseOrderDetailTemp["SOB/PR No."] ||
+        purchaseOrderDetailTemp["Product Code"] ||
+        purchaseOrderDetailTemp["Description"] ||
+        purchaseOrderDetailTemp["Quantity"],
+      );
+
+      if (hasPoDetail) {
+        if (!purchaseOrderDetailTemp["PO No."] && purchaseOrders.length > 0) {
+          purchaseOrderDetailTemp["PO No."] =
+            purchaseOrders[purchaseOrders.length - 1]["PO No."];
+        }
         purchaseOrderDetails.push(purchaseOrderDetailTemp);
-      } else {
-        purchaseOrders.push(purchaseOrderTemp);
       }
     }
 
     for (const entry of purchaseOrderDetails) {
-      const parts = entry["Description"].split(", ");
-      const pr = entry["SOB/PR No."].split("|");
-
-      if (parts.length > 1) {
-        const [description, ...rest] = parts;
-        entry["Description"] = description;
-        entry["specification"] = rest.join(", ");
+      if (entry["Description"]) {
+        const parts = String(entry["Description"]).split(", ");
+        if (parts.length > 1) {
+          const [description, ...rest] = parts;
+          entry["Description"] = description;
+          entry["specification"] = rest.join(", ");
+        }
       }
 
-      if (pr.length > 1) {
-        const [prNumber, ...rest] = pr;
-        entry["SOB/PR No."] = prNumber;
-        entry["pr_requested"] = rest.join("|");
+      if (entry["SOB/PR No."]) {
+        const pr = String(entry["SOB/PR No."]).split("|");
+        if (pr.length > 1) {
+          const [prNumber, ...rest] = pr;
+          entry["SOB/PR No."] = prNumber;
+          entry["pr_requested"] = rest.join("|");
+        }
       }
     }
 
@@ -132,8 +151,8 @@ export class PurchaseOrderService {
       new Set(
         purchaseOrders
           .map((entry) => parseString(entry.Supplier))
-          .filter((s): s is string => !!s)
-      )
+          .filter((s): s is string => !!s),
+      ),
     );
 
     const existingSuppliers = await prismaClient.supplier.findMany({
@@ -142,11 +161,11 @@ export class PurchaseOrderService {
     });
 
     const existingSupplierMap = new Map(
-      existingSuppliers.map((s) => [s.name, s.id])
+      existingSuppliers.map((s) => [s.name, s.id]),
     );
 
     const newSupplierNames = supplierNames.filter(
-      (name) => !existingSupplierMap.has(name)
+      (name) => !existingSupplierMap.has(name),
     );
 
     const newSuppliers = await prismaClient.$transaction(async (tx) => {
@@ -159,7 +178,7 @@ export class PurchaseOrderService {
           tx.supplier.findMany({
             where: { name: { in: newSupplierNames } },
             select: { id: true, name: true },
-          })
+          }),
         );
     });
 
@@ -182,7 +201,7 @@ export class PurchaseOrderService {
         })
         .filter(
           (entry): entry is CreatePurchaseOrderRequest =>
-            entry.po_number !== null && entry.supplier_id !== null
+            entry.po_number !== null && entry.supplier_id !== null,
         );
 
     const purrchaseOrderDetailFormattedResult: CreatePurchaseOrderDetailRequest[] =
@@ -201,17 +220,17 @@ export class PurchaseOrderService {
         }))
         .filter(
           (entry): entry is CreatePurchaseOrderDetailRequest =>
-            entry.po_number !== null
+            entry.po_number !== null,
         );
 
     try {
       const validatedRequest = Validation.validate(
         PurchaseOrderValidation.CREATE,
-        purrchaseOrderFormattedResult
+        purrchaseOrderFormattedResult,
       );
       const validatedDetailRequest = Validation.validate(
         PurchaseOrderDetailValidation.CREATE,
-        purrchaseOrderDetailFormattedResult
+        purrchaseOrderDetailFormattedResult,
       );
 
       const prNumbers = validatedDetailRequest
@@ -229,19 +248,20 @@ export class PurchaseOrderService {
       if (invalidPRNumbers.length > 0) {
         logger.error(
           `PR Numbers in file ${filePath} not found in DB: ${invalidPRNumbers.join(
-            ", "
-          )}`
+            ", ",
+          )}`,
         );
       }
 
       let filteredDetailRequest = validatedDetailRequest.filter(
         (detail) =>
-          detail.pr_number && !invalidPRNumbers.includes(detail.pr_number)
+          detail.pr_number && !invalidPRNumbers.includes(detail.pr_number),
       );
 
       const kanbanData = filteredDetailRequest.filter(
         (item): item is { kanban_code: string } & typeof item =>
-          typeof item.kanban_code === "string" && item.kanban_code.trim() !== ""
+          typeof item.kanban_code === "string" &&
+          item.kanban_code.trim() !== "",
       );
 
       const kanbanCodes = kanbanData.map((item) => item.kanban_code);
@@ -255,14 +275,14 @@ export class PurchaseOrderService {
 
       // Filter kanban yang belum ada di DB
       const missingKanban = kanbanData.filter(
-        (item) => !existingKanbanCodes.has(item.kanban_code)
+        (item) => !existingKanbanCodes.has(item.kanban_code),
       );
 
       if (missingKanban.length > 0) {
         logger.error(
           `Some kanban codes in file ${filePath} do not exist in database: ${missingKanban
             .map((m) => m.kanban_code)
-            .join(", ")}`
+            .join(", ")}`,
         );
 
         // Simpan ke tabel kanban_stagging dengan cek duplikasi terlebih dahulu
@@ -273,7 +293,7 @@ export class PurchaseOrderService {
           select: { kanban_code: true },
         });
         const existingCodesSet = new Set(
-          existingStaggings.map((e) => e.kanban_code)
+          existingStaggings.map((e) => e.kanban_code),
         );
 
         // Kelompokkan quantity untuk kanban_code yang sudah ada agar increment sekali per kode
@@ -294,14 +314,14 @@ export class PurchaseOrderService {
                 data: {
                   incoming_order_stock: { increment: qty },
                 },
-              })
-            )
+              }),
+            ),
           );
         }
 
         // Buat baru untuk yang belum ada
         const toCreate = missingKanban.filter(
-          (item) => !existingCodesSet.has(item.kanban_code!)
+          (item) => !existingCodesSet.has(item.kanban_code!),
         );
         if (toCreate.length > 0) {
           await prismaClient.kanbanStagging.createMany({
@@ -345,7 +365,7 @@ export class PurchaseOrderService {
                 pr_date: item.pr_date,
               },
             });
-          })
+          }),
         );
 
         await prismaClient.purchaseOrderDetailStagging.deleteMany({
@@ -436,21 +456,22 @@ export class PurchaseOrderService {
       }
 
       filteredDetailRequest = filteredDetailRequest.filter(
-        (item) => !item.kanban_code || existingKanbanCodes.has(item.kanban_code)
+        (item) =>
+          !item.kanban_code || existingKanbanCodes.has(item.kanban_code),
       );
 
       const validPONumbers = new Set(
-        filteredDetailRequest.map((e) => e.po_number)
+        filteredDetailRequest.map((e) => e.po_number),
       );
       const validPrNumbers = Array.from(
         new Set(
           filteredDetailRequest
             .map((e) => e.pr_number)
-            .filter((pr): pr is string => pr !== null)
-        )
+            .filter((pr): pr is string => pr !== null),
+        ),
       );
       const filteredRequest = validatedRequest.filter((po) =>
-        validPONumbers.has(po.po_number)
+        validPONumbers.has(po.po_number),
       );
 
       const incomingPONumbers = Array.from(validPONumbers);
@@ -464,8 +485,8 @@ export class PurchaseOrderService {
       if (existingPONumbers.length > 0) {
         logger.error(
           `Duplicate PO Numbers in file ${filePath} found in DB (will be replaced): ${existingPONumbers.join(
-            ", "
-          )}`
+            ", ",
+          )}`,
         );
       }
 
@@ -486,8 +507,8 @@ export class PurchaseOrderService {
           new Set(
             poDetailsToDelete
               .map((e) => e.pr_number)
-              .filter((pr): pr is string => pr !== null)
-          )
+              .filter((pr): pr is string => pr !== null),
+          ),
         );
 
         // Update PO Detail menjadi tidak aktif
@@ -532,7 +553,9 @@ export class PurchaseOrderService {
 
           // Buat Set dari kombinasi po_number + kanban_code dari data baru (filtered)
           const filteredDetailSet = new Set(
-            filteredDetailRequest.map((d) => `${d.po_number}::${d.kanban_code}`)
+            filteredDetailRequest.map(
+              (d) => `${d.po_number}::${d.kanban_code}`,
+            ),
           );
 
           // Cari PO Detail yang tidak ada di filteredDetailRequest
@@ -542,7 +565,7 @@ export class PurchaseOrderService {
             (existing) => {
               const key = `${existing.po_number}::${existing.kanban_code}`;
               return !filteredDetailSet.has(key);
-            }
+            },
           );
 
           // Ambil ID‑ID yang harus di‑non‑aktifkan
@@ -559,7 +582,7 @@ export class PurchaseOrderService {
             // filter yang memastikan hanya data dengan pr_number dan kanban_code yang tidak null
             .filter(
               (d): d is typeof d & { pr_number: string; kanban_code: string } =>
-                d.pr_number !== null && d.kanban_code !== null
+                d.pr_number !== null && d.kanban_code !== null,
             )
             // petakan menjadi pasangan kondisi
             .map((d) => ({
@@ -572,8 +595,8 @@ export class PurchaseOrderService {
                 arr.findIndex(
                   (p) =>
                     p.pr_number === v.pr_number &&
-                    p.kanban_code === v.kanban_code
-                ) === i
+                    p.kanban_code === v.kanban_code,
+                ) === i,
             );
 
           if (pairsToDeactivate.length > 0) {
@@ -588,7 +611,7 @@ export class PurchaseOrderService {
             (existing) => {
               const key = `${existing.po_number}::${existing.kanban_code}`;
               return filteredDetailSet.has(key);
-            }
+            },
           );
 
           if (detailToDelete.length > 0) {
@@ -621,30 +644,36 @@ export class PurchaseOrderService {
         });
 
         const kanbanGroup = Object.values(
-          filteredDetailRequest.reduce((acc, curr) => {
-            if (!curr.kanban_code || !curr.po_number) return acc;
+          filteredDetailRequest.reduce(
+            (acc, curr) => {
+              if (!curr.kanban_code || !curr.po_number) return acc;
 
-            const key = `${curr.kanban_code}-${curr.po_number}`;
+              const key = `${curr.kanban_code}-${curr.po_number}`;
 
-            if (!acc[key]) {
-              acc[key] = {
-                kanban_code: curr.kanban_code,
-                po_number: curr.po_number,
-                quantity: 0,
-              };
-            }
-            if (curr.status === "On Order") {
-              acc[key].quantity += curr.quantity || 0;
-            }
-            return acc;
-          }, {} as Record<string, { kanban_code: string; po_number: string; quantity: number }>)
+              if (!acc[key]) {
+                acc[key] = {
+                  kanban_code: curr.kanban_code,
+                  po_number: curr.po_number,
+                  quantity: 0,
+                };
+              }
+              if (curr.status === "On Order") {
+                acc[key].quantity += curr.quantity || 0;
+              }
+              return acc;
+            },
+            {} as Record<
+              string,
+              { kanban_code: string; po_number: string; quantity: number }
+            >,
+          ),
         );
 
         const updatedKanbanGroup = kanbanGroup.map((item) => {
           const lastStock = lastOrderStock.find(
             (e) =>
               e.kanban_code === item.kanban_code &&
-              e.po_number === item.po_number
+              e.po_number === item.po_number,
           );
           if (lastStock) {
             item.quantity -= lastStock.last_stock;
@@ -653,7 +682,7 @@ export class PurchaseOrderService {
         });
 
         const validKanbanGroup = updatedKanbanGroup.filter(
-          (item) => item.quantity > 0
+          (item) => item.quantity > 0,
         );
 
         await Promise.all(
@@ -667,8 +696,8 @@ export class PurchaseOrderService {
                   increment: item.quantity,
                 },
               },
-            })
-          )
+            }),
+          ),
         );
 
         await Promise.all(
@@ -691,7 +720,7 @@ export class PurchaseOrderService {
                 last_stock: item.quantity,
               },
             });
-          })
+          }),
         );
 
         // Ambil pasangan product_code dan supplier_id dari detail PO
@@ -699,19 +728,19 @@ export class PurchaseOrderService {
           .map((detail) => {
             const product_code = detail.kanban_code;
             const po = filteredRequest.find(
-              (po) => po.po_number === detail.po_number
+              (po) => po.po_number === detail.po_number,
             );
             if (!po || !product_code || !po.supplier_id) return null;
             return { product_code, supplier_id: po.supplier_id };
           })
           .filter(
             (entry): entry is { product_code: string; supplier_id: number } =>
-              !!entry
+              !!entry,
           );
 
         // Ambil ID kanban berdasarkan code
         const uniqueProductCodes = Array.from(
-          new Set(productSupplierPairs.map((e) => e.product_code))
+          new Set(productSupplierPairs.map((e) => e.product_code)),
         );
         const kanbans = await tx.kanban.findMany({
           where: { code: { in: uniqueProductCodes } },
@@ -730,7 +759,7 @@ export class PurchaseOrderService {
 
         // Hapus duplikat
         const uniqueRelations = Array.from(
-          new Set(relationData.map((r) => `${r.kanban_id}-${r.supplier_id}`))
+          new Set(relationData.map((r) => `${r.kanban_id}-${r.supplier_id}`)),
         ).map((key) => {
           const [kanban_id, supplier_id] = key.split("-").map(Number);
           return { kanban_id, supplier_id };
@@ -755,18 +784,18 @@ export class PurchaseOrderService {
       logger.error(
         `Error while creating PO and details: ${
           error instanceof Error ? error.stack : JSON.stringify(error)
-        }`
+        }`,
       );
       throw error;
     }
   }
 
   static async get(
-    request: SearchPurchaseOrderRequest
+    request: SearchPurchaseOrderRequest,
   ): Promise<Pageable<PurchaseOrderResponse>> {
     const searchRequest = Validation.validate(
       PurchaseOrderValidation.SEARCH,
-      request
+      request,
     );
 
     const filters: any[] = [];
